@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://asu.edu/sharpc2b/vmr-clean-A" uri="file:/home/davide/Projects/Git/HeD-editor/sharp-editor/editor-models/hed-ontologies/src/main/resources/ontologies/domain_models/domain-vmr.ofn"/>
+    <uri id="User Entered Import Resolution" name="http://www.w3.org/2004/02/skos/core" uri="file:/home/davide/Projects/Git/HeD-editor/sharp-editor/editor-models/hed-ontologies/src/main/resources/ontologies/editor_models/skos-core.owl"/>
+    <uri id="User Entered Import Resolution" name="http://asu.edu/sharpc2b/skos-ext" uri="file:/home/davide/Projects/Git/HeD-editor/sharp-editor/editor-models/hed-ontologies/src/main/resources/ontologies/editor_models/skos-ext.owl"/>
+    <uri id="User Entered Import Resolution" name="http://asu.edu/sharpc2b/ops" uri="file:/home/davide/Projects/Git/HeD-editor/sharp-editor/editor-models/hed-ontologies/src/main/resources/ontologies/editor_models/expr-core.owl"/>
+    <uri id="User Entered Import Resolution" name="http://asu.edu/sharpc2b/ops-set" uri="file:/home/davide/Projects/Git/HeD-editor/sharp-editor/editor-models/hed-ontologies/src/main/resources/ontologies/editor_models/sharp_operators.ofn"/>
+    <uri id="User Entered Import Resolution" name="http://asu.edu/sharpc2b/templates" uri="file:/home/davide/Projects/Git/HeD-editor/sharp-editor/editor-models/hed-ontologies/src/main/resources/ontologies/templates/template_schema.owl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base=""/>
+</catalog>
