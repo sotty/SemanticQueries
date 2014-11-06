@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructuredCDSKnowledge version="2.0" xsi:noNamespaceSchemaLocation="structured.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Metadata>
+		<identity>
+			<title>The following search tags have been assigned to this artifact:</title>
+			<description>Diabetes Mellitus, HgbA1c Overdue, Order HgbA1c - Rule for managing adult patients with diabetes. Glycosylated hemoglobin A1c should be monitored biannually.</description>
+			<relatedResource>
+				<resource>
+					<title>Recommendation Response Value Set: Diabetes Mellitus HgbA1c Overdue</title>
+					<description></description>
+					<location>http://cdsportal.partners.org/showDocument.aspx?xmlFileName=ACDS-Response-Value-Set-L4-Diabetes-A1c-Overdue-ACDS-2011-L4EXP-2.0-090221fe8004174f.xls</location>
+				</resource>
+				<type>dependsOn</type>
+			</relatedResource>
+			<relatedResource>
+				<resource>
+					<title>National Quality Forum Performance Measures</title>
+					<description></description>
+					<location>http://cdsportal.partners.org/RelatedResources.aspx?pageId=3</location>
+				</resource>
+				<type>dependsOn</type>
+			</relatedResource>
+			<relatedResource>
+				<resource>
+					<title>American Diabetes Association - Standards of Medical Care in Diabetes - 2009</title>
+					<description></description>
+					<location>http://care.diabetesjournals.org/content/32/Supplement_1/S13.full</location>
+				</resource>
+				<type>associatedReference</type>
+			</relatedResource>
+			<relatedResource>
+				<resource>
+					<title>National Quality Forum eMeasure (0575): Comprehensive Diabetes Care: HbA1c control (less than 8.0%)</title>
+					<description></description>
+					<location><![CDATA[http://www.qualityforum.org/MeasureDetails.aspx?actid=0&SubmissionId=944#k=0575&e=1&st=&sd=&s=n&so=a&p=1&mt=&cs=]]></location>
+				</resource>
+				<type>associatedReference</type>
+			</relatedResource>
+		</identity>
+		<implementation>
+			<knowledgeType>Alert or Reminder</knowledgeType>
+		</implementation>
+		<coverage>
+			<focus>patient</focus>
+			<code displayName="Adult" code="133936004" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+			<description></description>
+			<type>inclusion</type>
+		</coverage>
+		<coverage>
+			<focus>clinicalFocus</focus>
+			<code  displayName="Diabetes mellitus" code="73211009" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+			<description></description>
+			<type>inclusion</type>
+		</coverage>
+		<coverage>
+			<focus>careSetting</focus>
+			<code displayName="Outpatient" code="373864002" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+			<description></description>
+			<type>inclusion</type>
+		</coverage>
+		<contributor>
+			<roleType>Developer</roleType>
+			<organization>
+				<name>Advancing Clinical Decision Support</name>
+			</organization>
+		</contributor>
+		<stateChangeEvent>
+			<eventCode>Created</eventCode>
+			<eventDateTime>2011-11-18</eventDateTime>
+		</stateChangeEvent>
+	</Metadata>
+	<ApplicableScenario>
+		<LogicalConditionSet>
+			<title>Applicable Scenario</title>
+			<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Adult</title>
+					<description>Patient is an adult, age is greater than or equal to 18 years old</description>
+					<expression>CALCULATE_AGE_IN_YEARS(DoB)>=18</expression>
+					<expressionLanguage>nonstandard</expressionLanguage>
+					<dataType>CD</dataType>
+					<dataMapping>
+						<title>DOB</title>
+						<description>Patient's date of birth</description>
+						<Data/>
+						<dataIdentifier>DoB</dataIdentifier>
+						<dataType>TS</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Clinical State diabetes</title>
+					<description>Patient with clinical state of diabetes</description>
+					<expression>PATIENT_HAS_CLINICAL_STATE(diabetesState)</expression>
+					<expressionLanguage>nonstandard</expressionLanguage>
+					<dataType>CD</dataType>
+					<dataMapping>
+						<title>Clinical State diabetes</title>
+						<Data>
+							<ClinicalState>
+								<stateCode displayName="diabetes Code List GROUPING" code="2.16.840.1.113883.3.464.0001.37" codeSystemName="National Committee for Quality Assurance" codeSystem="2.16.840.1.113883.3.464"/>
+								<stateStatus displayName="Active" code="55561003" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+							</ClinicalState>
+						</Data>
+						<dataIdentifier>diabetesState</dataIdentifier>
+						<dataType>Set(ClinicalState)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>OverdueHgbA1c</title>
+					<description>No glycosylated hemoglobin A1c result within last 6 months</description>
+					<expression>PATIENT_HAD_EVENT_IN_PAST_PERIOD(HgbA1cResults, 6, MONTHS) == FALSE</expression>
+					<expressionLanguage>nonstandard</expressionLanguage>
+					<dataType>CD</dataType>
+					<dataMapping>
+						<title>HgbA1c results</title>
+						<description>The set of all glycosylated hemoglobin A1c results</description>
+						<Data>
+							<LaboratoryResult>
+								<resultType displayName="HbA1c test LOINC code list" code="2.16.840.1.113883.3.464.0001.73" codeSystemName="Health Effectiveness Data and Information Set" codeSystem="2.16.840.1.113883.3.464"/>
+								<resultStatus displayName="completed" code="completed" codeSystemName="ActStatus" codeSystem="2.16.840.1.113883.5.14"/>
+							</LaboratoryResult>
+						</Data>
+						<dataIdentifier>HgbA1cResults</dataIdentifier>
+						<dataType>Set(LaboratoryResult)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+		</LogicalConditionSet>
+	</ApplicableScenario>
+	<module>
+		<Metadata>
+			<identity>
+				<title></title>
+				<description></description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title></title>
+					<description></description>
+					<relatedResource>
+						<resource>
+							<title></title>
+							<description></description>
+						</resource>
+						<type></type>
+					</relatedResource>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+			</ApplicableScenario>
+			<Advice>
+				<title>Messages and Recommended Interventions / Actions</title>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="Diabetic patient is overdue for HgbA1c measurement (recommended every 6 months)."/>
+								</Message>
+								<displayOrderEnforced>false</displayOrderEnforced>
+								<target displayName="Physician" code="309343006" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<selectionCriteria>false</selectionCriteria>
+							</MessageRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="Hemoglobin A1c (Hgb A1c) is a blood test that measures your average blood sugar levels over the previous three months. Most people with diabetes have an Hgb A1c test every 6 months. If it's been more than 6 months since your last test, you may want to discuss Hgb A1c testing with your doctor."/>
+									<displayOrderIndex value="1"/>
+								</Message>
+								<displayOrderEnforced>false</displayOrderEnforced>
+								<target displayName="Patient" code="116154003" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<selectionCriteria>false</selectionCriteria>
+							</MessageRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<ProcedureRequest>
+								<procedureTypeCode displayName="Hemoglobin; glycosylated (A1C)" code="83036" codeSystemName="Current Procedure Terminology 4 (CPT-4)" codeSystem="2.16.840.1.113883.6.12"/>
+								<procedureCategoryCode displayName="Chemistry" code="275711006" codeSystem="2.16.840.1.113883.6.96"/>
+								<implementationTime>
+									<period value="0" unit="days"/>
+								</implementationTime>
+								<textAlternative></textAlternative>
+								<selectionCriteria>false</selectionCriteria>
+							</ProcedureRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+	<module>
+		<Metadata>
+			<identity>
+				<title></title>
+				<description></description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Displayable Resources</title>
+					<description></description>
+					<relatedResource>
+						<resource>
+							<title></title>
+							<description></description>
+						</resource>
+						<type></type>
+					</relatedResource>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+			</ApplicableScenario>
+			<Advice>
+				<title></title>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+						<ActionConcrete>
+							<KnowledgeAssetRequest>
+								<resource>
+									<title>American Diabetes Association - Standards of Medical Care in Diabetes - 2009</title>
+									<location>http://care.diabetesjournals.org/content/32/Supplement_1/S13.full</location>
+									<knowledgeResourceType displayName="Reference Documentation" code="308910008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED Clinical Terms"/>
+								</resource>
+								<textAlternative></textAlternative>
+								<target displayName="Physician" code="309343006" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<selectionCriteria>false</selectionCriteria>
+							</KnowledgeAssetRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+</StructuredCDSKnowledge>

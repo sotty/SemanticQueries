@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructuredCDSKnowledge version="2.0" xsi:noNamespaceSchemaLocation="structured.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Metadata>
+		<identity>
+			<title>The following search tags have been assigned to this artifact:</title>
+			<description>Annual Blood Pressure Screening: Rule for screening adults ages 18 and older for an overdue annual blood pressure assessment.</description>
+			<relatedResource>
+				<resource>
+					<title>National Quality Forum Performance Measures</title>
+					<description></description>
+					<location>http://cdsportal.partners.org/RelatedResources.aspx?pageId=3</location>
+				</resource>
+				<type>dependsOn</type>
+			</relatedResource>
+			<relatedResource>
+				<resource>
+					<title>Recommendation Response Value Set: Annual Blood Pressure Screening</title>
+					<description></description>
+					<location>http://cdsportal.partners.org/showDocument.aspx?xmlFileName=ACDS-Response-Value-Set-L4-Blood-Pressure-Screening-ACDS-2011-L4EXP-2.0-090221fe80041763.xls</location>
+				</resource>
+				<type>dependsOn</type>
+			</relatedResource>
+			<relatedResource>
+				<resource>
+					<title>National Quality Forum eMeasure (0013): Blood pressure measurement</title>
+					<description></description>
+					<location><![CDATA[http://www.qualityforum.org/MeasureDetails.aspx?actid=0&SubmissionId=373#p=2&s=n&so=a]]></location>
+				</resource>
+				<type>associatedResource</type>
+			</relatedResource>
+			<relatedResource>
+				<resource>
+					<title>US Preventive Services Task Force: Screening for High Blood Pressure</title>
+					<description></description>
+					<location>http://www.uspreventiveservicestaskforce.org/uspstf07/hbp/hbprs.htm</location>
+				</resource>
+				<type>associatedResource</type>
+			</relatedResource>
+			<relatedResource>
+				<resource>
+					<title>The Seventh Report of the Joint National Committee on Prevention, Detection, Evaluation, and Treatment of High Blood Pressure</title>
+					<description></description>
+					<location>http://www.nhlbi.nih.gov/guidelines/hypertension/</location>
+				</resource>
+				<type>associatedResource</type>
+			</relatedResource>
+		</identity>
+		<implementation>
+			<knowledgeType>Alert or Reminder</knowledgeType>
+		</implementation>
+		<coverage>
+			<focus>patient</focus>
+			<code displayName="Adult" code="133936004" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+			<description></description>
+			<type>inclusion</type>
+		</coverage>
+		<coverage>
+			<focus>careSetting</focus>
+			<code displayName="Outpatient" code="373864002" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+			<description></description>
+			<type>inclusion</type>
+		</coverage>
+		<contributor>
+			<roleType>Developer</roleType>
+			<organization>
+				<name>Advancing Clinical Decision Support</name>
+			</organization>
+		</contributor>
+		<stateChangeEvent>
+			<eventCode>Created</eventCode>
+			<eventDateTime>2011-11-18</eventDateTime>
+		</stateChangeEvent>
+	</Metadata>
+	<ApplicableScenario>
+		<LogicalConditionSet>
+			<title>Applicable Scenario</title>
+			<description>Patient is an adult, age is greater than or equal to 18 years old</description>
+			<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Patient age is greater than or equal to 18 years.</title>
+					<expression>CALCULATE_AGE_IN_YEARS(DoB)>=18</expression>
+					<expressionLanguage>nonstandard</expressionLanguage>
+					<dataType>CD</dataType>
+					<dataMapping>
+						<title>Patient's date of birth</title>
+						<description></description>
+						<Data></Data>
+						<dataIdentifier>DoB</dataIdentifier>
+						<dataType>TS</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>No systolic blood pressure reading within last 12 months</title>
+					<expression>PATIENT_HAD_EVENT_IN_PAST_PERIOD(SystolicBloodPressureResults, 12, MONTHS) == FALSE</expression>
+					<expressionLanguage>nonstandard</expressionLanguage>
+					<dataType>CD</dataType>
+					<description></description>
+					<dataMapping>
+						<title>Set of systolic blood pressure results in last 12 months</title>
+						<description></description>
+						<Data>
+							<VitalSign>
+								<vsType displayName="systolic blood pressure SNOMED-CT Code List" code="2.16.840.1.113883.3.464.0001.118"  codeSystemName="Health Effectiveness Data and Information Set" codeSystem="2.16.840.1.113883.3.464"/>
+								<vsStatus displayName="completed" code="completed" codeSystemName="ActStatus" codeSystem="2.16.840.1.113883.5.14"/>
+							</VitalSign>
+						</Data>
+						<dataIdentifier>SystolicBloodPressureResults</dataIdentifier>
+						<dataType>Set(VitalSign)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>No diastolic blood pressure reading within last 12 months</title>
+					<expression>PATIENT_HAD_EVENT_IN_PAST_PERIOD(DiastolicBloodPressureResults, 12, MONTHS) == FALSE</expression>
+					<expressionLanguage>nonstandard</expressionLanguage>
+					<dataType>CD</dataType>
+					<description></description>
+					<dataMapping>
+						<title>Set of diastolic blood pressure results in last 12 months</title>
+						<description></description>
+						<Data>
+							<VitalSign>
+								<vsType displayName="diastolic blood pressure SNOMED-CT Code List" code="2.16.840.1.113883.3.464.0001.41"  codeSystemName="Health Effectiveness Data and Information Set" codeSystem="2.16.840.1.113883.3.464"/>
+								<vsStatus displayName="completed" code="completed" codeSystemName="ActStatus" codeSystem="2.16.840.1.113883.5.14"/>
+							</VitalSign>
+						</Data>
+						<dataIdentifier>DiastolicBloodPressureResults</dataIdentifier>
+						<dataType>Set(VitalSign)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+		</LogicalConditionSet>
+	</ApplicableScenario>
+	<module>
+		<Metadata>
+			<identity>
+				<title></title>
+				<description></description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title></title>
+					<description></description>
+					<relatedResource>
+						<resource>
+							<title>No blood pressure within last 12 months</title>
+							<description></description>
+						</resource>
+						<type>derivedFrom</type>
+					</relatedResource>
+				</identity>
+			</Metadata>
+			<Advice>
+				<title>Messages and Recommended Interventions / Actions</title>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="Patient is overdue for a blood pressure assessment (recommended yearly)."/>
+								</Message>
+								<displayOrderEnforced>false</displayOrderEnforced>
+								<target displayName="Physician" code="309343006" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<selectionCriteria>false</selectionCriteria>
+							</MessageRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<ProcedureRequest>
+								<procedureCategoryCode displayName="Vital signs" code="46680005" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<procedureTypeCode displayName="Blood pressure" code="75367002" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<implementationTime>
+									<period value="0" unit="days"/>
+								</implementationTime>
+								<textAlternative></textAlternative>
+								<selectionCriteria>false</selectionCriteria>
+							</ProcedureRequest>
+						</ActionConcrete>		
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+	<module>
+		<Metadata>
+			<identity>
+				<title></title>
+				<description></description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Advice>
+				<title>Displayable Resources</title>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<ActionConcrete>
+							<KnowledgeAssetRequest>
+								<resource>
+									<title>US Preventive Services Task Force: Screening for High Blood Pressure</title>
+									<location>http://www.uspreventiveservicestaskforce.org/uspstf07/hbp/hbprs.htm</location>
+									<knowledgeResourceType displayName="Reference Documentation" code="308910008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED Clinical Terms"/>
+								</resource>
+								<textAlternative></textAlternative>
+								<target displayName="Physician" code="309343006" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<selectionCriteria>false</selectionCriteria>
+							</KnowledgeAssetRequest>
+						</ActionConcrete>	
+						<ActionConcrete>
+							<KnowledgeAssetRequest>
+								<resource>
+									<title>The Seventh Report of the Joint National Committee on Prevention, Detection, Evaluation, and Treatment of High Blood Pressure</title>
+									<location>http://www.nhlbi.nih.gov/guidelines/hypertension/</location>
+									<knowledgeResourceType displayName="Reference Documentation" code="308910008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED Clinical Terms"/>
+								</resource>
+								<textAlternative></textAlternative>
+								<target displayName="Physician" code="309343006" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<selectionCriteria>false</selectionCriteria>
+							</KnowledgeAssetRequest>
+						</ActionConcrete>			
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+</StructuredCDSKnowledge>

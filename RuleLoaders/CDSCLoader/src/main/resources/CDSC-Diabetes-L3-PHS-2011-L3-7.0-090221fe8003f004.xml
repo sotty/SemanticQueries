@@ -1,0 +1,1257 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?altova_sps StructuredEntryForm.sps?>
+<StructuredGuideline NS1:noNamespaceSchemaLocation="structured.xsd" xmlns:NS1="http://www.w3.org/2001/XMLSchema-instance">
+	<Metadata>
+		<coverage>
+			<focus>patient</focus>
+			<code code="255397009" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED" displayName="Adult Patient"/>
+			<description>adult</description>
+			<type>inclusion</type>
+		</coverage>
+		<coverage>
+			<focus>clinicalFocus</focus>
+			<code code="PHS0000001" codeSystem="Local" codeSystemName="SNOMED" displayName="Diabetes Mellitus"/>
+			<description>Non gestational diabetes mellitus</description>
+			<type>inclusion</type>
+		</coverage>
+		<coverage>
+			<focus>careSetting</focus>
+			<code code="373864002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED" displayName="Outpatient Environment"/>
+			<description>outpatient</description>
+			<type>inclusion</type>
+		</coverage>
+		<contributor>
+			<roleType>Developer</roleType>
+			<organization>
+				<name>PHS</name>
+			</organization>
+		</contributor>
+		<identity>
+			<title>DM guideline for AHRQ CDSC pilot</title>
+			<description>Rules for managing outpatient adult patients with non-gestational diabetes mellitus</description>
+			<relatedResource>
+				<resource>
+					<title>Level 2 DM guideline for AHRQ CDSC pilot</title>
+					<description>Derived from the Level 2 specification of "DM guideline for AHRQ CDSC pilot"</description>
+				</resource>
+				<type>derivedFrom</type>
+			</relatedResource>
+		</identity>
+	</Metadata>
+	<module>
+		<Metadata>
+			<identity>
+				<title>ASSESS</title>
+				<description>Reminders that recommend periodic assessment of glycosylated hemoglobin A1c in patients with non-gestational diabetes mellitus.</description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Order HgbA1c Now (Overdue HgbA1c)</title>
+					<description>Glycosylated hemoglobin A1c should be monitored biannually</description>
+					<relatedResource>
+						<resource>
+							<title>OverdueHgbA1c</title>
+							<description>Derived from recommendation "OverdueHgbA1c" from Level 2 specification "DM guideline for AHRQ CDSC pilot"</description>
+						</resource>
+						<type>derivedFrom</type>
+					</relatedResource>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>OverdueHgbA1c</title>
+					<description>No glycosylated hemoglobin A1c result within last 6 months</description>
+					<expression>HgbA1cResults6months-&gt;isEmpty()</expression>
+					<dataMapping>
+						<title>HgbA1c results in last 6 months</title>
+						<description>The set of all glycosylated hemoglobin A1c results within the last 6 months</description>
+						<Data>
+							<LaboratoryResult>
+								<resultType displayName="HgbA1c" codeSystem="2.16.840.1.113883.6.1" code="17856-6"/>
+								<resultStatus code="completed" codeSystem="2.16.840.1.113883.5.14" displayName="completed"/>
+							</LaboratoryResult>
+							<LaboratoryResult>
+								<resultType displayName="HgbA1c" codeSystem="2.16.840.1.113883.6.1" code="4548-4"/>
+								<resultStatus code="completed" codeSystem="2.16.840.1.113883.5.14" displayName="completed"/>
+							</LaboratoryResult>
+							<LaboratoryResult>
+								<resultType displayName="HgbA1c" codeSystem="2.16.840.1.113883.6.1" code="4549-2"/>
+								<resultStatus code="completed" codeSystem="2.16.840.1.113883.5.14" displayName="completed"/>
+							</LaboratoryResult>
+						</Data>
+						<expression>Let month : CodedValue = Factory.CodedValue("2.16.840.1.113883.6.8", "mo") in  patient.laboratoryResult-&gt;select(resultType.codeSystem = "2.16.840.1.113883.6.1" and (resultType.code= "17856-6" or resultType.code="4548-4" or resultType.code="4549-2") and resultStatus.codeSystem = "2.16.840.1.113883.5.14" and resultStatus.code = "completed" and resultDateTime.high.occurredWithin(6, month))</expression>
+						<dataIdentifier>HgbA1cResults6m</dataIdentifier>
+						<dataType>Set(LaboratoryResult)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Order HgbA1c now</title>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator code="AND" codeSystem="1.3.6.1.4.1.16517" codeSystemName="CDSC" displayName="AND"/>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="Diabetic patient is overdue for HgbA1c measurement (recommended every 6 months)"/>
+								</Message>
+								<displayOrderEnforced>false</displayOrderEnforced>
+								<target code="309343006" codeSystem="2.16.840.1.113883.6.96" displayName="Physician"/>
+							</MessageRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<ProcedureRequest>
+								<procedureCategoryCode code="275711006" codeSystem="2.16.840.1.113883.6.96" displayName="Chemistry"/>
+								<procedureTypeCode code="4548-4" codeSystem="2.16.840.1.113883.6.1" displayName="HgbA1c"/>
+								<implementationTime>
+									<period value="0" unit="days"/>
+								</implementationTime>
+								<textAlternative>Order HgbA1c now.</textAlternative>
+							</ProcedureRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="Hemoglobin A1c (Hgb A1c) is a blood test that measures your average blood sugar levels over the previous three months. Most people with diabetes have an Hgb A1c test every 6 months. If it's been more than 6 months since your last test, you may want to discuss Hgb A1c testing with your doctor."/>
+									<displayOrderIndex value="1"/>
+								</Message>
+								<displayOrderEnforced>false</displayOrderEnforced>
+								<target code="116154003" displayName="Patient" codeSystem="2.16.840.1.113883.6.96"/>
+							</MessageRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Order HgbA1c (Almost overdue HgbA1c)</title>
+					<description>Glycosylated hemoglobin A1c should be monitored biannually, but start reminding before 6 months</description>
+					<relatedResource>
+						<resource>
+							<title>OverdueHgbA1c</title>
+							<description>Corollary rule derived from recommendation "OverdueHgbA1c" from Level 2 specification "DM guideline for AHRQ CDSC pilot"</description>
+						</resource>
+						<type>derivedFrom</type>
+					</relatedResource>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSet>
+					<title>Almost overdue HgbA1c</title>
+					<description>Last glycosylated hemoglobin A1c was 5 to 6 months ago</description>
+					<operator code="AND" codeSystem="1.3.6.1.4.1.16517"/>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>HgbA1c done within last 6 months</title>
+							<expression>HgbA1cResults6months-&gt;notEmpty()</expression>
+							<dataMapping>
+								<title>HgbA1c results in last 6 months</title>
+								<description>Set of all glycosylated hemoglobin A1c results completed in the last 6 months</description>
+								<Data>
+									<LaboratoryResult>
+										<resultType displayName="HgbA1c" codeSystem="2.16.840.1.113883.6.1" code="17856-6"/>
+										<resultStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+									<LaboratoryResult>
+										<resultType displayName="HgbA1c" codeSystem="2.16.840.1.113883.6.1" code="4548-4"/>
+										<resultStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+									<LaboratoryResult>
+										<resultType displayName="HgbA1c" codeSystem="2.16.840.1.113883.6.1" code="4549-2"/>
+										<resultStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+								</Data>
+								<expression>Let month : CodedValue = Factory.CodedValue("2.16.840.1.113883.6.8", "mo") in  patient.laboratoryResult-&gt;select(resultType.codeSystem = "2.16.840.1.113883.6.1" and (resultType.code= "17856-6" or resultType.code= "4548-4" or resultType.code= "4549-2") and resultStatus.codeSystem = "2.16.840.1.113883.5.14" and resultStatus.code = "completed" and resultDateTime.high.occurredWithin(6, month))</expression>
+								<dataIdentifier>HgbA1cResults6months</dataIdentifier>
+								<dataType>Set(LaboratoryResult)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>No HgbA1c within last 5 months</title>
+							<expression>HgbA1cResults5months&gt;isEmpty()</expression>
+							<dataMapping>
+								<title>HgbA1c results in last 5 months</title>
+								<description>Set of all glycosylated hemoglobin A1c results completed in the last 5 months</description>
+								<Data>
+									<LaboratoryResult>
+										<resultType displayName="HgbA1c" code="17856-6" codeSystem="2.16.840.1.113883.6.1"/>
+										<resultStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+									<LaboratoryResult>
+										<resultType displayName="HgbA1c" code="4548-4" codeSystem="2.16.840.1.113883.6.1"/>
+										<resultStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+									<LaboratoryResult>
+										<resultType displayName="HgbA1c" code="4549-2" codeSystem="2.16.840.1.113883.6.1"/>
+										<resultStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+								</Data>
+								<expression>Let month : CodedValue = Factory.CodedValue("2.16.840.1.113883.6.8", "mo") in  patient.laboratoryResult-&gt;select(resultType.codeSystem = "2.16.840.1.113883.6.1" and (resultType.code= "17856-6" or resultType.code= "4548-4" or resultType.code= "4549-2") and resultStatus.codeSystem = "2.16.840.1.113883.5.14" and resultStatus.code = "completed" and resultDateTime.high.occurredWithin(5, month))</expression>
+								<dataIdentifier>HgbA1cResults5months</dataIdentifier>
+								<dataType>Set(LaboratoryResult)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+				</LogicalConditionSet>
+			</ApplicableScenario>
+			<Advice>
+				<title>Order HgbA1c now</title>
+				<description>Order glycosylated hemoglobin A1c measurement now</description>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator code="AND" codeSystem="1.3.6.1.4.1.16517" codeSystemName="CDSC" displayName="AND"/>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="Diabetic patient is almost due for Hgb A1c measurement (recommended every 6 months)"/>
+								</Message>
+								<displayOrderEnforced>false</displayOrderEnforced>
+								<target code="309343006" codeSystem="2.16.840.1.113883.6.96" displayName="Physician"/>
+							</MessageRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<ProcedureRequest>
+								<procedureCategoryCode code="275711006" codeSystem="2.16.840.1.113883.6.96" displayName="Chemistry"/>
+								<procedureTypeCode code="4548-4" codeSystem="2.16.840.1.113883.6.1" displayName="HgbA1c"/>
+								<textAlternative>Order HgbA1c now.</textAlternative>
+							</ProcedureRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="Hemoglobin A1c (Hgb A1c) is a blood test that measures your average blood sugar levels over the previous three months. Most people with diabetes have an Hgb A1c test every 6 months. If it's been close to 6 months since your last test, you may want to discuss Hgb A1c testing with your doctor."/>
+								</Message>
+								<displayOrderEnforced>false</displayOrderEnforced>
+								<target code="116154003" codeSystem="2.16.840.1.113883.6.96" displayName="Patient"/>
+							</MessageRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Order HgbA1c now (Recent poor diabetes control)</title>
+					<description>For patients with poorly controlled diabetic mellitus, glycosylated hemoglobin A1c should be monitored more frequently than biannually.</description>
+					<relatedResource>
+						<resource>
+							<title>HighHgbA1cMonitoring</title>
+							<description>Derived from recommendation "HighHgbA1cMonitoring" from Level 2 specification "DM guideline for AHRQ CDSC pilot"</description>
+						</resource>
+						<type>derivedFrom</type>
+					</relatedResource>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSet>
+					<title>Recent poor diabetes control</title>
+					<description>Last glycosylated hemoglobin A1c between 3 and 5 months AND greater than 8%</description>
+					<operator code="AND" codeSystem="1.3.6.1.4.1.16517"/>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>HgbA1c done within last 5 months</title>
+							<expression>HgbA1cResults5months-&gt;notEmpty()</expression>
+							<dataMapping>
+								<title>HgbA1c results in last 5 months</title>
+								<description>Set of all glycosylated hemoglobin A1c results completed in last 5 months</description>
+								<Data>
+									<LaboratoryResult>
+										<resultType displayName="HgbA1c" code="17856-6" codeSystem="2.16.840.1.113883.6.1"/>
+										<resultStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+									<LaboratoryResult>
+										<resultType displayName="HgbA1c" code="4548-4" codeSystem="2.16.840.1.113883.6.1"/>
+										<resultStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+									<LaboratoryResult>
+										<resultType displayName="HgbA1c" code="4549-2" codeSystem="2.16.840.1.113883.6.1"/>
+										<resultStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+								</Data>
+								<expression>Let month : CodedValue = Factory.CodedValue("2.16.840.1.113883.6.8", "mo") in  patient.laboratoryResult-&gt;select(resultType.codeSystem = "2.16.840.1.113883.6.1" and (resultType.code= "17856-6" or resultType.code= "4548-4" or resultType.code= "4549-2") and resultStatus.codeSystem = "2.16.840.1.113883.5.14" and resultStatus.code = "completed" and resultDateTime.high.occurredWithin(5, month))</expression>
+								<dataIdentifier>HgbA1cResults5months</dataIdentifier>
+								<dataType>Set(LaboratoryResult)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>No HgbA1c within last 3 months</title>
+							<expression>HgbA1cResults3months-&gt;isEmpty()</expression>
+							<dataMapping>
+								<title>HgbA1c results in last 3 months</title>
+								<description>Set of all glycosylated hemoglobin A1c results completed in last 3 months</description>
+								<Data>
+									<LaboratoryResult>
+										<resultType displayName="HgbA1c" code="17856-6" codeSystem="2.16.840.1.113883.6.1"/>
+										<resultStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+									<LaboratoryResult>
+										<resultType displayName="HgbA1c" code="4548-4" codeSystem="2.16.840.1.113883.6.1"/>
+										<resultStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+									<LaboratoryResult>
+										<resultType displayName="HgbA1c" code="4549-2" codeSystem="2.16.840.1.113883.6.1"/>
+										<resultStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+								</Data>
+								<expression>Let month : CodedValue = Factory.CodedValue("2.16.840.1.113883.6.8", "mo") in  patient.laboratoryResult-&gt;select(resultType.codeSystem = "2.16.840.1.113883.6.1" and (resultType.code= "17856-6" or resultType.code= "4548-4" or resultType.code= "4549-2") and resultStatus.codeSystem = "2.16.840.1.113883.5.14" and resultStatus.code = "completed" and resultDateTime.high.occurredWithin(3, month))</expression>
+								<dataIdentifier>HgbA1cResults3months</dataIdentifier>
+								<dataType>Set(LaboratoryResult)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Most recent HgbA1c is &gt; 8% in last 3-5 months</title>
+							<expression>mostRecentHgbA1c12m.value &gt; 8</expression>
+							<dataMapping>
+								<title>Most recent HgbA1c in the last 3-5 months</title>
+								<Data>
+									<LaboratoryResult>
+										<resultType displayName="HgbA1c" code="17856-6" codeSystem="2.16.840.1.113883.6.1"/>
+										<resultStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+									<LaboratoryResult>
+										<resultType displayName="HgbA1c" code="4548-4" codeSystem="2.16.840.1.113883.6.1"/>
+										<resultStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+									<LaboratoryResult>
+										<resultType displayName="HgbA1c" code="4549-2" codeSystem="2.16.840.1.113883.6.1"/>
+										<resultStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+								</Data>
+								<expression>Let month : CodedValue = Factory.CodedValue("2.16.840.1.113883.6.8", "mo") in  patient.laboratoryResult-&gt;select(resultType.codeSystem = "2.16.840.1.113883.6.1" and (resultType.code= "17856-6" or resultType.code= "4548-4" or resultType.code= "4549-2")  and resultStatus.codeSystem = "2.16.840.1.113883.5.14" and resultStatus.code = "completed" and resultDateTime.high.occurredWithin(12, month))-&gt;sortBy("resultDateTime.value")-&gt;last()</expression>
+								<dataIdentifier>mostRecentHgbA1c12m</dataIdentifier>
+								<dataType>LaboratoryResult</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+				</LogicalConditionSet>
+			</ApplicableScenario>
+			<Advice>
+				<title>Order HgbA1c now</title>
+				<description>Measure glycosylated hemoglobin A1c now</description>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator code="AND" codeSystem="1.3.6.1.4.1.16517" codeSystemName="CDSC" displayName="AND"/>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="Last Hbg A1c was greater than 8% and over 3 months ago (recommended every 3 months in poorly controlled patient)"/>
+									<messageParameters>
+										<Code code="MostRecentHgbA1c" codeSystem="Local"/>
+										<Value value="Laboratory.resultValue"/>
+									</messageParameters>
+									<messageParameters>
+										<Code code="testDate" codeSystem="Local"/>
+										<Value value="Laboratory.resultDateValue"/>
+									</messageParameters>
+								</Message>
+								<displayOrderEnforced>false</displayOrderEnforced>
+								<target code="309343006" codeSystem="2.16.840.1.113883.6.96" displayName="Physician"/>
+							</MessageRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<ProcedureRequest>
+								<procedureCategoryCode code="275711006" codeSystem="2.16.840.1.113883.6.96" displayName="Chemistry"/>
+								<procedureTypeCode code="4548-4" codeSystem="2.16.840.1.113883.6.1" displayName="HgbA1c"/>
+								<implementationTime>
+									<period value="0" unit="days"/>
+								</implementationTime>
+								<textAlternative>Order HgbA1c now.</textAlternative>
+							</ProcedureRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="Hemoglobin A1c (Hgb A1c) is a blood test that measures your average blood sugar levels over the previous three months.  Most people with diabetes have an Hgb A1c test twice a year.  Because your last Hgb A1c was above the recommended goal of 7.0, your doctor might want to check it every 3 months.  If it's been more than 3 months since your last test, you may want to discuss Hgb A1c testing with your doctor."/>
+								</Message>
+								<displayOrderEnforced>false</displayOrderEnforced>
+								<target code="116154003" codeSystem="2.16.840.1.113883.6.96" displayName="Patient"/>
+							</MessageRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+	<module>
+		<Metadata>
+			<identity>
+				<title>SCREEN</title>
+				<description>Reminders to regularly screen patients with diabetes mellitus for retinopathy, nephropathy, and peripheral neuropathy.</description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Actions to consider for DM patients eye screening(Overdue Eye Exam)</title>
+					<description>Eye exams should be performed yearly in patients with non-gestational diabetes mellitus.</description>
+					<relatedResource>
+						<resource>
+							<title>Overdue Eye Exam</title>
+							<description>Derived from recommendation "Overdue Eye Exam" from Level 2 specification "DM guideline for AHRQ CDSC pilot"</description>
+						</resource>
+						<type>derivedFrom</type>
+					</relatedResource>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Overdue Eye Exam</title>
+					<description>Last eye exam over 11 months ago or never</description>
+					<expression>eyeExam11m-&gt;isEmpty()</expression>
+					<dataMapping>
+						<title>RecentEyeExams</title>
+						<Data>
+							<Procedure>
+								<procedureType code="36228007" codeSystem="2.16.840.1.113883.6.96" displayName="Eye exam"/>
+								<procedureStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14"/>
+							</Procedure>
+							<Procedure>
+								<procedureType displayName="Digital Retina Exam" code="390852004" codeSystem="2.16.840.1.113883.6.96"/>
+								<procedureStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14"/>
+							</Procedure>
+						</Data>
+						<expression>Let month : CodedValue = Factory.CodedValue("2.16.840.1.113883.6.8", "mo") in  patient.procedure-&gt;select((procedureType.codeSystem="2.16.840.1.113883.6.96" and procedureType.code="36228007" or procedureType.com=&quot;390852004&quot;) and procedureStatus.codeSystem="2.16.840.1.113883.5.14" and procedureStatus.code="completed" and procedureDateTime.high.occuredWithin(11, month))</expression>
+						<dataIdentifier>eyeExam11m</dataIdentifier>
+						<dataType>Set(Procedure)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Actions to consider for DM patients eye screening</title>
+				<description>Suggest various orders, information, and referrals that might be appropriate for eye screening of patients with non-gestational diabetes mellitus.</description>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator code="AND" codeSystem="1.3.6.1.4.1.16517" codeSystemName="CDSC"/>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="Diabetic patient is due for ophthalmologic exam (recommended yearly)"/>
+								</Message>
+								<displayOrderEnforced>true</displayOrderEnforced>
+								<target code="309343006" displayName="Physician" codeSystem="2.16.840.1.113883.6.96"/>
+							</MessageRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="People with diabetes have a higher risk of vision loss or blindness than people without diabetes.  Diabetes-related eye problems can be prevented with a yearly eye exam by an eye care specialist.  If you are due or almost due for your yearly eye exam, you may want to talk with your doctor about scheduling your next eye exam with an eye care specialist."/>
+								</Message>
+								<displayOrderEnforced>true</displayOrderEnforced>
+								<target code="116154003" displayName="Patient" codeSystem="2.16.840.1.113883.6.96"/>
+							</MessageRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<ActionOrganizer>
+								<operator code="OR" codeSystem="1.3.6.1.4.1.16517" codeSystemName="CDSC"/>
+								<ActionConcrete>
+									<ObservationRequest>
+										<observationType code="71388002" codeSystem="2.16.840.1.113883.6.96" displayName="procedure"/>
+										<observationCode code="36228007" codeSystem="2.16.840.1.113883.6.96" displayName="eye exam"/>
+										<textAlternative>Document the eye exam.</textAlternative>
+									</ObservationRequest>
+								</ActionConcrete>
+								<ActionConcrete>
+									<EncounterRequest>
+										<encounterProvider code="422234006" codeSystem="2.16.840.1.113883.6.96" displayName="ophthalmologist"/>
+										<encounterType code="3457005" codeSystem="2.16.840.1.113883.6.96" displayName="referral"/>
+										<textAlternative>Refer to Ophthalmologist.</textAlternative>
+									</EncounterRequest>
+								</ActionConcrete>
+								<ActionConcrete>
+									<EncounterRequest>
+										<encounterProvider code="28229004" codeSystem="2.16.840.1.113883.6.96" displayName="optometrist"/>
+										<encounterType code="3457005" codeSystem="2.16.840.1.113883.6.96" displayName="referral"/>
+										<textAlternative>Refer to Optometrist.</textAlternative>
+									</EncounterRequest>
+								</ActionConcrete>
+							</ActionOrganizer>
+						</ActionConcrete>
+						<ActionConcrete>
+							<KnowledgeAssetRequest>
+								<resource>
+									<title>Diabetic Eye Problems</title>
+									<identifier>
+										<identifier>http://www.guideline.gov/summary/summary.aspx?doc_id=13502&amp;nbr=006911&amp;string=retinopathy</identifier>
+										<identifierType>URL</identifierType>
+									</identifier>
+									<knowledgeResourceType code="311401005" codeSystem="2.16.840.1.113883.6.96" displayName="patient handout"/>
+								</resource>
+								<textAlternative>Recommend giving to the patient the handout "Diabetic Eye Problems"</textAlternative>
+							</KnowledgeAssetRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Actions to consider for DM patients foot screening(Overdue foot exam)</title>
+					<description>Foot exams should be performed yearly in patients with non-gestational diabetes mellitus.</description>
+					<relatedResource>
+						<resource>
+							<title>Overdue Foot Exam</title>
+							<description>Derived from recommendation "Overdue Foot Exam" from Level 2 specification "DM guideline for AHRQ CDSC pilot"</description>
+						</resource>
+						<type>derivedFrom</type>
+					</relatedResource>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Overdue foot exam</title>
+					<description>Last foot exam over 11 months ago or never</description>
+					<expression>footExam11m-&gt;isEmpty()</expression>
+					<dataMapping>
+						<title>Last foot exam over 11 months ago or never</title>
+						<description>RecentFootExams</description>
+						<Data>
+							<Procedure>
+								<procedureType displayName="foot exam" code="284384005" codeSystem="2.16.840.1.113883.6.96"/>
+								<procedureStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14"/>
+							</Procedure>
+							<Procedure>
+								<procedureType displayName="diabetic foot exam" code="401191002" codeSystem="2.16.840.1.113883.6.96"/>
+								<procedureStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14"/>
+							</Procedure>
+						</Data>
+						<expression>Let month : CodedValue = Factory.CodedValue("2.16.840.1.113883.6.8", "mo") in  patient.procedure-&gt;select((procedureType.codeSystem="2.16.840.1.113883.6.96" and procedureType.code="284384005" or procedureType.code=&quot;401191002&quot;) and procedureStatus.codeSystem="2.16.840.1.113883.5.14" and procedureStatus.code="completed" and procedureDateTime.high.occuredWithin(11, month))</expression>
+						<dataIdentifier>footExam11m</dataIdentifier>
+						<dataType>Set(Procedure)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Actions to consider for DM patients foot screening</title>
+				<description>Suggest various orders, information, and referrals that might be appropriate for foot screening of patients with non-gestational diabetes mellitus.</description>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator code="AND" codeSystem="1.3.6.1.4.1.16517"/>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="Diabetic patient is due for foot exam (recommended yearly)"/>
+								</Message>
+								<displayOrderEnforced>true</displayOrderEnforced>
+								<target code="309343006" displayName="Physician" codeSystem="2.16.840.1.113883.6.96"/>
+							</MessageRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="People with diabetes have a higher risk of foot injuries and amputations than people without diabetes.  Diabetes-related foot and leg problems can be prevented with a yearly foot exam by your regular doctor or by a podiatrist (foot doctor).  If you are due or almost due for your next foot exam,  you may want to talk with your doctor about your next foot exam."/>
+								</Message>
+								<displayOrderEnforced>true</displayOrderEnforced>
+								<target code="116154003" displayName="Patient" codeSystem="2.16.840.1.113883.6.96"/>
+							</MessageRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<ActionOrganizer>
+								<operator code="OR" codeSystem="1.3.6.1.4.1.16517"/>
+								<ActionConcrete>
+									<ObservationRequest>
+										<observationType code="71388002" codeSystem="2.16.840.1.113883.6.96" displayName="procedure"/>
+										<observationCode code="284384005" codeSystem="2.16.840.1.113883.6.96" displayName="foot exam"/>
+										<textAlternative>Document the foot exam.</textAlternative>
+									</ObservationRequest>
+								</ActionConcrete>
+								<ActionConcrete>
+									<EncounterRequest>
+										<encounterProvider code="159034004" codeSystem="2.16.840.1.113883.6.96" displayName="podiatrist"/>
+										<encounterType code="3457005" codeSystem="2.16.840.1.113883.6.96" displayName="referral"/>
+										<textAlternative>Refer to Podiatrist.</textAlternative>
+									</EncounterRequest>
+								</ActionConcrete>
+							</ActionOrganizer>
+						</ActionConcrete>
+						<ActionConcrete>
+							<KnowledgeAssetRequest>
+								<resource>
+									<title>Diabetic Foot</title>
+									<identifier>
+										<identifier>http://www.nlm.nih.gov/medlineplus/diabeticfoot.html</identifier>
+										<identifierType>URL</identifierType>
+									</identifier>
+									<knowledgeResourceType code="311401005" codeSystem="2.16.840.1.113883.6.96" displayName="patient handout"/>
+								</resource>
+								<textAlternative>Recommend giving to the patient the handout "Diabetic Foot"</textAlternative>
+							</KnowledgeAssetRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Proteinuria screening (No established renal disease and no recent Malb/creat ratio)</title>
+					<description>Patients with non-gestational diabetes mellitus without established renal disease should have annual screening for proteinuria.</description>
+					<relatedResource>
+						<resource>
+							<title>Overdue microalbuminuria</title>
+							<description>Derived from recommendation "Overdue microalbuminuria" from Level 2 specification "DM guideline for AHRQ CDSC pilot"</description>
+						</resource>
+						<type>derivedFrom</type>
+					</relatedResource>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSet>
+					<title>No established renal disease and no recent Malb/creat ratio</title>
+					<operator code="AND" codeSystem="1.3.6.1.4.1.16517"/>
+					<ApplicableScenario>
+						<LogicalConditionSet>
+							<title>No established renal disease (CRF, Proteinuria, Nephrotic Syndrome, or ESRD)</title>
+							<operator code="OR" codeSystem="1.3.6.1.4.1.16517"/>
+							<ApplicableScenario>
+								<LogicalConditionSingle>
+									<title>Clinical State of Chronic Renal Disease</title>
+									<description>Patient should not have Chronic Renal Disease Clinical State</description>
+									<expression>crfState-&gt;Empty()</expression>
+									<dataMapping>
+										<Data>
+											<ClinicalState>
+												<stateCode displayName="chronic renal Disease" code="90688005" codeSystem="2.16.840.1.113883.6.96"/>
+												<stateStatus displayName="active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+											</ClinicalState>
+										</Data>
+										<expression>patient.clinicalState-&gt;select(stateCode.codeSystem="2.16.840.1.113883.6.96" and stateCode.code="90688005" and stateStatus.codeSystem ="2.16.840.1.113883.6.96" and stateStatus.code="55561003")</expression>
+										<dataIdentifier>ckdState</dataIdentifier>
+										<dataType>Set(PatientState)</dataType>
+									</dataMapping>
+								</LogicalConditionSingle>
+							</ApplicableScenario>
+							<ApplicableScenario>
+								<LogicalConditionSingle>
+									<title>Clinical State of End Stage Renal Disease</title>
+									<description>Patient should not have ESRD Clinical State</description>
+									<expression>esrdState-&gt;Empty()</expression>
+									<dataMapping>
+										<Data>
+											<ClinicalState>
+												<stateCode displayName="End Stage Renal Disease" code="46177005" codeSystem="2.16.840.1.113883.6.96"/>
+												<stateStatus displayName="active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+											</ClinicalState>
+										</Data>
+										<expression>patient.clinicalState-&gt;select(stateCode.codeSystem="2.16.840.1.113883.6.96" and stateCode.code="46177005" and stateStatus.codeSystem ="2.16.840.1.113883.6.96" and stateStatus.code="55561003")</expression>
+										<dataIdentifier>ckdState</dataIdentifier>
+										<dataType>Set(PatientState)</dataType>
+									</dataMapping>
+								</LogicalConditionSingle>
+							</ApplicableScenario>
+							<ApplicableScenario>
+								<LogicalConditionSingle>
+									<title>Clinical State of Proteinuria</title>
+									<description>Patient should not have Proteinuria Clinical State</description>
+									<expression>proteinuriaState-&gt;Empty()</expression>
+									<dataMapping>
+										<Data>
+											<ClinicalState>
+												<stateCode displayName="Proteinuria" code="29738008" codeSystem="2.16.840.1.113883.6.96"/>
+												<stateStatus displayName="active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+											</ClinicalState>
+										</Data>
+										<expression>patient.clinicalState-&gt;select(stateCode.codeSystem="2.16.840.1.113883.6.96" and stateCode.code="29738008" and stateStatus.codeSystem ="2.16.840.1.113883.6.96" and stateStatus.code="55561003")</expression>
+										<dataIdentifier>proteinuriaState</dataIdentifier>
+										<dataType>Set(PatientState)</dataType>
+									</dataMapping>
+								</LogicalConditionSingle>
+							</ApplicableScenario>
+							<ApplicableScenario>
+								<LogicalConditionSingle>
+									<title>Clinical State of Nephrotic Syndrome</title>
+									<description>Patient should not have Nephrotic Syndrome Clinical State</description>
+									<expression>NephroticSyndromeState-&gt;Empty()</expression>
+									<dataMapping>
+										<Data>
+											<ClinicalState>
+												<stateCode displayName="Nephrotic Syndrome" code="52254009" codeSystem="2.16.840.1.113883.6.96"/>
+												<stateStatus displayName="active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+											</ClinicalState>
+										</Data>
+										<expression>patient.clinicalState-&gt;select(stateCode.codeSystem="2.16.840.1.113883.6.96" and stateCode.code="52254009" and stateStatus.codeSystem ="2.16.840.1.113883.6.96" and stateStatus.code="55561003")</expression>
+										<dataIdentifier>NephroticSyndromeState</dataIdentifier>
+										<dataType>Set(PatientState)</dataType>
+									</dataMapping>
+								</LogicalConditionSingle>
+							</ApplicableScenario>
+						</LogicalConditionSet>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>No recent mal/creat ratio</title>
+							<description>No malb/creat result in the last 11 months</description>
+							<expression>malbuminCreatinineRatio-&gt;isEmpty()</expression>
+							<dataMapping>
+								<title>Malb/creat ratio</title>
+								<Data>
+									<LaboratoryResult>
+										<resultType displayName="malb/creat ratio" codeSystem="2.16.840.1.113883.6.1" code="14959-1"/>
+										<resultStatus displayName="completed" codeSystem="2.16.840.1.113883.5.14" code="completed"/>
+									</LaboratoryResult>
+									<LaboratoryResult>
+										<resultType displayName="malb/creat ratio" codeSystem="2.16.840.1.113883.6.1" code="9318-7"/>
+										<resultStatus displayName="completed" codeSystem="2.16.840.1.113883.5.14" code="completed"/>
+									</LaboratoryResult>
+								</Data>
+								<expression>Let month : CodedValue = Factory.CodedValue("2.16.840.1.113883.6.8", "mo") in  patient.laboratoryResult-&gt;select(resultType.codeSystem = "2.16.840.1.113883.6.1" and resultType.code= "14959-1" and resultStatus.codeSystem = "2.16.840.1.113883.5.14" and resultStatus.code = "completed" and resultDateTime.high.occurredWithin(11, month))</expression>
+								<dataIdentifier>malbuminCreatinineRatio</dataIdentifier>
+								<dataType>Set(LaboratoryResult)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+				</LogicalConditionSet>
+			</ApplicableScenario>
+			<Advice>
+				<title>Proteinuria screening</title>
+				<description>Messages and orders to screen for proteinuria</description>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator code="AND" codeSystem="1.3.6.1.4.1.16517"/>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="Diabetic patient is due for urine microalbumin/creatinine ratio measurement (recommended yearly)"/>
+								</Message>
+								<displayOrderEnforced>false</displayOrderEnforced>
+								<target code="309343006" displayName="Physician" codeSystem="2.16.840.1.113883.6.96"/>
+							</MessageRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="People with diabetes have a higher risk of kidney problems and kidney failure than people without diabetes.  Diabetes-related kidney problems can be detected early and managed with a yearly urine test.  If you are due or almost due for your next urine exam, you may want to talk with your doctor about your next urine exam."/>
+								</Message>
+								<displayOrderEnforced>false</displayOrderEnforced>
+								<target code="116154003" displayName="Patient" codeSystem="2.16.840.1.113883.6.96"/>
+							</MessageRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<ProcedureRequest>
+								<procedureCategoryCode code="252275004" codeSystem="2.16.840.1.113883.6.96" displayName="Hematology"/>
+								<procedureTypeCode code="14959-1" codeSystem="2.16.840.1.113883.6.1" displayName="malb/creat ratio"/>
+								<implementationTime>
+									<period value="0" unit="days"/>
+								</implementationTime>
+								<textAlternative>Order malb/creat ratio now.</textAlternative>
+							</ProcedureRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<KnowledgeAssetRequest>
+								<resource>
+									<title>Diabetic Kidney Problems</title>
+									<identifier>
+										<identifier>http://www.nlm.nih.gov/medlineplus/diabetickidneyproblems.html</identifier>
+										<identifierType>URL</identifierType>
+									</identifier>
+									<knowledgeResourceType code="311401005" codeSystem="2.16.840.1.113883.6.96" displayName="patient handout"/>
+								</resource>
+								<textAlternative>Recommend giving to the patient the handout "Diabetic Kidney Problems"</textAlternative>
+							</KnowledgeAssetRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+	<module>
+		<Metadata>
+			<identity>
+				<title>MANAGE</title>
+				<description>Rules to medically manage an outpatient with non-gestational diabetes mellitus.</description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Start ACEI (DM patient with non end stage chronic renal disease qualifying for ACEI)</title>
+					<description>Start an ACEI in a patient with diabetes mellitus and indication of non end stage renal disease if not already on ACEI or ARB and there exists no contraindication to ACEI.</description>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSet>
+					<title>DM patient with non end stage chronic renal disease qualifying for ACEI</title>
+					<description>Patient with non-end stage renal disease, not taking an angiotensin converting enzyme inhibitor (ACEI) or an angiotensin receptor blocker, and no contra-indication to an ACEI</description>
+					<operator code="AND" codeSystem="1.3.6.1.4.1.16517"/>
+					<ApplicableScenario>
+						<LogicalConditionSet>
+							<title>Patient has Non End Stage Renal Disease</title>
+							<description>Non End Stage Renal Disease includes Chronic Renal Failure, Proteinuria, and Nephrotic Syndrome Clinical States and excludes End Stage Renal Disease Clinical State.</description>
+							<operator code="OR" codeSystem="2.16.840.1.113883.6.96"/>
+							<ApplicableScenario>
+								<LogicalConditionSingle>
+									<title>Chronic Renal Disease State</title>
+									<description>Patient with Clinical State of Chronic Renal Disease</description>
+									<expression>ckdState-&gt;notEmpty()</expression>
+									<dataMapping>
+										<Data>
+											<ClinicalState>
+												<stateCode displayName="Chronic Renal Disease" code="90688005" codeSystem="2.16.840.1.113883.6.96"/>
+												<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+											</ClinicalState>
+										</Data>
+										<expression>patient.clinicalState-&gt;select(stateCode.codeSystem="2.16.840.1.113883.6.96" and stateCode.code="90688005" and stateStatus.codeSystem ="2.16.840.1.113883.6.96" and stateStatus.code="55561003")</expression>
+										<dataIdentifier>ckdState</dataIdentifier>
+										<dataType>Set(PatientState)</dataType>
+									</dataMapping>
+								</LogicalConditionSingle>
+							</ApplicableScenario>
+							<ApplicableScenario>
+								<LogicalConditionSingle>
+									<title>Proteinuria State</title>
+									<description>Patient with Clinical State of Proteinuria</description>
+									<expression>proteinuriaState-&gt;notEmpty()</expression>
+									<dataMapping>
+										<Data>
+											<ClinicalState>
+												<stateCode displayName="Proteinuria" code="29738008" codeSystem="2.16.840.1.113883.6.96"/>
+												<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+											</ClinicalState>
+										</Data>
+										<expression>patient.clinicalState-&gt;select(stateCode.codeSystem="2.16.840.1.113883.6.96" and stateCode.code="29738008" and stateStatus.codeSystem ="2.16.840.1.113883.6.96" and stateStatus.code="55561003")</expression>
+										<dataIdentifier>proteinuriaState</dataIdentifier>
+										<dataType>Set(PatientState)</dataType>
+									</dataMapping>
+								</LogicalConditionSingle>
+							</ApplicableScenario>
+							<ApplicableScenario>
+								<LogicalConditionSingle>
+									<title>Nephrotic Syndrome State</title>
+									<description>Patient with Clinical State of Nephrotic Syndrome</description>
+									<expression>NephroticSyndromeState-&gt;notEmpty()</expression>
+									<dataMapping>
+										<Data>
+											<ClinicalState>
+												<stateCode displayName="Nephrotic Syndrome" code="52254009" codeSystem="2.16.840.1.113883.6.96"/>
+												<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+											</ClinicalState>
+										</Data>
+										<expression>patient.clinicalState-&gt;select(stateCode.codeSystem="2.16.840.1.113883.6.96" and stateCode.code="52254009" and stateStatus.codeSystem ="2.16.840.1.113883.6.96" and stateStatus.code="55561003")</expression>
+										<dataIdentifier>NephroticSyndromeState</dataIdentifier>
+										<dataType>Set(PatientState)</dataType>
+									</dataMapping>
+								</LogicalConditionSingle>
+							</ApplicableScenario>
+						</LogicalConditionSet>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Not on ACEI</title>
+							<description>Patient not currently taking an angiotensin converting enzyme inhibitor.</description>
+							<expression>currentACEIMed-&gt;isEmpty()</expression>
+							<dataMapping>
+								<title>Active ACEIs</title>
+								<description>Patient's set of active angiotensin-converting enzyme inhibitors containing medications</description>
+								<Data>
+									<Medication>
+										<codedProductClass displayName="ACEI" codeSystem="2.16.840.1.113883.6.209" code="N0000000181"/>
+										<statusOfMedication displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+									</Medication>
+								</Data>
+								<expression>patient.medication-&gt;select(statusOfMedication.code="55561003" and statusOfMedication.codeSystem = "2.16.840.1.113883.6.96" and codedProductClass-&gt;exists(codeSystem="2.16.840.1.113883.6.209" and code = "N0000000181"))</expression>
+								<dataIdentifier>currentACEIMed</dataIdentifier>
+								<dataType>Medication</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Not on ARB</title>
+							<description>Patient not taking an angiotensin receptor blocker</description>
+							<expression>currentARBMed-&gt;isEmpty()</expression>
+							<dataMapping>
+								<title>Active ARBs</title>
+								<description>Set of patient's active Angiotensin 2 Receptor Antagonists - containing meds</description>
+								<Data>
+									<Medication>
+										<codedProductClass displayName="ARB" code="N0000000070" codeSystem="2.16.840.1.113883.6.209"/>
+										<statusOfMedication displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+									</Medication>
+								</Data>
+								<expression>patient.medication-&gt;select(statusOfMedication.code="55561003" and statusOfMedication.codeSystem = "2.16.840.1.113883.6.96" and codedProductClass-&gt;exists(codeSystem="2.16.840.1.113883.6.209" and code = "N0000000070"))</expression>
+								<dataIdentifier>currentARBMed</dataIdentifier>
+								<dataType>Medication</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>No contra-indication to ACEI</title>
+							<description>Patient does not have clinical state of contra-indication to ACEI</description>
+							<expression>contraindicationToACEI-&gt;isEmpty()</expression>
+							<dataMapping>
+								<title>contra-indication to ACEI</title>
+								<Data>
+									<ClinicalState>
+										<stateCode displayName="ACE-I" code="N0000000181" codeSystem="2.16.840.1.113883.6.209">
+											<qualifier>
+												<name displayName="Contraindicated" code="410536001" codeSystem="2.16.840.1.113883.6.96"/>
+												<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.96"/>
+											</qualifier>
+										</stateCode>
+										<stateStatus displayName="Active" codeSystem="2.16.840.1.113883.6.96" code="55561003"/>
+									</ClinicalState>
+								</Data>
+								<expression>patient.clinicalState-&gt;select(stateCode.code="183932001"  stateCode.codeSystem = "2.16.840.1.113883.6.96" AND   stateCode.qualifier.name.code = "405177001" and stateCode.qualifier.name.codeSystem= "2.16.840.1.113883.6.96" and  stateCode.qualifier.value.code = "N0000000181" and  stateCode.qualifier.value.codeSystem = "2.16.840.1.113883.6.209" and stateStatusCode.code = "55561003" and stateStatus.codeSystem="2.16.840.1.113883.6.96"}</expression>
+								<dataIdentifier>contraindicationToACEI</dataIdentifier>
+								<dataType>Set(ClinicalState)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Clinical State of End Stage Renal Disease</title>
+							<description>Patient should not have clinical state of ESRD</description>
+							<expression>esrdState-&gt;Empty()</expression>
+							<dataMapping>
+								<Data>
+									<ClinicalState>
+										<stateCode displayName="End Stage Renal Disease" code="46177005" codeSystem="2.16.840.1.113883.6.96"/>
+										<stateStatus displayName="active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+									</ClinicalState>
+								</Data>
+								<expression>patient.clinicalState-&gt;select(stateCode.codeSystem="2.16.840.1.113883.6.96" and stateCode.code="46177005" and stateStatus.codeSystem ="2.16.840.1.113883.6.96" and stateStatus.code="55561003")</expression>
+								<dataIdentifier>esrdState</dataIdentifier>
+								<dataType>Set(PatientState)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+				</LogicalConditionSet>
+			</ApplicableScenario>
+			<Advice>
+				<title>Start ACEI</title>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator code="AND" codeSystem="1.3.6.1.4.1.16517"/>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="Diabetic patient with renal disease, consider starting angiotensin-converting enzyme inhibitor (ACE-I)."/>
+								</Message>
+								<target code="Physician"/>
+							</MessageRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<SubstanceAdministrationRequest>
+								<codedProductName code="N0000000181" codeSystem="2.16.840.1.113883.6.209" displayName="ACEI"/>
+								<route code="C38288" codeSystem="2.16.840.1.113883.5.112" displayName="oral"/>
+								<textAlternative>Start ACE-I.</textAlternative>
+							</SubstanceAdministrationRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<KnowledgeAssetRequest>
+								<resource>
+									<title>Treatment of Hypertension in Type 2 Diabetes Mellitus: Blood Pressure Goals, Choice of Agents, and Setting Priorities in Diabetes Care</title>
+									<description>"Treatment of Hypertension in Type 2 Diabetes Mellitus: Blood Pressure Goals, Choice of Agents, and Setting Priorities in Diabetes Care", Annals 2003 (http://www.annals.org/cgi/reprint/138/7/593.pdf)</description>
+									<identifier>
+										<identifier>http://www.annals.org/cgi/reprint/138/7/593.pdf</identifier>
+										<identifierType>URL</identifierType>
+									</identifier>
+									<knowledgeResourceType code="308910008" codeSystem="2.16.840.1.113883.6.96" displayName="physician handout"/>
+								</resource>
+								<textAlternative>Recommended physician handout "Treatment of Hypertension in Type 2 Diabetes Mellitus: Blood Pressure Goals, Choice of Agents, and Setting Priorities in Diabetes Care" (Annals 2003)</textAlternative>
+							</KnowledgeAssetRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<KnowledgeAssetRequest>
+								<resource>
+									<title>Choosing a first-line drug in the management of elevated blood pressure: What is the evidence? 3: Angiotensin-converting-enzyme inhibitors</title>
+									<description>"Choosing a first-line drug in the management of elevated blood pressure: What is the evidence? 3: Angiotensin-converting-enzyme inhibitors", CMAJ 2000 (http://www.cmaj.ca/cgi/reprint/163/3/293)</description>
+									<identifier>
+										<identifier>http://www.cmaj.ca/cgi/reprint/163/3/293</identifier>
+										<identifierType>URL</identifierType>
+									</identifier>
+									<knowledgeResourceType code="308910008" codeSystem="2.16.840.1.113883.6.96" displayName="physician handout"/>
+								</resource>
+								<textAlternative>Recommended physician handout "Choosing a first-line drug in the management of elevated blood pressure: What is the evidence? 3: Angiotensin-converting-enzyme inhibitors" (CMAJ 2000)</textAlternative>
+							</KnowledgeAssetRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<KnowledgeAssetRequest>
+								<resource>
+									<title>Diabetic Kidney Problems</title>
+									<identifier>
+										<identifier>http://www.nlm.nih.gov/medlineplus/diabetickidneyproblems.html</identifier>
+										<identifierType>URL</identifierType>
+									</identifier>
+									<knowledgeResourceType code="311401005" codeSystem="2.16.840.1.113883.6.96" displayName="patient handout"/>
+								</resource>
+								<textAlternative>Recommend giving to the patient the handout "Diabetic Kidney Problems"</textAlternative>
+							</KnowledgeAssetRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Start ARB (DM patient with non end stage renal disease qualifying for ARB)</title>
+					<description>Start an angiotensin receptor blocker (ARB) in a patient with diabetes mellitus and non-end stage renal disease if not already on either an angiotensin converting enzyme inhibitor (ACEI) or an ARB, and patient has contra-indication to ACEI, and patient does not have contra-indication to ARB</description>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSet>
+					<title>DM patient with non end stage chronic renal disease qualifying for ARB</title>
+					<description>Patient with non-end stage chronic renal disease, not taking an angiotensin converting enzyme inhibitor or an angiotensin receptor blocker</description>
+					<operator code="AND" codeSystem="1.3.6.1.4.1.16517"/>
+					<ApplicableScenario>
+						<LogicalConditionSet>
+							<title>Patient has Non End Stage Renal Disease</title>
+							<description>Non End Stage Renal Disease includes Chronic Renal Failure, Proteinuria, and Nephrotic Syndrome Clinical States and excludes End Stage Renal Disease Clinical State.</description>
+							<operator code="OR" codeSystem="2.16.840.1.113883.6.96"/>
+							<ApplicableScenario>
+								<LogicalConditionSingle>
+									<title>Chronic Renal Disease State</title>
+									<description>Patient with Clinical State of Chronic Renal Disease</description>
+									<expression>ckdState-&gt;notEmpty()</expression>
+									<dataMapping>
+										<Data>
+											<ClinicalState>
+												<stateCode displayName="Chronic Renal Disease" code="90688005" codeSystem="2.16.840.1.113883.6.96"/>
+												<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+											</ClinicalState>
+										</Data>
+										<expression>patient.clinicalState-&gt;select(stateCode.codeSystem="2.16.840.1.113883.6.96" and stateCode.code="90688005" and stateStatus.codeSystem ="2.16.840.1.113883.6.96" and stateStatus.code="55561003")</expression>
+										<dataIdentifier>ckdState</dataIdentifier>
+										<dataType>Set(PatientState)</dataType>
+									</dataMapping>
+								</LogicalConditionSingle>
+							</ApplicableScenario>
+							<ApplicableScenario>
+								<LogicalConditionSingle>
+									<title>Proteinuria State</title>
+									<description>Patient with Clinical State of Proteinuria</description>
+									<expression>proteinuriaState-&gt;notEmpty()</expression>
+									<dataMapping>
+										<Data>
+											<ClinicalState>
+												<stateCode displayName="Proteinuria" code="29738008" codeSystem="2.16.840.1.113883.6.96"/>
+												<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+											</ClinicalState>
+										</Data>
+										<expression>patient.clinicalState-&gt;select(stateCode.codeSystem="2.16.840.1.113883.6.96" and stateCode.code="29738008" and stateStatus.codeSystem ="2.16.840.1.113883.6.96" and stateStatus.code="55561003")</expression>
+										<dataIdentifier>proteinuriaState</dataIdentifier>
+										<dataType>Set(PatientState)</dataType>
+									</dataMapping>
+								</LogicalConditionSingle>
+							</ApplicableScenario>
+							<ApplicableScenario>
+								<LogicalConditionSingle>
+									<title>Nephrotic Syndrome State</title>
+									<description>Patient with Clinical State of Nephrotic Syndrome</description>
+									<expression>NephroticSyndromeState-&gt;notEmpty()</expression>
+									<dataMapping>
+										<Data>
+											<ClinicalState>
+												<stateCode displayName="Nephrotic Syndrome" code="52254009" codeSystem="2.16.840.1.113883.6.96"/>
+												<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+											</ClinicalState>
+										</Data>
+										<expression>patient.clinicalState-&gt;select(stateCode.codeSystem="2.16.840.1.113883.6.96" and stateCode.code="52254009" and stateStatus.codeSystem ="2.16.840.1.113883.6.96" and stateStatus.code="55561003")</expression>
+										<dataIdentifier>NephroticSyndromeState</dataIdentifier>
+										<dataType>Set(PatientState)</dataType>
+									</dataMapping>
+								</LogicalConditionSingle>
+							</ApplicableScenario>
+						</LogicalConditionSet>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Not on ACEI</title>
+							<description>Patient not currently taking an angiotensin converting enzyme inhibitor</description>
+							<expression>currentACEIMed-&gt;isEmpty()</expression>
+							<dataMapping>
+								<title>Current ACEI-containing medications</title>
+								<description>Set of patient's current medicines which contain an angiotensin converting enzyme inhibitor</description>
+								<Data>
+									<Medication>
+										<codedProductClass displayName="ACEI" codeSystem="2.16.840.1.113883.6.209" code="N0000000181"/>
+										<statusOfMedication displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+									</Medication>
+								</Data>
+								<expression>patient.medication-&gt;select(statusOfMedication.code="55561003" and statusOfMedication.codeSystem = "2.16.840.1.113883.6.96" and codedProductClass-&gt;exists(codeSystem="2.16.840.1.113883.6.209" and code = "N0000000181"))</expression>
+								<dataIdentifier>currentACEIMed</dataIdentifier>
+								<dataType>Medication</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Not on ARB</title>
+							<description>Patient not taking an angiotensin receptor blocker</description>
+							<expression>currentARBMed-&gt;isEmpty()</expression>
+							<dataMapping>
+								<title>Current ARB-containing medications</title>
+								<description>Set of patient's current medicines which contain an Angiotensin 2 Receptor Antagonists</description>
+								<Data>
+									<Medication>
+										<codedProductClass displayName="ARB" code="N0000000070" codeSystem="2.16.840.1.113883.6.209"/>
+										<statusOfMedication displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+									</Medication>
+								</Data>
+								<expression>patient.medication-&gt;select(statusOfMedication.code="55561003" and statusOfMedication.codeSystem = "2.16.840.1.113883.6.96" and codedProductClass-&gt;exists(codeSystem="2.16.840.1.113883.6.209" and code = "N0000000070"))</expression>
+								<dataIdentifier>currentARBMed</dataIdentifier>
+								<dataType>Medication</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Contra-indication to ACEI</title>
+							<description>Patient has clinical state of contra-indication to ACEI</description>
+							<expression>contraindicationToACEI-&gt;notEmpty()</expression>
+							<dataMapping>
+								<title>contra-indication to ACEI</title>
+								<Data>
+									<ClinicalState>
+										<stateCode displayName="ACEI" code="N0000000181" codeSystem="2.16.840.1.113883.6.209">
+											<qualifier>
+												<name displayName="Contraindicated" code="410536001" codeSystem="2.16.840.1.113883.6.96"/>
+												<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.96"/>
+											</qualifier>
+										</stateCode>
+										<stateStatus displayName="ACTIVE" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+									</ClinicalState>
+								</Data>
+								<expression>patient.clinicalState-&gt;select(stateCode.code="183932001"  stateCode.codeSystem = "2.16.840.1.113883.6.96" AND    stateCode.qualifier.name.code = "405177001" and  stateCode.qualifier.name.codeSystem = "2.16.840.1.113883.6.96" and  stateCode.qualifier.value.code = "N0000000181" and  stateCode.qualifier.value.codeSystem = "2.16.840.1.113883.6.209" and   stateStatusCode.code = "55561003" and stateStatus.codeSystem="2.16.840.1.113883.6.96"</expression>
+								<dataIdentifier>contraindicationToACEI</dataIdentifier>
+								<dataType>Set(ClinicalState)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>No contra-indication to ARB</title>
+							<description>Patient does not have clinical state contra-indication to ARB</description>
+							<expression>contraindicationToARB-&gt;isEmpty()</expression>
+							<dataMapping>
+								<title>Contra-indication to ARB</title>
+								<description>Patient with active clinical state of ARB and modifier contra-indicated</description>
+								<Data>
+									<ClinicalState>
+										<stateCode displayName="ARB" code="N0000000070" codeSystem="2.16.840.1.113883.6.209">
+											<qualifier>
+												<name displayName="Contraindicated" code="410536001" codeSystem="2.16.840.1.113883.6.96"/>
+												<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.96"/>
+											</qualifier>
+										</stateCode>
+										<stateStatus displayName="ACTIVE" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+									</ClinicalState>
+								</Data>
+								<expression>patient.clinicalState-&gt;select(stateCode.code="N0000000070"  stateCode.codeSystem = "2.16.840.1.113883.6.209" and  stateCode.qualifier.name.code = "410536001" and  stateCode.qualifier.name.codeSystem = "2.16.840.1.113883.6.96" and  stateCode.qualifier.value.code = "405177001" and  stateCode.qualifier.value.codeSystem = "2.16.840.1.113883.6.96" and  stateStatusCode.code = "55561003" and stateStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+								<dataIdentifier>contraindicationToARB</dataIdentifier>
+								<dataType>Set(ClinicalState)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Clinical State of End Stage Renal Disease</title>
+							<description>Patient should not have clinical state of ESRD</description>
+							<expression>esrdState-&gt;Empty()</expression>
+							<dataMapping>
+								<Data>
+									<ClinicalState>
+										<stateCode displayName="End Stage Renal Disease" code="46177005" codeSystem="2.16.840.1.113883.6.96"/>
+										<stateStatus displayName="active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+									</ClinicalState>
+								</Data>
+								<expression>patient.clinicalState-&gt;select(stateCode.codeSystem="2.16.840.1.113883.6.96" and stateCode.code="46177005" and stateStatus.codeSystem ="2.16.840.1.113883.6.96" and stateStatus.code="55561003")</expression>
+								<dataIdentifier>esrdState</dataIdentifier>
+								<dataType>Set(PatientState)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+				</LogicalConditionSet>
+			</ApplicableScenario>
+			<Advice>
+				<title>Start ARB</title>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator code="AND" codeSystem="1.3.6.1.4.1.16517"/>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="Diabetic patient with renal disease, contraindications to ACE-I present, consider starting angiotensin-2 receptor antagonist (ARB)."/>
+								</Message>
+								<target code="Physician"/>
+							</MessageRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<SubstanceAdministrationRequest>
+								<codedProductClass displayName="ARB" code="N0000000070" codeSystem="2.16.840.1.113883.6.209"/>
+								<route displayName="oral" code="C38288" codeSystem="2.16.840.1.113883.5.112"/>
+								<textAlternative>Start ARB.</textAlternative>
+							</SubstanceAdministrationRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<KnowledgeAssetRequest>
+								<resource>
+									<title>Diabetic Kidney Problems</title>
+									<identifier>
+										<identifier>http://www.nlm.nih.gov/medlineplus/diabetickidneyproblems.html</identifier>
+										<identifierType>URL</identifierType>
+									</identifier>
+									<knowledgeResourceType code="311401005" codeSystem="2.16.840.1.113883.6.96" displayName="patient handout"/>
+								</resource>
+								<textAlternative>Recommend giving to the patient the handout "Diabetic Kidney Problems"</textAlternative>
+							</KnowledgeAssetRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+	<ApplicableScenario>
+		<LogicalConditionSet>
+			<title>Adult with non-gestational DM clinical state</title>
+			<operator codeSystem="1.3.6.1.4.1.16517" code="AND"/>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Adult</title>
+					<description>Patient is an adult, i.e. age &gt;= 18 years old</description>
+					<expression>Let year : CodedValue = Factory.CodedValue("2.16.840.1.113883.6.8", "a") in DoB.occurredAgo(18, year)</expression>
+					<dataMapping>
+						<title>DOB</title>
+						<description>Patient's date of birth</description>
+						<Data/>
+						<expression>patient.personDateOfBirth</expression>
+						<dataIdentifier>DoB</dataIdentifier>
+						<dataType>TS</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Clinical State non-gestational DM</title>
+					<description>Patient with clinical state of non-gestational Diabetes mellitus</description>
+					<expression>diabetesState-&gt;notEmpty()</expression>
+					<dataMapping>
+						<title>Clinical State non-gestational DM</title>
+						<Data>
+							<ClinicalState>
+								<stateCode displayName="Non-gestational DM" code="PHS0000001" codeSystem="Local"/>
+								<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+							</ClinicalState>
+						</Data>
+						<expression>patient.clinicalState-&gt;select(stateCode.codeSystem="2.16.840.1.113883.6.96" and stateCode.code="73211009" and stateStatus.codeSystem ="2.16.840.1.113883.6.96" and stateStatus.code="55561003")</expression>
+						<dataIdentifier>diabetesState</dataIdentifier>
+						<dataType>Set(ClinicalState)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+		</LogicalConditionSet>
+	</ApplicableScenario>
+</StructuredGuideline>

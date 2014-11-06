@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructuredGuideline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../schema/structured.xsd">
+    <Metadata>
+        <coverage>
+            <focus>patient</focus>
+            <code code="255397009" displayName="Adult" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+            <description>adult</description>
+            <type>inclusion</type>
+        </coverage>
+        <coverage>
+            <focus>careSetting</focus>
+            <code code="373864002" displayName="Outpatient" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+            <description>outpatient</description>
+            <type>inclusion</type>
+        </coverage>
+        <coverage>
+            <focus>patient</focus>
+            <code code="248152002" displayName="Female" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+            <description>female</description>
+            <type>inclusion</type>
+        </coverage>
+        <contributor>
+            <roleType>Developer</roleType>
+            <organization>
+                <name>Regenstrief Institute</name>
+            </organization>
+        </contributor>
+        <identity>
+            <title>Care Rules for Mammography</title>
+            <description>Care Rules to encourage mammography for breast cancer screening and surveillance</description>
+            <relatedResource>
+                <resource>
+                    <title>Regenstrief Care Rules C06</title>
+                    <description>C06 is the file of Preventive Care Rules used to generate reminders
+                        for non-real-time preventive care at the time of a patient's presentation to an outpatient clinic</description>
+                </resource>
+            </relatedResource>
+        </identity>
+    </Metadata>
+    <module>
+        <Metadata>
+            <identity>
+                <title>SCREEN</title>
+                <description>Reminders to order screening mammography for women over the age of 50</description>
+            </identity>
+        </Metadata>
+        <recommendation>
+            <Metadata>
+                <identity>
+                    <title>Rule 1: Mammogram Over 1 Year Ago</title>
+                    <description>Women between the ages of 50 and 75 should have annual mammogram</description>
+                </identity>
+            </Metadata>
+            <ApplicableScenario>
+                <LogicalConditionSet>
+                    <operator code="AND" codeSystem="1.3.6.1.4.1.16517" codeSystemName="Partners HealthCare System"/>
+                    <ApplicableScenario>
+                        <LogicalConditionSingle>
+                            <title>Age greater than 50 and less than 75</title>
+                            <expression>Let year : CodedValue = Factory.CodedValue("2.16.840.1.113883.6.96", "258707000") in DoB.occurredAgo(50, year) and DoB.occurredWithin(75, year)</expression>
+                            <dataMapping>
+                                <title>Date of Birth</title>
+                                <Data/>
+                                <expression>patient.personDateOfBirth</expression>
+                                <dataIdentifier>DoB</dataIdentifier>
+                                <dataType>TS</dataType>
+                            </dataMapping>
+                        </LogicalConditionSingle>
+                    </ApplicableScenario>
+                    <ApplicableScenario>
+                        <LogicalConditionSingle>
+                            <title>Overdue Mammogram</title>
+                            <description>No mammogram within the past one year.</description>
+                            <expression>Mammogram12months-&gt;isEmpty()</expression>
+                            <dataMapping>
+                                <title>Set of Mammograms Within Past 12 Months</title>
+                                <description>The set of Mammograms performed within the past 12 months.</description>
+                                <Data>
+                                    <Procedure>
+                                        <procedureType code="36625-2" displayName="Brst Mam" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                        <procedureStatus code="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+                                    </Procedure>
+                                    <Procedure>
+                                        <procedureType code="26346-7" displayName="Brst-Bl Mam Dx" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                        <procedureStatus code="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+                                    </Procedure>
+                                    <Procedure>
+                                        <procedureType code="26175-0" displayName="Brst-Bl Mam Screening" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                        <procedureStatus code="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+                                    </Procedure>
+                                    <Procedure>
+                                        <procedureType code="24609-0" displayName="Brst Mam PC Bx CN guid" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                        <procedureStatus code="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+                                    </Procedure>
+                                    <Procedure>
+                                        <procedureType code="24604-1" displayName="Brst Mam Dx Ltd" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                        <procedureStatus code="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+                                    </Procedure>
+                                    <Procedure>
+                                        <procedureType code="24610-8" displayName="Brst Mam Ltd" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                        <procedureStatus code="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+                                    </Procedure>
+                                    <Procedure>
+                                        <procedureType code="24606-6" displayName="Brst Mam Screening" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                        <procedureStatus code="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+                                    </Procedure>
+                                    <Procedure>
+                                        <procedureType code="24605-8" displayName="Brst Mam Dx" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                        <procedureStatus code="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+                                    </Procedure>
+                                </Data>
+                                <expression>patient.Procedure-&gt;select((procedureType.code="36625-2" or procedureType.code="26346-7" 
+                                    or procedureType.code="26175-0" or procedureType.code="24609-0" or procedureType.code="24604-1"
+                                    or procedureType.code="24610-8" or procedureType.code="24606-6" or procedureType.code="24605-8")
+                                    and procedureType.codeSystem="2.16.840.1.113883.6.1"
+                                    and procedureStatus.code="completed" and procedureStatus.codeSystem="2.16.840.1.113883.5.14" 
+                                    and procedureDateTime.high.occurredWithin(12, month))</expression>
+                                <dataIdentifier>Mammogram12months</dataIdentifier>
+                                <dataType>Set(Procedure)</dataType>
+                            </dataMapping>
+                        </LogicalConditionSingle>
+                    </ApplicableScenario>
+                </LogicalConditionSet>
+            </ApplicableScenario>
+            <Advice>
+                <ActionConcrete>
+                    <ActionOrganizer>
+                        <operator code="AND" codeSystem="1.3.6.1.4.1.16517" codeSystemName="Partners HealthCare System"/>
+                        <ActionConcrete>
+                            <MessageRequest>
+                                <Message>
+                                    <freeTextMessage value="Women over 50 should have an annual MAMMOGRAM."/>
+                                </Message>
+                                <target code="309343006" displayName="Physician" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+                            </MessageRequest>
+                        </ActionConcrete>
+                        <ActionConcrete>
+                            <ProcedureRequest>
+                                <procedureCategoryCode code="363680008" displayName="Radiographic imaging procedure" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+                                <procedureTypeCode code="36625-2" displayName="Breast Mammogram" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                <textAlternative>Order Mammogram</textAlternative>
+                            </ProcedureRequest>
+                        </ActionConcrete>
+                    </ActionOrganizer>
+                </ActionConcrete>
+            </Advice>
+        </recommendation>
+        <recommendation>
+            <Metadata>
+                <identity>
+                    <title>Rule 2: Mammogram Never Done</title>
+                    <description>Woman over the age of 50 with no Mammogram on record (during the past 10 years). The original Regenstrief Care Rule searches for Mammograms within the past 10 years.</description>
+                </identity>
+            </Metadata>
+            <ApplicableScenario>
+                <LogicalConditionSet>
+                    <operator code="AND" codeSystem="1.3.6.1.4.1.16517" codeSystemName="Partners HealthCare System"/>
+                    <ApplicableScenario>
+                        <LogicalConditionSingle>
+                            <title>Age greater than 50</title>
+                            <expression>Let year : CodedValue = Factory.CodedValue("2.16.840.1.113883.6.96", "258707000") in DoB.occurredAgo(50, year)</expression>
+                            <dataMapping>
+                                <title>Date of Birth</title>
+                                <Data/>
+                                <expression>patient.personDateOfBirth</expression>
+                                <dataIdentifier>DoB</dataIdentifier>
+                                <dataType>TS</dataType>
+                            </dataMapping>
+                        </LogicalConditionSingle>
+                    </ApplicableScenario>
+                    <ApplicableScenario>
+                        <LogicalConditionSingle>
+                            <title>No Mammogram On Record</title>
+                            <description>There is no Mammogram on record (within the past 10 years)</description>
+                            <expression>Mammogram10years-&gt;isEmpty()</expression>
+                            <dataMapping>
+                                <title>Set of Mammograms Within Past 10 Years</title>
+                                <description>The set of Mammograms performed within the past 10 years.</description>
+                                <Data>
+                                    <Procedure>
+                                        <procedureType code="36625-2" displayName="Brst Mam" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                        <procedureStatus code="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+                                    </Procedure>
+                                    <Procedure>
+                                        <procedureType code="26346-7" displayName="Brst-Bl Mam Dx" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                        <procedureStatus code="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+                                    </Procedure>
+                                    <Procedure>
+                                        <procedureType code="26175-0" displayName="Brst-Bl Mam Screening" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                        <procedureStatus code="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+                                    </Procedure>
+                                    <Procedure>
+                                        <procedureType code="24609-0" displayName="Brst Mam PC Bx CN guid" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                        <procedureStatus code="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+                                    </Procedure>
+                                    <Procedure>
+                                        <procedureType code="24604-1" displayName="Brst Mam Dx Ltd" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                        <procedureStatus code="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+                                    </Procedure>
+                                    <Procedure>
+                                        <procedureType code="24610-8" displayName="Brst Mam Ltd" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                        <procedureStatus code="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+                                    </Procedure>
+                                    <Procedure>
+                                        <procedureType code="24606-6" displayName="Brst Mam Screening" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                        <procedureStatus code="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+                                    </Procedure>
+                                    <Procedure>
+                                        <procedureType code="24605-8" displayName="Brst Mam Dx" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                        <procedureStatus code="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+                                    </Procedure>
+                                </Data>
+                                <expression>Let year : CodedValue = Factory.CodedValue("2.16.840.1.113883.6.96", "258707000") 
+                                    in patient.Procedure-&gt;select((procedureType.code="36625-2" or procedureType.code="26346-7" 
+                                    or procedureType.code="26175-0" or procedureType.code="24609-0" or procedureType.code="24604-1"
+                                    or procedureType.code="24610-8" or procedureType.code="24606-6" or procedureType.code="24605-8") 
+                                    and procedureType.codeSystem="2.16.840.1.113883.6.1"
+                                    and procedureStatus.code="completed" and procedureStatus.codeSystem="2.16.840.1.113883.5.14" 
+                                    and procedureDateTime.high.occurredWithin(10, year))</expression>
+                                <dataIdentifier>Mammogram10years</dataIdentifier>
+                                <dataType>Set(Procedure)</dataType>
+                            </dataMapping>
+                        </LogicalConditionSingle>
+                    </ApplicableScenario>
+                </LogicalConditionSet>
+            </ApplicableScenario>
+            <Advice>
+                <ActionConcrete>
+                    <ActionOrganizer>
+                        <operator code="AND" codeSystem="1.3.6.1.4.1.16517" codeSystemName="Partners HealthCare System"/>
+                        <ActionConcrete>
+                            <MessageRequest>
+                                <Message>
+                                    <freeTextMessage value="There is no MAMMOGRAM on record for this patient. Women over 50 shoulde have an annual mammogram for life."/>
+                                </Message>
+                                <target code="309343006" displayName="Physician" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+                            </MessageRequest>
+                        </ActionConcrete>
+                        <ActionConcrete>
+                            <ProcedureRequest>
+                                <procedureCategoryCode code="363680008" displayName="Radiographic imaging procedure" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+                                <procedureTypeCode code="36625-2" displayName="Breast Mammogram" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                <textAlternative>Order Mammogram</textAlternative>
+                            </ProcedureRequest>
+                        </ActionConcrete>
+                    </ActionOrganizer>
+                </ActionConcrete>
+            </Advice>
+        </recommendation>
+    </module>
+    <module>
+        <Metadata>
+            <identity>
+                <title>FOLLOW-UP SURVEILLANCE</title>
+                <description>Follow-up monitoring of women with a previous known history of breast cancer</description>
+            </identity>
+        </Metadata>
+        <recommendation>
+            <Metadata>
+                <identity>
+                    <title>Rule 3: Mammogram and History of Breast Cancer</title>
+                    <description>Women with a previous history of breast cancer should have yearly mammogram for life</description>
+                </identity>
+            </Metadata>
+            <ApplicableScenario>
+                <LogicalConditionSingle>
+                    <title>Patient has Clinical State of Breast Cancer</title>
+                    <expression>breastCancerState-&gt;notEmpty()</expression>
+                    <dataMapping>
+                        <Data>
+                            <ClinicalState>
+                                <stateCode code="254837009" displayName="Malignant tumor of breast (disorder)" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+                                <stateStatus code="55561003" displayName="Active" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+                            </ClinicalState>
+                        </Data>
+                        <expression>patient.clinicalState-&gt;select(stateCode.code="254837009" and stateCode.codeSystem="2.16.840.1.113883.6.96"
+                        and stateStatus.code="55561003" and stateStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+                        <dataIdentifier>breastCancerState</dataIdentifier>
+                        <dataType>Set(ClinicalState)</dataType>
+                    </dataMapping>
+                </LogicalConditionSingle>
+            </ApplicableScenario>
+            <Advice>
+                <ActionConcrete>
+                    <MessageRequest>
+                        <Message>
+                            <freeTextMessage value="This patient has a history of breast cancer. If she has a remaining breast, she should have a yearly mammogram for life."/>
+                        </Message>
+                        <target code="309343006" displayName="Physician" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+                    </MessageRequest>
+                    <!-- the original Regenstrief Care Rule specifies only a message, but does not recommend any suggested orders -->
+                </ActionConcrete>
+            </Advice>
+        </recommendation>
+    </module>
+    <ApplicableScenario>
+        <LogicalConditionSet>
+            <operator code="AND" codeSystem="1.3.6.1.4.1.16517" codeSystemName="Partners HealthCare System"/>
+            <ApplicableScenario>
+                <LogicalConditionSingle>
+                    <title>Adult Patient</title>
+                    <description>Patient is 18 years of age or older</description>
+                    <expression>Let year : CodedValue = Factory.CodedValue("2.16.840.1.113883.6.96", "258707000") in DoB.occurredAgo(18, year)</expression>
+                    <dataMapping>
+                        <title>Date of Birth</title>
+                        <description>Patient's date of birth</description>
+                        <Data/>
+                        <expression>patient.personDateOfBirth</expression>
+                        <dataIdentifier>DoB</dataIdentifier>
+                        <dataType>TS</dataType>
+                    </dataMapping>
+                </LogicalConditionSingle>
+            </ApplicableScenario>
+            <ApplicableScenario>
+                <LogicalConditionSingle>
+                    <title>Female Patient</title>
+                    <description>Patient is female gender</description>
+                    <expression>Let femaleGender : CodedValue = Factory.CodedValue("2.16.840.1.113883.6.96", "429019009") 
+                        in gender.code = "248152002" and gender.codingSystem = "2.16.840.1.113883.6.96"</expression>
+                    <dataMapping>
+                        <title>Gender</title>
+                        <Data/>
+                        <expression>patient.gender</expression>
+                        <dataIdentifier>gender</dataIdentifier>
+                        <dataType>CodedValue</dataType>
+                    </dataMapping>
+                </LogicalConditionSingle>
+            </ApplicableScenario>
+        </LogicalConditionSet>
+    </ApplicableScenario>
+</StructuredGuideline>
+

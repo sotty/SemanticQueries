@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructuredCDSKnowledge version="2.0" xsi:noNamespaceSchemaLocation="structured.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Metadata>
+		<identity>
+			<title>The following search tags have been identified for this artifact:</title>
+			<description>Order Set for Venous Thromboembolism Prophylaxis, inpatient, 18 years and older. Order set for determining the appropriate prophylaxis to prevent VTE. Consider combined pharmacological and mechanical prophyaxis in high-risk patients.</description>
+			<relatedResource>
+				<resource>
+					<title>National Quality Forum Performance Measures</title>
+					<description></description>
+					<location>http://cdsportal.partners.org/RelatedResources.aspx?pageId=3</location>
+				</resource>
+				<type>dependsOn</type>
+			</relatedResource>
+			<relatedResource>
+				<resource>
+					<title>Geerts WH, Bergqvist D, Pineo GF, Heit JA, Samama CM, Lassen MR, and Colwell CW. Prevention of Venous Thromboembolism*: American College of Chest Physicians Evidence-Based Clinical Practice Guidelines (8th Edition). Chest 2008;133;381S-453S.</title>
+					<description></description>
+					<location>http://chestjournal.chestpubs.org/content/133/6_suppl/381S.full.pdf+html</location>
+				</resource>
+				<type>associatedReference</type>
+			</relatedResource>
+			<relatedResource>
+				<resource>
+					<title>Geerts WH, Pineo GF, Heit JA, Bergqvist D, Lassen MR, Colwell CW and Ray JG. Prevention of Venous Thromboembolism: The Seventh ACCP Conference on Antithrombotic and Thrombolytic Therapy. Chest 2004;126;338S-400S.</title>
+					<description></description>
+					<location>http://chestjournal.chestpubs.org/content/126/3_suppl/338S.full.pdf+html</location>
+				</resource>
+				<type>associatedReference</type>
+			</relatedResource>
+			<relatedResource>
+				<resource>
+					<title>National Quality Forum eMeasure (0239): Venous Thromboembolism (VTE) Prophylaxis</title>
+					<description></description>
+					<location><![CDATA[http://www.qualityforum.org/MeasureDetails.aspx?actid=0&SubmissionId=416#k=0239&e=0&st=&sd=&mt=&cs=&s=n&so=a&p=1]]></location>
+				</resource>
+				<type>associatedReference</type>
+			</relatedResource>
+		</identity>
+		<implementation>
+			<knowledgeType>Order Set</knowledgeType>
+		</implementation>
+		<coverage>
+			<focus>patient</focus>
+			<code displayName="Adult" code="133936004" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+			<description></description>
+			<type>inclusion</type>
+		</coverage>
+		<coverage>
+			<focus>careSetting</focus>
+			<code displayName="Inpatient" code="416800000" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+			<description></description>
+			<type>inclusion</type>
+		</coverage>
+		<coverage>
+			<focus>clinicalFocus</focus>
+			<code displayName="Deep venous thrombosis" code="128053003" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+			<description></description>
+			<type>inclusion</type>
+		</coverage>
+		<coverage>
+			<focus>clinicalFocus</focus>
+			<code displayName="Thrombosis prophylaxis" code="421728001" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+			<description></description>
+			<type>inclusion</type>
+		</coverage>
+		<coverage>
+			<focus>clinicalFocus</focus>
+			<code displayName="Thromboembolism of vein" code="429098002" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+			<description></description>
+			<type>inclusion</type>
+		</coverage>
+		<contributor>
+			<roleType>Developer</roleType>
+			<organization>
+				<name>Advancing Clinical Decision Support</name>
+			</organization>
+		</contributor>
+		<stateChangeEvent>
+			<eventCode>Created</eventCode>
+			<eventDateTime>2011-11-18</eventDateTime>
+		</stateChangeEvent>
+	</Metadata>
+	<ApplicableScenario>
+		<LogicalConditionSet>
+			<title>Applicable Scenario</title>
+			<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Adult</title>
+					<description>Patient is an adult, i.e. age is greater than or equal to 18 years old</description>
+					<expression>CALCULATE_AGE_IN_YEARS(DoB)>=18</expression>
+					<expressionLanguage>nonstandard</expressionLanguage>
+					<dataType>CD</dataType>
+					<dataMapping>
+						<title>DOB</title>
+						<description>Patient's date of birth</description>
+						<Data/>
+						<dataIdentifier>DoB</dataIdentifier>
+						<dataType>TS</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Patient is undergoing procedure requiring venous thromboembolism prophylaxis</title>
+					<description></description>
+					<expression>PATIENT_HAD_EVENT(procedureRequiringVteProphylaxis)</expression>
+					<expressionLanguage>nonstandard</expressionLanguage>
+					<dataType>CD</dataType>
+					<dataMapping>
+						<title>Patient undergoing procedure requiring Venous Thromboembolism Prophylaxis</title>
+						<Data>
+							<Procedure>
+								<procedureType displayName="Surgical Procedures requiring Venous Thromboembolism Prophylaxis" code="2.16.840.1.113883.3.526.03.812" codeSystemName="American Medical Association" codeSystem="2.16.840.1.113883.3.526"/>
+								<procedureStatus displayName="completed" code="completed" codeSystemName="ActStatus" codeSystem="2.16.840.1.113883.5.14"/>
+							</Procedure>
+						</Data>
+						<dataIdentifier>procedureRequiringVteProphylaxis</dataIdentifier>
+						<dataType>Set(Procedure)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+		</LogicalConditionSet>
+	</ApplicableScenario>
+	<module>
+		<Metadata>
+			<identity>
+				<title></title>
+				<description></description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Mechanical Prophylaxis</title>
+					<description>Select one or more of the following options:</description>
+				</identity>
+			</Metadata>
+			<Advice>
+				<title></title>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator displayName="OR" code="OR" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+						<ActionConcrete>
+							<SupplyRequest>
+								<supplyTypeCode displayName="Surgical stockings below knee" code="A4500" codeSystemName="HCPCS Level II Alphanumeric Codes" codeSystem="2.16.840.1.113883.6.285"/>
+								<textAlternative></textAlternative>
+								<selectionCriteria>true</selectionCriteria>
+							</SupplyRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<SupplyRequest>
+								<supplyTypeCode displayName="Surgical stockings thigh length" code="A4495" codeSystemName="HCPCS Level II Alphanumeric Codes" codeSystem="2.16.840.1.113883.6.285"/>
+								<textAlternative></textAlternative>
+								<selectionCriteria>true</selectionCriteria>
+							</SupplyRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<SupplyRequest>
+								<supplyTypeCode displayName="Segmental pneumatic appliance for use with pneumatic compressor, half leg" code="E0669" codeSystemName="HCPCS Level II Alphanumeric Codes" codeSystem="2.16.840.1.113883.6.285"/>
+								<textAlternative></textAlternative>
+								<selectionCriteria>true</selectionCriteria>
+							</SupplyRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<SupplyRequest>
+								<supplyTypeCode displayName="Segmental pneumatic appliance for use with pneumatic compressor, full leg" code="E0667" codeSystemName="HCPCS Level II Alphanumeric Codes" codeSystem="2.16.840.1.113883.6.285"/>
+								<textAlternative></textAlternative>
+								<selectionCriteria>true</selectionCriteria>
+							</SupplyRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+	<module>
+		<Metadata>
+			<identity>
+				<title></title>
+				<description></description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Pharmacological Prophylaxis for patients WITH NO renal impairment</title>
+					<description>Select only one of the pharmacological options and consider different doses for patients with renal impairment.</description>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Patient does not have clinical state renal impairment</title>
+					<description></description>
+					<expression>PATIENT_HAS_CLINICAL_STATE(chronicKidneyDiseaseState) == FALSE</expression>
+					<expressionLanguage>nonstandard</expressionLanguage>
+					<dataType>CD</dataType>
+					<dataMapping>
+						<title>Active Clinical State of Chronic Kidney Disease</title>
+						<Data>
+							<ClinicalState>
+								<stateCode displayName="Chronic Kidney Disease with and without Hypertension Code List GROUPING" code="2.16.840.1.113883.3.526.03.42" codeSystemName="Healthcare Effectiveness Data and Information Set" codeSystem="2.16.840.1.113883.3.464"/>
+								<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED Clinical Terms"/>
+							</ClinicalState>
+						</Data>
+						<dataIdentifier>chronicKidneyDiseaseState</dataIdentifier>
+						<dataType>Set(ClinicalState)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title></title>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator displayName="XOR" code="XOR" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+						<ActionConcrete>
+							<SubstanceAdministrationRequest>
+								<codedProductName displayName="Enoxaparin 40mg SC" code="854235" codeSystemName="RxNorm" codeSystem="2.16.840.1.113883.6.88"/>
+								<route displayName="subcutaneous" code="34206005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED Clinical Terms"/>
+								<textAlternative>Enoxaparin 40mg SC Daily</textAlternative>
+								<selectionCriteria>true</selectionCriteria>
+							</SubstanceAdministrationRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<SubstanceAdministrationRequest>
+								<codedProductName displayName="Heparin 5,000 units" code="849776" codeSystemName="RxNorm" codeSystem="2.16.840.1.113883.6.88"/>
+								<route displayName="subcutaneous" code="34206005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED Clinical Terms"/>
+								<textAlternative>Heparin 5,000 units SC TID</textAlternative>
+								<selectionCriteria>true</selectionCriteria>
+							</SubstanceAdministrationRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<SubstanceAdministrationRequest>
+								<codedProductName displayName="Heparin 5,000 units" code="849776" codeSystemName="RxNorm" codeSystem="2.16.840.1.113883.6.88"/>
+								<route displayName="subcutaneous" code="34206005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED Clinical Terms"/>
+								<textAlternative>Heparin 5,000 units SC BID</textAlternative>
+								<selectionCriteria>true</selectionCriteria>
+							</SubstanceAdministrationRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<SubstanceAdministrationRequest>
+								<codedProductName displayName="Fondaparinux 2.5mg SC" code="861360" codeSystemName="RxNorm" codeSystem="2.16.840.1.113883.6.88"/>
+								<route displayName="subcutaneous" code="34206005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED Clinical Terms"/>
+								<textAlternative>Fondaparinux 2.5mg SC Daily</textAlternative>
+								<selectionCriteria>true</selectionCriteria>
+							</SubstanceAdministrationRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+	<module>
+		<Metadata>
+			<identity>
+				<title></title>
+				<description></description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Pharmacological Prophylaxis for patients WITH renal impairment</title>
+					<description>Select only one of the pharmacological options and consider different doses for patients with renal impairment:</description>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Patient has clinical state renal impairment</title>
+					<description></description>
+					<expression>PATIENT_HAS_CLINICAL_STATE(chronicKidneyDiseaseState)</expression>
+					<expressionLanguage>nonstandard</expressionLanguage>
+					<dataType>CD</dataType>
+					<dataMapping>
+						<title>Active Clinical State of Chronic Kidney Disease</title>
+						<Data>
+							<ClinicalState>
+								<stateCode displayName="Chronic Kidney Disease with and without Hypertension Code List GROUPING" code="2.16.840.1.113883.3.526.03.42" codeSystemName="Healthcare Effectiveness Data and Information Set" codeSystem="2.16.840.1.113883.3.464"/>
+								<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED Clinical Terms"/>
+							</ClinicalState>
+						</Data>
+						<dataIdentifier>chronicKidneyDiseaseState</dataIdentifier>
+						<dataType>Set(ClinicalState)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title></title>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator displayName="XOR" code="XOR" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+						<ActionConcrete>
+							<SubstanceAdministrationRequest>
+								<codedProductName displayName="Enoxaparin 30mg SC" code="854228" codeSystemName="RxNorm" codeSystem="2.16.840.1.113883.6.88"/>
+								<route displayName="subcutaneous" code="34206005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED Clinical Terms"/>
+								<textAlternative>Enoxaparin 30mg SC Daily</textAlternative>
+								<selectionCriteria>true</selectionCriteria>
+							</SubstanceAdministrationRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<SubstanceAdministrationRequest>
+								<codedProductName displayName="Fondaparinux 2.5mg SC" code="861360" codeSystemName="RxNorm" codeSystem="2.16.840.1.113883.6.88"/>
+								<route displayName="subcutaneous" code="34206005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED Clinical Terms"/>
+								<textAlternative>Fondaparinux 2.5mg SC Every Other Day</textAlternative>
+								<selectionCriteria>true</selectionCriteria>
+							</SubstanceAdministrationRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+	<module>
+		<Metadata>
+			<identity>
+				<title></title>
+				<description></description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Displayable Resources</title>
+				</identity>
+			</Metadata>
+			<Advice>
+				<title></title>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator displayName="OR" code="OR" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+						<ActionConcrete>
+							<KnowledgeAssetRequest>
+								<resource>
+									<title>Geerts WH, Bergqvist D, Pineo GF, Heit JA, Samama CM, Lassen MR, and Colwell CW. Prevention of Venous Thromboembolism*: American College of Chest Physicians Evidence-Based Clinical Practice Guidelines (8th Edition). Chest 2008;133;381S-453S.</title>
+									<location>http://chestjournal.chestpubs.org/content/133/6_suppl/381S.full.pdf+html</location>
+									<knowledgeResourceType displayName="Reference Documentation" code="308910008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED Clinical Terms"/>
+								</resource>
+								<target displayName="Physician" code="309343006" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<selectionCriteria>false</selectionCriteria>
+							</KnowledgeAssetRequest>
+						</ActionConcrete>	
+						<ActionConcrete>
+							<KnowledgeAssetRequest>
+								<resource>
+									<title>Geerts WH, Pineo GF, Heit JA, Bergqvist D, Lassen MR, Colwell CW and Ray JG. Prevention of Venous Thromboembolism: The Seventh ACCP Conference on Antithrombotic and Thrombolytic Therapy. Chest 2004;126;338S-400S.</title>
+									<location>http://chestjournal.chestpubs.org/content/126/3_suppl/338S.full.pdf+html</location>
+									<knowledgeResourceType displayName="Reference Documentation" code="308910008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED Clinical Terms"/>
+								</resource>
+								<target displayName="Physician" code="309343006" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<selectionCriteria>false</selectionCriteria>
+							</KnowledgeAssetRequest>
+						</ActionConcrete>	
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+</StructuredCDSKnowledge>

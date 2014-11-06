@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructuredGuideline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../schema/structured.xsd">
+    <Metadata>
+        <coverage>
+            <focus>patient</focus>
+            <code code="255397009" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"
+                displayName="Adult Patient"/>
+            <description>adult</description>
+            <type>inclusion</type>
+        </coverage>
+        <coverage>
+            <focus>careSetting</focus>
+            <code code="373864002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"
+                displayName="OutpatientEnvironment"/>
+            <description>outpatient</description>
+            <type>inclusion</type>
+        </coverage>
+        <contributor>
+            <roleType>Developer</roleType>
+            <organization>
+                <name>Regenstrief Institute</name>
+            </organization>
+        </contributor>
+        <identity>
+            <title>Two Rules Addressing Potassium Testing</title>
+            <description>Rule 1: If last Potassium level less than 3.0, recommend repeat testing. Rule 2: If last Potassium level greater than 5.5, recommend repeat testing.</description>
+            <relatedResource>
+                <resource>
+                    <title>Regenstrief Care Rules C06</title>
+                    <description>C06 is the file of Preventive Care Rules used to generate reminders
+                        for non-real-time preventive care at the time of a patient's presentation to an outpatient clinic</description>
+                </resource>
+            </relatedResource>
+        </identity>
+    </Metadata>
+    <module>
+        <Metadata>
+            <identity>
+                <title>Rule 1: Last Potassium Low</title>
+                <description>If last Potassium level less than 3.0, recommend repeat testing</description>
+            </identity>
+        </Metadata>
+        <recommendation>
+            <Metadata>
+                <identity>
+                    <title>Rule 1: Last Potassium Low</title>
+                    <description>If last Potassium level less than 3.0, recommend repeat testing</description>
+                    <relatedResource>
+                        <resource>
+                            <title>Regenstrief Care Rules C06</title>
+                            <description>C06 is the file of Preventive Care Rules used to generate reminders
+                                for non-real-time preventive care at the time of a patient's presentation to an outpatient clinic</description>
+                        </resource>
+                    </relatedResource>
+                </identity>
+            </Metadata>
+            <ApplicableScenario>
+                <LogicalConditionSingle>
+                    <title>Last Potassium Low</title>
+                    <description>Most recent serum Potassium lab test was less than 3.0</description>
+                    <!-- <expression>mostRecentPotassium.resultValue.value &lt; 3.0</expression>   -->                  
+                    <expression>mostRecentPotassium.resultValue.value &lt; 3.0</expression>
+                    <dataMapping>
+                        <title>Most Recent Potassium Value</title>
+                        <description>The most recent serum Potassium lab test</description>
+                        <Data>
+                            <LaboratoryResult>
+                                <resultType  code="2823-3" displayName="PotassiumSerPl-sCnc" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                <resultStatus code="completed"  displayName="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+                            </LaboratoryResult>
+                            <LaboratoryResult>
+                                <resultType code="6298-4" displayName="PotassiumBld-sCnc" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                <resultStatus code="completed"  displayName="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+                            </LaboratoryResult>
+                        </Data>
+                        <expression> patient.laboratoryResult-&gt;select(
+                            resultType.codeSystem="2.16.840.1.113883.6.1" and (resultType.code="2823-3" or resultType.code="6298-4") and
+                            resultStatus.codeSystem="2.16.840.1.113883.5.14" and resultStatus.code="completed" 
+                            -&gt;sortBy("resultDateTime.value")
+                            -&gt;last()
+                        </expression>
+                        <dataIdentifier>mostRecentPotassium</dataIdentifier>
+                        <dataType>LaboratoryResult</dataType>
+                    </dataMapping>
+                </LogicalConditionSingle>
+            </ApplicableScenario>
+            <Advice>
+                <title>Repeat Potassium Test</title>
+                <ActionConcrete>
+                    <ActionOrganizer>
+                        <operator code="AND" codeSystem="1.3.6.1.4.1.16517" displayName="AND" codeSystemName="Partners HealthCare"/>
+                        <ActionConcrete>
+                            <MessageRequest>
+                                <Message>
+                                    <freeTextMessage value="Last Potassium was low.
+                                        Consider repeat potassium to verify and/or follow effect of intervention"/>
+                                    <!-- how to include message parameters? -->
+                                    <!-- 
+                                        <messageParameters>
+                                        <Code code="Last Potassium" codeSystem="Local"/>
+                                        <Value value="Laboratory.resultValue"/>
+                                        </messageParameters>
+                                        <messageParameters>
+                                        <Code code="testDate" codeSystem="Local"/>
+                                        <Value value="Laboratory.resultDateValue"/>
+                                        </messageParameters>
+                                    -->
+                                </Message>
+                                <displayOrderEnforced>false</displayOrderEnforced>
+                                <target code="309343006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Physician"></target>
+                            </MessageRequest>
+                        </ActionConcrete>
+                        <ActionConcrete>
+                            <ProcedureRequest>
+                                <procedureCategoryCode code="275711006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Chemistry"/>
+                                <procedureTypeCode code="2823-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="PotassiumSerPl-sCnc"/>
+                                <implementationTime>
+                                    <period value="0" unit="days"/>
+                                </implementationTime>
+                                <textAlternative>Order Potassium</textAlternative>
+                            </ProcedureRequest>
+                        </ActionConcrete>
+                    </ActionOrganizer>
+                </ActionConcrete>
+            </Advice>
+        </recommendation>
+    </module>
+    <module>
+        <Metadata>
+            <identity>
+                <title>Rule 2: Last Potassium High</title>
+                <description>If last Potassium level greater than 5.5, recommend repeat testing</description>
+            </identity>
+        </Metadata>
+        <recommendation>
+            <Metadata>
+                <identity>
+                    <title>Rule 2: Last Potassium High</title>
+                    <description>If last Potassium level greater than 5.5, recommend repeat testing</description>
+                    <relatedResource>
+                        <resource>
+                            <title>Regenstrief Care Rules C06</title>
+                            <description>C06 is the file of Preventive Care Rules used to generate reminders
+                                for non-real-time preventive care at the time of a patient's presentation to an outpatient clinic</description>
+                        </resource>
+                    </relatedResource>
+                </identity>
+            </Metadata>
+            <ApplicableScenario>
+                <LogicalConditionSingle>
+                    <title>Last Potassium High</title>
+                    <description>Most recent serum Potassium lab test was greater than 5.5</description>
+                    <!-- <expression>mostRecentPotassium.value &gt; 5.5</expression> -->
+                    <expression>mostRecentPotassium.resultValue.value &gt; 5.5</expression>
+                    <dataMapping>
+                        <title>Most Recent Potassium Value</title>
+                        <description>The most recent serum Potassium lab test</description>
+                        <Data>
+                            <LaboratoryResult>
+                                <resultType  code="2823-3" displayName="PotassiumSerPl-sCnc" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                <resultStatus code="completed"  displayName="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+                            </LaboratoryResult>
+                            <LaboratoryResult>
+                                <resultType code="6298-4" displayName="PotassiumBld-sCnc" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                <resultStatus code="completed"  displayName="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+                            </LaboratoryResult>
+                        </Data>
+                        <expression> patient.laboratoryResult-&gt;select(
+                            resultType.codeSystem="2.16.840.1.113883.6.1" and (resultType.code="2823-3" or resultType.code="6298-4") and
+                            resultStatus.codeSystem="2.16.840.1.113883.5.14" and resultStatus.code="completed" 
+                            -&gt;sortBy("resultDateTime.value")
+                            -&gt;last()
+                        </expression>
+                        <dataIdentifier>mostRecentPotassium</dataIdentifier>
+                        <dataType>LaboratoryResult</dataType>
+                    </dataMapping>
+                </LogicalConditionSingle>
+            </ApplicableScenario>
+            <Advice>
+                <title>Repeat Potassium Test</title>
+                <ActionConcrete>
+                    <ActionOrganizer>
+                        <operator code="AND" codeSystem="1.3.6.1.4.1.16517" displayName="AND" codeSystemName="Partners HealthCare"/>
+                        <ActionConcrete>
+                            <MessageRequest>
+                                <Message>
+                                    <freeTextMessage value="Last Potassium was high.
+                                        Consider repeat potassium to verify and/or follow effect of intervention"/>
+                                    <!-- how to include message parameters? -->
+                                    <!-- 
+                                        <messageParameters>
+                                        <Code code="Last Potassium" codeSystem="Local"/>
+                                        <Value value="Laboratory.resultValue"/>
+                                        </messageParameters>
+                                        <messageParameters>
+                                        <Code code="testDate" codeSystem="Local"/>
+                                        <Value value="Laboratory.resultDateValue"/>
+                                        </messageParameters>
+                                    -->
+                                </Message>
+                                <displayOrderEnforced>false</displayOrderEnforced>
+                                <target code="309343006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Physician"></target>
+                            </MessageRequest>
+                        </ActionConcrete>
+                        <ActionConcrete>
+                            <ProcedureRequest>
+                                <procedureCategoryCode code="275711006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" displayName="Chemistry"/>
+                                <procedureTypeCode code="2823-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="PotassiumSerPl-sCnc"/>
+                                <implementationTime>
+                                    <period value="0" unit="days"/>
+                                </implementationTime>
+                                <textAlternative>Order Potassium</textAlternative>
+                            </ProcedureRequest>
+                        </ActionConcrete>
+                    </ActionOrganizer>
+                </ActionConcrete>
+            </Advice>
+        </recommendation>
+    </module>
+    <ApplicableScenario>
+        <LogicalConditionSingle>
+            <title>Adult Patient</title>
+            <description>Patient is 18 years of age or older</description>
+            <expression>Let year : CodedValue = Factory.CodedValue("2.16.840.1.113883.6.8", "a") in DoB.occurredAgo(18, year)</expression>
+            <dataMapping>
+                <title>DOB</title>
+                <description>Patient's date of birth</description>
+                <Data/>
+                <expression>patient.personDateOfBirth</expression>
+                <dataIdentifier>DoB</dataIdentifier>
+                <dataType>TS</dataType>
+            </dataMapping>
+            <!-- <dataMapping>
+                <title>Age</title>
+                <description>Age of patient equals Date of Rule Execution minus Date of Birth, divided by 365.25</description>
+                <Data/>
+                <expression>Define "AGE" as ("DATE" - "BIRTH")/365.25</expression>
+                <dataIdentifier>patient.Age</dataIdentifier>
+                <dataType>Integer</dataType>
+                </dataMapping>
+            -->
+        </LogicalConditionSingle>
+    </ApplicableScenario>
+</StructuredGuideline>

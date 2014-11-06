@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructuredCDSKnowledge version="2.0" xsi:noNamespaceSchemaLocation="structured.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Metadata>
+		<identity>
+			<title>The following search tages have been assigned to this artifact:</title>
+			<description>Smoking, Cessation Advice, Patients >12: Order set for cessation advice to patients who smoke.</description>
+			<relatedResource>
+				<resource>
+					<title>Value Set for CDC Codes for Active Smokers</title>
+					<description></description>
+					<location>http://cdsportal.partners.org/transformXMLForACDS.aspx?xmlFileName=ACDS-Value-Set-for-CDC-Recodes-for-Active-Smoker-L3-ACDS-2011-L3-1.0-090221fe80041244.xml</location>
+				</resource>
+				<type>dependsOn</type>
+			</relatedResource>
+			<relatedResource>
+				<resource>
+					<title>National Quality Forum Performance Measures</title>
+					<description></description>
+					<location>http://cdsportal.partners.org/RelatedResources.aspx?pageId=3</location>
+				</resource>
+				<type>dependsOn</type>
+			</relatedResource>
+			<relatedResource>
+				<resource>
+					<title>National Quality Forum eMeasure (0027): Smoking Cessation, Medical assistance: a. Advising Smokers to Quit, b. Discussing Smoking Cessation Medications, c. Discussing Smoking Cessation Strategies</title>
+					<description></description>
+					<location><![CDATA[http://www.qualityforum.org/MeasureDetails.aspx?actid=0&SubmissionId=390#k=0027&e=1&st=&sd=&s=n&so=a&p=1&mt=&cs=]]></location>
+				</resource>
+				<type>associatedResource</type>
+			</relatedResource>
+			<relatedResource>
+				<resource>
+					<title>National Quality Forum eMeasure (0028): Measure pair: a. Tobacco Use Assessment, b. Tobacco Cessation Intervention</title>
+					<description></description>
+					<location><![CDATA[http://www.qualityforum.org/MeasureDetails.aspx?actid=0&SubmissionId=391#p=3&s=n&so=a]]></location>
+				</resource>
+				<type>associatedResource</type>
+			</relatedResource>
+			<relatedResource>
+				<resource>
+					<title>AHRQ eRecommendations</title>
+					<description></description>
+					<location>http://cdsportal.partners.org/RelatedResources.aspx?pageId=3</location>
+				</resource>
+				<type>associatedResource</type>
+			</relatedResource>
+		</identity>
+		<implementation>
+			<knowledgeType>Order Set</knowledgeType>
+		</implementation>
+		<coverage>
+			<focus>patient</focus>
+			<code displayName="Adult" code="133936004" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+			<description>patient</description>
+			<type>inclusion</type>
+		</coverage>
+		<coverage>
+			<focus>patient</focus>
+			<code displayName="Adolescent" code="133937008" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+			<description>patient</description>
+			<type>inclusion</type>
+		</coverage>
+		<coverage>
+			<focus>careSetting</focus>
+			<code displayName="Outpatient" code="373864002" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+			<description>outpatient</description>
+			<type>inclusion</type>
+		</coverage>
+		<coverage>
+			<focus>clinicalFocus</focus>
+			<code displayName="Smoker" code="77176002" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+			<description>Smoker</description>
+			<type>inclusion</type>
+		</coverage>
+		<contributor>
+			<roleType>Developer</roleType>
+			<organization>
+				<name>Advancing Clinical Decision Support</name>
+			</organization>
+		</contributor>
+		<stateChangeEvent>
+			<eventCode>Created</eventCode>
+			<eventDateTime>2011-11-18</eventDateTime>
+		</stateChangeEvent>
+	</Metadata>
+	<ApplicableScenario>
+		<LogicalConditionSet>
+			<title>Applicable Scenario</title>
+			<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Adult or Adolescent patient</title>
+					<description>Patient is an adolescent or adult, i.e. age is greater than 12 years old</description>
+					<expression>CALCULATE_AGE_IN_YEARS(DoB)>=12</expression>
+					<expressionLanguage>nonstandard</expressionLanguage>
+					<dataType>CD</dataType>
+					<dataMapping>
+						<title>DOB</title>
+						<description>Patient's date of birth</description>
+						<Data> </Data>
+						<dataIdentifier>DoB</dataIdentifier>
+						<dataType>TS</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<ApplicableScenario>
+				<LogicalConditionSet>
+					<title></title>
+					<description></description>
+					<operator displayName="OR" code="OR" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Patient is a tobacco user</title>
+							<description></description>
+							<expression>PATIENT_HAS_SOCIAL_HISTORY(tobaccoUser)</expression>
+							<expressionLanguage>nonstandard</expressionLanguage>
+							<dataType>CD</dataType>
+							<dataMapping>
+								<title></title>
+								<Data>
+									<socialHistory>
+										<socialHistoryObservedValue displayName="Tobacco User SNOMED-CT Code List" code="2.16.840.1.113883.3.526.02.422" codeSystemName="American Medical Association" codeSystem="2.16.840.1.113883.3.464"/>
+										<socialHistoryStatus displayName="Active" code="55561003" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+									</socialHistory>
+								</Data>
+								<dataIdentifier>tobaccoUser</dataIdentifier>
+								<dataType>Set(SocialHistory)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Patient is a smoker</title>
+							<description></description>
+							<expression>PATIENT_HAS_SOCIAL_HISTORY(cdcSmokingRecodes)</expression>
+							<expressionLanguage>nonstandard</expressionLanguage>
+							<dataType>CD</dataType>
+							<dataMapping>
+								<title></title>
+								<Data>
+									<socialHistory>
+										<socialHistoryObservedValue displayName="CDC Recodes Value Set (L3 spec)" code="" codeSystemName="Partners Healthcare System" codeSystem="1.3.6.1.4.1.16517"/>
+										<socialHistoryStatus displayName="Active" code="55561003" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+									</socialHistory>
+								</Data>
+								<dataIdentifier>cdcSmokingRecodes</dataIdentifier>
+								<dataType>Set(SocialHistory)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+				</LogicalConditionSet>
+			</ApplicableScenario>
+		</LogicalConditionSet>
+	</ApplicableScenario>
+	<module>
+		<Metadata>
+			<identity>
+				<title></title>
+				<description></description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Anti-Smoking Medications</title>
+					<description></description>
+				</identity>
+			</Metadata>
+			<Advice>
+				<title></title>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator displayName="OR" code="OR" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+						<ActionConcrete>
+							<SubstanceAdministrationRequest>
+								<codedProductName displayName="Nicoderm-CQ" code="351427" codeSystemName="RxNorm" codeSystem="2.16.840.1.113883.6.88"/>
+								<route displayName="patch" code="C82332" codeSystemName="Health Level 7 v3 RouteOfAdministration" codeSystem="2.16.840.1.113883.5.112"/>
+								<textAlternative>Nicoderm-CQ 14mg 1 patch/day</textAlternative>
+								<selectionCriteria>true</selectionCriteria>
+							</SubstanceAdministrationRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<SubstanceAdministrationRequest>
+								<codedProductName displayName="Varenicline (Chantix)" code="637190" codeSystemName="RxNorm" codeSystem="2.16.840.1.113883.6.88"/>
+								<route displayName="oral" code="C38288" codeSystemName="Health Level 7 v3 RouteOfAdministration" codeSystem="2.16.840.1.113883.5.112"/>
+								<textAlternative>Varenicline po 1mg 1tab / day</textAlternative>
+								<selectionCriteria>true</selectionCriteria>
+							</SubstanceAdministrationRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<SubstanceAdministrationRequest>
+								<codedProductName displayName="Bupropion" code="993955" codeSystemName="RxNorm" codeSystem="2.16.840.1.113883.6.88"/>
+								<route displayName="oral" code="C38288" codeSystemName="Health Level 7 v3 RouteOfAdministration" codeSystem="2.16.840.1.113883.5.112"/>
+								<textAlternative>Zyban ER po 150mg 1tab / day </textAlternative>
+								<selectionCriteria>true</selectionCriteria>
+							</SubstanceAdministrationRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+	<module>
+		<Metadata>
+			<identity>
+				<title>Physician Recommendations</title>
+				<description>Order set for Physician recommendations against smoking.</description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Referrals</title>
+					<description></description>
+					<relatedResource>
+						<resource>
+							<title></title>
+							<description></description>
+						</resource>
+						<type>derivedFrom</type>
+					</relatedResource>
+				</identity>
+			</Metadata>
+			<Advice>
+				<title></title>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<ActionConcrete>
+							<EncounterRequest>
+								<encounterProvider displayName="Smoking cessation education" code="225323000" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<encounterType displayName="Patient referral" code="3457005" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<textAlternative></textAlternative>
+								<selectionCriteria>true</selectionCriteria>
+							</EncounterRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<EncounterRequest>
+								<encounterProvider displayName="Referral to smoking cessation advisor" code="395700008" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<encounterType displayName="Patient referral" code="3457005" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<textAlternative></textAlternative>
+								<selectionCriteria>true</selectionCriteria>
+							</EncounterRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<EncounterRequest>
+								<encounterProvider displayName="Referral to stop-smoking clinic" code="315232003" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<encounterType displayName="Patient referral" code="3457005" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<textAlternative></textAlternative>
+								<selectionCriteria>true</selectionCriteria>
+							</EncounterRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+	<module>
+		<Metadata>
+			<identity>
+				<title>Patient Education</title>
+				<description></description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Patient Education</title>
+					<description></description>
+				</identity>
+			</Metadata>
+			<Advice>
+				<title></title>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<ActionConcrete>
+							<KnowledgeAssetRequest>
+								<resource>
+									<title>Smoking Cessation Education Leaflet</title>
+									<knowledgeResourceType displayName="Smoking cessation education" code="225323000" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+									<location>http://www.ahrq.gov/consumer/tobacco/helpsmokers.htm</location>
+								</resource>
+								<textAlternative></textAlternative>
+								<target displayName="Patient" code="116154003" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<selectionCriteria>true</selectionCriteria>
+							</KnowledgeAssetRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+	<module>
+		<Metadata>
+			<identity>
+				<title></title>
+				<description></description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Displayable Resources</title>
+					<description></description>
+				</identity>
+			</Metadata>
+			<Advice>
+				<title></title>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<ActionConcrete>
+							<KnowledgeAssetRequest>
+								<resource>
+									<title>The Health Consequences of Smoking: A Report of the Surgeon General</title>
+									<location>http://www.fda.gov/downloads/AdvisoryCommittees/CommitteesMeetingMaterials/TobaccoProductsScientificAdvisoryCommittee/UCM204343.pdf</location>
+									<knowledgeResourceType displayName="Reference Documentation" code="308911008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED Clinical Terms"/>
+								</resource>
+								<textAlternative></textAlternative>
+								<target displayName="Physician" code="309343006" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<selectionCriteria>false</selectionCriteria>
+							</KnowledgeAssetRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+</StructuredCDSKnowledge>

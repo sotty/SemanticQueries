@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructuredGuideline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../schema/structured.xsd">
+    <Metadata>
+        <coverage>
+            <focus>patient</focus>
+            <code code="255397009" displayName="Adult" codeSystem="2.16.840.1.113883.6.96"
+                codeSystemName="SNOMED-CT"/>
+            <description>adult</description>
+            <type>inclusion</type>
+        </coverage>
+        <coverage>
+            <focus>careSetting</focus>
+            <code code="373864002" displayName="Outpatient" codeSystem="2.16.840.1.113883.6.96"
+                codeSystemName="SNOMED-CT"/>
+            <description>outpatient</description>
+            <type>inclusion</type>
+        </coverage>
+        <contributor>
+            <roleType>Developer</roleType>
+            <organization>
+                <name>Regenstrief Institute</name>
+            </organization>
+        </contributor>
+        <identity>
+            <title>Care Rule for Myocardial Infarct</title>
+            <description>Care Rule which detects a recent MI and suggests Beta Blockers and Aspirin</description>
+            <relatedResource>
+                <resource>
+                    <title>Regenstrief Care Rules C06</title>
+                    <description>C06 is the file of Preventive Care Rules used to
+                        generate reminders
+                        for non-real-time preventive care at the time of a patient's
+                        presentation to an outpatient clinic</description>
+                </resource>
+            </relatedResource>
+        </identity>
+    </Metadata>
+    <module>
+        <Metadata>
+            <identity>
+                <title>TREATMENT</title>
+                <description>If most recent discharge diagnosis includes Myocardial Infarction then suggest Beta Blockers and Aspirin.
+                    The original Regenstrief Care Rule logic seems to read:
+                    if the patient is NOT on Beta Blockers AND if the patient is NOT on Aspirin then recommend Beta Blockers and Aspirin.
+                    This does not make allowance for the patient who: (1) is on Aspirin but needs Beta Blockers; (2) is on Beta Blockers but needs Aspirin.
+                    We may need to divide this logic into two separate rules:
+                    (1) if the patient is NOT on Aspirin then recommend Aspirin
+                    (2) if the patient is NOT on Beta Blockers then recommend Beta Blockers 
+                </description>
+                <!-- I will divide the original Regenstrief recommendation, which was one rule, into two recommendations.
+                    Although this is not the original Regenstrief logic, it may turn out to be more flexible if futher changes are desired. -->
+            </identity>
+        </Metadata>
+        <recommendation>
+            <Metadata>
+                <identity>
+                    <title>Rule 1: Aspirin for recent discharge diagnosis of Myocardial Infarction</title>
+                    <description>
+                        two conditions need to be met:
+                        (1) the most recent hospitalization discharge diagnosis includes a diagnosis of Myocardial Infarction;
+                        (2) after that date, no record of drugs in the set of Aspirins
+                    </description>
+                </identity>
+            </Metadata>
+            <ApplicableScenario>
+                <LogicalConditionSet>
+                    <operator code="AND" codeSystem="1.3.6.1.4.1.16517"
+                        codeSystemName="Partners HealthCare System"/>
+                    <ApplicableScenario>
+                        <LogicalConditionSingle>
+                            <title>Last Discharge Diagnosis Includes Myocardial Infarction</title>
+                            <expression>exists(lastMI)</expression>
+                            <dataMapping>
+                                <Data>
+                                    <ClinicalState>
+                                        <stateCode code="22298006" displayName="Myocardial infarction" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+                                    </ClinicalState>
+                                </Data>
+                                <expression>
+                                    patient.ClinicalState-&gt;select(
+                                    code="22298006" 
+                                    and codeSystem="2.16.840.1.113883.6.96")
+                                    -&gt;sortBy(stateDate.value)-&gt;last()
+                                </expression>
+                                <dataIdentifier>lastMI</dataIdentifier>
+                                <dataType>ClinicalState</dataType>
+                            </dataMapping>
+                        </LogicalConditionSingle>
+                    </ApplicableScenario>
+                    <ApplicableScenario>
+                        <LogicalConditionSingle>
+                            <title>No Aspirin After Discharge Diagnosis of Myocardial Infarct</title>
+                            <description>No Aspirin prescription after the date of a Discharge Diagnosis of Myocardial Infarct</description>
+                            <expression>(lastAspirin == NULL) or (lastAspirin.orderDateTime &lt; lastMI.stateDate)</expression>
+                            <dataMapping>
+                                <title>Last Aspirin</title>
+                                <description>This refers to the most recent prescription for a medication in the set of Aspirins.</description>
+                                <Data/>
+                                <expression>patient.medication-&gt;select(
+                                    statusOfMedication.code="55561003" 
+                                    and statusOfMedication.codeSystem="2.16.840.1.113883.6.96"
+                                    and codedProductClass-&gt;exists(
+                                    codeSystem="2.16.840.1.113883.6.209" 
+                                    and code="N0000006582"))
+                                    -&gt;sortBy(orderDateTime.value)-&gt;last()
+                                </expression>
+                                <dataIdentifier>lastAspirin</dataIdentifier>
+                                <dataType>Medication</dataType>
+                            </dataMapping>
+                        </LogicalConditionSingle>
+                    </ApplicableScenario>
+                </LogicalConditionSet>
+            </ApplicableScenario>
+            <Advice>
+                <ActionConcrete>
+                    <ActionOrganizer>
+                        <operator code="AND" codeSystem="1.3.6.1.4.1.16517"
+                            codeSystemName="Partners HealthCare System"/>
+                        <ActionConcrete>
+                            <MessageRequest>
+                                <Message>
+                                    <freeTextMessage
+                                        value="Recent MI, please treat with Aspirin if not contraindicated."
+                                    />
+                                </Message>
+                                <target code="309343006" displayName="Physician"
+                                    codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+                            </MessageRequest>
+                        </ActionConcrete>
+                        <ActionConcrete>
+                            <SubstanceAdministrationRequest>
+                                <codedProductName displayName="aspirin" code="1191"
+                                    codeSystem="2.16.840.1.113883.6.88"/>
+                                <route displayName="oral" code="C38288"
+                                    codeSystem="2.16.840.1.113883.5.112"/>
+                                <textAlternative>Order Aspirin</textAlternative>
+                            </SubstanceAdministrationRequest>
+                        </ActionConcrete>
+                    </ActionOrganizer>
+                </ActionConcrete>
+            </Advice>
+        </recommendation>
+        <recommendation>
+            <Metadata>
+                <identity>
+                    <title>Rule 2: Beta Blockers for recent discharge diagnosis of Myocardial Infarction</title>
+                    <description>
+                        two conditions need to be met:
+                        (1) the most recent hospitalization discharge diagnosis includes a diagnosis of Myocardial Infarction;
+                        (2) after that date, no record of drugs in the set of Beta Blockers
+                    </description>
+                </identity>
+            </Metadata>
+            <ApplicableScenario>
+                <LogicalConditionSet>
+                    <operator code="AND" codeSystem="1.3.6.1.4.1.16517"
+                        codeSystemName="Partners HealthCare System"/>
+                    <ApplicableScenario>
+                        <LogicalConditionSingle>
+                            <title>Last Discharge Diagnosis Includes Myocardial Infarction</title>
+                            <expression>exists(lastMI)</expression>
+                            <dataMapping>
+                                <Data>
+                                    <ClinicalState>
+                                        <stateCode code="22298006" displayName="Myocardial infarction" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+                                    </ClinicalState>
+                                </Data>
+                                <expression>
+                                    patient.ClinicalState-&gt;select(
+                                    code="22298006" 
+                                    and codeSystem="2.16.840.1.113883.6.96")
+                                    -&gt;sortBy(stateDate.value)-&gt;last()
+                                </expression>
+                                <dataIdentifier>lastMI</dataIdentifier>
+                                <dataType>ClinicalState</dataType>
+                            </dataMapping>
+                        </LogicalConditionSingle>
+                    </ApplicableScenario>
+                    <ApplicableScenario>
+                        <LogicalConditionSingle>
+                            <title>No Beta Blocker After Discharge Diagnosis of Myocardial Infarct</title>
+                            <description>No Beta Blocker prescription after the date of a Discharge Diagnosis of Myocardial Infarct</description>
+                            <expression>(lastBetaBlocker == NULL) or (lastBetaBlocker.orderDateTime &lt; lastMI.stateDate)</expression>
+                            <dataMapping>
+                                <title>Last Beta Blocker</title>
+                                <description>This refers to the most recent prescription for a medication in the set of Beta Blockers.</description>
+                                <Data/>
+                                <expression>patient.medication-&gt;select(
+                                    statusOfMedication.code="55561003"
+                                    and statusOfMedication.codeSystem="2.16.840.1.113883.6.96"
+                                    and codedProductClass-&gt;exists(
+                                    codeSystem="2.16.840.1.113883.6.209"
+                                    and code="N0000000161"))
+                                    -&gt;sortBy(orderDateTime.value)-&gt;last()
+                                </expression>
+                                <dataIdentifier>lastBetaBlocker</dataIdentifier>
+                                <dataType>Medication</dataType>
+                            </dataMapping>
+                        </LogicalConditionSingle>
+                    </ApplicableScenario>
+                </LogicalConditionSet>
+            </ApplicableScenario>
+            <Advice>
+                <ActionConcrete>
+                    <ActionOrganizer>
+                        <operator code="AND" codeSystem="1.3.6.1.4.1.16517"
+                            codeSystemName="Partners HealthCare System"/>
+                        <ActionConcrete>
+                            <MessageRequest>
+                                <Message>
+                                    <freeTextMessage
+                                        value="Recent MI, please treat with Beta Blocker if not contraindicated."
+                                    />
+                                </Message>
+                                <target code="309343006" displayName="Physician"
+                                    codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+                            </MessageRequest>
+                        </ActionConcrete>
+                        <ActionConcrete>
+                            <SubstanceAdministrationRequest>
+                                <codedProductName displayName="metoprolol" code="6918"
+                                    codeSystemName="2.16.840.1.113883.6.88"/>
+                                <route displayName="oral" code="C38288"
+                                    codeSystem="2.16.840.1.113883.5.112"/>
+                                <textAlternative>Order Beta Blocker</textAlternative>
+                            </SubstanceAdministrationRequest>
+                        </ActionConcrete>
+                    </ActionOrganizer>
+                </ActionConcrete>
+            </Advice>
+        </recommendation>
+    </module>
+    <ApplicableScenario>
+        <LogicalConditionSet>
+            <operator code="AND" codeSystem="1.3.6.1.4.1.16517"
+                codeSystemName="Partners HealthCare System"/>
+            <ApplicableScenario>
+                <LogicalConditionSingle>
+                    <title>Adult patient</title>
+                    <description>These reminders are intended for the adult medicine clinics, where patients are 18 years of age or older</description>
+                    <expression>Let year : Coded Value =
+                        Factory.CodedValue("2.16.840.1.113883.6.96", "258707000") in DoB.occurredAgo(18, year)
+                    </expression>
+                    <dataMapping>
+                        <title>Date of Birth</title>
+                        <Data/>
+                        <expression>patient.personDateOfBirth</expression>
+                        <dataIdentifier>DoB</dataIdentifier>
+                        <dataType>TS</dataType>
+                    </dataMapping>
+                </LogicalConditionSingle>
+            </ApplicableScenario>
+            <ApplicableScenario>
+                <LogicalConditionSingle>
+                    <title>Outpatient setting</title>
+                    <!-- It may be good to explicitly remind everyone that these Regenstrief reminders fire in the outpatient clinic setting.
+                        They do not fire in the hospital setting -->
+                    <description>These reminders are intended for the outpatient clinics, not for the hospital setting</description>
+                    <expression>theSetting-&gt;select(encounterLocation.code="373864002" and encounterLocation.codeSystem="2.16.840.1.113883.6.96")</expression>
+                    <dataMapping>
+                        <Data>
+                            <Encounter>
+                                <encounterLocation code="373864002" displayName="Outpatient" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+                            </Encounter>       
+                        </Data>
+                        <expression>patient.Encounter.encounterLocation</expression>
+                        <dataIdentifier>theSetting</dataIdentifier>
+                        <dataType>Coded Value</dataType>
+                        <!-- is this the correct dataType? -->
+                    </dataMapping>
+                </LogicalConditionSingle>
+            </ApplicableScenario>
+        </LogicalConditionSet>
+    </ApplicableScenario>
+</StructuredGuideline>
+                
