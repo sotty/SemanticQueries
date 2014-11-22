@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructuredGuideline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../schema/structured.xsd">
+	<Metadata>
+		<coverage>
+			<focus>patient</focus>
+			<code code="255397009" displayName="Adult" codeSystem="2.16.840.1.113883.6.96"
+				codeSystemName="SNOMED-CT" />
+			<description>adult</description>
+			<type>inclusion</type>
+		</coverage>
+		<coverage>
+			<focus>careSetting</focus>
+			<code code="373864002" displayName="Outpatient" codeSystem="2.16.840.1.113883.6.96"
+				codeSystemName="SNOMED-CT" />
+			<description>outpatient</description>
+			<type>inclusion</type>
+		</coverage>
+		<contributor>
+			<roleType>Developer</roleType>
+			<organization>
+				<name>Regenstrief Institute</name>
+			</organization>
+		</contributor>
+		<identity>
+			<title>Care Rule for Echocardiogram</title>
+			<description>Care Rule to encourage Echocardiogram to confirm
+				diagnosis of Congestive Heart Failure</description>
+			<relatedResource>
+				<resource>
+					<title>Regenstrief Care Rules C06</title>
+					<description>C06 is the file of Preventive Care Rules used to
+						generate reminders
+						for non-real-time preventive care at the time of a patient's
+						presentation to an outpatient clinic</description>
+				</resource>
+			</relatedResource>
+		</identity>
+	</Metadata>
+	<module>
+		<Metadata>
+			<identity>
+				<title>DIAGNOSIS</title>
+				<description>Reminder to order Echocardiogram to confirm diagnosis
+					of Congestive Heart Failure</description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Rule: Order Echo for Diagnosis of CHF</title>
+					<description>This rule asks doctors to order echocardiogram for
+						their patients with the diagnosis of CHF but no echo was ever done
+						(regardless of result)</description>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSet>
+					<operator code="AND" codeSystem="1.3.6.1.4.1.16517"
+						codeSystemName="Partners HealthCare System" />
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Diagnosis of CHF</title>
+							<description>Patient has documentation of a diagnosis of CHF
+							</description>
+							<expression>CHFProblem &lt;&gt; null</expression>
+							<!-- <expression>CHFProblem-&gt;notEmpty()</expression> -->
+							<dataMapping>
+								<Data>
+									<Problem>
+										<problemStatus displayName="Active" code="55561003"
+											codeSystem="2.16.840.1.113883.6.96" />
+										<problemCode displayName="Congestive Heart Failure"
+											code="42343007" codeSystem="2.16.840.1.113883.6.96" />
+									</Problem>
+									<Problem>
+										<problemStatus displayName="Active" code="55561003"
+											codeSystem="2.16.840.1.113883.6.96" />
+										<problemCode displayName="Heart Failure" code="84114007"
+											codeSystem="2.16.840.1.113883.6.96" />
+									</Problem>
+								</Data>
+								<expression>patient.Problem-&gt;select(
+									problemCode.codeSystem="2.16.840.1.113883.6.96"
+									and (problemCode.code="42343007" or problemCode.code="84114007")
+									and problemStatus.codeSystem ="2.16.840.1.113883.6.96" and
+									problemStatus.code="55561003")-&gt;sortBy(problemDate.value)-&gt;last()
+								</expression>
+								<!-- <expression>patient.Problem-&gt;select( problemCode.codeSystem="2.16.840.1.113883.6.96" 
+									and (problemCode.code="42343007" or problemCode.code="84114007") and problemStatus.codeSystem 
+									="2.16.840.1.113883.6.96" and problemStatus.code="55561003")</expression> -->
+								<dataIdentifier>CHFProblem</dataIdentifier>
+								<dataType>Problem</dataType>
+								<!-- <dataType>Set(Problem)</dataType> -->
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>No Echo</title>
+							<description>No Echocardiogram was ever done (regardless of
+								result)</description>
+							<expression>(EchoTest-&gt;isEmpty()) and
+								(EchoProcedure-&gt;isEmpty())</expression>
+							<dataMapping>
+								<title>Echocardiography as Test</title>
+								<description>Echocardiography Test Result available. Coded as
+									LOINC. Note that we are not sure if Echocardiograms
+									will be queried as Test Results, or as Procedures, or as both.
+								</description>
+								<Data>
+									<LaboratoryResult>
+										<resultType code="34552-0" displayName="2D Echo Pnl"
+											codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+										<resultStatus code="completed" codeSystem="2.16.840.1.113883.5.14"
+											codeSystemName="ActStatus" />
+									</LaboratoryResult>
+								</Data>
+								<expression>patient.LaboratoryResult-&gt;select(
+									resultType.code="34552-0" and
+									resultType.codeSystem="2.16.840.1.113883.6.1"
+									and resultStatus.code="completed" and
+									resultStatus.codeSystem="2.16.840.1.113883.5.14")</expression>
+								<dataIdentifier>EchoTest</dataIdentifier>
+								<dataType>Set(LaboratoryResult)</dataType>
+							</dataMapping>
+							<dataMapping>
+								<title>Echocardiography as Procedure</title>
+								<description>Echocardiography Procedure available. Coded as
+									SNOMEDCT. Note that we are not sure if Echocardiograms
+									will be queried as Test Results, or as Procedures, or as both.
+								</description>
+								<Data>
+									<Procedure>
+										<procedureType code="40701008" displayName="Echocardiography"
+											codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" />
+										<procedureStatus code="completed" codeSystem="2.16.840.1.113883.5.14"
+											codeSystemName="ActStatus" />
+									</Procedure>
+								</Data>
+								<expression>patient.Procedure-&gt;select(
+									procedureType.code="40701008" and
+									procedureType.codeSystem="2.16.840.1.113883.6.96"
+									and procedureStatus.code="completed" and
+									procedureStatus.codeSystem="2.16.840.1.113883.5.14")
+								</expression>
+								<dataIdentifier>EchoProcedure</dataIdentifier>
+								<dataType>Set(Procedure)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+				</LogicalConditionSet>
+			</ApplicableScenario>
+			<Advice>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator code="AND" codeSystem="1.3.6.1.4.1.16517"
+							codeSystemName="Partners HealthCare System" />
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage
+										value="This patient had the diagnosis of CHF recorded on ${CHFProblem.problemDate}.
+                                        However, there is no echocardiogram recorded for this patient.
+                                        Because the treatment of systolic and diastolic dysfunction can be quite different, please order an echocardiogram for this patient. " />
+									<!-- can the variable CHFProblem be referenced as a parameter in 
+										this freeTextMessage? -->
+									<!-- this variable is defined elsewhere in this document - but is 
+										the Scope of the Definition broad enough? -->
+									<!-- or should we re-define the variable CHFProblem in a new dataMapping 
+										element -->
+								</Message>
+								<target code="309343006" displayName="Physician"
+									codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT" />
+							</MessageRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<ProcedureRequest>
+								<procedureCategoryCode code="276341003"
+									displayName="Cardiovascular Investigation" codeSystem="2.16.840.1.113883.6.96"
+									codeSystemName="SNOMED-CT" />
+								<procedureTypeCode code="40701008"
+									displayName="Echocardiography" codeSystem="2.16.840.1.113883.6.96"
+									codeSystemName="SNOMED-CT" />
+								<textAlternative>Order Echocardiogram</textAlternative>
+							</ProcedureRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+	<ApplicableScenario>
+		<LogicalConditionSingle>
+			<title>Adult Patient</title>
+			<description>Patient is 18 years of age or older</description>
+			<expression>Let year : CodedValue =
+				Factory.CodedValue("2.16.840.1.113883.6.96", "258707000") in
+				DoB.occurredAgo(18, year)</expression>
+			<dataMapping>
+				<title>Date of Birth</title>
+				<description>Patient's date of birth</description>
+				<Data />
+				<expression>patient.personDateOfBirth</expression>
+				<dataIdentifier>DoB</dataIdentifier>
+				<dataType>TS</dataType>
+			</dataMapping>
+		</LogicalConditionSingle>
+	</ApplicableScenario>
+</StructuredGuideline>

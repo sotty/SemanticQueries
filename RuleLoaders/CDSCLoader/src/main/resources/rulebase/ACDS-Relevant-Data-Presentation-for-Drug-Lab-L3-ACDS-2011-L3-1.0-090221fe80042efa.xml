@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructuredCDSKnowledge version="2.0" xsi:noNamespaceSchemaLocation="structured.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Metadata>
+		<identity>
+			<title>The following search tags have been assigned to this artifact:</title>
+			<description>This is a prototype Relevant Data Display artifact, which searches for specific lab results when a medication is ordered for a patient. The subset of the drug / lab examples shown here was based on content in production at Partners Healthcare.</description>
+		</identity>
+		<implementation>
+			<knowledgeType>Relevant Data Display</knowledgeType>
+		</implementation>
+		<coverage>
+			<focus>patient</focus>
+			<code displayName="Adult" code="133936004" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+			<description></description>
+			<type>inclusion</type>
+		</coverage>
+		<coverage>
+			<focus>careSetting</focus>
+			<code displayName="Outpatient" code="373864002" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+			<description></description>
+			<type>inclusion</type>
+		</coverage>
+		<coverage>
+			<focus>clinicalFocus</focus>
+			<code displayName="Medication monitoring (regime/therapy)" code="395170001" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+			<description></description>
+			<type>inclusion</type>
+		</coverage>
+		<contributor>
+			<roleType>Developer</roleType>
+			<organization>
+				<name>Advancing Clinical Decision Support</name>
+			</organization>
+		</contributor>
+		<stateChangeEvent>
+			<eventCode>Created</eventCode>
+			<eventDateTime>2011-11-18</eventDateTime>
+		</stateChangeEvent>
+	</Metadata>
+	<ApplicableScenario>
+		<LogicalConditionSet>
+			<title>Applicable Scenario</title>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Patient age is greater than or equal to 18 years old</title>
+					<description></description>
+					<expression>CALCULATE_AGE_IN_YEARS(DoB)>=18</expression>
+					<expressionLanguage>nonstandard</expressionLanguage>
+					<dataType>CD</dataType>
+					<dataMapping>
+						<title>Patient's date of birth</title>
+						<description></description>
+						<Data> </Data>
+						<dataIdentifier>DoB</dataIdentifier>
+						<dataType>TS</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+		</LogicalConditionSet>
+	</ApplicableScenario>
+	<module>
+		<Metadata>
+			<identity>
+				<title></title>
+				<description></description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Med ordered and recent lab performed</title>
+					<description></description>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSet>
+					<title></title>
+					<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Medication ordered</title>
+							<description></description>
+							<expression>PATIENT_MEDICATION_ORDERED(azathioprineMedication)</expression>
+							<expressionLanguage>nonstandard</expressionLanguage>
+							<dataType>CD</dataType>
+							<dataMapping>
+								<title>Azathioprine ordered</title>
+								<description></description>
+								<Data>
+									<Medication>
+										<codedProductClass displayName="Azathioprine" code="1256" codeSystemName="RxNorm" codeSystem="2.16.840.1.113883.6.88"/>
+										<statusOfMedication displayName="in progress" code="385651009" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+									</Medication>
+								</Data>
+								<dataIdentifier>azathioprineMedication</dataIdentifier>
+								<dataType>Set(Medication)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Lab value</title>
+							<description></description>
+							<expression>PATIENT_HAD_EVENT_IN_PAST_PERIOD(creatinineResult, 365, DAYS)</expression>
+							<expressionLanguage>nonstandard</expressionLanguage>
+							<dataType>CD</dataType>
+							<dataMapping>
+								<title>Creatinine result</title>
+								<description></description>
+								<Data>
+									<LaboratoryResult>
+										<resultType displayName="Creatinine [Mass/volume] in Serum or Plasma" code="2160-0" codeSystemName="Logical Observation Identifier Names and Codes" codeSystem="2.16.840.1.113883.6.1"/>
+										<resultStatus displayName="completed" code="completed" codeSystemName="ActStatus" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+								</Data>
+								<dataIdentifier>creatinineResult</dataIdentifier>
+								<dataType>Set(LaboratoryResult)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+				</LogicalConditionSet>
+			</ApplicableScenario>
+			<Advice>
+				<title></title>
+				<description></description>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="$creatinineResult.resultType.displayName = $!creatinineResult.resultValue.value $!creatinineResult.resultValue.unit on $!creatinineResult.resultDateTime."/>
+								</Message>
+								<displayOrderEnforced>false</displayOrderEnforced>
+								<target displayName="Physician" code="309343006" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<selectionCriteria>false</selectionCriteria>
+							</MessageRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+	<module>
+		<Metadata>
+			<identity>
+				<title></title>
+				<description></description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Med ordered and no relevant lab</title>
+					<description></description>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSet>
+					<title></title>
+					<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Medication ordered</title>
+							<description></description>
+							<expression>PATIENT_MEDICATION_ORDERED(azathioprineMedication)</expression>
+							<expressionLanguage>nonstandard</expressionLanguage>
+							<dataType>CD</dataType>
+							<dataMapping>
+								<title>Azathioprine ordered</title>
+								<description></description>
+								<Data>
+									<Medication>
+										<codedProductClass displayName="Azathioprine" code="1256" codeSystemName="RxNorm" codeSystem="2.16.840.1.113883.6.88"/>
+										<statusOfMedication displayName="in progress" code="385651009" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+									</Medication>
+								</Data>
+								<dataIdentifier>azathioprineMedication</dataIdentifier>
+								<dataType>Set(Medication)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Lab value</title>
+							<description></description>
+							<expression>PATIENT_HAD_EVENT_IN_PAST_PERIOD(creatinineResult, 365, DAYS) == FALSE</expression>
+							<expressionLanguage>nonstandard</expressionLanguage>
+							<dataType>CD</dataType>
+							<dataMapping>
+								<title>Creatinine result</title>
+								<description></description>
+								<Data>
+									<LaboratoryResult>
+										<resultType displayName="Creatinine [Mass/volume] in Serum or Plasma" code="2160-0" codeSystemName="Logical Observation Identifier Names and Codes" codeSystem="2.16.840.1.113883.6.1"/>
+										<resultStatus displayName="completed" code="completed" codeSystemName="ActStatus" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+								</Data>
+								<dataIdentifier>creatinineResult</dataIdentifier>
+								<dataType>Set(LaboratoryResult)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+				</LogicalConditionSet>
+			</ApplicableScenario>
+			<Advice>
+				<title></title>
+				<description></description>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="No $creatinineResult.resultType.displayName within the last 365 days."/>
+								</Message>
+								<displayOrderEnforced>false</displayOrderEnforced>
+								<target displayName="Physician" code="309343006" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<selectionCriteria>false</selectionCriteria>
+							</MessageRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+	<module>
+		<Metadata>
+			<identity>
+				<title></title>
+				<description></description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Med ordered and recent lab performed</title>
+					<description></description>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSet>
+					<title></title>
+					<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Medication ordered</title>
+							<description></description>
+							<expression>PATIENT_MEDICATION_ORDERED(digoxinMedication)</expression>
+							<expressionLanguage>nonstandard</expressionLanguage>
+							<dataType>CD</dataType>
+							<dataMapping>
+								<title>Digoxin ordered</title>
+								<description></description>
+								<Data>
+									<Medication>
+										<codedProductClass displayName="Digoxin" code="3407" codeSystemName="RxNorm" codeSystem="2.16.840.1.113883.6.88"/>
+										<statusOfMedication displayName="in progress" code="385651009" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+									</Medication>
+								</Data>
+								<dataIdentifier>digoxinMedication</dataIdentifier>
+								<dataType>Set(Medication)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Lab value</title>
+							<description></description>
+							<expression>PATIENT_HAD_EVENT_IN_PAST_PERIOD(potassiumResult, 365, DAYS)</expression>
+							<expressionLanguage>nonstandard</expressionLanguage>
+							<dataType>CD</dataType>
+							<dataMapping>
+								<title>Potassium result</title>
+								<description></description>
+								<Data>
+									<LaboratoryResult>
+										<resultType displayName="Potassium [Moles/volume] in Serum or Plasma" code="2823-3" codeSystemName="Logical Observation Identifier Names and Codes" codeSystem="2.16.840.1.113883.6.1"/>
+										<resultStatus displayName="completed" code="completed" codeSystemName="ActStatus" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+								</Data>
+								<dataIdentifier>potassiumResult</dataIdentifier>
+								<dataType>Set(LaboratoryResult)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+				</LogicalConditionSet>
+			</ApplicableScenario>
+			<Advice>
+				<title></title>
+				<description></description>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="$potassiumResult.resultType.displayName = $!potassiumResult.resultValue.value $!potassiumResult.resultValue.unit on $!potassiumResult.resultDateTime."/>
+								</Message>
+								<displayOrderEnforced>false</displayOrderEnforced>
+								<target displayName="Physician" code="309343006" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<selectionCriteria>false</selectionCriteria>
+							</MessageRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+	<module>
+		<Metadata>
+			<identity>
+				<title></title>
+				<description></description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Med ordered and no relevant lab</title>
+					<description></description>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSet>
+					<title></title>
+					<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Medication ordered</title>
+							<description></description>
+							<expression>PATIENT_MEDICATION_ORDERED(digoxinMedication)</expression>
+							<expressionLanguage>nonstandard</expressionLanguage>
+							<dataType>CD</dataType>
+							<dataMapping>
+								<title>Digoxin ordered</title>
+								<description></description>
+								<Data>
+									<Medication>
+										<codedProductClass displayName="Digoxin" code="3407" codeSystemName="RxNorm" codeSystem="2.16.840.1.113883.6.88"/>
+										<statusOfMedication displayName="in progress" code="385651009" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+									</Medication>
+								</Data>
+								<dataIdentifier>digoxinMedication</dataIdentifier>
+								<dataType>Set(Medication)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Lab value</title>
+							<description></description>
+							<expression>PATIENT_HAD_EVENT_IN_PAST_PERIOD(potassiumResult, 365, DAYS) == FALSE</expression>
+							<expressionLanguage>nonstandard</expressionLanguage>
+							<dataType>CD</dataType>
+							<dataMapping>
+								<title>Potassium result</title>
+								<description></description>
+								<Data>
+									<LaboratoryResult>
+										<resultType displayName="Potassium [Moles/volume] in Serum or Plasma" code="2823-3" codeSystemName="Logical Observation Identifier Names and Codes" codeSystem="2.16.840.1.113883.6.1"/>
+										<resultStatus displayName="completed" code="completed" codeSystemName="ActStatus" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+								</Data>
+								<dataIdentifier>potassiumResult</dataIdentifier>
+								<dataType>Set(LaboratoryResult)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+				</LogicalConditionSet>
+			</ApplicableScenario>
+			<Advice>
+				<title></title>
+				<description></description>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="No $potassiumResult.resultType.displayName within the last 365 days."/>
+								</Message>
+								<displayOrderEnforced>false</displayOrderEnforced>
+								<target displayName="Physician" code="309343006" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<selectionCriteria>false</selectionCriteria>
+							</MessageRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+	<module>
+		<Metadata>
+			<identity>
+				<title></title>
+				<description></description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Med ordered and recent lab performed</title>
+					<description></description>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSet>
+					<title></title>
+					<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Medication ordered</title>
+							<description></description>
+							<expression>PATIENT_MEDICATION_ORDERED(phenobarbitalMedication)</expression>
+							<expressionLanguage>nonstandard</expressionLanguage>
+							<dataType>CD</dataType>
+							<dataMapping>
+								<title>Phenobarbital ordered</title>
+								<description></description>
+								<Data>
+									<Medication>
+										<codedProductClass displayName="Phenobarbital" code="8134" codeSystemName="RxNorm" codeSystem="2.16.840.1.113883.6.88"/>
+										<statusOfMedication displayName="in progress" code="385651009" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+									</Medication>
+								</Data>
+								<dataIdentifier>phenobarbitalMedication</dataIdentifier>
+								<dataType>Set(Medication)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Lab value</title>
+							<description></description>
+							<expression>PATIENT_HAD_EVENT_IN_PAST_PERIOD(phenobarbitalResult, 365, DAYS)</expression>
+							<expressionLanguage>nonstandard</expressionLanguage>
+							<dataType>CD</dataType>
+							<dataMapping>
+								<title>Phenobarbital result</title>
+								<description></description>
+								<Data>
+									<LaboratoryResult>
+										<resultType displayName="Phenobarbital [Mass/volume] in Serum or Plasma" code="3948-7" codeSystemName="Logical Observation Identifier Names and Codes" codeSystem="2.16.840.1.113883.6.1"/>
+										<resultStatus displayName="completed" code="completed" codeSystemName="ActStatus" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+								</Data>
+								<dataIdentifier>phenobarbitalResult</dataIdentifier>
+								<dataType>Set(LaboratoryResult)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+				</LogicalConditionSet>
+			</ApplicableScenario>
+			<Advice>
+				<title></title>
+				<description></description>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="$phenobarbitalResult.resultType.displayName = $!phenobarbitalResult.resultValue.value $!phenobarbitalResult.resultValue.unit on $!phenobarbitalResult.resultDateTime."/>
+								</Message>
+								<displayOrderEnforced>false</displayOrderEnforced>
+								<target displayName="Physician" code="309343006" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<selectionCriteria>false</selectionCriteria>
+							</MessageRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+	<module>
+		<Metadata>
+			<identity>
+				<title></title>
+				<description></description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Med ordered and no relevant lab</title>
+					<description></description>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSet>
+					<title></title>
+					<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Medication ordered</title>
+							<description></description>
+							<expression>PATIENT_MEDICATION_ORDERED(phenobarbitalMedication)</expression>
+							<expressionLanguage>nonstandard</expressionLanguage>
+							<dataType>CD</dataType>
+							<dataMapping>
+								<title>Phenobarbital ordered</title>
+								<description></description>
+								<Data>
+									<Medication>
+										<codedProductClass displayName="Phenobarbital" code="8134" codeSystemName="RxNorm" codeSystem="2.16.840.1.113883.6.88"/>
+										<statusOfMedication displayName="in progress" code="385651009" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+									</Medication>
+								</Data>
+								<dataIdentifier>phenobarbitalMedication</dataIdentifier>
+								<dataType>Set(Medication)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Lab value</title>
+							<description></description>
+							<expression>PATIENT_HAD_EVENT_IN_PAST_PERIOD(phenobarbitalResult, 365, DAYS) == FALSE</expression>
+							<expressionLanguage>nonstandard</expressionLanguage>
+							<dataType>CD</dataType>
+							<dataMapping>
+								<title>Phenobarbital result</title>
+								<description></description>
+								<Data>
+									<LaboratoryResult>
+										<resultType displayName="Phenobarbital [Mass/volume] in Serum or Plasma" code="3948-7" codeSystemName="Logical Observation Identifier Names and Codes" codeSystem="2.16.840.1.113883.6.1"/>
+										<resultStatus displayName="completed" code="completed" codeSystemName="ActStatus" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+								</Data>
+								<dataIdentifier>phenobarbitalResult</dataIdentifier>
+								<dataType>Set(LaboratoryResult)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+				</LogicalConditionSet>
+			</ApplicableScenario>
+			<Advice>
+				<title></title>
+				<description></description>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="No $phenobarbitalResult.resultType.displayName within the last 365 days."/>
+								</Message>
+								<displayOrderEnforced>false</displayOrderEnforced>
+								<target displayName="Physician" code="309343006" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<selectionCriteria>false</selectionCriteria>
+							</MessageRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+	<module>
+		<Metadata>
+			<identity>
+				<title></title>
+				<description></description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Med ordered and recent lab performed</title>
+					<description></description>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSet>
+					<title></title>
+					<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Medication ordered</title>
+							<description></description>
+							<expression>PATIENT_MEDICATION_ORDERED(phenytoinMedication)</expression>
+							<expressionLanguage>nonstandard</expressionLanguage>
+							<dataType>CD</dataType>
+							<dataMapping>
+								<title>Phenytoin ordered</title>
+								<description></description>
+								<Data>
+									<Medication>
+										<codedProductClass displayName="Phenytoin" code="8183" codeSystemName="RxNorm" codeSystem="2.16.840.1.113883.6.88"/>
+										<statusOfMedication displayName="in progress" code="385651009" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+									</Medication>
+								</Data>
+								<dataIdentifier>phenytoinMedication</dataIdentifier>
+								<dataType>Set(Medication)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Lab value</title>
+							<description></description>
+							<expression>PATIENT_HAD_EVENT_IN_PAST_PERIOD(phenytoinResult, 365, DAYS)</expression>
+							<expressionLanguage>nonstandard</expressionLanguage>
+							<dataType>CD</dataType>
+							<dataMapping>
+								<title>Phenytoin result</title>
+								<description></description>
+								<Data>
+									<LaboratoryResult>
+										<resultType displayName="Phenytoin [Mass/volume] in Serum or Plasma" code="3968-5" codeSystemName="Logical Observation Identifier Names and Codes" codeSystem="2.16.840.1.113883.6.1"/>
+										<resultStatus displayName="completed" code="completed" codeSystemName="ActStatus" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+								</Data>
+								<dataIdentifier>phenytoinResult</dataIdentifier>
+								<dataType>Set(LaboratoryResult)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+				</LogicalConditionSet>
+			</ApplicableScenario>
+			<Advice>
+				<title></title>
+				<description></description>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="$phenytoinResult.resultType.displayName = $!phenytoinResult.resultValue.value $!phenytoinResult.resultValue.unit on $!phenytoinResult.resultDateTime."/>
+								</Message>
+								<displayOrderEnforced>false</displayOrderEnforced>
+								<target displayName="Physician" code="309343006" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<selectionCriteria>false</selectionCriteria>
+							</MessageRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+	<module>
+		<Metadata>
+			<identity>
+				<title></title>
+				<description></description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Med ordered and no relevant lab</title>
+					<description></description>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSet>
+					<title></title>
+					<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Medication ordered</title>
+							<description></description>
+							<expression>PATIENT_MEDICATION_ORDERED(phenytoinMedication)</expression>
+							<expressionLanguage>nonstandard</expressionLanguage>
+							<dataType>CD</dataType>
+							<dataMapping>
+								<title>Phenytoin ordered</title>
+								<description></description>
+								<Data>
+									<Medication>
+										<codedProductClass displayName="Phenytoin" code="8183" codeSystemName="RxNorm" codeSystem="2.16.840.1.113883.6.88"/>
+										<statusOfMedication displayName="in progress" code="385651009" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+									</Medication>
+								</Data>
+								<dataIdentifier>phenytoinMedication</dataIdentifier>
+								<dataType>Set(Medication)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Lab value</title>
+							<description></description>
+							<expression>PATIENT_HAD_EVENT_IN_PAST_PERIOD(phenytoinResult, 365, DAYS) == FALSE</expression>
+							<expressionLanguage>nonstandard</expressionLanguage>
+							<dataType>CD</dataType>
+							<dataMapping>
+								<title>Phenytoin result</title>
+								<description></description>
+								<Data>
+									<LaboratoryResult>
+										<resultType displayName="Phenytoin [Mass/volume] in Serum or Plasma" code="3968-5" codeSystemName="Logical Observation Identifier Names and Codes" codeSystem="2.16.840.1.113883.6.1"/>
+										<resultStatus displayName="completed" code="completed" codeSystemName="ActStatus" codeSystem="2.16.840.1.113883.5.14"/>
+									</LaboratoryResult>
+								</Data>
+								<dataIdentifier>phenytoinResult</dataIdentifier>
+								<dataType>Set(LaboratoryResult)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+				</LogicalConditionSet>
+			</ApplicableScenario>
+			<Advice>
+				<title></title>
+				<description></description>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator displayName="AND" code="AND" codeSystemName="Partners HealthCare System" codeSystem="1.3.6.1.4.1.16517"/>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="No $phenytoinResult.resultType.displayName within the last 365 days."/>
+								</Message>
+								<displayOrderEnforced>false</displayOrderEnforced>
+								<target displayName="Physician" code="309343006" codeSystemName="SNOMED Clinical Terms" codeSystem="2.16.840.1.113883.6.96"/>
+								<selectionCriteria>false</selectionCriteria>
+							</MessageRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+</StructuredCDSKnowledge>

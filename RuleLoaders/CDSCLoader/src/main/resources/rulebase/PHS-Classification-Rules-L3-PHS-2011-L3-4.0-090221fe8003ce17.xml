@@ -1,0 +1,1883 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?altova_sps StructuredEntryForm.sps?>
+<StructuredGuideline NS0:noNamespaceSchemaLocation="structured.xsd" xmlns:NS0="http://www.w3.org/2001/XMLSchema-instance">
+	<Metadata>
+		<contributor>
+			<roleType>Developer</roleType>
+			<organization>
+				<name>Partners Healthcare Knowledge Management</name>
+			</organization>
+		</contributor>
+		<identity>
+			<title>Classification Rules</title>
+			<description>Enterprise Classification Rules include Clinical State Definitions, Indication and Contraindication rules, Goal States and Risk States.</description>
+		</identity>
+	</Metadata>
+	<module>
+		<Metadata>
+			<identity>
+				<title>Clinical State Rules</title>
+				<description>Clinical State are atomic rules that will be used to define a disease state with known criteria.  Criteria could consist of Problems, Labs, or a combination of other Clinical States</description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Diabetes mellitus State (Diabetes mellitus subset)</title>
+					<description>If patient has any of the problem concepts contained in Diabetes mellitus Subset, assert patient has DM</description>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Diabetes mellitus based on diabetes mellitus subset</title>
+					<description/>
+					<expression>diabetesSubsetProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass codeSystem="Local" code="Diabe_127"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Diabe_127" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>diabetesSubsetProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert clinical state of Diabetes mellitus</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Diabetes mellitus" code="73211009" codeSystem="2.16.840.1.113883.6.96"/>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Diabetes mellitus State (Diabetic Complication subset)</title>
+					<description>If patient has any of the problem concepts contained in Diabetes Complication Subset, assert patient has DM</description>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Diabetes mellitus based on diabetic complication subset</title>
+					<description/>
+					<expression>diabetesComplicationSubsetProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass codeSystem="Local" code="Diabe_745"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Diabe_745" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>diabetesComplicationSubsetProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert clinical state of Diabetes mellitus</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Diabetes mellitus" code="73211009" codeSystem="2.16.840.1.113883.6.96"/>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Gestational Diabetes (Gestational Diabetes subset)</title>
+					<description>If patient has any of the problem concepts contained in Gestational Diabetes subset, assert patient has Gestational Diabetes</description>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Gestational Diabetes problem subset</title>
+					<description/>
+					<expression>gestationalDiabetesSubsetProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass codeSystem="Local" code="Gesta_38"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Gesta_38" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>gestationalDiabetesSubsetProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert clinical state of Gestational Diabetes</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Gestational Diabetes" code="11687002" codeSystem="2.16.840.1.113883.6.96"/>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Non-Gestational Diabetes (Diabetes mellitus Clinical State and NOT Gestational Diabetes Clinical State)</title>
+					<description>If patient Diabetes mellitus Clinical State and NOT Gestational Diabetes Clinical State, assert patient has Non-Gestational Diabetes</description>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSet>
+					<title>Diabetes mellitus Clinical State and NOT Gestational Diabetes Clinical State</title>
+					<operator code="AND" codeSystem="1.3.6.1.4.1.16517"/>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Patient has Diabetes mellitus Clinical State</title>
+							<expression>diabetesState-&gt;notEmpty()</expression>
+							<dataMapping>
+								<title>Diabetes mellitus Clinical State</title>
+								<Data>
+									<ClinicalState>
+										<stateCode displayName="Diabetes mellitus Clinical State " code="73211009" codeSystem="2.16.840.1.113883.6.96"/>
+										<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+									</ClinicalState>
+								</Data>
+								<expression>patient.clinicalState-&gt;select(stateCode.codeSystem="2.16.840.1.113883.6.96" and stateCode.code = "73211009" and stateStatus.code="55561003" and stateStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+								<dataIdentifier>diabetesState</dataIdentifier>
+								<dataType>Set(ClinicalState)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+					<ApplicableScenario>
+						<LogicalConditionSingle>
+							<title>Patient does NOT have Gestational Diabetes Clinical State</title>
+							<expression>gestationalDiabetesState-&gt;isEmpty()</expression>
+							<dataMapping>
+								<title>Gestational Diabetes Clinical State</title>
+								<Data>
+									<ClinicalState>
+										<stateCode displayName="Gestational Diabetes Clinical State " code="11687002" codeSystem="2.16.840.1.113883.6.96"/>
+										<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+									</ClinicalState>
+								</Data>
+								<expression>patient.clinicalState-&gt;select(stateCode.codeSystem="2.16.840.1.113883.6.96" and stateCode.code = "11687002" and stateStatus.code="55561003" and stateStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+								<dataIdentifier>gestationalDiabetesState</dataIdentifier>
+								<dataType>Set(ClinicalState)</dataType>
+							</dataMapping>
+						</LogicalConditionSingle>
+					</ApplicableScenario>
+				</LogicalConditionSet>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert clinical state of Non-Gestational Diabetes</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Non-Gestational Diabetes" code="PHS0000001" codeSystem="Local"/>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Chronic Renal Failure State (Chronic Renal Failure Syndrome subset)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>CRFS Problem Subset</title>
+					<expression>CRFProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass displayName="Chronic Renal Failure" code="Chron_98" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Chron_98" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>CRFProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert clinical state of Chronic Renal Failure</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Chronic Renal Failure" code="90688005" codeSystem="2.16.840.1.113883.6.96"/>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Proteinuria State (microalbumin/creatinine ratio value)</title>
+					<relatedResource>
+						<resource>
+							<title>Proteinuria Clinical State based on MALB_CR Ratio Value</title>
+						</resource>
+						<type>derivedFrom</type>
+					</relatedResource>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Elevated microalbumin/creatinine ratio value</title>
+					<expression>malbCreatElev12mos-&gt;notEmpty()</expression>
+					<dataMapping>
+						<title>MALB_CR Ratio &gt;30 in last 12 months</title>
+						<description>MALB_CR Ratio value is &gt;30</description>
+						<Data>
+							<LaboratoryResult>
+								<resultType displayName="Malb/Creatinine Ratio" code="14959-1" codeSystem="2.16.840.1.113883.6.1"/>
+								<resultValue value="30"/>
+							</LaboratoryResult>
+							<LaboratoryResult>
+								<resultType displayName="Malb/Creatinine Ratio" code="9318-7" codeSystem="2.16.840.1.113883.6.1"/>
+								<resultValue value="30"/>
+							</LaboratoryResult>
+						</Data>
+						<expression>Let month : CodedValue = Factory.CodedValue("2.16.840.1.113883.6.8", "mo") in  patient.laboratoryResult-&gt;select(resultType.codeSystem = "2.16.840.1.113883.6.1" and resultType.code in ("14959-1", "9318-7") and resultStatus.codeSystem = "2.16.840.1.113883.5.14" and resultStatus.code = "completed" and resultDateTime.high.occurredWithin(12, month) and resultValue.value &gt; 30")</expression>
+						<dataIdentifier>malbCreatElev12mos</dataIdentifier>
+						<dataType>Set(LaboratoryResult)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert clinical state of Proteinuria</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Proteinuria" code="29738008" codeSystem="2.16.840.1.113883.6.96"/>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Chronic Renal Failure State (calculated GFR value)</title>
+					<relatedResource>
+						<resource>
+							<title>CRF State based on Calc GFR Value</title>
+						</resource>
+						<type>derivedFrom</type>
+					</relatedResource>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Elevated calculated GFR value</title>
+					<expression>calcGFRElev12mos-&gt;notEmpty()</expression>
+					<dataMapping>
+						<title>Calculated GFR &lt;50 in last 12 months</title>
+						<description>Calculated GFR value is &lt;50</description>
+						<Data>
+							<LaboratoryResult>
+								<resultType displayName="Calculated GFR" code="33914-3" codeSystem="2.16.840.1.113883.6.1"/>
+								<resultValue value="50"/>
+							</LaboratoryResult>
+							<LaboratoryResult>
+								<resultType displayName="Calculated GFR" code="48643-1" codeSystem="2.16.840.1.113883.6.1"/>
+								<resultValue value="50"/>
+							</LaboratoryResult>
+							<LaboratoryResult>
+								<resultType displayName="Calculated GFR" code="48642-3" codeSystem="2.16.840.1.113883.6.1"/>
+								<resultValue value="50"/>
+							</LaboratoryResult>
+						</Data>
+						<expression>Let month : CodedValue = Factory.CodedValue("2.16.840.1.113883.6.8", "mo") in  patient.laboratoryResult-&gt;select(resultType.codeSystem = "2.16.840.1.113883.6.1" and resultType.code in ("14959-1", "48643-1", "48643-1") and resultStatus.codeSystem = "2.16.840.1.113883.5.14" and resultStatus.code = "completed" and resultDateTime.high.occurredWithin(12, month) and resultValue.value &gt; 50")</expression>
+						<dataIdentifier>calcGFRElev12mos</dataIdentifier>
+						<dataType>Set(LaboratoryResult)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert clinical state of Chronic Renal Failure</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Chronic Renal Failure" code="90688005" codeSystem="2.16.840.1.113883.6.96"/>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Chronic Renal Failure State (Creatinine, Serum value)</title>
+					<relatedResource>
+						<resource>
+							<title>CRF State based on Creatinine Value</title>
+						</resource>
+						<type>derivedFrom</type>
+					</relatedResource>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Elevated serum creatinine value</title>
+					<expression>creatinineElev12mos-&gt;notEmpty()</expression>
+					<dataMapping>
+						<title>Creatinine &gt;2 in last 12 months</title>
+						<description>Creatinine value is &gt;2</description>
+						<Data>
+							<LaboratoryResult>
+								<resultType displayName="Creatinine" code="2160-0" codeSystem="2.16.840.1.113883.6.1"/>
+								<resultValue value="2"/>
+							</LaboratoryResult>
+						</Data>
+						<expression>Let month : CodedValue = Factory.CodedValue("2.16.840.1.113883.6.8", "mo") in  patient.laboratoryResult-&gt;select(resultType.codeSystem = "2.16.840.1.113883.6.1" and resultType.code = "2160-0" and resultStatus.codeSystem = "2.16.840.1.113883.5.14" and resultStatus.code = "completed" and resultDateTime.high.occurredWithin(12, month) and resultValue.value &gt; 2")</expression>
+						<dataIdentifier>creatinineElev12mos</dataIdentifier>
+						<dataType>Set(LaboratoryResult)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert clinical state of Chronic Renal Failure</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Chronic Renal Failure " code="90688005" codeSystem="2.16.840.1.113883.6.96"/>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Proteinuria State (Proteinuria subset)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Proteniuria Problem subset</title>
+					<expression>proteinuriaSubsetProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass displayName="Proteinuria" code="Prote_116" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Prote_116" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>proteinuriaSubsetProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert clinical state of Proteinuria</title>
+				<description>This is a temporary solution.  KM will revisit renal disease problem classes and Clinical States after LMR release.</description>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Proteinuria" code="29738008" codeSystem="2.16.840.1.113883.6.96"/>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>End Stage Renal Disease State (ESRD Subset)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>ESRD Problem Subset</title>
+					<expression>ESRDSubsetProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass displayName="End Stage Renal Disease" code="End_S_80" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "End_S_80" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>ESRDSubsetProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert clinical state of End Stage Renal Disease</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="End Stage Renal Disease" code="46177005" codeSystem="2.16.840.1.113883.6.96"/>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>End Stage Renal Disease State (Complications of Dialysis Subset)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>End Stage Renal Disease State based on Complications of Dialysis Subset</title>
+					<expression>DialysisComplicationsSubsetProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass displayName="Complications of Dialysis " code="Compl_748" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Compl_748" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>DialysisComplicationsSubsetProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert clinical state of End Stage Renal Disease</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="End Stage Renal Disease" code="46177005" codeSystem="2.16.840.1.113883.6.96"/>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>End Stage Renal Disease State (Uremia subset)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>End Stage Renal Disease State based on Uremia</title>
+					<expression>Uremia-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass displayName="Uremia" code="Uremi_845" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Uremi_845" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>UremiaSubsetProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert clinical state of End Stage Renal Disease</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="End Stage Renal Disease" code="46177005" codeSystem="2.16.840.1.113883.6.96"/>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Pregnant Clinical State (Pregnant Subset)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Pregnant Problem Subset</title>
+					<expression>PregnantSubsetProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass displayName="Pregnant" code="Pregn_57" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Pregn_57" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>PregnantSubsetProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert clinical state of Pregnant</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Pregnant" code="77386006 " codeSystem="2.16.840.1.113883.6.96"/>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Pregnant Clinical State (Complications of Pregnancy Subset)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Complications of Pregnancy Problem Subset</title>
+					<expression>PregnancyComplicationsSubsetProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass displayName="Complications of Pregnancy" code="Pregn_750" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Pregn_750" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>PregnancyComplicationsSubsetProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert clinical state of Pregnant</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Pregnant" code="77386006 " codeSystem="2.16.840.1.113883.6.96"/>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Coronary Artery Disease (Coronary Artery Disease Subset)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Coronary Artery Disease Problem subset</title>
+					<expression>CADSubsetProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass code="Coron_105" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Coron_105" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>CADSubsetProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert clinical state of Coronary Artery Disease</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Coronary Artery Disease" code="53741008" codeSystem="2.16.840.1.113883.6.96"/>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Coronary Artery Disease (Myocardial Infarction Subset)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Myocardial Infarction subset</title>
+					<expression>MISubsetProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass code="Myoca_106" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Myoca_106" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>MISubsetProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert clinical state of Coronary Artery Disease</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Coronary Artery Disease" code="53741008" codeSystem="2.16.840.1.113883.6.96"/>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Coronary Artery Disease (Ischemic Heart Disease Subset)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Ischemic Heart Disease subset</title>
+					<expression>IHDSubsetProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass code="Ische_749" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Ische_749" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>IHDSubsetProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert clinical state of Coronary Artery Disease</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Coronary Artery Disease" code="53741008" codeSystem="2.16.840.1.113883.6.96"/>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Coronary Artery Disease (CABG Subset)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>CABG Problem subset</title>
+					<expression>CABGSubsetProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass code="Coron_108" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Coron_108" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>CABGSubsetProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert clinical state of Coronary Artery Disease</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Coronary Artery Disease" code="53741008" codeSystem="2.16.840.1.113883.6.96"/>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Coronary Artery Disease (PTCA Subset)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>PTCA Problem subset</title>
+					<expression>PTCASubsetProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass code="Percu_109" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Percu_109" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>PTCASubsetProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert clinical state of Coronary Artery Disease</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Coronary Artery Disease" code="53741008" codeSystem="2.16.840.1.113883.6.96"/>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Coronary Artery Disease (Placement Of Stent In Coronary Artery Subset)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Placement Of Stent In Coronary Artery Problem subset</title>
+					<expression>PlacementOfStentInCoronaryArterySubsetProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass code="Place_840" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Place_840" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>PlacementOfStentInCoronaryArterySubsetProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert clinical state of Coronary Artery Disease</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Coronary Artery Disease" code="53741008" codeSystem="2.16.840.1.113883.6.96"/>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Nephrotic Syndrome (Nephrotic Syndrome Subset)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Nephrotic Syndrome Problem subset</title>
+					<expression>NephroticSyndromeSubsetProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass code="Nephr_197" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Nephr_197" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>NephroticSyndromeSubsetProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert clinical state of Nephrotic Syndrome</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Nephrotic Syndrome" code="52254009" codeSystem="2.16.840.1.113883.6.96"/>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+	<module>
+		<Metadata>
+			<identity>
+				<title>Patient on Medication Therapy</title>
+				<description>Patient on Therapy Classification Rules are atomic rules that will be used to define the med classes or ingredients  that define a patient on a specific med therapy.  Coding systems used for these Class Rules include NDF-RT and RxNorm.</description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Patient on ACE-I Medication Therapy (NDF-RT Med Class for ACE-I)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>ACE-I Medication Class</title>
+					<expression>ActiveACEIMed-&gt;notEmpty()</expression>
+					<dataMapping>
+						<title>ACE-I Med Class (NDF-RT)</title>
+						<Data>
+							<Medication>
+								<codedProductClass displayName="ACE-I" code="N0000000181" codeSystem="2.16.840.1.113883.6.209"/>
+								<statusOfMedication displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+							</Medication>
+						</Data>
+						<expression>patient.medication-&gt;select(codedProductClass.codeSystem="2.16.840.1.113883.6.209" and codedProductClass.code = "N0000000181" and statusOfMedication.code="55561003" and statusOfMedication.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>ActiveACEIMed</dataIdentifier>
+						<dataType>Set(Medication)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert Patient on ACE-I Medication Therapy</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="ACE-I" code="N0000000181" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Record of Administration" code="57646009" codeSystem="2.16.840.1.113883.6.96"/>
+								<value displayName="Administration of Medication" code="18629005" codeSystem="2.16.840.1.113883.6.96"/>
+							</qualifier>
+						</stateCode>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Patient on ARB Medication Therapy (NDF-RT Med Class for ARB)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>ARB Medication Class</title>
+					<expression>ActiveARBMed-&gt;notEmpty()</expression>
+					<dataMapping>
+						<title>ARB Med Class (NDF-RT)</title>
+						<Data>
+							<Medication>
+								<codedProductClass displayName="ARB" code="N0000000070" codeSystem="2.16.840.1.113883.6.209"/>
+								<statusOfMedication displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+							</Medication>
+						</Data>
+						<expression>patient.medication-&gt;select(codedProductClass.codeSystem="2.16.840.1.113883.6.209" and codedProductClass.code = "N0000000070" and statusOfMedication.code="55561003" and statusOfMedication.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>ActiveARBMed</dataIdentifier>
+						<dataType>Set(Medication)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert Patient on ARB Medication Therapy</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="ARB" code="N0000000070" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Record of Administration" code="57646009" codeSystem="2.16.840.1.113883.6.96"/>
+								<value displayName="Administration of Medication" code="18629005" codeSystem="2.16.840.1.113883.6.96"/>
+							</qualifier>
+						</stateCode>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Patient on Anti-platelet Medication Therapy (NDF-RT Med Class for clopidogrel)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>clopidogrel  Med Class</title>
+					<expression>ActiveAntiplateletMed-&gt;notEmpty()</expression>
+					<dataMapping>
+						<title>clopidogrel  Med Class (NDF-RT)</title>
+						<Data>
+							<Medication>
+								<codedProductClass displayName="clopidogrel" code="N0000007277" codeSystem="2.16.840.1.113883.6.209"/>
+								<statusOfMedication displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+							</Medication>
+						</Data>
+						<expression>patient.medication-&gt;select(codedProductClass.codeSystem="2.16.840.1.113883.6.209" and codedProductClass.code = "N0000007277" and statusOfMedication.code="55561003" and statusOfMedication.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>ActiveAntiplateletMed</dataIdentifier>
+						<dataType>Set(Medication)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert Patient on Anti-platelet Therapy</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Anti-platelet Therapy" code="108972005" codeSystem="2.16.840.1.113883.6.96">
+							<qualifier>
+								<name displayName="Record of Administration" code="57646009" codeSystem="2.16.840.1.113883.6.96"/>
+								<value displayName="Administration of Medication" code="18629005" codeSystem="2.16.840.1.113883.6.96"/>
+							</qualifier>
+						</stateCode>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Patient on Anti-platelet Medication Therapy (RxNorm Ingredient Code for clopidogrel)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Clopidogrel Ingredient</title>
+					<expression>ActiveAntiplateletMed-&gt;notEmpty()</expression>
+					<dataMapping>
+						<title>clopidogrel (RxNorm)</title>
+						<Data>
+							<Medication>
+								<codedProductName displayName="clopidogrel" code="32968" codeSystem="2.16.840.1.113883.6.88"/>
+								<statusOfMedication displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+							</Medication>
+						</Data>
+						<expression>patient.medication-&gt;select(codedProductClass.codeSystem="2.16.840.1.113883.6.88" and codedProductClass.code = "32968" and statusOfMedication.code="55561003" and statusOfMedication.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>ActiveAntiplateletMed</dataIdentifier>
+						<dataType>Set(Medication)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert Patient on Anti-platelet Therapy</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Anti-platelet Therapy" code="108972005" codeSystem="2.16.840.1.113883.6.96">
+							<qualifier>
+								<name displayName="Record of Administration" code="57646009" codeSystem="2.16.840.1.113883.6.96"/>
+								<value displayName="Administration of Medication" code="18629005" codeSystem="2.16.840.1.113883.6.96"/>
+							</qualifier>
+						</stateCode>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Patient on Anti-platelet Medication Therapy (RxNorm Ingredient Code for clopidogrel bisulfate)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>clopidogrel bisulfate Ingredient</title>
+					<expression>ActiveAntiplateletMed-&gt;notEmpty()</expression>
+					<dataMapping>
+						<title>clopidogrel bisulfate (RxNorm)</title>
+						<Data>
+							<Medication>
+								<codedProductName displayName="clopidogrel bisulfate" code="236991" codeSystem="2.16.840.1.113883.6.88"/>
+								<statusOfMedication displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+							</Medication>
+						</Data>
+						<expression>patient.medication-&gt;select(codedProductClass.codeSystem="2.16.840.1.113883.6.88" and codedProductClass.code = "236991" and statusOfMedication.code="55561003" and statusOfMedication.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>ActiveAntiplateletMed</dataIdentifier>
+						<dataType>Set(Medication)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert Patient on Anti-platelet Therapy</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Anti-platelet Therapy" code="108972005" codeSystem="2.16.840.1.113883.6.96">
+							<qualifier>
+								<name displayName="Record of Administration" code="57646009" codeSystem="2.16.840.1.113883.6.96"/>
+								<value displayName="Administration of Medication" code="18629005" codeSystem="2.16.840.1.113883.6.96"/>
+							</qualifier>
+						</stateCode>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Patient on Anti-platelet Medication Therapy (RxNorm Ingredient Code for Aspirin)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Aspirin Ingredient</title>
+					<expression>ActiveAspirinMed-&gt;notEmpty()</expression>
+					<dataMapping>
+						<title>Aspirin (RxNorm)</title>
+						<Data>
+							<Medication>
+								<codedProductName displayName="Aspirin" code="1191" codeSystem="2.16.840.1.113883.6.88"/>
+								<statusOfMedication displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+							</Medication>
+						</Data>
+						<expression>patient.medication-&gt;select(codedProductClass.codeSystem="2.16.840.1.113883.6.88" and codedProductClass.code = "1191" and statusOfMedication.code="55561003" and statusOfMedication.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>ActiveAspirinMed</dataIdentifier>
+						<dataType>Set(Medication)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert Patient on Anti-platelet Therapy</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Anti-platelet Therapy" code="108972005" codeSystem="2.16.840.1.113883.6.96">
+							<qualifier>
+								<name displayName="Record of Administration" code="57646009" codeSystem="2.16.840.1.113883.6.96"/>
+								<value displayName="Administration of Medication" code="18629005" codeSystem="2.16.840.1.113883.6.96"/>
+							</qualifier>
+						</stateCode>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Patient on Anti-platelet Medication Therapy (RxNorm Ingredient Code for ticlid)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Ticlid Ingredient</title>
+					<expression>ActiveTiclidMed-&gt;notEmpty()</expression>
+					<dataMapping>
+						<title>ticlid(RxNorm)</title>
+						<Data>
+							<Medication>
+								<codedProductName displayName="ticlid" code="10594" codeSystem="2.16.840.1.113883.6.88"/>
+								<statusOfMedication displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+							</Medication>
+						</Data>
+						<expression>patient.medication-&gt;select(codedProductClass.codeSystem="2.16.840.1.113883.6.88" and codedProductClass.code = "10594" and statusOfMedication.code="55561003" and statusOfMedication.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>ActiveTiclidMed</dataIdentifier>
+						<dataType>Set(Medication)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert Patient on Anti-platelet Therapy</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Anti-platelet Therapy" code="108972005" codeSystem="2.16.840.1.113883.6.96">
+							<qualifier>
+								<name displayName="Record of Administration" code="57646009" codeSystem="2.16.840.1.113883.6.96"/>
+								<value displayName="Administration of Medication" code="18629005" codeSystem="2.16.840.1.113883.6.96"/>
+							</qualifier>
+						</stateCode>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+	<module>
+		<Metadata>
+			<identity>
+				<title>Contraindications to Medication</title>
+				<description>Classification Rules define specific contraindications for medication therapy.  Conditions can include problem classes, clinical States, allergies or lab results.</description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Contraindication to ACEI (Pregnant clinical state)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Pregnant clinical state</title>
+					<expression>PregnantState-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<ClinicalState>
+								<stateCode displayName="Pregnant" code="77386006" codeSystem="2.16.840.1.113883.6.96"/>
+								<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+							</ClinicalState>
+						</Data>
+						<expression>patient.clinicalState-&gt;select(stateCode.codeSystem="2.16.840.1.113883.6.96" and stateCode.code = "77386006" and stateStatus.code="55561003" and stateStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>PregnantState</dataIdentifier>
+						<dataType>Set(ClinicalState)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="ACE-I" code="N0000000181" codeSystem="Local">
+							<qualifier>
+								<name displayName="Contraindicated" codeSystem="2.16.840.1.113883.6.96" code="410536001"/>
+								<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.209"/>
+							</qualifier>
+						</stateCode>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Contraindication to ACEI (Low Blood Pressure)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Low blood pressure</title>
+					<expression>LowBPProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass code="Low_B_66" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Low_B_66" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>LowBPProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="ACE-I" code="N0000000181" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Contraindicated" codeSystem="2.16.840.1.113883.6.96" code="410536001"/>
+								<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.209"/>
+							</qualifier>
+						</stateCode>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Contraindication to ACEI (Hyperkalemia)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Hyperkalemia</title>
+					<expression>HyperkalemiaProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass code="Hyper_67" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Hyper_67" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>HyperkalemiaProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="ACE-I" code="N0000000181" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Contraindicated" codeSystem="2.16.840.1.113883.6.96" code="410536001"/>
+								<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.209"/>
+							</qualifier>
+						</stateCode>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Contraindication to ACEI (allergy)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>ACEI allergy</title>
+					<expression>AllergyToACEI-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Allergy>
+								<allergyStatus code="55561003" codeSystem="2.16.840.1.113883.6.96" displayName="Active"/>
+								<allergyClass code="N0000000181" codeSystem="2.16.840.1.113883.6.209" displayName="ACEI"/>
+							</Allergy>
+						</Data>
+						<expression>patient.allergy-&gt;select(allergyClass.codeSystem="2.16.840.1.113883.6.209" and allergyClass.code = "N0000000181" and allergyStatus.code="55561003" and allergyStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>AllergyToACEI</dataIdentifier>
+						<dataType>Set(Allergy)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assert Patient has Contra-Indication to ACE-I Medication Therapy</title>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="ACE-I" code="N0000000181" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Contraindicated" codeSystem="2.16.840.1.113883.6.96" code="410536001"/>
+								<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.209"/>
+							</qualifier>
+						</stateCode>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Contraindication to ARB (Pregnant Clinical State)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Pregnant clinical state</title>
+					<expression>PregnantState-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<ClinicalState>
+								<stateCode displayName="Pregnant" code="77386006" codeSystem="2.16.840.1.113883.6.96"/>
+								<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+							</ClinicalState>
+						</Data>
+						<expression>patient.clinicalState-&gt;select(stateCode.codeSystem="2.16.840.1.113883.6.96" and stateCode.code = "77386006" and stateStatus.code="55561003" and stateStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>PregnantState</dataIdentifier>
+						<dataType>Set(ClinicalState)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="ARB" code="N0000000070" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Contraindicated" codeSystem="2.16.840.1.113883.6.96" code="410536001"/>
+								<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.209"/>
+							</qualifier>
+						</stateCode>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Contraindication to ARB (Low Blood Pressure)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Low blood pressure</title>
+					<expression>LowBPProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass code="Low_B_66" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Low_B_66" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>LowBPProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="ARB" code="N0000000070" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Contraindicated" codeSystem="2.16.840.1.113883.6.96" code="410536001"/>
+								<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.209"/>
+							</qualifier>
+						</stateCode>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Contraindication to ARB (Hyperkalemia)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Contraindication to ARB (Hyperkalemia)</title>
+					<expression>HyperkalemiaProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass code="Hyper_67" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Hyper_67" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>HyperkalemiaProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="ARB" code="N0000000070" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Contraindicated" codeSystem="2.16.840.1.113883.6.96" code="410536001"/>
+								<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.209"/>
+							</qualifier>
+						</stateCode>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Contraindication to ARB (allergy)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Contraindication to ARB (allergy)</title>
+					<expression>AllergyToARB-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Allergy>
+								<allergyStatus code="55561003" codeSystem="2.16.840.1.113883.6.96" displayName="Active"/>
+								<allergyClass code="N0000000070" codeSystem="2.16.840.1.113883.6.209" displayName="ARB"/>
+							</Allergy>
+						</Data>
+						<expression>patient.allergy-&gt;select(allergyClass.codeSystem="2.16.840.1.113883.6.209" and allergyClass.code = "N0000000070" and allergyStatus.code="55561003" and allergyStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>AllergyToARB</dataIdentifier>
+						<dataType>Set(Allergy)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="ARB" code="N0000000070" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Contraindicated" codeSystem="2.16.840.1.113883.6.96" code="410536001"/>
+								<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.209"/>
+							</qualifier>
+						</stateCode>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Contraindication to Anti-platelet Med (Coagulation Factor Deficiency Syndrome)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Contraindication to Anti-platelet Med (Coagulation Factor Deficiency Syndrome)</title>
+					<expression>CoagulationFactorDeficiencySyndromeProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass code="Coagu_853" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Coagu_853" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>CoagulationFactorDeficiencySyndromeProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Anti-platelet Med" code="108972005" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Contraindicated" codeSystem="2.16.840.1.113883.6.96" code="410536001"/>
+								<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.209"/>
+							</qualifier>
+						</stateCode>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Contraindication to Anti-platelet Med (Peptic Ulcer Disease)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Contraindication to Anti-platelet Med (Peptic Ulcer Disease)</title>
+					<expression>PepticUlcerDisease-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass code="Pepti_68" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Pepti_68" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>PepticUlcerDiseaseProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Anti-platelet Med" code="108972005" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Contraindicated" codeSystem="2.16.840.1.113883.6.96" code="410536001"/>
+								<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.209"/>
+							</qualifier>
+						</stateCode>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Contraindication to Anti-platelet Med (Thrombocytopenic Disorder)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Contraindication to Anti-platelet Med (Thrombocytopenic Disorder)</title>
+					<expression>ThrombocytopeniaProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass code="Throm_69" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Throm_69" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>ThrombocytopeniaProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Anti-platelet Med" code="108972005" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Contraindicated" codeSystem="2.16.840.1.113883.6.96" code="410536001"/>
+								<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.209"/>
+							</qualifier>
+						</stateCode>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Contraindication to Anti-platelet Med (Gastrointestinal Bleeding)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Gastrointestinal Bleeding</title>
+					<expression>GIBleedProblem-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass code="Gastr_41" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Gastr_41" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>GIBleedProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Anti-platelet Med" code="108972005" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Contraindicated" codeSystem="2.16.840.1.113883.6.96" code="410536001"/>
+								<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.209"/>
+							</qualifier>
+						</stateCode>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Contraindication to Anti-platelet Med (G6PD Deficiency)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>G6PD Deficiency</title>
+					<expression>G6PDDeficiency-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass code="Defic_795" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Defic_795" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>G6PDDeficiencyProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Anti-platelet Med" code="108972005" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Contraindicated" codeSystem="2.16.840.1.113883.6.96" code="410536001"/>
+								<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.209"/>
+							</qualifier>
+						</stateCode>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Contraindication to Anti-platelet Med (Esophageal varices)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Esophageal Varices</title>
+					<expression>EsophagealVarices-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass code="Esoph_144" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Esoph_144" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>EsophagealVaricesProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Anti-platelet Med" code="108972005" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Contraindicated" codeSystem="2.16.840.1.113883.6.96" code="410536001"/>
+								<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.209"/>
+							</qualifier>
+						</stateCode>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Contraindication to Anti-platelet Med (Gastric varices)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Gastric Varices</title>
+					<expression>GastricVarices-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass code="Gastr_753" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Gastr_753" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>GastricVaricesProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Anti-platelet Med" code="108972005" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Contraindicated" codeSystem="2.16.840.1.113883.6.96" code="410536001"/>
+								<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.209"/>
+							</qualifier>
+						</stateCode>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Contraindication to Anti-platelet Med (von Willebrand Disorder)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>von Willebrand Disorder</title>
+					<expression>vonWillebrandDisorderProblemSubset-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass code="von_W_854" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "von_w_854" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>vonWillebrandDisorderProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Anti-platelet Med" code="108972005" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Contraindicated" codeSystem="2.16.840.1.113883.6.96" code="410536001"/>
+								<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.209"/>
+							</qualifier>
+						</stateCode>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Contraindication to Anti-platelet Med (Cerebral Hemorrhage)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Cerebral Hemorrhage</title>
+					<expression>CerebralHemorrhageProblemSubset-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Problem>
+								<problemStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+								<problemCodeClass code="Cereb_95" codeSystem="Local"/>
+							</Problem>
+						</Data>
+						<expression>patient.problem-&gt;select(problemCodeClass.codeSystem="Local" and problemCodeClass.code = "Cereb_95" and problemStatus.code="55561003" and problemStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>CerebralHemorrhageProblem</dataIdentifier>
+						<dataType>Set(Problem)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Anti-platelet Med" code="108972005" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Contraindicated" codeSystem="2.16.840.1.113883.6.96" code="410536001"/>
+								<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.209"/>
+							</qualifier>
+						</stateCode>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Contraindication to Anti-Platelet Med (salicylic acids allergy)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Salicylic acid allergy</title>
+					<expression>AllergyToSalicylicAcid-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Allergy>
+								<allergyStatus code="55561003" codeSystem="2.16.840.1.113883.6.96" displayName="Active"/>
+								<allergyClass code="N0000007582" codeSystem="2.16.840.1.113883.6.209" displayName="Salicylic Acids"/>
+							</Allergy>
+						</Data>
+						<expression>patient.allergy-&gt;select(allergyClass.codeSystem="2.16.840.1.113883.6.209" and allergyClass.code = "N0000007582" and allergyStatus.code="55561003" and allergyStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>AllergyToSalicylicAcid</dataIdentifier>
+						<dataType>Set(Allergy)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Anti-platelet Med" code="109872005" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Contraindicated" codeSystem="2.16.840.1.113883.6.96" code="410536001"/>
+								<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.209"/>
+							</qualifier>
+						</stateCode>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Contraindication to Anti-platelet Med (Clopidogrel allergy)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Contraindication to Anti-platelet Med (clopidogrel allergy)</title>
+					<expression>AllergyToClopidogrel-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Allergy>
+								<allergyStatus code="55561003" codeSystem="2.16.840.1.113883.6.96" displayName="Active"/>
+								<allergyClass code="N0000007277" codeSystem="2.16.840.1.113883.6.209" displayName="Clopidogrel"/>
+							</Allergy>
+						</Data>
+						<expression>patient.allergy-&gt;select(allergyClass.codeSystem="2.16.840.1.113883.6.209" and allergyClass.code = "N0000007277" and allergyStatus.code="55561003" and allergyStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>AllergyToClopidogrel</dataIdentifier>
+						<dataType>Set(Allergy)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Anti-platelet Med" code="109872005" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Contraindicated" codeSystem="2.16.840.1.113883.6.96" code="410536001"/>
+								<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.209"/>
+							</qualifier>
+						</stateCode>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Contraindication to Anti-Platelet Med (ticlid allergy)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Ticlid allergy</title>
+					<expression>AllergyToTiclid-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Allergy>
+								<allergyStatus code="55561003" codeSystem="2.16.840.1.113883.6.96" displayName="Active"/>
+								<allergyClass code="N0000006471" codeSystem="2.16.840.1.113883.6.209" displayName="Clopidogrel"/>
+							</Allergy>
+						</Data>
+						<expression>patient.allergy-&gt;select(allergyClass.codeSystem="2.16.840.1.113883.6.209" and allergyClass.code = "N0000006471" and allergyStatus.code="55561003" and allergyStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>AllergyToTiclid</dataIdentifier>
+						<dataType>Set(Allergy)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Anti-platelet Med" code="109872005" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Contraindicated" codeSystem="2.16.840.1.113883.6.96" code="410536001"/>
+								<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.209"/>
+							</qualifier>
+						</stateCode>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Contraindication to Anti-Platelet Med (clopidogrel ingredient allergy)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Clopidogrel ingredient allergy</title>
+					<expression>AllergyToClopidogrel-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Allergy>
+								<allergyStatus code="55561003" codeSystem="2.16.840.1.113883.6.96" displayName="Active"/>
+								<productCoded code="32698" codeSystem="2.16.840.1.113883.6.88" displayName="clopidogrel"/>
+							</Allergy>
+						</Data>
+						<expression>patient.allergy-&gt;select(productCoded.codeSystem="2.16.840.1.113883.6.88" and productCoded.code = "32698" and allergyStatus.code="55561003" and allergyStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>AllergyToClopidogrel</dataIdentifier>
+						<dataType>Set(Allergy)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Anti-platelet Med" code="109872005" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Contraindicated" codeSystem="2.16.840.1.113883.6.96" code="410536001"/>
+								<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.209"/>
+							</qualifier>
+						</stateCode>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Contraindication to Anti-Platelet Med (clopidogrel bisulfate ingredient allergy)</title>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Clopidogrel  bisulfate ingredient allergy</title>
+					<expression>AllergyToClopidogrelBisulf-&gt;notEmpty()</expression>
+					<dataMapping>
+						<Data>
+							<Allergy>
+								<allergyStatus code="55561003" codeSystem="2.16.840.1.113883.6.96" displayName="Active"/>
+								<productCoded code="236991" codeSystem="2.16.840.1.113883.6.88" displayName="clopidogrel bisulfate"/>
+							</Allergy>
+						</Data>
+						<expression>patient.allergy-&gt;select(productCoded.codeSystem="2.16.840.1.113883.6.88" and productCoded.code = "236991" and allergyStatus.code="55561003" and allergyStatus.codeSystem="2.16.840.1.113883.6.96")</expression>
+						<dataIdentifier>AllergyToClopidogrelBisulf</dataIdentifier>
+						<dataType>Set(Allergy)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<ActionConcrete>
+					<ClinicalStateRequest>
+						<stateCode displayName="Anti-platelet Med" code="109872005" codeSystem="2.16.840.1.113883.6.209">
+							<qualifier>
+								<name displayName="Contraindicated" codeSystem="2.16.840.1.113883.6.96" code="410536001"/>
+								<value displayName="Medication Response" code="405177001" codeSystem="2.16.840.1.113883.6.209"/>
+							</qualifier>
+						</stateCode>
+						<stateStatus displayName="Active" code="55561003" codeSystem="2.16.840.1.113883.6.96"/>
+					</ClinicalStateRequest>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+</StructuredGuideline>

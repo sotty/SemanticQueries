@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?altova_sps StructuredEntryForm.sps?>
+<StructuredGuideline xmlns:p="htt//www.partners.org/cdsc/semi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="structured.xsd">
+	<Metadata>
+		<coverage>
+			<focus>patient</focus>
+			<code code="255397009" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED" displayName="Adult Patient"/>
+			<description>adult</description>
+			<type>inclusion</type>
+		</coverage>
+		<coverage>
+			<focus>careSetting</focus>
+			<code code="373864002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED" displayName="Outpatient Environment"/>
+			<description>outpatient</description>
+			<type>inclusion</type>
+		</coverage>
+		<contributor>
+			<roleType>Developer</roleType>
+			<organization>
+				<name>PHS</name>
+			</organization>
+		</contributor>
+		<identity>
+			<title>Hypertension guideline for AHRQ CDSC pilot</title>
+			<description>Rules for screening for and managing hypertension in outpatient adults</description>
+			<relatedResource>
+				<resource>
+					<title>Level 2 hypertension guideline for AHRQ CDSC pilot</title>
+					<description>Derived from the Level 2 specification of &quot;Hypertension screening reminder for AHRQ CDSC pilot&quot;</description>
+				</resource>
+				<type>derivedFrom</type>
+			</relatedResource>
+		</identity>
+	</Metadata>
+	<module>
+		<Metadata>
+			<identity>
+				<title>SCREEN</title>
+				<description>Rules that recommend periodic screening for hypertension in adults.</description>
+			</identity>
+		</Metadata>
+		<recommendation>
+			<Metadata>
+				<identity>
+					<title>Assess blood pressure (Overdue blood pressure)</title>
+					<description>Blood pressure should be monitored annually</description>
+					<relatedResource>
+						<resource>
+							<title>OverdueBloodPressure</title>
+							<description>Derived from recommendation &quot;OverdueBloodPressure&quot; from Level 2 specification &quot;Hypertension screening reminder for AHRQ CDSC pilot&quot;</description>
+						</resource>
+						<type>derivedFrom</type>
+					</relatedResource>
+				</identity>
+			</Metadata>
+			<ApplicableScenario>
+				<LogicalConditionSingle>
+					<title>Overdue blood pressure</title>
+					<description>No blood pressure within last 12 months</description>
+					<expression>BloodPressureResults12months-&gt;isEmpty()</expression>
+					<dataMapping>
+						<title>Blood pressure results in last 12 months</title>
+						<description>The set of all blood pressure results within the last 12 months</description>
+						<identifier>
+							<identifier/>
+							<identifierType/>
+						</identifier>
+						<Data>
+							<VitalSign>
+								<vsStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+								<vsType displayName="Systolic Blood Pressure" code="8480-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="Logical Observation Identifier Names and Codes"/>
+							</VitalSign>
+							<VitalSign>
+								<vsStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+								<vsType displayName="Systolic Blood Pressure, sitting" code="8495-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="Logical Observation Identifier Names and Codes"/>
+							</VitalSign>
+							<VitalSign>
+								<vsStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+								<vsType displayName="Systolic Blood Pressure, standing" code="8460-8   " codeSystem="2.16.840.1.113883.6.1" codeSystemName="Logical Observation Identifier Names and Codes"/>
+							</VitalSign>
+							<VitalSign>
+								<vsStatus displayName="completed" code="completed" codeSystem="2.16.840.1.113883.5.14" codeSystemName="ActStatus"/>
+								<vsType displayName="Systolic Blood Pressure - Supine" code="8461-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="Logical Observation Identifier Names and Codes"/>
+							</VitalSign>
+						</Data>
+						<expression>Let month : CodedValue = Factory.CodedValue(&quot;2.16.840.1.113883.6.8&quot;, &quot;mo&quot;) in patient.vitalSign-&gt;select(vsType.codeSystem = &quot;2.16.840.1.113883.6.1&quot; and vsType.code= &quot;8480-6 or vsType.code="8459-0" or vsType.code="8460-8&quot; or vsType.code="8461-6&quot; and vsStatus.codeSystem = &quot;2.16.840.1.113883.5.14&quot; and vsStatus.code = &quot;completed&quot; and vsDateTime.high.occurredWithin(12, month))</expression>
+						<dataIdentifier>BloodPressureResults12m</dataIdentifier>
+						<dataType>Set(VitalSign)</dataType>
+					</dataMapping>
+				</LogicalConditionSingle>
+			</ApplicableScenario>
+			<Advice>
+				<title>Assess blood pressure</title>
+				<ActionConcrete>
+					<ActionOrganizer>
+						<operator code="AND" codeSystem="1.3.6.1.4.1.16517" displayName="AND" codeSystemName="Partners HealthCare System"/>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="Patient is overdue for blood pressure assessment (recommended yearly)"/>
+								</Message>
+								<displayOrderEnforced>false</displayOrderEnforced>
+								<target code="309343006" displayName="Physician" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED"/>
+							</MessageRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<ProcedureRequest>
+								<procedureCategoryCode code="46680005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED" displayName="VitalSigns"/>
+								<procedureTypeCode code="8480-6" codeSystem="2.16.840.1.113883.6.1" displayName="SystolicBloodPressure" codeSystemName="Logical Observation Identifier Names and Codes"/>
+								<implementationTime>
+									<period value="0" unit="days"/>
+								</implementationTime>
+								<textAlternative>Document the blood pressure.</textAlternative>
+							</ProcedureRequest>
+						</ActionConcrete>
+						<ActionConcrete>
+							<MessageRequest>
+								<Message>
+									<freeTextMessage value="Patients should have their blood pressure checked at least every year.  If you have not had your blood pressure checked in over a year, you may want to talk to your doctor about having your blood pressure checked."/>
+									<displayOrderIndex value="1"/>
+								</Message>
+								<displayOrderEnforced>false</displayOrderEnforced>
+								<target code="116154003" displayName="Patient" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED"/>
+							</MessageRequest>
+						</ActionConcrete>
+					</ActionOrganizer>
+				</ActionConcrete>
+			</Advice>
+		</recommendation>
+	</module>
+	<ApplicableScenario>
+		<LogicalConditionSingle>
+			<title>Adult patient</title>
+			<description>Patient is an adult, i.e. age &gt;= 18 years old</description>
+			<expression>Let year : CodedValue = Factory.CodedValue(&quot;2.16.840.1.113883.6.8&quot;, &quot;a&quot;) in
+DoB.occurredAgo(18, year)</expression>
+			<dataMapping>
+				<title>DOB</title>
+				<description>Patient&apos;s date of birth</description>
+				<Data>
+						</Data>
+				<expression>patient.personDateOfBirth</expression>
+				<dataIdentifier>DoB</dataIdentifier>
+				<dataType>TS</dataType>
+			</dataMapping>
+		</LogicalConditionSingle>
+	</ApplicableScenario>
+</StructuredGuideline>
