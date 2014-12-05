@@ -15,7 +15,6 @@
 		<module>HeDKnowledgeBaseManager</module>
 		<module>QueryEngine</module>
 		<module>HeDRepository</module>
-		<module>HeDRepository</module>
 	</modules>
 
 
