@@ -1,14 +1,12 @@
 <?xml version="1.0"?>
-<xsl:stylesheet version="2.0"
+
+<xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:map="http://mappings"
                 xmlns="urn:hl7-org:knowledgeartifact:r1"
                 xmlns:dt="urn:hl7-org:cdsdt:r2" xmlns:p1="http://www.w3.org/1999/xhtml"
                 xmlns:vmr="urn:hl7-org:vmr:r2" xmlns:xml="http://www.w3.org/XML/1998/namespace"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xmlns:fn="http://www.w3.org/2005/xpath-functions"
 		>
-	<xsl:param name="coverageMapURI" />
 
 	<xsl:template match="/StructuredCDSKnowledge">
 		<knowledgeDocument xmlns="urn:hl7-org:knowledgeartifact:r1"
@@ -24,13 +22,13 @@
 			<metadata>
 
 				<identifiers>
-					<identifier root="TODO"
-					            version="TODO" />
+					<identifier root=""
+					            version="{Maintenance/Version}" />
 				</identifiers>
 
-				<artifactType value="{implementation/knowledgeType}" />
+				<!--artifactType value="Rule" /> All Arden are ECA artifacts  -->
 
-				<schemaIdentifier root="urn:hl7-org:knowledgeartifact:r1" version="1.0" />
+				<schemaIdentifier root="urn:hl7-org:knowledgeartifact:r1" version="{Maintenance/Arden}" />
 
 				<dataModels>
 					<modelReference>
@@ -39,16 +37,16 @@
 					</modelReference>
 				</dataModels>
 
-				<title value="{identity/title}" />
+				<title value="{Maintenance/Title}" />
 
-				<description value="{identity/description}" />
+				<description value="{Library/Purpose`}" />
 
-				<!--documentation>
-					<description value="Explanation" />
+				<documentation>
+					<description value="{Library/CitationText}" />
 					<content>
-						<div xmlns="http://www.w3.org/1999/xhtml">TODO</div>
+						<!-- div xmlns="http://www.w3.org/1999/xhtml">TODO</div> -->
 					</content>
-				</documentation-->
+				</documentation>
 
 				<relatedResources>
 					<xsl:for-each select="identity/relatedResource">
@@ -56,7 +54,7 @@
 					</xsl:for-each>
 				</relatedResources>
 
-				<!--supportingEvidence>
+				<supportingEvidence>
 					<evidence>
 						<qualityOfEvidence code="TODO"/>
 						<strengthOfRecommendation code="TODO" codeSystem="CS" codeSystemName="MY" />
@@ -65,7 +63,7 @@
 								<identifiers>
 									<identifier root="TODO" />
 								</identifiers>
-								<title value="TODO" />
+								<title value="{Library/Citations}" />
 								<location value="TODO" />
 							</resource>
 						</resources>
@@ -79,49 +77,48 @@
 				</applicability>
 
 				<keyTerms>
-					<term><dt:originalText value="TODO"/></term>
+					<term><dt:originalText value="{Library/Keywords}"/></term>
 				</keyTerms>
 
-				<status value="TODO" />
+				<status value="{Maintenance/Validation}" />
 
-				<eventHistory>
+				<!-- eventHistory>
 					<artifactLifeCycleEvent>
-						<eventType value="{stateChangeEvent/eventCode}" />
-						<eventDateTime value="{stateChangeEvent/eventCode/eventDateTime}" />
+						<eventType value="TODO" />
+						<eventDateTime value="TODO" />
 					</artifactLifeCycleEvent>
-				</eventHistory>
-
+				</eventHistory> -->
 
 				<contributions>
 					<contribution>
 						<contributor xsi:type="TODO">
-							<name value="{contributor/organization/name}" />
+							<name value="{Maintenance/Author}" />
 						</contributor>
-						<role value="{contributor/roleType}" />
+						<role/>
 					</contribution>
 				</contributions>
-<!--Publisher does not exist in CDSC  
+
 				<publishers>
 					<publisher xsi:type="TODO">
-						<name value="TODO" />
+						<name value="{Maintenance/Institution}" />
 					</publisher>
-				</publishers>    --> 
+				</publishers>
 
-				<usageTerms>
+				<!-- usageTerms>
 					<rightsDeclaration>
 						<assertedRights value="TODO" />
 						<rightsHolder xsi:type="TODO">
 							<name value="TODO" />
 						</rightsHolder>
 					</rightsDeclaration>
-				</usageTerms>
+				</usageTerms> -->
 
 			</metadata>
 	</xsl:template>
 
 	<xsl:template match="relatedResource" >
 		<relatedResource>
-			<relationship value="{type}" />
+			<!--relationship value="{type}" />  -->
 			<resources>
 				<resource>
 					<identifiers>
@@ -137,30 +134,12 @@
 
 	<xsl:template match="coverage" >
 		<coverage>
-			<xsl:variable name="cover">   					
-				<xsl:apply-templates select="$coverage-table">
-					<xsl:with-param name="cdsc-enum">
-   						<xsl:value-of select="focus"/>
-   					</xsl:with-param>
-  				</xsl:apply-templates>					
-			</xsl:variable>
-			<focus value="{$cover}" />
-			
+			<focus value="ClinicalFocus" />
+			<!-- TODO based on admissible values for CDSC:focus, maybe apply a mapping as eplained here http://www.ibm.com/developerworks/library/x-xsltip.html -->
 			<description value="{description}" />
-			<value code="{code/@code}" codeSystem="{code/@codeSystem}" codeSystemName="{code/@codeSystemName}"><dt:displayName value="{code/@displayName}"/></value>
+			<value code="{code/@code}" codeSystem="{code/@codeSystem}" codeSystemName="{code/@codeSystemName}"><dt:displayName value="@{code/displayName}"/></value>
 		</coverage>
 	</xsl:template>
-
-
-
-	<xsl:key name="cov-lookup" match="map:coverageMapping" use="map:cdsc" />
-	<xsl:variable name="coverage-table"
-		select="document( $coverageMapURI )/map:coverageMap" />
-	<xsl:template match="map:coverageMap">
-		<xsl:param name="cdsc-enum" />
-		<xsl:value-of select="key('cov-lookup', $cdsc-enum)/map:hed" />
-	</xsl:template>
-
 
 
 </xsl:stylesheet>

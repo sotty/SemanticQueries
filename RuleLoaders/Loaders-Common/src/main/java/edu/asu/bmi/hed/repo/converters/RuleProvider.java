@@ -5,6 +5,6 @@ import java.util.List;
 
 public interface RuleProvider {
 
-    public List<URL> getRules( String sourceRef );
+    public List<URL> getRules( URL sourceRef );
 
 }

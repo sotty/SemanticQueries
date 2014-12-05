@@ -12,9 +12,14 @@
 	</parent>
 
 
-	<groupId>SemanticQueries</groupId>
 	<artifactId>ArdenLoader</artifactId>
-	<version>1.0-SNAPSHOT</version>
 
 
+	<dependencies>
+		<dependency>
+			<groupId>SemanticQueries</groupId>
+			<artifactId>Loaders-Common</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 </project>

@@ -11,9 +11,8 @@ import java.util.List;
 
 public class RuleFolderHunter implements RuleProvider {
 
-    @Override
-    public List<URL> getRules( String sourceRef ) {
-        URL srcFolderURL = CDSCLoader.class.getResource( sourceRef );
+    public List<URL> getRules( URL srcFolderURL ) {
+        
         List<URL> rules = new ArrayList<URL>();
 
         try {
@@ -21,7 +20,6 @@ public class RuleFolderHunter implements RuleProvider {
 
             if ( srcFolder.exists() && srcFolder.isDirectory() ) {
                 for ( File file : srcFolder.listFiles( new FilenameFilter() {
-                    @Override
                     public boolean accept( File dir, String name ) {
                         return name.endsWith( ".xml" );
                     }

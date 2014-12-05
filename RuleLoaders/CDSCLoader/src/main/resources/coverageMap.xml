@@ -1,0 +1,9 @@
+<map:coverageMap xmlns:map="http://mappings">
+ <map:coverageMapping><map:cdsc>patient</map:cdsc><map:hed>PatientAgeGroup</map:hed></map:coverageMapping>
+ <map:coverageMapping><map:cdsc>careSetting</map:cdsc><map:hed>ClinicalVenue</map:hed></map:coverageMapping>
+ <map:coverageMapping><map:cdsc>clinicalFocus</map:cdsc><map:hed>ClinicalFocus</map:hed></map:coverageMapping>
+ <map:coverageMapping><map:cdsc>user</map:cdsc><map:hed>TargetUser</map:hed></map:coverageMapping>
+ <map:coverageMapping><map:cdsc>subTopic</map:cdsc><map:hed>WorkflowSetting</map:hed></map:coverageMapping>
+ <map:coverageMapping><map:cdsc>taskContext</map:cdsc><map:hed>WorkflowTask</map:hed></map:coverageMapping>
+</map:coverageMap>
+

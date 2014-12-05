@@ -1,55 +1,53 @@
 package edu.asu.bmi.hed.repo.converters;
 
-import org.w3c.dom.Document;
-
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.Collections;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CDSCLoader extends AbstractLoader {
-
-    private RuleProvider provider;
-
+  
+    private static final String XSL = "/cdsc2hed.xsl";
+    private static final String COV_MAP = "/coverageMap.xml";
+    private static final String SRC = "/rulebase";
+    
+    private static final String COV_MAP_URI = "coverageMapURI";
+    
+    
+    private static Map<String,Object> params = new HashMap<String,Object>();
+    
+    static {
+    	URI covMapURI;
+		try {
+			covMapURI = CDSCLoader.class.getResource( COV_MAP ).toURI();
+			params.put( COV_MAP_URI, covMapURI );
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}  	
+    }
+    
     public CDSCLoader() {
         this.provider = RuleProviderFactory.getProvider( this.getClass() );
     }
 
     @Override
     protected InputStream getXSLT() {
-        return CDSCLoader.class.getResourceAsStream( "/cdsc2hed.xsl" );
+        return CDSCLoader.class.getResourceAsStream( XSL );
     }
 
-    private void loadRules() {
-
-        List<URL> rules = provider.getRules( "/rulebase" );
-
-        for ( URL url : rules ) {
-            try {
-                File f = new File( url.toURI() );
-
-                Document hed = loadAsHeD( new FileInputStream( f ) );
-                save( hed, getOutputStream( url ) );
-
-                // TODO remove once ready
-                break;
-            } catch ( Exception e ) {
-                e.printStackTrace();
-            }
-        }
+    protected URL getSourceContent() {
+    	return CDSCLoader.class.getResource( SRC );       
     }
+
 
     public static void main( String... args ) {
-        new CDSCLoader().loadRules();
+        new CDSCLoader().loadRules( params );
     }
 
-
-    public OutputStream getOutputStream( URL url ) {
-        return System.err;
-    }
+  
 }
