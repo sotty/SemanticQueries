@@ -13,22 +13,28 @@ import java.util.Map;
 public class CDSCLoader extends AbstractLoader {
   
     private static final String XSL = "/cdsc2hed.xsl";
-    private static final String COV_MAP = "/coverageMap.xml";
     private static final String SRC = "/rulebase";
     
     private static final String COV_MAP_URI = "coverageMapURI";
-    
-    
+    private static final String COV_MAP = "/coverageMap.xml";
+
+    private static final String ART_MAP_URI = "artifactTypeMapURI";
+    private static final String ART_MAP = "/artifactTypeMap.xml";
+
+    private static final String REL_MAP_URI = "relationshipTypeMapURI";
+    private static final String REL_MAP = "/relationshipTypeMap.xml";
+
+
     private static Map<String,Object> params = new HashMap<String,Object>();
     
     static {
-    	URI covMapURI;
 		try {
-			covMapURI = CDSCLoader.class.getResource( COV_MAP ).toURI();
-			params.put( COV_MAP_URI, covMapURI );
+			params.put( COV_MAP_URI, CDSCLoader.class.getResource( COV_MAP ).toURI() );
+			params.put( ART_MAP_URI, CDSCLoader.class.getResource( ART_MAP ).toURI() );
+			params.put( REL_MAP_URI, CDSCLoader.class.getResource( REL_MAP ).toURI() );
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
-		}  	
+		}
     }
     
     public CDSCLoader() {

@@ -3,18 +3,19 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:map="http://mappings"
                 xmlns="urn:hl7-org:knowledgeartifact:r1"
-                xmlns:dt="urn:hl7-org:cdsdt:r2" xmlns:p1="http://www.w3.org/1999/xhtml"
-                xmlns:vmr="urn:hl7-org:vmr:r2" xmlns:xml="http://www.w3.org/XML/1998/namespace"
+                xmlns:dt="urn:hl7-org:cdsdt:r2"
+                xmlns:vmr="urn:hl7-org:vmr:r2"
+                xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 xmlns:fn="http://www.w3.org/2005/xpath-functions"
 		>
 	<xsl:param name="coverageMapURI" />
+	<xsl:param name="artifactTypeMapURI" />
+	<xsl:param name="relationshipTypeMapURI" />
 
 	<xsl:template match="/StructuredCDSKnowledge">
-		<knowledgeDocument xmlns="urn:hl7-org:knowledgeartifact:r1"
-		                   xmlns:dt="urn:hl7-org:cdsdt:r2" xmlns:p1="http://www.w3.org/1999/xhtml"
-		                   xmlns:vmr="urn:hl7-org:vmr:r2" xmlns:xml="http://www.w3.org/XML/1998/namespace"
-		                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		<knowledgeDocument xmlns="urn:hl7-org:knowledgeartifact:r1" xsi:type="KnowledgeDocument"
+
 				>
 		<xsl:apply-templates select="Metadata"/>
 		</knowledgeDocument>
@@ -28,7 +29,15 @@
 					            version="TODO" />
 				</identifiers>
 
-				<artifactType value="{implementation/knowledgeType}" />
+
+				<xsl:variable name="aType">
+					<xsl:apply-templates select="$artifactType-table">
+						<xsl:with-param name="cdsc-enum">
+							<xsl:value-of select="implementation/knowledgeType"/>
+						</xsl:with-param>
+					</xsl:apply-templates>
+				</xsl:variable>
+				<artifactType value="{$aType}" />
 
 				<schemaIdentifier root="urn:hl7-org:knowledgeartifact:r1" version="1.0" />
 
@@ -82,19 +91,22 @@
 					<term><dt:originalText value="TODO"/></term>
 				</keyTerms>
 
-				<status value="TODO" />
+				<status value="Active" />
 
 				<eventHistory>
 					<artifactLifeCycleEvent>
 						<eventType value="{stateChangeEvent/eventCode}" />
-						<eventDateTime value="{stateChangeEvent/eventCode/eventDateTime}" />
+						<xsl:variable name="dts">
+							<xsl:value-of select="stateChangeEvent/eventDateTime"/>
+						</xsl:variable>
+						<eventDateTime value="{fn:format-date( xs:date($dts),'[Y0001][M01][D01]')}" />
 					</artifactLifeCycleEvent>
 				</eventHistory>
 
 
 				<contributions>
 					<contribution>
-						<contributor xsi:type="TODO">
+						<contributor xsi:type="Organization">
 							<name value="{contributor/organization/name}" />
 						</contributor>
 						<role value="{contributor/roleType}" />
@@ -121,15 +133,23 @@
 
 	<xsl:template match="relatedResource" >
 		<relatedResource>
-			<relationship value="{type}" />
+			<xsl:variable name="relType">
+				<xsl:apply-templates select="$relationshipType-table">
+					<xsl:with-param name="cdsc-enum">
+						<xsl:value-of select="type"/>
+					</xsl:with-param>
+				</xsl:apply-templates>
+			</xsl:variable>
+			<relationship value="{$relType}" />
+
 			<resources>
 				<resource>
 					<identifiers>
 						<identifier root="{generate-id(resource/location)}" />
 					</identifiers>
 					<title value="{resource/title}" />
-					<description value="{resource/description}" />
 					<location value="{resource/location}" />
+					<description value="{resource/description}" />
 				</resource>
 			</resources>
 		</relatedResource>
@@ -153,12 +173,31 @@
 
 
 
-	<xsl:key name="cov-lookup" match="map:coverageMapping" use="map:cdsc" />
+
 	<xsl:variable name="coverage-table"
-		select="document( $coverageMapURI )/map:coverageMap" />
-	<xsl:template match="map:coverageMap">
+		select="document( $coverageMapURI )/map:Map" />
+	<xsl:key name="cov-lookup" match="map:Mapping" use="map:cdsc" />
+	<xsl:template match="map:Map">
 		<xsl:param name="cdsc-enum" />
 		<xsl:value-of select="key('cov-lookup', $cdsc-enum)/map:hed" />
+	</xsl:template>
+
+	<xsl:variable name="artifactType-table"
+	              select="document( $artifactTypeMapURI )/map:Map" />
+	<xsl:key name="artifactType-lookup" match="map:Mapping" use="map:cdsc" />
+	<xsl:template match="map:Map">
+		<xsl:param name="cdsc-enum" />
+		<xsl:value-of select="key('artifactType-lookup', $cdsc-enum)/map:hed" />
+	</xsl:template>
+
+
+	<xsl:variable name="relationshipType-table"
+	              select="document( $relationshipTypeMapURI )/map:Map" />
+	<xsl:key name="relationshipType-lookup" match="map:Mapping" use="map:cdsc" />
+	<xsl:template match="map:Map">
+		<xsl:param name="cdsc-enum" />
+		<xsl:message><xsl:value-of select="$cdsc-enum" /> </xsl:message>
+		<xsl:value-of select="key('relationshipType-lookup', $cdsc-enum)/map:hed" />
 	</xsl:template>
 
 

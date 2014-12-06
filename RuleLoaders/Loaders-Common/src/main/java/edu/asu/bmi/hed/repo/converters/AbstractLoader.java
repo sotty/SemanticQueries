@@ -4,7 +4,6 @@ import com.sun.org.apache.xml.internal.serialize.OutputFormat;
 import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
 
 import net.sf.saxon.TransformerFactoryImpl;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.ls.LSInput;
 import org.w3c.dom.ls.LSResourceResolver;
@@ -13,9 +12,7 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -36,8 +33,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public abstract class AbstractLoader implements ArtifactLoader {
 	
@@ -49,10 +48,7 @@ public abstract class AbstractLoader implements ArtifactLoader {
 		static final String JAXP_SCHEMA_SOURCE =
 			    "http://java.sun.com/xml/jaxp/properties/schemaSource";
 		
-		private static final String[] SCHEMA_LOC = { "/schema/hed/knowledgeartifact/",
-			"/schema/hed/knowledgeartifact/enum/",
-			"/schema/hed/knowledgeartifact/ext/",
-			"/schema/hed/common/"};
+		private static final String SCHEMA_LOC = "/schema/hed/knowledgeartifact/";
 		protected static final CharSequence HED_NS = "urn:hl7-org:knowledgeartifact:r1";
 		
 		
@@ -65,10 +61,17 @@ public abstract class AbstractLoader implements ArtifactLoader {
 
             byte[] data = readBytes( os );
             ByteArrayInputStream is = new ByteArrayInputStream( data );
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-            
+
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance( );
+            dbf.setNamespaceAware( true );
+
             Document dox = dbf.newDocumentBuilder().parse( is );
+
+            save( dox, System.out );
+
             validate( dox );
+
+
             return dox;
         } catch ( Exception e ) {
             e.printStackTrace();
@@ -78,41 +81,19 @@ public abstract class AbstractLoader implements ArtifactLoader {
 
     private void validate(Document dox) {
 		SchemaFactory sf = SchemaFactory.newInstance( W3C_XML_SCHEMA );
-		final List<String> loadedFiles = new ArrayList<String>();
 		try {
 			sf.setResourceResolver( new LSResourceResolver() {
 				public LSInput resolveResource( String type, String namespaceURI, String publicId,
 						String systemId, String baseURI ) {
-					System.out.println( "Tryibg to Load " + systemId );
-					String relPath = systemId;
-					if ( relPath.startsWith( ".." ) && namespaceURI.contains( HED_NS ) ) {
-						relPath = relPath.substring( 3 );
-					}
-					InputStream is = null;
-					for ( int j = 0; j < SCHEMA_LOC.length; j++ ) {
-						String path = SCHEMA_LOC[ j ] + relPath;
-						URL url = AbstractLoader.class.getResource( path );
-						
-						if ( url != null && ! loadedFiles.contains( url.getPath() ) ) {
-							try {
-								File f = new File( url.getPath() );
-								loadedFiles.add( url.getPath() );
-								System.out.println( "Loading " + url.getPath() + " >> " + loadedFiles.size() );
-								is = new FileInputStream( f );
-								break;
-							} catch (FileNotFoundException e) {
-								e.printStackTrace();
-							}
-						}
-					} 
-					if ( is == null ) {
-						System.out.println( "Nothing needed or found, skip" );
-						return null;
-					} 
+					if ( ! systemId.endsWith( ".xsd" ) || systemId.startsWith( "http://" ) ) {
+                        systemId = "../common/" + systemId.substring( systemId.lastIndexOf( "/" ) + 1 );
+                    }
+                    String relPath = SCHEMA_LOC + systemId;
+                    InputStream is = AbstractLoader.class.getResourceAsStream( relPath );
 					return new InputImpl( publicId, systemId, is );
 				}
 			});
-			Schema schema = sf.newSchema( AbstractLoader.class.getResource( SCHEMA_LOC[ 0 ] + "knowledgedocument.xsd" ) );
+			Schema schema = sf.newSchema( AbstractLoader.class.getResource( SCHEMA_LOC + "knowledgedocument_flat.xsd" ) );
 			Validator validator = schema.newValidator();
 			validator.validate( new DOMSource( dox ) );
 		} catch (Exception e) {
@@ -152,7 +133,7 @@ public abstract class AbstractLoader implements ArtifactLoader {
         dbf.setValidating( false );
     }
 
-    protected OutputStream transform( InputStream input, InputStream xslt, Map<String,Object> params ) throws TransformerException {
+    protected OutputStream transform( InputStream input, InputStream xslt, Map<String,Object> params ) throws TransformerException, IOException {
         TransformerFactory factory = TransformerFactory.newInstance( TransformerFactoryImpl.class.getName(), null );
         StreamSource xslStream = new StreamSource( xslt );
         Transformer transformer = factory.newTransformer( xslStream );
@@ -166,8 +147,6 @@ public abstract class AbstractLoader implements ArtifactLoader {
         	transformer.setParameter( key, params.get( key ) );
         }
         transformer.transform( in, out );
-
-        System.out.println( new String( baos.toByteArray() ) );
 
         return baos;
     }
@@ -223,7 +202,6 @@ public abstract class AbstractLoader implements ArtifactLoader {
         }
     }
 
-
     public OutputFormat getFormat() {
         OutputFormat format = new OutputFormat();
         //format.setLineWidth(120);
@@ -232,4 +210,7 @@ public abstract class AbstractLoader implements ArtifactLoader {
         format.setEncoding( "UTF-8" );
         return format;
     }
+
+
+
 }
