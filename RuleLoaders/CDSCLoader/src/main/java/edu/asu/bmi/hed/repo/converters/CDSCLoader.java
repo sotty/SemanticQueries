@@ -23,7 +23,9 @@ public class CDSCLoader extends AbstractLoader {
 
     private static final String REL_MAP_URI = "relationshipTypeMapURI";
     private static final String REL_MAP = "/relationshipTypeMap.xml";
-
+    
+    private static final String CON_MAP_URI = "contributorTypeMapURI";
+    private static final String CON_MAP = "/contributorTypeMap.xml";
 
     private static Map<String,Object> params = new HashMap<String,Object>();
     
@@ -32,6 +34,8 @@ public class CDSCLoader extends AbstractLoader {
 			params.put( COV_MAP_URI, CDSCLoader.class.getResource( COV_MAP ).toURI() );
 			params.put( ART_MAP_URI, CDSCLoader.class.getResource( ART_MAP ).toURI() );
 			params.put( REL_MAP_URI, CDSCLoader.class.getResource( REL_MAP ).toURI() );
+			params.put( CON_MAP_URI, CDSCLoader.class.getResource( CON_MAP ).toURI() );
+			
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
 		}

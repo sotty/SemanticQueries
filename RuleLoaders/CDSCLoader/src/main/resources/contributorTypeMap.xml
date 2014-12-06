@@ -1,0 +1,7 @@
+<map:Map xmlns:map="http://mappings">
+ <map:Mapping><map:cdsc>Developer</map:cdsc><map:hed>Author</map:hed></map:Mapping>
+ <map:Mapping><map:cdsc>Other</map:cdsc><map:hed>Editor</map:hed></map:Mapping>
+ <map:Mapping><map:cdsc>Endorser</map:cdsc><map:hed>Endorser</map:hed></map:Mapping>
+ <map:Mapping><map:cdsc>Other</map:cdsc><map:hed>Reviewer</map:hed></map:Mapping>
+</map:Map>
+

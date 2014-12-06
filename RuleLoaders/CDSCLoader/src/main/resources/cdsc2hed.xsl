@@ -12,6 +12,7 @@
 	<xsl:param name="coverageMapURI" />
 	<xsl:param name="artifactTypeMapURI" />
 	<xsl:param name="relationshipTypeMapURI" />
+	<xsl:param name="contributorTypeMapURI" />
 
 	<xsl:template match="/StructuredCDSKnowledge">
 		<knowledgeDocument xmlns="urn:hl7-org:knowledgeartifact:r1" xsi:type="KnowledgeDocument"
@@ -87,12 +88,11 @@
 					</xsl:for-each>
 				</applicability>
 
-				<keyTerms>
+				<!--keyTerms>
 					<term><dt:originalText value="TODO"/></term>
-				</keyTerms>
+				</keyTerms>  -->
 
-				<status value="Active" />
-
+				<!--status value="Active" />-->
 				<eventHistory>
 					<artifactLifeCycleEvent>
 						<eventType value="{stateChangeEvent/eventCode}" />
@@ -109,6 +109,7 @@
 						<contributor xsi:type="Organization">
 							<name value="{contributor/organization/name}" />
 						</contributor>
+						
 						<role value="{contributor/roleType}" />
 					</contribution>
 				</contributions>
@@ -119,14 +120,14 @@
 					</publisher>
 				</publishers>    --> 
 
-				<usageTerms>
+				<!--usageTerms>
 					<rightsDeclaration>
 						<assertedRights value="TODO" />
 						<rightsHolder xsi:type="TODO">
 							<name value="TODO" />
 						</rightsHolder>
 					</rightsDeclaration>
-				</usageTerms>
+				</usageTerms>  -->
 
 			</metadata>
 	</xsl:template>
@@ -199,7 +200,14 @@
 		<xsl:message><xsl:value-of select="$cdsc-enum" /> </xsl:message>
 		<xsl:value-of select="key('relationshipType-lookup', $cdsc-enum)/map:hed" />
 	</xsl:template>
-
+	
+<xsl:variable name="contributorType-table"
+	              select="document( $contributorTypeMapURI )/map:Map" />
+	<xsl:key name="contributorType-lookup" match="map:Mapping" use="map:cdsc" />
+	<xsl:template match="map:Map">
+		<xsl:param name="cdsc-enum" />
+		<xsl:value-of select="key('contributorType-lookup', $cdsc-enum)/map:hed" />
+	</xsl:template>
 
 
 </xsl:stylesheet>
