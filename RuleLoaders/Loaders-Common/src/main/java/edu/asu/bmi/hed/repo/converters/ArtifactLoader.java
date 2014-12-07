@@ -8,6 +8,6 @@ import java.util.Map;
 
 public interface ArtifactLoader {
 
-    public Document loadAsHeD( InputStream source, Map<String,Object> params );
+    public Document loadAsHeD( InputStream source, Map<String,Object> params ) throws Exception;
 
 }

@@ -4,7 +4,8 @@
  <map:Mapping><map:cdsc>similarTo</map:cdsc><map:hed>SimilarTo</map:hed></map:Mapping>
  <map:Mapping><map:cdsc>adaptedFrom</map:cdsc><map:hed>AdaptedFrom</map:hed></map:Mapping>
  <map:Mapping><map:cdsc>associatedResource</map:cdsc><map:hed>AssociatedResource</map:hed></map:Mapping>
- <map:Mapping><map:cdsc>associatedReference</map:cdsc><map:hed>AssociatedResource</map:hed></map:Mapping>
+<map:Mapping><map:cdsc>associatedReference</map:cdsc><map:hed>AssociatedResource</map:hed></map:Mapping>
+<map:Mapping><map:cdsc></map:cdsc><map:hed>AssociatedResource</map:hed></map:Mapping>
  <map:Mapping><map:cdsc>dependsOn</map:cdsc><map:hed>DependsOn</map:hed></map:Mapping>
 </map:Map>
 

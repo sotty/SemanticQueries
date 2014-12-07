@@ -55,8 +55,7 @@ public abstract class AbstractLoader implements ArtifactLoader {
 	protected RuleProvider provider;
 
 
-    public Document loadAsHeD( InputStream source, Map<String,Object> params ) {
-        try {
+    public Document loadAsHeD( InputStream source, Map<String,Object> params ) throws Exception {
             OutputStream os = transform( source, getXSLT(), params );
 
             byte[] data = readBytes( os );
@@ -65,23 +64,18 @@ public abstract class AbstractLoader implements ArtifactLoader {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance( );
             dbf.setNamespaceAware( true );
 
+            System.out.println( new String(data)); 
             Document dox = dbf.newDocumentBuilder().parse( is );
 
             save( dox, System.out );
 
             validate( dox );
 
-
             return dox;
-        } catch ( Exception e ) {
-            e.printStackTrace();
-            return null;
-        }
     }
 
-    private void validate(Document dox) {
+    private void validate(Document dox) throws Exception {
 		SchemaFactory sf = SchemaFactory.newInstance( W3C_XML_SCHEMA );
-		try {
 			sf.setResourceResolver( new LSResourceResolver() {
 				public LSInput resolveResource( String type, String namespaceURI, String publicId,
 						String systemId, String baseURI ) {
@@ -96,9 +90,6 @@ public abstract class AbstractLoader implements ArtifactLoader {
 			Schema schema = sf.newSchema( AbstractLoader.class.getResource( SCHEMA_LOC + "knowledgedocument_flat.xsd" ) );
 			Validator validator = schema.newValidator();
 			validator.validate( new DOMSource( dox ) );
-		} catch (Exception e) {
-			e.printStackTrace();
-		} 
 	}
 
 	protected byte[] readBytes( OutputStream os ) {
@@ -164,10 +155,10 @@ public abstract class AbstractLoader implements ArtifactLoader {
                 Document hed = loadAsHeD( new FileInputStream( f ), params );
                 save( hed, getOutputStream( url ) );
 
-                // TODO remove once ready
-                break;
             } catch ( Exception e ) {
                 e.printStackTrace();
+                System.out.println( "Failure with " + url );	
+                break;
             }
         }
     }

@@ -1,0 +1,5 @@
+<map:Map xmlns:map="http://mappings">
+ <map:Mapping><map:cdsc>Created</map:cdsc><map:hed>Active</map:hed></map:Mapping>
+ <map:Mapping><map:cdsc></map:cdsc><map:hed>Active</map:hed></map:Mapping>
+</map:Map>
+

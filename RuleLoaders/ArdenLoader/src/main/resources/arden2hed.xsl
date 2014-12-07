@@ -15,6 +15,7 @@
 		                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 				>
 		<xsl:apply-templates select="Metadata"/>
+		<actionGroup/>
 		</knowledgeDocument>
 	</xsl:template>
 
