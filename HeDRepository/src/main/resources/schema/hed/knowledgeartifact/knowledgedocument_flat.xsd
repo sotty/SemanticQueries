@@ -12,7 +12,7 @@
             artifact.   </xs:documentation>
     </xs:annotation>
     <xs:import namespace="urn:hl7-org:cdsdt:r2" schemaLocation="../common/datatypes.xsd"/>
-    <xs:import namespace="http://www.w3.org/1999/xhtml" schemaLocation="../common/xhtml1-strict.xsd"/>
+    <!--  xs:import namespace="http://www.w3.org/1999/xhtml" schemaLocation="../common/xhtml1-strict.xsd"/-->
     <xs:annotation>
         <xs:documentation>    This file defines the base types used in defining knowledge artifacts.
         </xs:documentation>
@@ -249,7 +249,7 @@
                         </xs:annotation>
                         <xs:complexType>
                             <xs:sequence>
-                                <xs:element ref="xhtml:div"/>
+                                <xs:element name="content" type="xs:string" />
                             </xs:sequence>
                         </xs:complexType>
                     </xs:element>

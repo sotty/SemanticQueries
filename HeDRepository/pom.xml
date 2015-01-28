@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<parent>
 		<artifactId>SemanticQueries</artifactId>
 		<groupId>SemanticQueries</groupId>
@@ -12,6 +11,31 @@
 	<groupId>SemanticQueries</groupId>
 	<artifactId>HeDRepository</artifactId>
 	<version>1.0-SNAPSHOT</version>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<outputDirectory>${basedir}/target/generated-sources/java</outputDirectory>
+					<schemaDirectory>${basedir}/src/main/resources/schema/hed/knowledgeartifact</schemaDirectory>
+					<bindingDirectory>${basedir}/src/main/resources/schema/hed/knowledgeartifact</bindingDirectory>
+					<extension>true</extension>
+					<clearOutputDir>false</clearOutputDir>
+					<arguments>-no-header</arguments>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 
 </project>

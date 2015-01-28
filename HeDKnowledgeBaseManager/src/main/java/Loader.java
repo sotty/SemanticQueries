@@ -11,8 +11,6 @@ import com.hp.hpl.jena.rdf.model.InfModel;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 import org.coode.owlapi.rdf.model.RDFTranslator;
-import org.drools.io.ResourceFactory;
-import org.drools.io.impl.ClassPathResource;
 import org.mindswap.pellet.KnowledgeBase;
 import org.mindswap.pellet.jena.PelletInfGraph;
 import org.semanticweb.owlapi.apibinding.OWLManager;
@@ -42,7 +40,7 @@ import java.util.Set;
 
 public class Loader {
 
-
+/*
     public static OWLOntologyManager getManagerWithTheories() {
 
         ClassPathResource[] res = new ClassPathResource[] {
@@ -106,5 +104,7 @@ public class Loader {
     private static void addResource( OWLOntologyManager manager, ClassPathResource rule ) throws IOException, OWLOntologyCreationException {
         manager.loadOntologyFromOntologyDocument( rule.getInputStream() );
     }
+    
+    */
 
 }

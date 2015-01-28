@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-    <uri id="User Entered Import Resolution" name="http://asu.edu/sharpc2b/skos-ext" uri="file:/home/davide/Projects/Git/HeD-editor/sharp-editor/editor-models/hed-model/src/main/resources/ontologies/editor_models/skos-ext.owl"/>
-    <uri id="User Entered Import Resolution" name="http://asu.edu/sharpc2b/ops" uri="file:/home/davide/Projects/Git/HeD-editor/sharp-editor/editor-models/hed-model/src/main/resources/ontologies/editor_models/expr-core.owl"/>
-    <uri id="User Entered Import Resolution" name="http://asu.edu/sharpc2b/ops-set" uri="file:/home/davide/Projects/Git/HeD-editor/sharp-editor/editor-models/hed-model/src/main/resources/ontologies/editor_models/sharp_operators.ofn"/>
-    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base=""/>
-</catalog>

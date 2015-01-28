@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="file://psf/Home/Documents/HL7%20Information/HL7%20Documents%20May%202013/xslt2.8/html/Arden2.8.xsl"?>
+<ArdenMLs xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file://psf/Home/Documents/HL7%20Information/HL7%20Documents%20May%202013/ArdenMLschema/ArdenMLSchema2.9/Arden2_9.xsd">
+	<ArdenML>
+		<Maintenance>
+			<Title>(DRAFT) SCREENING FOR BREAST CANCER USING FILM  MAMMOGRAPHY (B Recommendation only)</Title>
+			<FileName>Mammo_Screening_Rules</FileName>
+			<Arden>Version 2.7</Arden>
+			<Version>2 (revision of 2002 guidelines)</Version>
+			<Institution>
+				<Name_of_Institution>AHRQ</Name_of_Institution>
+			</Institution>
+			<Author>
+				<Person>
+					<Name>United States Preventive Services Task Force (USPSTF)</Name>
+				</Person>
+			</Author>
+			<Specialist>
+				<Person>
+					<FirstName>Peter</FirstName>
+					<SurName>Haug</SurName>
+					<Contact>
+						<E-mail>Peter.Haug@imail.org</E-mail>
+					</Contact>
+				</Person>
+			</Specialist>
+			<Date>2009-11-17</Date>
+			<Validation>testing</Validation>
+		</Maintenance>
+		<Library>
+			<Purpose>U.S. Preventive Services Task Force (USPSTF) recommendation statement on screening for breast cancer in the general population.</Purpose>
+			<Explanation>
+				Importance: Breast cancer is the second-leading cause of cancer death among women in the United States. Widespread use of screening, along with treatment advances in recent years, have been credited with significant reductions in breast cancer mortality.
+				Detection: Mammography, as well as physical examination of the breasts (CBE and BSE), can detect presymptomatic breast cancer. Because of its demonstrated effectiveness in randomized, controlled trials of screening, film mammography is the standard for detecting breast cancer; in 2002, the USPSTF found convincing evidence of its adequate sensitivity and specificity.
+				Benefits of Detection and Early Intervention:  There is convincing evidence that screening with film mammography reduces breast cancer mortality, with a greater absolute reduction for women aged 50 to 74 years than for women aged 40 to 49 years. The strongest evidence for the greatest benefit is among women aged 60 to 69 years.
+			</Explanation>
+			<Keywords>
+				<Keyword>Mammography</Keyword>
+				<Keyword>Breast Cancer</Keyword>
+			</Keywords>
+		</Library>
+		<Knowledge>
+			<Type>data_driven</Type>
+			<Data>
+				<Destination>
+					<Identifier var="Alert_Storage" otype="string"/>
+					<Assigned>
+						<Mapping>
+							<Contents>???</Contents>
+							<XForms>
+								<input>
+									<label>E-mail</label>
+								</input>
+							</XForms>
+						</Mapping>
+					</Assigned>
+				</Destination>
+				<Read>
+					<Identifier var="Age" otype="number"/>
+					<Assigned>
+						<Latest>
+							<Mapping>
+								<Contents>???</Contents>
+								<XForms>
+									<input>
+										<label>Age</label>
+									</input>
+								</XForms>
+							</Mapping>
+						</Latest>
+					</Assigned>
+				</Read>
+				<Read>
+					<Identifier var="Gender" otype="string"/>
+					<Assigned>
+						<Latest>
+							<Mapping>
+								<Contents>???</Contents>
+								<XForms>
+									<select1>
+										<label>Gender</label>
+										<item>
+											<label>Male</label>
+											<value>Male</value>
+										</item>
+										<item>
+											<label>Female</label>
+											<value>Female</value>
+										</item>
+									</select1>
+								</XForms>
+							</Mapping>
+						</Latest>
+					</Assigned>
+				</Read>
+				<Read>
+					<Identifier var="BRCA1_Lab_Result" otype="string"/>
+					<Assigned>
+						<Latest>
+							<Mapping>
+								<Contents>???</Contents>
+								<XForms>
+									<select1>
+										<label>BRCA1 Lab Result</label>
+										<item>
+											<label>Positive</label>
+											<value>positive</value>
+										</item>
+										<item>
+											<label>Negative</label>
+											<value>negative</value>
+										</item>
+									</select1>
+								</XForms>
+							</Mapping>
+						</Latest>
+					</Assigned>
+				</Read>
+				<Read>
+					<Identifier var="BRCA2_Lab_Result" otype="string"/>
+					<Assigned>
+						<Latest>
+							<Mapping>
+								<Contents>???</Contents>
+								<XForms>
+									<select1>
+										<label>BRCA2 Lab Result</label>
+										<item>
+											<label>Positive</label>
+											<value>positive</value>
+										</item>
+										<item>
+											<label>Negative</label>
+											<value>negative</value>
+										</item>
+									</select1>
+								</XForms>
+							</Mapping>
+						</Latest>
+					</Assigned>
+				</Read>
+				<Read>
+					<Identifier var="Hx_Chest_Radiation" otype="string"/>
+					<Assigned>
+						<Latest>
+							<Mapping>
+								<Contents>???</Contents>
+								<XForms>
+									<select1>
+										<label>Hx Chest Radiation</label>
+										<item>
+											<label>Positive</label>
+											<value>positive</value>
+										</item>
+										<item>
+											<label>Negative</label>
+											<value>negative</value>
+										</item>
+									</select1>
+								</XForms>
+							</Mapping>
+						</Latest>
+					</Assigned>
+				</Read>
+				<Read>
+					<Identifier var="Breast_Ca_Problem" otype="string"/>
+					<Assigned>
+						<Latest>
+							<Mapping>
+								<Contents>???</Contents>
+								<XForms>
+									<select1>
+										<label>Breast Ca Problem</label>
+										<item>
+											<label>Positive</label>
+											<value>positive</value>
+										</item>
+										<item>
+											<label>Negative</label>
+											<value>negative</value>
+										</item>
+									</select1>
+								</XForms>
+							</Mapping>
+						</Latest>
+					</Assigned>
+				</Read>
+				<Read>
+					<Identifier var="Breast_Ca_ICD_Dx" otype="string"/>
+					<Assigned>
+						<Latest>
+							<Mapping>
+								<Contents>???</Contents>
+								<XForms>
+									<select1>
+										<label>Breast Ca ICD Dx</label>
+										<item>
+											<label>Positive</label>
+											<value>positive</value>
+										</item>
+										<item>
+											<label>Negative</label>
+											<value>negative</value>
+										</item>
+									</select1>
+								</XForms>
+							</Mapping>
+						</Latest>
+					</Assigned>
+				</Read>
+				<Read>
+					<Identifier var="Last_Mammogram_Report" otype="string"/>
+					<Assigned>
+						<Latest>
+							<Mapping>
+								<Contents>???</Contents>
+								<XForms>
+									<input>
+										<label>Last Mammogram Report</label>
+									</input>
+								</XForms>
+							</Mapping>
+						</Latest>
+					</Assigned>
+				</Read>
+				<Read>
+					<Identifier var="Active_Order_for_Mammogram" otype="string"/>
+					<Assigned>
+						<Latest>
+							<Mapping>
+								<Contents>???</Contents>
+								<XForms>
+									<input>
+										<label>Active Order for Mammogram</label>
+									</input>
+								</XForms>
+							</Mapping>
+						</Latest>
+					</Assigned>
+				</Read>
+				<Event>
+					<Identifier var="Scheduled_Visit" otype="string"/>
+					<Assigned>
+						<Mapping>
+							<Contents>???</Contents>
+						</Mapping>
+					</Assigned>
+				</Event>
+			</Data>
+			<Evoke>
+				<Identifier var="Scheduled_Visit" otype="string"/>
+			</Evoke>
+			<Logic>
+				<If>
+					<Condition>
+						<And>
+							<EQ>
+								<Identifier var="Gender" otype="string"/>
+								<Value otype="string">Female</Value>
+							</EQ>
+							<GE>
+								<Identifier var="Age" otype="number"/>
+								<Value otype="number">50</Value>
+							</GE>
+							<LT>
+								<Identifier var="Age" otype="number"/>
+								<Value otype="number">75</Value>
+							</LT>
+							<Or>
+								<IsNull type="is">
+									<Identifier var="Last_Mammogram_Report" otype="string"/>
+								</IsNull>
+								<Not>
+									<OccurWithinPast type="occurred">
+										<Identifier var="Last_Mammogram_Report" otype="string"/>
+										<Value otype="duration" unit="years">2</Value>
+									</OccurWithinPast>
+								</Not>
+							</Or>
+							<Or>
+								<Not>
+									<IsPresent type="is">
+										<Identifier var="BRCA1_Lab_Result" otype="string"/>
+									</IsPresent>
+								</Not>
+								<Not>
+									<IsEQ type="is">
+										<Identifier var="BRCA1_Lab_Result" otype="string"/>
+										<Value otype="string">positive</Value>
+									</IsEQ>
+								</Not>
+							</Or>
+							<Or>
+								<Not>
+									<IsPresent type="is">
+										<Identifier var="BRCA2_Lab_Result" otype="string"/>
+									</IsPresent>
+								</Not>
+								<Not>
+									<IsEQ type="is">
+										<Identifier var="BRCA2_Lab_Result" otype="string"/>
+										<Value otype="string">positive</Value>
+									</IsEQ>
+								</Not>
+							</Or>
+							<Not>
+								<IsEQ type="is">
+									<Identifier var="Hx_Chest_Radiation" otype="string"/>
+									<Value otype="string">positive</Value>
+								</IsEQ>
+							</Not>
+							<Not>
+								<IsPresent type="is">
+									<Identifier var="Breast_Ca_Problem" otype="string"/>
+								</IsPresent>
+							</Not>
+							<Not>
+								<IsPresent type="is">
+									<Identifier var="Breast_Ca_ICD_Dx" otype="string"/>
+								</IsPresent>
+							</Not>
+							<Not>
+								<IsPresent type="is">
+									<Identifier var="Active_Order_for_Mammogram" otype="string"/>
+								</IsPresent>
+							</Not>
+						</And>
+					</Condition>
+					<Then>
+						<Conclude>
+							<Value otype="boolean">true</Value>
+						</Conclude>
+					</Then>
+					<Else>
+						<Conclude>
+							<Value otype="boolean">false</Value>
+						</Conclude>
+					</Else>
+				</If>
+			</Logic>
+			<Action>
+				<!-- send email for research -->
+				<Write>
+					<Value otype="string">Patient should have routine mammogram ordered</Value>
+					<At>
+						<Identifier var="Alert_Storage" otype="string"/>
+					</At>
+				</Write>
+			</Action>
+			<Urgency>50</Urgency>
+		</Knowledge>		<Resources>
+			<Default>en_US</Default>
+			<Language>
+			<Terms>en_US [..]</Terms>
+			</Language>
+		</Resources>
+	</ArdenML>
+</ArdenMLs>

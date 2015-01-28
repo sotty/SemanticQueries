@@ -54,7 +54,7 @@ public class Reasoner {
 
     public static void main( String... args ) throws IOException, OWLOntologyCreationException {
 
-        OWLOntology repositoryContent = Loader.getKnowledgeBase();
+        OWLOntology repositoryContent = null; //Loader.getKnowledgeBase();
 
         PelletReasoner reasoner = PelletReasonerFactory.getInstance().createReasoner( repositoryContent );
         PelletInfGraph graph = new org.mindswap.pellet.jena.PelletReasoner().bind( reasoner.getKB() );

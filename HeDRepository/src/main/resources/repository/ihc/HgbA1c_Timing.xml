@@ -1,0 +1,213 @@
+<?xml-stylesheet type="text/xsl" href="file://psf/Home/Documents/HL7%20Information/Arden%20Syntax%202011/ArdenMLXSLT/xslt2.8/html/Arden2.8.xsl"?>
+<ArdenMLs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file://psf/Home/Documents/HL7%20Information/Arden%20Syntax%202011/ArdenML2.8Schema/ArdenML%202.8%20Schema-newer/Arden2.8.xsd">
+	<ArdenML>
+		<Maintenance>
+			<Title>Rule 1-HgbA1c Timing</Title>
+			<MLMName>HgbA1c_Timing</MLMName>
+			<Arden>Version 2.7</Arden>
+			<Version>1.00</Version>
+			<Institution>
+				<Name_of_Institution>Intermountain Healthcare</Name_of_Institution>
+			</Institution>
+			<Author>
+				<Person>
+					<FirstName>Peter</FirstName>
+					<SurName>Haug</SurName>
+					<Contact>
+						<E-mail>Peter.Haug@imail.org</E-mail>
+					</Contact>
+				</Person>
+			</Author>
+			<Specialist>
+				<Person>
+					<FirstName>Peter</FirstName>
+					<SurName>Haung</SurName>
+					<Contact>
+						<E-mail>Peter.Haug@imail.org</E-mail>
+					</Contact>
+				</Person>
+			</Specialist>
+			<Date>2011-02-14</Date>
+			<Validation>testing</Validation>
+		</Maintenance>
+		<Library>
+			<Purpose>Alert for HgbA1c if greater than 6 months.</Purpose>
+			<Explanation>This MLM will send an alert if the patient is a diabetic (diabetes and problem list or discharge diagnoses) and no HgbA1c is recorded within the last 6 months.</Explanation>
+			<Keywords>
+				<Keyword>diabetes</Keyword>
+				<Keyword>HgbA1c</Keyword>
+			</Keywords>
+		</Library>
+		<Knowledge>
+			<Type>data_driven</Type>
+			<Data>
+				<Object>
+					<ObjectIdentifier var="Problem_List_Problem"/>
+					<Defined>
+						<Attribute var="Problem" otype="string"/>
+						<Attribute var="Recorder" otype="string"/>
+					</Defined>
+				</Object>
+				<ReadAs>
+					<Identifier var="Problem_List" otype="Problem_List_Problem"/>
+					<Assigned>
+						<Mapping>
+							<Contents>select problem, recorded_by from Problem_List_Table where problem='Diabetes'</Contents>
+							<XForms>
+								<input>
+									<label>Problem</label>
+								</input>
+								<input>
+									<label>Recorder</label>
+								</input>
+							</XForms>
+						</Mapping>
+					</Assigned>
+				</ReadAs>
+				<Object>
+					<ObjectIdentifier var="Patient_Dx_Object"/>
+					<Defined>
+						<Attribute var="Dx" otype="number"/>
+					</Defined>
+				</Object>
+				<ReadAs>
+					<Identifier var="Diabetic_Dx" otype="Patient_Dx_Object"/>
+					<Assigned>
+						<Mapping>
+							<Contents>ICD_discharge_Diagnoses</Contents>
+							<XForms>
+								<input>
+									<label>Dx</label>
+								</input>
+							</XForms>
+						</Mapping>
+					</Assigned>
+				</ReadAs>
+				<Object>
+					<ObjectIdentifier var="Chem_Lab_Object"/>
+					<Defined>
+						<Attribute var="Measurement_Name" otype="string"/>
+						<Attribute var="LOINC_Code" otype="string"/>
+						<Attribute var="Measurement_Units" otype="string"/>
+						<Attribute var="Value" otype="number"/>
+					</Defined>
+				</Object>
+				<ReadAs>
+					<Identifier var="Last_HgA1c" otype="Chem_Lab_Object"/>
+					<Assigned>
+						<Latest>
+							<Mapping>
+								<Contents>select measurement, LOINC, units, value from Laboratory_Table where measurement ='HgbA1c'</Contents>
+								<XForms>
+									<input>
+										<label>Measurement Name</label>
+									</input>
+									<input>
+										<label>LOINC Code</label>
+									</input>
+									<input>
+										<label>Measurement Units</label>
+									</input>
+									<input>
+										<label>Value</label>
+									</input>
+								</XForms>
+							</Mapping>
+						</Latest>
+					</Assigned>
+				</ReadAs>
+				<Event>
+					<Identifier var="Registration_Event" otype="number"/>
+					<Assigned>
+						<Mapping>
+							<Contents>registration of patient</Contents>
+						</Mapping>
+					</Assigned>
+				</Event>
+			</Data>
+			<Evoke>
+				<Identifier var="Registration_Event" otype="number"/>
+			</Evoke>
+			<Logic>
+				<If>
+					<Condition>
+						<Or>
+							<IsIn type="is">
+								<Identifier var="Diabetic_Dx" otype="Problem_Dx_Object">
+									<Identifier var="Dx" otype="number"/>
+								</Identifier>
+								<List>
+									<Value otype="number">250</Value>
+									<Value otype="number">250.0</Value>
+									<Value otype="number">250.1</Value>
+									<Value otype="number">250.2</Value>
+									<Value otype="number">250.3</Value>
+									<Value otype="number">250.4</Value>
+									<Value otype="number">250.5</Value>
+									<Value otype="number">250.6</Value>
+									<Value otype="number">250.7</Value>
+									<Value otype="number">250.8</Value>
+									<Value otype="number">250.9</Value>
+								</List>
+							</IsIn>
+							<And>
+								<Exist>
+									<Identifier var="Problem_List" otype="Problem_List_Object"/>
+								</Exist>
+								<IsIn type="is">
+									<Value otype="string">Diabetes</Value>
+									<Identifier var="Problem_List" otype="Problem_List_Problem">
+										<Identifier var="Problem" otype="string"/>
+									</Identifier>
+								</IsIn>
+							</And>
+						</Or>
+					</Condition>
+					<Then>
+						<Assignment>
+							<Identifier var="Diabetes_Present" otype="boolean"/>
+							<Assigned>
+								<Value otype="boolean">true</Value>
+							</Assigned>
+						</Assignment>
+					</Then>
+				</If>
+				<If>
+					<Condition>
+						<And>
+							<Identifier var="Diabetes_Present" otype="boolean"/>
+							<Exist>
+								<Identifier var="Last_HgA1c" otype="Chem_Lab_Object"/>
+							</Exist>
+							<Not>
+								<OccurWithinPast type="occurred">
+									<Identifier var="Last_HgA1c" otype="Chem_Lab_Object"/>
+									<Value otype="duration" unit="months">6</Value>
+								</OccurWithinPast>
+							</Not>
+						</And>
+					</Condition>
+					<Then>
+						<Conclude>
+							<Value otype="boolean">true</Value>
+						</Conclude>
+					</Then>
+				</If>
+				<Conclude>
+					<Value otype="boolean">false</Value>
+				</Conclude>
+			</Logic>
+			<Action>
+				<Write>
+					<Value otype="string">Patient is a diabetic with no HgbA1c in last 6 months. Please order one.</Value>
+				</Write>
+			</Action>
+		</Knowledge>
+		<Resources>
+			<Default>en_US</Default>
+			<Language>
+				<Terms>en_US [..]</Terms>
+			</Language>
+		</Resources>
+	</ArdenML>
+</ArdenMLs>
