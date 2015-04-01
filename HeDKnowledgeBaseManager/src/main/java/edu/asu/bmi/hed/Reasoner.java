@@ -1,3 +1,4 @@
+package edu.asu.bmi.hed;
 
 import java.io.IOException;
 
@@ -5,8 +6,6 @@ import org.mindswap.pellet.jena.PelletInfGraph;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
-import com.clarkparsia.pellet.owlapiv3.PelletReasoner;
-import com.clarkparsia.pellet.owlapiv3.PelletReasonerFactory;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
@@ -56,13 +55,12 @@ public class Reasoner {
 
         OWLOntology repositoryContent = null; //Loader.getKnowledgeBase();
 
-        PelletReasoner reasoner = PelletReasonerFactory.getInstance().createReasoner( repositoryContent );
-        PelletInfGraph graph = new org.mindswap.pellet.jena.PelletReasoner().bind( reasoner.getKB() );
-        InfModel model = ModelFactory.createInfModel( graph ) ;
+        //PelletReasoner reasoner = PelletReasonerFactory.getInstance().createReasoner( repositoryContent );
+        //PelletInfGraph graph = new org.mindswap.pellet.jena.PelletReasoner().bind( reasoner.getKB() );
+        //InfModel model = ModelFactory.createInfModel( graph ) ;
 
-        runJenaQuery( model);
+        //runJenaQuery( model);
 
     }
-
 
 }

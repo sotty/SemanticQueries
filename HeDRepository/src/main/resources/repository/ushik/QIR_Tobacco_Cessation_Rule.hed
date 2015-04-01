@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Todo item 1. Fill publisher information - Obtain from ONC -->
+<!-- Todo item 2. Fill usage rights information - Obtain from ONC -->
+<!-- Todo item 3. Review value sets - especially for actions for substance 
+	admin order -->
+<!-- Todo item 4. Should diagnoses of limited life expectancy have any further 
+	constraints like status active -->
+<knowledgeDocument xmlns="urn:hl7-org:knowledgeartifact:r1"
+	xmlns:dt="urn:hl7-org:cdsdt:r2" xmlns:vmr="urn:hl7-org:vmr:r2"
+	xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:hl7-org:knowledgeartifact:r1 ../schema/knowledgeartifact/knowledgedocument.xsd urn:hl7-org:vmr:r2 ../schema/vmr/vmr.xsd ">
+	<metadata>
+		<identifiers>
+			<identifier root="fb68f1c9-b651-431b-88b6-5951a45d8acd" />
+		</identifiers>
+		<artifactType value="Rule" />
+		<schemaIdentifier root="urn:hl7-org:knowledgeartifact:r1" />
+		<dataModels>
+			<modelReference>
+				<description value="Virtual Medical Record model release 2" />
+				<referencedModel value="urn:hl7-org:v3:vmr:r2" />
+			</modelReference>
+		</dataModels>
+		<title value="Pharmacotherapy and Counseling For Tobacco User" />
+		<relatedResources>
+			<relatedResource>
+				<relationship value="AssociatedResource" />
+				<resources>
+					<resource>
+						<title
+							value="CMS 138, v3: Preventive Care and Screening: Tobacco Use: Screening and Cessation Intervention" />
+						<location
+							value="http://ushik.ahrq.gov/ViewItemDetails?&amp;system=mu&amp;itemKey=184709000" />
+					</resource>
+				</resources>
+			</relatedResource>
+		</relatedResources>
+		<applicability>
+			<coverage>
+				<focus value="PatientAgeGroup" />
+				<description
+					value="Population between the age of 13 to 18 years inclusive" />
+				<value code="D055815" codeSystem="2.16.840.1.113883.6.177"
+					codeSystemName="MeSH">
+					<dt:displayName value="adolescent" />
+				</value>
+			</coverage>
+			<coverage>
+				<focus value="PatientAgeGroup" />
+				<description value="Population between the age of 19 to 24 years" />
+				<value code="D055815" codeSystem="2.16.840.1.113883.6.177"
+					codeSystemName="MeSH">
+					<dt:displayName value="Young Adult" />
+				</value>
+			</coverage>
+			<coverage>
+				<focus value="PatientAgeGroup" />
+				<description value="Population between the age of 19 to 44 years" />
+				<value code="D000328" codeSystem="2.16.840.1.113883.6.177"
+					codeSystemName="MeSH">
+					<dt:displayName value="Adult" />
+				</value>
+			</coverage>
+			<coverage>
+				<focus value="PatientAgeGroup" />
+				<description value="Population between the age of 56 to 79 years" />
+				<value code="D000368" codeSystem="2.16.840.1.113883.6.177"
+					codeSystemName="MeSH">
+					<dt:displayName value="Aged" />
+				</value>
+			</coverage>
+			<coverage>
+				<focus value="PatientAgeGroup" />
+				<description value="Population between the age of 45 to 64 years" />
+				<value code="D0008875" codeSystem="2.16.840.1.113883.6.177"
+					codeSystemName="MeSH">
+					<dt:displayName value="MiddleAged" />
+				</value>
+			</coverage>
+			<coverage>
+				<focus value="PatientAgeGroup" />
+				<description value="Population aged 80 years and older" />
+				<value code="D000369" codeSystem="2.16.840.1.113883.6.177"
+					codeSystemName="MeSH">
+					<dt:displayName value="A person 80 years or Older" />
+				</value>
+			</coverage>
+			<coverage>
+				<focus value="ClinicalFocus" />
+				<value code="365980008" codeSystem="2.16.840.1.113883.6.96"
+					codeSystemName="SNOMED-CT">
+					<dt:displayName value="Tobacco Use And Exposure Finding" />
+				</value>
+			</coverage>
+		</applicability>
+		<status value="Draft" />
+		<eventHistory>
+			<artifactLifeCycleEvent>
+				<eventType value="Created" />
+				<eventDateTime value="20131211" />
+			</artifactLifeCycleEvent>
+		</eventHistory>
+		<contributions>
+			<contribution>
+				<contributor xsi:type="Organization">
+					<addresses>
+						<address>
+							<dt:part type="CTY" value="La Jolla" />
+							<dt:part type="ZIP" value="92037" />
+							<dt:part type="STA" value="CA" />
+							<dt:part type="CNT" value="USA" />
+						</address>
+					</addresses>
+					<contacts>
+						<contact value="mailto:info@meliorix.com" />
+					</contacts>
+					<name value="Meliorix Inc." />
+				</contributor>
+				<role value="Author" />
+			</contribution>
+			<contribution>
+				<contributor xsi:type="Organization">
+					<addresses>
+						<address>
+							<dt:part type="SAL" value="1391 Pennsylvania Avenue SE" />
+							<dt:part type="UNIT" value="Unit 443" />
+							<dt:part type="CTY" value="Washington" />
+							<dt:part type="STA" value="DC" />
+							<dt:part type="ZIP" value="20003" />
+						</address>
+					</addresses>
+					<contacts>
+						<contact value="mailto:FEisenberg@iparsimony.com" />
+					</contacts>
+					<name value="iParsimony, LLC" />
+				</contributor>
+				<role value="Author" />
+			</contribution>
+		</contributions>
+		<publishers>
+			<publisher xsi:type="Organization">
+				<addresses>
+					<address>
+						<dt:part type="SAL" value="TBD" />
+						<dt:part type="CTY" value="TBD" />
+						<dt:part type="ZIP" value="TBD" />
+						<dt:part type="STA" value="CA" />
+						<dt:part type="CNT" value="USA" />
+					</address>
+				</addresses>
+				<contacts>
+					<contact value="TBD" />
+				</contacts>
+				<name value="TBD" />
+			</publisher>
+		</publishers>
+		<usageTerms>
+			<rightsDeclaration>
+				<assertedRights value="TBD" />
+				<rightsHolder xsi:type="Organization">
+					<addresses>
+						<address>
+							<dt:part type="SAL" value="TBD" />
+							<dt:part type="CTY" value="TBD" />
+							<dt:part type="ZIP" value="TBD" />
+							<dt:part type="STA" value="CA" />
+							<dt:part type="CNT" value="USA" />
+						</address>
+					</addresses>
+					<contacts>
+						<contact value="TBD" />
+					</contacts>
+					<name value="TBD" />
+				</rightsHolder>
+			</rightsDeclaration>
+		</usageTerms>
+	</metadata>
+	<externalData>
+
+		<def name="Patient">
+			<expression xsi:type="ClinicalRequest" cardinality="Single"
+				dataType="vmr:EvaluatedPerson" isInitial="true">
+				<description>The patient data object</description>
+			</expression>
+		</def>
+
+		<def name="DiagnosesLimitedLifeExpectancy">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:Problem" codeProperty="conditionCode" dateProperty="conditionEffectiveTime.low">
+				<description>Patient has diagnoses indicating limited life expectancy</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.526.3.1259"
+					authority="AMA-PCPI" />
+			</expression>
+		</def>
+
+		<def name="DiagnosesPregnancy">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:Problem" codeProperty="conditionCode">
+				<description>Diagnoses Of Pregnancy</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.526.3.378"
+					authority="AMA-PCPI" version="20140530" />
+			</expression>
+		</def>
+
+		<def name="FaceToFaceEncounterToday">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:EncounterEvent" dateProperty="encounterEventTime.low"
+				codeProperty="encounterType" triggerType="DataElementAdded">
+				<description>Encounter, Performed: Face-to-Face Interaction, since last evaluation</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.464.1003.101.12.1048"
+					authority="NCQA" version="20140530" />
+				<dateRange xsi:type="Interval">
+					<begin xsi:type="Today" />
+				</dateRange>
+			</expression>
+		</def>
+
+		<def name="ObservationsAboutUseOfTobaccoInLast2CalendarYears">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:ObservationResult" codeProperty="observationFocus"
+				dateProperty="observationEventTime.low" isInitial="true">
+				<description>Observations about use of tobacco in the last two calendar years</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.526.3.1170"
+					authority="AMA-PCPI" />
+				<dateRange xsi:type="ExpressionRef" name="Last2CalendarYearsInterval" />
+			</expression>
+		</def>
+
+		<def name="ObservationsAboutNonUseOfTobaccoInLast2CalendarYears">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:ObservationResult" codeProperty="observationFocus"
+				dateProperty="observationEventTime.low" isInitial="true">
+				<description>Observations about non-use of tobacco in the last two calendar years</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.526.3.1189"
+					authority="AMA-PCPI" />
+				<dateRange xsi:type="ExpressionRef" name="Last2CalendarYearsInterval" />
+			</expression>
+		</def>
+
+		<def name="TobaccoUseCessationCounseling">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:ProcedureEvent" codeProperty="procedureCode"
+				dateProperty="procedureTime.low">
+				<description>Counseling performed for tobacco cessation in last two calendar years</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.526.3.509"
+					authority="AMA-PCPI" />
+				<dateRange xsi:type="ExpressionRef" name="Last2CalendarYearsInterval" />
+			</expression>
+		</def>
+
+		<def name="TobaccoUseCessationPharmacotherapy">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:SubstanceAdministrationOrder" codeProperty="substance.substanceCode"
+				dateProperty="administrationTimeInterval.low">
+				<description>Orders for tobacco cessation pharmacotherapy in last two calendar years</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.526.3.1190"
+					authority="AMA-PCPI" />
+				<dateRange xsi:type="ExpressionRef" name="Last2CalendarYearsInterval" />
+			</expression>
+		</def>
+
+		<def name="TobaccoCessationPharmacotherapyDeclined">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:UndeliveredSubstanceAdministration" codeProperty="substance.substanceCode"
+				dateProperty="subjectEffectiveTime.low" isInitial="true">
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.526.3.1190"
+					authority="AMA-PCPI" />
+				<dateRange xsi:type="ExpressionRef" name="Last2CalendarYearsInterval" />
+			</expression>
+		</def>
+
+		<def name="TobaccoCessationCounselingDeclined">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:UndeliveredProcedure" codeProperty="procedureCode"
+				dateProperty="subjectEffectiveTime.low" isInitial="true">
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.526.3.1178"
+					authority="AMA-PCPI" />
+				<dateRange xsi:type="ExpressionRef" name="Last2CalendarYearsInterval" />
+			</expression>
+		</def>
+
+	</externalData>
+
+	<expressions>
+		<def name="Last2CalendarYearsInterval">
+			<expression xsi:type="Interval">
+				<description>An interval beginning on 1st of Jan last year and ending today</description>
+				<begin xsi:type="Date">
+					<year xsi:type="As" asType="dt:INT">
+						<description>Last year</description>
+						<operand xsi:type="Subtract">
+							<operand xsi:type="DatePart">
+								<date xsi:type="Today"></date>
+								<granularity xsi:type="Literal" valueType="DateGranularity"
+									value="Year" />
+							</operand>
+							<operand xsi:type="RealLiteral" value="1" />
+						</operand>
+					</year>
+					<month xsi:type="IntegerLiteral" value="1" />
+					<day xsi:type="IntegerLiteral" value="1" />
+				</begin>
+				<end xsi:type="Today" />
+			</expression>
+		</def>
+
+		<def name="AgeInYears">
+			<expression xsi:type="DateDiff">
+				<description>Number of years from patient birth time to today</description>
+				<startDate xsi:type="Property" path="birthTime">
+					<source xsi:type="ExpressionRef" name="Patient" />
+				</startDate>
+				<endDate xsi:type="Today" />
+				<granularity xsi:type="Literal" valueType="DateGranularity"
+					value="Year" />
+			</expression>
+		</def>
+
+		<def name="PatientAge13OrMore">
+			<expression xsi:type="GreaterOrEqual">
+				<description>Is patient's age 13 years or more</description>
+				<operand xsi:type="ExpressionRef" name="AgeInYears" />
+				<operand xsi:type="RealLiteral" value="13" />
+			</expression>
+
+		</def>
+
+		<def name="PatientAge18OrMore">
+			<expression xsi:type="GreaterOrEqual">
+				<description>Is patient's age 18 years or more</description>
+				<operand xsi:type="ExpressionRef" name="AgeInYears" />
+				<operand xsi:type="RealLiteral" value="18" />
+			</expression>
+		</def>
+
+		<def name="LastObservationForTobaccoUseInLast2CalendarYears">
+			<expression xsi:type="Last">
+				<description>Latest observation on use of tobacco</description>
+				<source xsi:type="ExpressionRef"
+					name="ObservationsAboutUseOfTobaccoInLast2CalendarYears" />
+			</expression>
+		</def>
+
+		<def name="LastObservationForTobaccoNonUseInLast2CalendarYears">
+			<expression xsi:type="Last">
+				<description>Latest observation on non use of tobacco</description>
+				<source xsi:type="ExpressionRef"
+					name="ObservationsAboutNonUseOfTobaccoInLast2CalendarYears" />
+			</expression>
+		</def>
+
+		<def name="PatientIsActiveTobaccoUser">
+			<expression xsi:type="After">
+				<description>Patient is an active tobacco user if the last observation for tobacco use occurred after last observation for tobacco non-use</description>
+				<operand xsi:type="Property" path="observationEventTime">
+					<source xsi:type="ExpressionRef"
+						name="LastObservationForTobaccoUseInLast2CalendarYears" />
+				</operand>
+				<operand xsi:type="Property" path="observationEventTime">
+					<source xsi:type="ExpressionRef"
+						name="LastObservationForTobaccoNonUseInLast2CalendarYears" />
+				</operand>
+			</expression>
+		</def>
+
+		<def name="DiagnosesActivePregnancy">
+			<expression xsi:type="Filter">
+				<description>Only select pregnancy problems that are active</description>
+				<source xsi:type="ExpressionRef" name="DiagnosesPregnancy" />
+				<condition xsi:type="Not">
+					<operand xsi:type="In">
+						<operand xsi:type="Property" path="conditionStatus" />
+						<operand xsi:type="List">
+							<element xsi:type="CodeLiteral" codeSystem="2.16.840.1.113883.6.96"
+								code="73425007" displayName="Inactive" />
+							<element xsi:type="CodeLiteral" codeSystem="2.16.840.1.113883.6.96"
+								code="413322009" displayName="Resolved" />
+						</operand>
+					</operand>
+				</condition>
+			</expression>
+		</def>
+
+		<def name="PatientIsNotPregnant">
+			<expression xsi:type="IsEmpty">
+				<description>No  active pregnancy problems</description>
+				<operand xsi:type="ExpressionRef" name="DiagnosesActivePregnancy" />
+			</expression>
+		</def>
+
+		<def name="HadTobaccoUseCessationCounseling">
+			<expression xsi:type="IsNotEmpty">
+				<description>Tobacco use cessation counseling occurred after last documentation of tobacco use</description>
+				<operand xsi:type="Filter">
+					<source xsi:type="ExpressionRef" name="TobaccoUseCessationCounseling" />
+					<condition xsi:type="After">
+						<operand xsi:type="Property" path="procedureTime" />
+						<operand xsi:type="Property" path="observationEventTime">
+							<source xsi:type="ExpressionRef"
+								name="LastObservationForTobaccoUseInLast2CalendarYears" />
+						</operand>
+					</condition>
+				</operand>
+			</expression>
+		</def>
+
+		<def name="HasMedicationOrderForTobaccoCessation">
+			<expression xsi:type="IsNotEmpty">
+				<description>Tobacco use cessation pharmacotherapy order occurred after last documentation of tobacco use</description>
+				<operand xsi:type="Filter">
+					<source xsi:type="ExpressionRef" name="TobaccoUseCessationPharmacotherapy" />
+					<condition xsi:type="After">
+						<operand xsi:type="Property" path="administrationTimeInterval" />
+						<operand xsi:type="Property" path="observationEventTime">
+							<source xsi:type="ExpressionRef"
+								name="LastObservationForTobaccoUseInLast2CalendarYears" />
+						</operand>
+					</condition>
+				</operand>
+			</expression>
+		</def>
+
+		<def name="HasDiagnosisOfLimitedLifeExpectancy">
+			<expression xsi:type="IsNotEmpty">
+				<operand xsi:type="ExpressionRef" name="ActiveDiagnosesOfLimitedLifeExpectancy" />
+			</expression>
+		</def>
+
+		<def name="LastDeclinedPharmacotherapy">
+			<expression xsi:type="Last" orderBy="subjectEffectiveTime.low">
+				<description>Last time a recommendation for pharmacotherapy for tobacco cessation was declined</description>
+				<source xsi:type="ExpressionRef" name="TobaccoCessationPharmacotherapyDeclined" />
+			</expression>
+		</def>
+
+		<def name="LastDeclinedCounseling">
+			<expression xsi:type="Last" orderBy="subjectEffectiveTime.low">
+				<description>Last time a recommendation for tobacco cessation counseling was declined</description>
+				<source xsi:type="ExpressionRef" name="TobaccoCessationCounselingDeclined" />
+			</expression>
+		</def>
+
+
+		<def name="CounselingDeclinedDueToMedicalReasonsInLast2CalendarYears">
+			<expression xsi:type="Filter">
+				<description>Tobacco cessation counseling declined due to medical reason</description>
+					<source xsi:type="ExpressionRef"
+						name="TobaccoCessationCounselingDeclined" />
+					<condition xsi:type="InValueSet" id="2.16.840.1.113883.3.526.3.1007" version="20140530">
+						<operand xsi:type="Property" path="reason"/>
+					</condition>
+			</expression>
+		</def>
+
+		<def name="PharmacotherapyDeclinedDueToMedicalReasonsInLast2CalendarYears">
+			<expression xsi:type="Filter">
+				<description>Tobacco cessation counseling declined due to medical reason</description>
+					<source xsi:type="ExpressionRef"
+						name="TobaccoCessationPharmacotherapyDeclined" />
+					<condition xsi:type="InValueSet" id="2.16.840.1.113883.3.526.3.1007" version="20140530">
+						<operand xsi:type="Property" path="reason"/>
+					</condition>
+			</expression>
+		</def>
+
+		<def name="HasMedicalReasonForNotOrderingPharmacotherapy">
+			<expression xsi:type="IsNotEmpty">
+				<operand xsi:type="ExpressionRef" name="PharmacotherapyDeclinedDueToMedicalReasonsInLast2CalendarYears"/>
+			</expression>
+		</def>
+
+		<def name="HasMedicalReasonForNotOrderingCounseling">
+			<expression xsi:type="IsNotEmpty">
+				<operand xsi:type="ExpressionRef" name="CounselingDeclinedDueToMedicalReasonsInLast2CalendarYears"/>
+			</expression>
+		</def>
+
+		<def name="ActiveDiagnosesOfLimitedLifeExpectancy">
+			<expression xsi:type="Filter">
+				<description>Only select diagnoses that are active</description>
+				<source xsi:type="ExpressionRef" name="DiagnosesLimitedLifeExpectancy" />
+				<condition xsi:type="Not">
+					<operand xsi:type="In">
+						<operand xsi:type="Property" path="conditionStatus" />
+						<operand xsi:type="List">
+							<element xsi:type="CodeLiteral" codeSystem="2.16.840.1.113883.6.96"
+								code="73425007" displayName="Inactive" />
+							<element xsi:type="CodeLiteral" codeSystem="2.16.840.1.113883.6.96"
+								code="413322009" displayName="Resolved" />
+						</operand>
+					</operand>
+				</condition>
+			</expression>
+		</def>
+	</expressions>
+
+	<triggers>
+		<trigger>
+			<eventType>DataEvent</eventType>
+			<expression xsi:type="ExpressionRef" name="FaceToFaceEncounterToday" />
+		</trigger>
+	</triggers>
+
+	<conditions>
+		<condition>
+			<logic xsi:type="And">
+				<description>Patient age is 13 years or more and patient is active tobacco
+						user and patient has not had interventions for tobacco use cessation
+						counseling or order/prescription for tobacco cessation medications</description>
+				<operand xsi:type="ExpressionRef" name="PatientAge13OrMore" />
+				<operand xsi:type="ExpressionRef" name="PatientIsActiveTobaccoUser" />
+				<operand xsi:type="Not">
+					<operand xsi:type="Or">
+						<operand xsi:type="ExpressionRef" name="HadTobaccoUseCessationCounseling" />
+						<operand xsi:type="ExpressionRef" name="HasMedicationOrderForTobaccoCessation" />
+						<operand xsi:type="ExpressionRef" name="HasDiagnosisOfLimitedLifeExpectancy" />
+						<operand xsi:type="ExpressionRef" name="HasMedicalReasonForNotOrderingPharmacotherapy" />
+						<operand xsi:type="ExpressionRef" name="HasMedicalReasonForNotOrderingCounseling" />
+					</operand>
+				</operand>
+			</logic>
+			<conditionRole value="ApplicableScenario" />
+		</condition>
+	</conditions>
+
+
+	<actionGroup>
+		<subElements>
+			<simpleAction xsi:type="CreateAction">
+				<supportingResources>
+					<resource>
+						<title
+							value="US Public Health Service Clinical Practice Guideline Treating Tobacco Use and Dependence 2008 Update" />
+						<location
+							value="http://www.ahrq.gov/professionals/clinicians-providers/guidelines-recommendations/tobacco/clinicians/update/treating_tobacco_use08.pdf" />
+					</resource>
+				</supportingResources>
+				<textEquivalent value="The patient is an active tobacco user" />
+				<actionSentence xsi:type="ObjectExpression"
+					objectType="vmr:CommunicationProposal">
+					<description>Message to the recipient of CDS to provide link to the
+					patients who are active tobacco users</description>
+					<property name="message">
+						<value xsi:type="ComplexLiteral">
+							<value xsi:type="dt:ED"
+								value="Documentation indicates this patient is a tobacco user. Consider counseling, referral, or pharmacological therapy." />
+						</value>
+					</property>
+				</actionSentence>
+			</simpleAction>
+
+			<simpleAction xsi:type="CreateAction">
+				<conditions>
+					<condition>
+						<logic xsi:type="Not">
+							<operand xsi:type="IsNull">
+								<operand xsi:type="ExpressionRef" name="LastDeclinedPharmacotherapy" />
+							</operand>
+						</logic>
+						<conditionRole value="ApplicableScenario" />
+					</condition>
+				</conditions>
+				<textEquivalent
+					value="A recommendation for tobacco cessation pharmacotherapy was not accepted previously" />
+				<actionSentence xsi:type="ObjectExpression"
+					objectType="vmr:CommunicationProposal">
+					<description>Message to CDS recipient informing them that the pharmacotherapy was previously declined 
+					 	in the last two years</description>
+					<property name="message">
+						<value xsi:type="ComplexLiteral">
+							<value xsi:type="dt:ED"
+								value="A recommendation for tobacco cessation pharmacotherapy was not accepted previously." />
+						</value>
+					</property>
+				</actionSentence>
+			</simpleAction>
+
+			<simpleAction xsi:type="CreateAction">
+				<conditions>
+					<condition>
+						<logic xsi:type="Not">
+							<operand xsi:type="IsNull">
+								<operand xsi:type="ExpressionRef" name="LastDeclinedCounseling" />
+							</operand>
+						</logic>
+						<conditionRole value="ApplicableScenario" />
+					</condition>
+				</conditions>
+				<textEquivalent
+					value="A recommendation for tobacco cessation counseling was not accepted previously" />
+				<actionSentence xsi:type="ObjectExpression"
+					objectType="vmr:CommunicationProposal">
+					<description>Message to CDS recipient informing them that counseling was previously declined 
+					 	in the last two years</description>
+					<property name="message">
+						<value xsi:type="ComplexLiteral">
+							<value xsi:type="dt:ED"
+								value="A recommendation for tobacco cessation counseling was not accepted previously." />
+						</value>
+					</property>
+				</actionSentence>
+			</simpleAction>
+
+			<actionGroup>
+				<!-- Tobacco User Screening and Cessation Intervention -->
+				<behaviors>
+					<!-- User can select the one or more of the three following actions -->
+					<behavior xsi:type="GroupSelectionBehavior" value="OneOrMore" />
+				</behaviors>
+				<title value="Tobacco Cessation Therapy" />
+
+				<subElements>
+
+					<simpleAction xsi:type="CreateAction">
+						<conditions>
+							<condition>
+								<logic xsi:type="And">
+									<operand xsi:type="ExpressionRef" name="PatientAge18OrMore" />
+									<operand xsi:type="ExpressionRef" name="PatientIsNotPregnant" />
+									<!-- Cannot determine number of cigarettes smoked from value set -->
+								</logic>
+								<conditionRole value="ApplicableScenario" />
+							</condition>
+						</conditions>
+						<textEquivalent
+							value="Tobacco Cessation Using Pharmacotherapy, except in pregnant women, children, and those who smoke less than 5 cigarettes per day" />
+						<actionSentence xsi:type="ObjectExpression"
+							objectType="vmr:SubstanceAdministrationProposal">
+							<property name="substance.substanceCode">
+								<value xsi:type="CodeLiteral" valueSet="2.16.840.1.113883.3.526.3.1190" />
+							</property>
+						</actionSentence>
+					</simpleAction>
+					<simpleAction xsi:type="CreateAction">
+						<textEquivalent value="Counseling For Tobacco Cessation" />
+						<actionSentence xsi:type="ObjectExpression"
+							objectType="vmr:ProcedureProposal">
+							<property name="procedureCode">
+								<value xsi:type="CodeLiteral" valueSet="2.16.840.1.113883.3.526.3.509" />
+							</property>
+						</actionSentence>
+					</simpleAction>
+
+
+					<simpleAction xsi:type="CollectInformationAction">
+						<behaviors>
+							<behavior xsi:type="GroupSelectionBehavior" value="ExactlyOne" />
+						</behaviors>
+						<textEquivalent
+							value="Indicate medical or patient reason for not prescribing treatment" />
+						<documentationConcept>
+							<displayText
+								value="Please document reason for not prescribing tobacco cessation pharmacotherapy" />
+							<responseDataType value="Code" />
+							<responseCardinality value="Multiple" />
+							<responseRange xsi:type="ListConstraint"
+								strictSelection="false">
+								<constraintType value="List" />
+								<item>
+									<value xsi:type="CodeLiteral" code="183966005"
+										codeSystemName="SNOMED-CT" codeSystem="2.16.840.1.113883.6.96"
+										displayName="Drug Treatment Not Indicated" />
+									<displayText value="Treatment not indicated " />
+								</item>
+								<item>
+									<value xsi:type="CodeLiteral" code="266721009"
+										codeSystemName="SNOMED-CT" codeSystem="2.16.840.1.113883.6.96"
+										displayName="Treament Resonse Was Absent" />
+									<displayText value="Treatment not responding" />
+								</item>
+								<item>
+									<value xsi:type="CodeLiteral" code="407563006"
+										codeSystemName="SNOMED-CT" codeSystem="2.16.840.1.113883.6.96"
+										displayName="Treatment Not Tolerated" />
+									<displayText value="Treatment not tolerated" />
+								</item>
+								<item>
+									<value xsi:type="CodeLiteral" code="300936002"
+										codeSystemName="SNOMED-CT" codeSystem="2.16.840.1.113883.6.96"
+										displayName=" Finding Of Terminal Illness" />
+									<displayText value="Limited life expectancy" />
+								</item>
+							</responseRange>
+						</documentationConcept>
+					</simpleAction>
+				</subElements>
+			</actionGroup>
+		</subElements>
+	</actionGroup>
+
+</knowledgeDocument>

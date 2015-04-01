@@ -1,0 +1,956 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<knowledgeDocument xmlns="urn:hl7-org:knowledgeartifact:r1"
+	xmlns:dt="urn:hl7-org:cdsdt:r2" xmlns:vmr="urn:hl7-org:vmr:r2"
+	xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:hl7-org:knowledgeartifact:r1 ../schema/knowledgeartifact/knowledgedocument.xsd urn:hl7-org:vmr:r2 ../schema/vmr/vmr.xsd ">
+	<metadata>
+		<identifiers>
+			<identifier root="57db0db3-a6cb-4898-9b07-48c04b853a78" />
+		</identifiers>
+		<artifactType value="Rule" />
+		<schemaIdentifier root="urn:hl7-org:knowledgeartifact:r1" />
+		<dataModels>
+			<modelReference>
+				<description value="Virtual Medical Record model release 2" />
+				<referencedModel value="urn:hl7-org:vmr:r2" />
+			</modelReference>
+		</dataModels>
+		<title value="Controlling High Blood Pressure" />
+		<description
+			value="Joint National Committee on Prevention, Detection, Evaluation, and Treatment of High Blood Pressure (2003): Treating systolic blood pressure and diastolic blood pressure to targets that are &lt; 140/90 mmHg is associated with a decrease in cardiovascular disease complications." />
+		<relatedResources>
+			<relatedResource>
+				<relationship value="AssociatedResource" />
+				<resources>
+					<resource>
+						<title value="CMS 165, v2: Controlling High Blood Pressure" />
+						<location
+							value="https://ushik.ahrq.gov/details?itemKey=162605000&amp;System=mu" />
+					</resource>
+				</resources>
+			</relatedResource>
+		</relatedResources>
+		<applicability>
+			<!-- Age group that overlap with age range specified in rule -->
+			<coverage>
+				<focus value="PatientAgeGroup" />
+				<description
+					value="Population between the age of 13 to 18 years inclusive" />
+				<value code="D055815" codeSystem="2.16.840.1.113883.6.177"
+					codeSystemName="MeSH">
+					<dt:displayName value="adolescent" />
+				</value>
+			</coverage>
+			<coverage>
+				<focus value="PatientAgeGroup" />
+				<description value="Population between the age of 19 to 24 years" />
+				<value code="D055815" codeSystem="2.16.840.1.113883.6.177"
+					codeSystemName="MeSH">
+					<dt:displayName value="Young Adult" />
+				</value>
+			</coverage>
+			<coverage>
+				<focus value="PatientAgeGroup" />
+				<description value="Population between the age of 19 to 44 years" />
+				<value code="D000328" codeSystem="2.16.840.1.113883.6.177"
+					codeSystemName="MeSH">
+					<dt:displayName value="Adult" />
+				</value>
+			</coverage>
+			<coverage>
+				<focus value="PatientAgeGroup" />
+				<description value="Population between the age of 56 to 79 years" />
+				<value code="D000368" codeSystem="2.16.840.1.113883.6.177"
+					codeSystemName="MeSH">
+					<dt:displayName value="Aged" />
+				</value>
+			</coverage>
+			<coverage>
+				<focus value="PatientAgeGroup" />
+				<description value="Population between the age of 45 to 64 years" />
+				<value code="D0008875" codeSystem="2.16.840.1.113883.6.177"
+					codeSystemName="MeSH">
+					<dt:displayName value="MiddleAged" />
+				</value>
+			</coverage>
+			<coverage>
+				<focus value="PatientAgeGroup" />
+				<description value="Population at or above 80 years of age" />
+				<value code="D000369" codeSystem="2.16.840.1.113883.6.177"
+					codeSystemName="MeSH">
+					<dt:displayName value="A person 80 years or Older" />
+				</value>
+			</coverage>
+			<coverage>
+				<focus value="ClinicalFocus" />
+				<value code="24184005" codeSystem="2.16.840.1.113883.6.96"
+					codeSystemName="SNOMED-CT">
+					<dt:displayName value="Finding Of Increased Blood Pressure" />
+				</value>
+			</coverage>
+		</applicability>
+		<status value="Draft" />
+		<contributions>
+			<contribution>
+				<contributor xsi:type="Organization">
+					<addresses>
+						<address>
+							<dt:part type="CTY" value="La Jolla" />
+							<dt:part type="ZIP" value="92037" />
+							<dt:part type="STA" value="CA" />
+							<dt:part type="CNT" value="USA" />
+						</address>
+					</addresses>
+					<contacts>
+						<contact value="mailto:info@meliorix.com" />
+					</contacts>
+					<name value="Meliorix Inc." />
+				</contributor>
+				<role value="Author" />
+			</contribution>
+			<contribution>
+				<contributor xsi:type="Organization">
+					<addresses>
+						<address>
+							<dt:part type="SAL" value="1391 Pennsylvania Avenue SE" />
+							<dt:part type="UNIT" value="Unit 443" />
+							<dt:part type="CTY" value="Washington" />
+							<dt:part type="STA" value="DC" />
+							<dt:part type="ZIP" value="20003" />
+						</address>
+					</addresses>
+					<contacts>
+						<contact value="mailto:FEisenberg@iparsimony.com" />
+					</contacts>
+					<name value="iParsimony, LLC" />
+				</contributor>
+				<role value="Author" />
+			</contribution>
+		</contributions>
+		<publishers>
+			<publisher xsi:type="Organization">
+				<addresses>
+					<address>
+						<dt:part type="SAL" value="TBD" />
+						<dt:part type="CTY" value="TBD" />
+						<dt:part type="ZIP" value="TBD" />
+						<dt:part type="STA" value="CA" />
+						<dt:part type="CNT" value="USA" />
+					</address>
+				</addresses>
+				<contacts>
+					<contact value="TBD" />
+				</contacts>
+				<name value="TBD" />
+			</publisher>
+		</publishers>
+		<usageTerms>
+			<rightsDeclaration>
+				<assertedRights value="TBD" />
+				<rightsHolder xsi:type="Organization">
+					<addresses>
+						<address>
+							<dt:part type="SAL" value="TBD" />
+							<dt:part type="CTY" value="TBD" />
+							<dt:part type="ZIP" value="TBD" />
+							<dt:part type="STA" value="CA" />
+							<dt:part type="CNT" value="USA" />
+						</address>
+					</addresses>
+					<contacts>
+						<contact value="TBD" />
+					</contacts>
+					<name value="TBD" />
+				</rightsHolder>
+			</rightsDeclaration>
+		</usageTerms>
+
+	</metadata>
+
+	<externalData>
+		<def name="Patient">
+			<expression xsi:type="ClinicalRequest" cardinality="Single"
+				dataType="vmr:EvaluatedPerson" isInitial="true">
+				<description>The patient data object</description>
+			</expression>
+		</def>
+
+		<def name="DiagnosesCKDStage5">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:Problem" codeProperty="conditionCode" dateProperty="conditionEffectiveTime.low">
+				<description>Diagnoses of End Stage Renal Disease</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.526.3.1002"
+					authority="AMA-PCPI" version="20140530" />
+			</expression>
+		</def>
+
+		<def name="DiagnosesEndStageRenalDisease">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:Problem" codeProperty="conditionCode" dateProperty="conditionEffectiveTime.low">
+				<description>Diagnoses of End Stage Renal Disease</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.526.3.353"
+					authority="AMA-PCPI" version="20140530" />
+			</expression>
+		</def>
+
+		<def name="DiagnosesEssentialHypertension">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:Problem" codeProperty="conditionCode" dateProperty="conditionEffectiveTime.low">
+				<description>Diagnoses Of Essential Hypertension</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.464.1003.104.12.1011"
+					authority="NCQA" version="20140530" />
+			</expression>
+		</def>
+
+		<def name="DiagnosesPregnancy">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:Problem" codeProperty="conditionCode">
+				<description>Diagnoses Of Pregnancy</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.526.3.378"
+					authority="AMA-PCPI" version="20140530" />
+			</expression>
+		</def>
+
+		<def name="EncountersPerformedAnnualWellnessVisit">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:EncounterEvent" dateProperty="encounterEventTime.low"
+				codeProperty="encounterType" isInitial="true">
+				<description>Annual Wellness Visits</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.526.3.1240"
+					authority="AMA-PCPI" version="20140530" />
+				<dateRange xsi:type="ExpressionRef" name="IntervalSinceLastEvaluation" />
+			</expression>
+		</def>
+
+		<def name="EncountersPerformedESRDMonthlyOutPatientServices">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:EncounterEvent" dateProperty="encounterEventTime.low"
+				codeProperty="encounterType" isInitial="true">
+				<description>Monthly Encounters for End Stage Renal Disease</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.464.1003.109.12.1014"
+					authority="NCQA" version="20140530" />
+				<dateRange xsi:type="ExpressionRef" name="CurrentCalendarYearInterval" />
+			</expression>
+		</def>
+
+		<def name="EncountersPerformedFaceToFaceInteraction">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:EncounterEvent" dateProperty="encounterEventTime.low"
+				codeProperty="encounterType" isInitial="true">
+				<description>Encounters having Face To Face Interaction</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.464.1003.101.12.1048"
+					authority="NCQA" version="20140530" />
+				<dateRange xsi:type="ExpressionRef" name="IntervalSinceLastEvaluation" />
+			</expression>
+		</def>
+
+		<def name="EncountersPerformedHomeHealthCareServices">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:EncounterEvent" dateProperty="encounterEventTime.low"
+				codeProperty="encounterType" isInitial="true">
+				<description>Encounters for Home Healthcare Services</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.464.1003.101.12.1016"
+					authority="NCQA" version="20140530" />
+				<dateRange xsi:type="ExpressionRef" name="IntervalSinceLastEvaluation" />
+			</expression>
+		</def>
+
+		<def name="EncountersPerformedOfficeVisit">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:EncounterEvent" dateProperty="encounterEventTime.low"
+				codeProperty="encounterType" isInitial="true">
+				<description>Office Visits</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.464.1003.101.12.1001"
+					authority="NCQA" version="20140530" />
+				<dateRange xsi:type="ExpressionRef" name="IntervalSinceLastEvaluation" />
+			</expression>
+		</def>
+
+		<def name="EncountersPerformedOutpatientConsultation">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:EncounterEvent" dateProperty="encounterEventTime.low"
+				codeProperty="encounterType" isInitial="true">
+				<description>Outpatient consultations</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.464.1003.101.12.1008"
+					authority="AMA-PCPI" version="20140530" />
+				<dateRange xsi:type="ExpressionRef" name="IntervalSinceLastEvaluation" />
+			</expression>
+		</def>
+
+		<def name="EncountersPerformedPreventiveCareServicesEstablishedOfficeVisit">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:EncounterEvent" dateProperty="encounterEventTime.low"
+				codeProperty="encounterType" isInitial="true">
+				<description>Established Office Visits For Preventive Care Services</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.464.1003.101.12.1025"
+					authority="NCQA" version="20140530" />
+				<dateRange xsi:type="ExpressionRef" name="IntervalSinceLastEvaluation" />
+			</expression>
+		</def>
+
+		<def name="EncountersPerformedPreventiveCareServicesInitialOfficeVisit">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:EncounterEvent" dateProperty="encounterEventTime.low"
+				codeProperty="encounterType" isInitial="true">
+				<description>Initial Office Visit for Preventive Care Services</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.464.1003.101.12.1023"
+					authority="NCQA" version="20140530" />
+				<dateRange xsi:type="ExpressionRef" name="IntervalSinceLastEvaluation" />
+			</expression>
+		</def>
+
+		<!-- Missed appointments -->
+
+		<def name="MissedAppointmentAnnualWellnessVisit">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:MissedAppointment" dateProperty="appointmentTime.low"
+				codeProperty="encounterType" isInitial="true">
+				<description>Missed appointment: Annual Wellness Visits</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.526.3.1240"
+					authority="AMA-PCPI" version="20140530" />
+				<dateRange xsi:type="ExpressionRef" name="IntervalSinceLastEvaluation" />
+			</expression>
+		</def>
+
+		<def name="MissedAppointmentFaceToFaceInteraction">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:MissedAppointment" dateProperty="appointmentTime.low"
+				codeProperty="encounterType" isInitial="true">
+				<description>Missed appointment: Encounters having Face To Face Interaction</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.464.1003.101.12.1048"
+					authority="NCQA" version="20140530" />
+				<dateRange xsi:type="ExpressionRef" name="IntervalSinceLastEvaluation" />
+			</expression>
+		</def>
+
+		<def name="MissedAppointmentHomeHealthCareServices">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:MissedAppointment" dateProperty="appointmentTime.low"
+				codeProperty="encounterType" isInitial="true">
+				<description>Missed appointment: Encounters for Home Healthcare Services</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.464.1003.101.12.1016"
+					authority="NCQA" version="20140530" />
+				<dateRange xsi:type="ExpressionRef" name="IntervalSinceLastEvaluation" />
+			</expression>
+		</def>
+
+		<def name="MissedAppointmentOfficeVisit">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:MissedAppointment" dateProperty="appointmentTime.low"
+				codeProperty="encounterType" isInitial="true">
+				<description>Missed appointment: Office Visits</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.464.1003.101.12.1001"
+					authority="NCQA" version="20140530" />
+				<dateRange xsi:type="ExpressionRef" name="IntervalSinceLastEvaluation" />
+			</expression>
+		</def>
+
+		<def name="MissedAppointmentOutpatientConsultation">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:MissedAppointment" dateProperty="appointmentTime.low"
+				codeProperty="encounterType" isInitial="true">
+				<description>Missed appointment: Outpatient consultations</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.464.1003.101.12.1008"
+					authority="AMA-PCPI" version="20140530" />
+				<dateRange xsi:type="ExpressionRef" name="IntervalSinceLastEvaluation" />
+			</expression>
+		</def>
+
+		<def name="MissedAppointmentPreventiveCareServicesEstablishedOfficeVisit">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:MissedAppointment" dateProperty="appointmentTime.low"
+				codeProperty="encounterType" isInitial="true">
+				<description>Missed appointment: Established Office Visits For Preventive Care Services</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.464.1003.101.12.1025"
+					authority="NCQA" version="20140530" />
+				<dateRange xsi:type="ExpressionRef" name="IntervalSinceLastEvaluation" />
+			</expression>
+		</def>
+
+		<def name="MissedAppointmentPreventiveCareServicesInitialOfficeVisit">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:MissedAppointment" dateProperty="appointmentTime.low"
+				codeProperty="encounterType" isInitial="true">
+				<description>Missed appointment: Initial Office Visit for Preventive Care Services</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.464.1003.101.12.1023"
+					authority="NCQA" version="20140530" />
+				<dateRange xsi:type="ExpressionRef" name="IntervalSinceLastEvaluation" />
+			</expression>
+		</def>
+
+		<def name="InterventionsPerformedDialysisEducation">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:ProcedureEvent" codeProperty="procedureCode"
+				dateProperty="procedureTime.low" isInitial="true">
+				<description>Dialysis procedures performed in this calendar year</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.464.1003.109.12.1016"
+					authority="NCQA" version="20140530" />
+				<dateRange xsi:type="ExpressionRef" name="CurrentCalendarYearInterval" />
+			</expression>
+		</def>
+
+		<def name="OtherDialysisRelatedServicesPerformed">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:ProcedureEvent" codeProperty="procedureCode"
+				dateProperty="procedureTime.low" isInitial="true">
+				<description>Dialysis procedures performed in this calendar year</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.464.1003.109.12.1015"
+					authority="NCQA" version="20140530" />
+				<dateRange xsi:type="ExpressionRef" name="CurrentCalendarYearInterval" />
+			</expression>
+		</def>
+
+		<def name="ProceduresPerformedDialysis">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:ProcedureEvent" codeProperty="procedureCode"
+				dateProperty="procedureTime.low" isInitial="true">
+				<description>Dialysis procedures performed in this calendar year</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.464.1003.109.12.1013"
+					authority="NCQA" version="20140530" />
+				<dateRange xsi:type="ExpressionRef" name="CurrentCalendarYearInterval" />
+			</expression>
+		</def>
+
+		<def name="ProceduresPerformedKidneyTransplant">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:ProcedureEvent" codeProperty="procedureCode"
+				dateProperty="procedureTime.low" isInitial="true">
+				<description>Kidney transplant procedures performed in this calendar year</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.464.1003.109.12.1012"
+					authority="NCQA" version="20140530" />
+				<dateRange xsi:type="ExpressionRef" name="CurrentCalendarYearInterval" />
+			</expression>
+		</def>
+
+		<def name="ProceduresPerformedVascularAccessForDialysis">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:ProcedureEvent" codeProperty="procedureCode"
+				dateProperty="procedureTime.low" isInitial="true">
+				<description>Vascular access for dialysis procedures performed in this calendar year</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.464.1003.109.12.1011"
+					authority="NCQA" version="20140530" />
+				<dateRange xsi:type="ExpressionRef" name="CurrentCalendarYearInterval" />
+			</expression>
+		</def>
+
+		<def name="ObservationsForDiastolicBloodPressureSinceLastEvaluation">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:ObservationResult" codeProperty="observationFocus"
+				dateProperty="observationEventTime.low">
+				<description>Observations for diastolic blood pressure since last rule evaluation</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.526.3.1033"
+					authority="AMA-PCPI" version="20140530" />
+				<dateRange xsi:type="ExpressionRef" name="IntervalSinceLastEvaluation" />
+			</expression>
+		</def>
+
+		<def name="ObservationsForSystolicBloodPressureSinceLastEvaluation">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:ObservationResult" codeProperty="observationFocus"
+				dateProperty="observationEventTime.low"
+				>
+				<description>Observations for systolic blood pressure since last rule evaluation</description>
+				<codes xsi:type="ValueSet" id="2.16.840.1.113883.3.526.3.1032"
+					authority="AMA-PCPI" version="20140530" />
+				<dateRange xsi:type="ExpressionRef" name="IntervalSinceLastEvaluation" />
+			</expression>
+		</def>
+		
+		<def name="AntihypertensiveMedications">
+			<expression xsi:type="ClinicalRequest" cardinality="Multiple"
+				dataType="vmr:SubstanceAdministrationOrder" codeProperty="substance.substanceCode">
+				<description>Orders for anti-hypertension medications</description>
+				<codes xsi:type="ValueSet" id="TBD"
+					authority="TBD" version="TBD" />
+
+			</expression>
+		</def>
+	</externalData>
+
+	<expressions>
+		<def name="CurrentCalendarYearInterval">
+			<expression xsi:type="Interval">
+				<description>An interval beginning on 1st of Jan this year and ending today</description>
+				<begin xsi:type="Date">
+					<year xsi:type="As" asType="dt:INT">
+						<description>This year</description>
+						<operand xsi:type="DatePart">
+							<date xsi:type="Today"></date>
+							<granularity xsi:type="Literal" valueType="DateGranularity"
+								value="Year" />
+						</operand>
+					</year>
+					<month xsi:type="IntegerLiteral" value="1" />
+					<day xsi:type="IntegerLiteral" value="1" />
+				</begin>
+				<end xsi:type="Today" />
+			</expression>
+		</def>
+
+		<def name="IntervalSinceLastEvaluation">
+			<expression xsi:type="Interval">
+				<description>An interval beginning since last evaluation and ending today. The trigger defines
+				the interval between evaluations as one month, hence this interval also is the last month</description>
+				<begin xsi:type="DateAdd">
+					<date xsi:type="Today" />
+					<granularity xsi:type="Literal" valueType="DateGranularity"
+						value="Month"></granularity>
+					<numberOfPeriods xsi:type="IntegerLiteral" value="-1" />
+				</begin>
+				<end xsi:type="Today" />
+			</expression>
+		</def>
+
+		<def name="AgeInYears">
+			<expression xsi:type="DateDiff">
+				<description>Number of years from patient birth time to today</description>
+				<startDate xsi:type="Property" path="birthTime">
+					<source xsi:type="ExpressionRef" name="Patient" />
+				</startDate>
+				<endDate xsi:type="Today" />
+				<granularity xsi:type="Literal" valueType="DateGranularity"
+					value="Year" />
+			</expression>
+		</def>
+
+		<def name="Age18OrMore">
+			<expression xsi:type="GreaterOrEqual">
+				<description>Is patient's age 18 years or more</description>
+				<operand xsi:type="ExpressionRef" name="AgeInYears" />
+				<operand xsi:type="RealLiteral" value="18" />
+			</expression>
+		</def>
+
+		<def name="Age84OrLess">
+			<expression xsi:type="LessOrEqual">
+				<description>Is patient's age 84 years or less</description>
+				<operand xsi:type="ExpressionRef" name="AgeInYears" />
+				<operand xsi:type="RealLiteral" value="84" />
+			</expression>
+		</def>
+
+		<def name="LastDiastolicBloodPressure">
+			<expression xsi:type="Last" orderBy="observationEventTime.low">
+				<description>The last diastolic blood pressure observation from the past month</description>
+				<source xsi:type="ExpressionRef"
+					name="ObservationsForDiastolicBloodPressureSinceLastEvaluation" />
+			</expression>
+		</def>
+
+		<def name="LastSystolicBloodPressure">
+			<expression xsi:type="Last" orderBy="observationEventTime.low">
+				<description>The last systolic blood pressure observation from the past month</description>
+				<source xsi:type="ExpressionRef"
+					name="ObservationsForSystolicBloodPressureSinceLastEvaluation" />
+			</expression>
+		</def>
+
+
+		<def name="ElevatedDiastolicBloodPressure">
+			<expression xsi:type="GreaterOrEqual">
+				<description>Patient has diastolic blood pressure greater than or equal to 90</description>
+				<operand xsi:type="Property" path="value">
+					<source xsi:type="As" asType="dt:PQ">
+						<operand xsi:type="Property" path="observationValue.value">
+							<source xsi:type="ExpressionRef" name="LastDiastolicBloodPressure" />
+						</operand>
+					</source>
+				</operand>
+				<operand xsi:type="RealLiteral" value="90" />
+			</expression>
+		</def>
+
+		<def name="ElevatedSystolicBloodPressure">
+			<expression xsi:type="GreaterOrEqual">
+				<description>Patient has systolic blood pressure greater than or equal to 140</description>
+				<operand xsi:type="Property" path="value">
+					<source xsi:type="As" asType="dt:PQ">
+						<operand xsi:type="Property" path="observationValue.value">
+							<source xsi:type="ExpressionRef" name="LastSystolicBloodPressure" />
+						</operand>
+					</source>
+				</operand>
+				<operand xsi:type="RealLiteral" value="140" />
+			</expression>
+		</def>
+
+		<def name="DiagnosesActivePregnancy">
+			<expression xsi:type="Filter">
+				<description>Only select pregnancy problems that are active</description>
+				<source xsi:type="ExpressionRef" name="DiagnosesPregnancy" />
+				<condition xsi:type="Not">
+					<operand xsi:type="In">
+						<operand xsi:type="Property" path="conditionStatus" />
+						<operand xsi:type="List">
+							<element xsi:type="CodeLiteral" codeSystem="2.16.840.1.113883.6.96"
+								code="73425007" displayName="Inactive" />
+							<element xsi:type="CodeLiteral" codeSystem="2.16.840.1.113883.6.96"
+								code="413322009" displayName="Resolved" />
+						</operand>
+					</operand>
+				</condition>
+			</expression>
+		</def>
+
+		<def name="PatientIsNotPregnant">
+			<expression xsi:type="IsEmpty">
+				<description>No  active pregnancy problems</description>
+				<operand xsi:type="ExpressionRef" name="DiagnosesActivePregnancy" />
+			</expression>
+		</def>
+
+		<def name="DiagnosesActiveEndStageRenalDisease">
+			<expression xsi:type="Filter">
+				<description>Filter to select only active ESRD problems</description>
+				<source xsi:type="ExpressionRef" name="DiagnosesEndStageRenalDisease" />
+				<condition xsi:type="Not">
+					<operand xsi:type="In">
+						<operand xsi:type="Property" path="conditionStatus" />
+						<operand xsi:type="List">
+							<element xsi:type="CodeLiteral" codeSystem="2.16.840.1.113883.6.96"
+								code="73425007" displayName="Inactive" />
+							<element xsi:type="CodeLiteral" codeSystem="2.16.840.1.113883.6.96"
+								code="413322009" displayName="Resolved" />
+						</operand>
+					</operand>
+				</condition>
+			</expression>
+		</def>
+
+		<def name="PatientDoesNotHaveEndStageRenalDisease">
+			<expression xsi:type="IsEmpty">
+				<description>Patient has a problem (at least one) of active ESRD</description>
+				<operand xsi:type="ExpressionRef" name="DiagnosesActiveEndStageRenalDisease" />
+			</expression>
+		</def>
+
+		<def name="DiagnosesActiveCKDStage5">
+			<expression xsi:type="Filter">
+				<description>Filter to select only active ESRD problems</description>
+				<source xsi:type="ExpressionRef" name="DiagnosesCKDStage5" />
+				<condition xsi:type="Not">
+					<operand xsi:type="In">
+						<operand xsi:type="Property" path="conditionStatus" />
+						<operand xsi:type="List">
+							<element xsi:type="CodeLiteral" codeSystem="2.16.840.1.113883.6.96"
+								code="73425007" displayName="Inactive" />
+							<element xsi:type="CodeLiteral" codeSystem="2.16.840.1.113883.6.96"
+								code="413322009" displayName="Resolved" />
+						</operand>
+					</operand>
+				</condition>
+			</expression>
+		</def>
+
+		<def name="PatientDoesNotHaveCKDStage5">
+			<expression xsi:type="IsEmpty">
+				<description>Patient has a problem (at least one) of active ESRD</description>
+				<operand xsi:type="ExpressionRef" name="DiagnosesActiveCKDStage5" />
+			</expression>
+		</def>
+
+		<def name="DiagnosesActiveEssentialHypertension">
+			<expression xsi:type="Filter">
+				<description>Filter to select only active hypertension problems</description>
+				<source xsi:type="ExpressionRef" name="DiagnosesEssentialHypertension" />
+				<condition xsi:type="Not">
+					<operand xsi:type="In">
+						<operand xsi:type="Property" path="conditionStatus" />
+						<operand xsi:type="List">
+							<element xsi:type="CodeLiteral" codeSystem="2.16.840.1.113883.6.96"
+								code="73425007" displayName="Inactive" />
+							<element xsi:type="CodeLiteral" codeSystem="2.16.840.1.113883.6.96"
+								code="413322009" displayName="Resolved" />
+						</operand>
+					</operand>
+				</condition>
+			</expression>
+		</def>
+
+		<def name="PatientHasActiveEssentialHypertension">
+			<expression xsi:type="IsNotEmpty">
+				<description>Patient has a problem (at least one) of active essential hypertension</description>
+				<operand xsi:type="ExpressionRef" name="DiagnosesActiveEssentialHypertension" />
+			</expression>
+		</def>
+
+		<def name="LastMissedAppointment">
+			<expression xsi:type="Last" orderBy="appointmentTime">
+				<source xsi:type="ExpressionRef" name="MissedAppointmentsAfterLastBP"/>
+			</expression>
+		</def>
+
+		<def name="MissedAppointmentsAfterLastBP">
+			<expression xsi:type="Filter">
+				<source xsi:type="List">
+					<element xsi:type="ExpressionRef" name="EncountersPerformedAnnualWellnessVisit" />
+					<element xsi:type="ExpressionRef"
+						name="EncountersPerformedFaceToFaceInteraction" />
+					<element xsi:type="ExpressionRef"
+						name="EncountersPerformedHomeHealthCareServices" />
+					<element xsi:type="ExpressionRef" name="EncountersPerformedOfficeVisit" />
+					<element xsi:type="ExpressionRef"
+						name="EncountersPerformedOutpatientConsultation" />
+					<element xsi:type="ExpressionRef"
+						name="EncountersPerformedPreventiveCareServicesEstablishedOfficeVisit" />
+					<element xsi:type="ExpressionRef"
+						name="EncountersPerformedPreventiveCareServicesInitialOfficeVisit" />
+				</source>
+				<condition xsi:type="Greater">
+					<operand xsi:type="Property" path="appointmentTime" />
+					<operand xsi:type="Max">
+						<source xsi:type="List">
+							<element xsi:type="Property" path="observationEventTime.low">
+								<source xsi:type="ExpressionRef" name="LastSystolicBloodPressure" />
+							</element>
+							<element xsi:type="Property" path="observationEventTime.low">
+								<source xsi:type="ExpressionRef" name="LastDiastolicBloodPressure" />
+							</element>
+						</source>
+					</operand>
+				</condition>
+			</expression>
+		</def>
+
+		<def name="ActiveAntihypertensiveMedications">
+			<expression xsi:type="Filter">
+				<source xsi:type="ExpressionRef" name="AntihypertensiveMedications"/>
+				<condition xsi:type="Or">
+					<description>administration time ends after today or is unspecified</description>
+					<operand xsi:type="IsNull">
+						<operand xsi:type="Property" path="administrationTimeInterval.high"/>
+					</operand>
+					<operand xsi:type="Greater">
+						<operand xsi:type="Property" path="administrationTimeInterval.high"/>
+						<operand xsi:type="Today"/>
+					</operand>						
+				</condition>
+			</expression>		
+		</def>
+		
+		<def name="SpecifiedVisitsHaveOccurredSinceLastEvaluation">
+				<expression xsi:type="Or">
+					<description>Patient has any of the following visits in past</description>
+					<operand xsi:type="IsNotEmpty">
+						<operand xsi:type="ExpressionRef" name="EncountersPerformedAnnualWellnessVisit" />
+					</operand>
+					<operand xsi:type="IsNotEmpty">
+						<operand xsi:type="ExpressionRef"
+							name="EncountersPerformedFaceToFaceInteraction" />
+					</operand>
+					<operand xsi:type="IsNotEmpty">
+						<operand xsi:type="ExpressionRef"
+							name="EncountersPerformedHomeHealthCareServices" />
+					</operand>
+					<operand xsi:type="IsNotEmpty">
+						<operand xsi:type="ExpressionRef" name="EncountersPerformedOfficeVisit" />
+					</operand>
+					<operand xsi:type="IsNotEmpty">
+						<operand xsi:type="ExpressionRef"
+							name="EncountersPerformedOutpatientConsultation" />
+					</operand>
+					<operand xsi:type="IsNotEmpty">
+						<operand xsi:type="ExpressionRef"
+							name="EncountersPerformedPreventiveCareServicesEstablishedOfficeVisit" />
+					</operand>
+					<operand xsi:type="IsNotEmpty">
+						<operand xsi:type="ExpressionRef"
+							name="EncountersPerformedPreventiveCareServicesInitialOfficeVisit" />
+					</operand>
+				</expression>
+		
+		
+		</def>
+		
+		<def name="ESRDTreatmentsHaveBeenPerformedInCurrentCalendarYear">
+			<expression xsi:type="Or">
+						<operand xsi:type="IsNotEmpty">
+							<operand xsi:type="ExpressionRef"
+								name="EncountersPerformedESRDMonthlyOutPatientServices" />
+						</operand>
+						<operand xsi:type="IsNotEmpty">
+							<operand xsi:type="ExpressionRef" name="ProceduresPerformedDialysisServices" />
+						</operand>
+						<operand xsi:type="IsNotEmpty">
+							<operand xsi:type="ExpressionRef" name="ProceduresPerformedKidneyTransplant" />
+						</operand>
+						<operand xsi:type="IsNotEmpty">
+							<operand xsi:type="ExpressionRef"
+								name="ProceduresPerformedVascularAccessForDialysis" />
+						</operand>
+						<operand xsi:type="IsNotEmpty">
+							<operand xsi:type="ExpressionRef"
+								name="InterventionsPerformedDialysisEducation" />
+						</operand>
+						<operand xsi:type="IsNotEmpty">
+							<operand xsi:type="ExpressionRef" name="OtherDialysisRelatedServicesPerformed" />
+						</operand>
+			</expression>
+		</def>
+	</expressions>
+
+	<triggers>
+		<trigger>
+			<!-- Triggers once per month -->
+			<eventType>PeriodicEvent</eventType>
+			<expression xsi:type="PeriodLiteral">
+				<description>One time per month.The phase(i.e 1st day) is specified by the implementer</description>
+				<frequency>
+					<dt:numerator value="1" xsi:type="dt:INT" />
+					<dt:denominator value="1" xsi:type="dt:PQ" unit="mo" />
+				</frequency>
+			</expression>
+		</trigger>
+	</triggers>
+
+	<conditions>
+		<condition>
+			<logic xsi:type="And">
+				<description>Patient is 18 to 84 years, has active essential hypertension, is not pregnant, does not have ESRD,
+				has not had procedures or visits related to ESRD, and had a visit since the last rule evaluation</description>
+				<operand xsi:type="ExpressionRef" name="Age18OrMore" />
+				<operand xsi:type="ExpressionRef" name="Age84OrLess" />
+				<operand xsi:type="ExpressionRef" name="PatientHasActiveEssentialHypertension" />
+				<operand xsi:type="ExpressionRef" name="PatientIsNotPregnant" />
+				<operand xsi:type="ExpressionRef" name="PatientDoesNotHaveEndStageRenalDisease" />
+				<operand xsi:type="ExpressionRef" name="PatientDoesNotHaveCKDStage5" />
+				<operand xsi:type="Or">
+					<description>Patient has elevated systolic or diastolic pressure</description>
+					<operand xsi:type="ExpressionRef" name="ElevatedSystolicBloodPressure" />
+					<operand xsi:type="ExpressionRef" name="ElevatedDiastolicBloodPressure" />
+				</operand>
+				<operand xsi:type="Not">
+					<operand xsi:type="ExpressionRef" name="ESRDTreatmentsHaveBeenPerformedInCurrentCalendarYear"/>
+				</operand>
+				<operand xsi:type="ExpressionRef" name="SpecifiedVisitsHaveOccurredSinceLastEvaluation"/>
+			</logic>
+			<conditionRole value="ApplicableScenario" />
+		</condition>
+	</conditions>
+
+	<actionGroup>
+		<supportingResources>
+			<resource>
+				<title value="NHLBI JNC VII Hypertension Guideline" />
+				<location
+					value="http://www.nhlbi.nih.gov/guidelines/hypertension/index.htm" />
+			</resource>
+		</supportingResources>
+		<subElements>
+
+			<simpleAction xsi:type="CreateAction">
+				<textEquivalent value="Patient has a hypertension diagnosis in the EHR" />
+				<actionSentence xsi:type="ObjectExpression"
+					objectType="vmr:CommunicationProposal">
+					<property name="message">
+							<value xsi:type="Concat">
+								<operand xsi:type="StringLiteral"
+									value="The patient has a diagnosis of  " />
+								<operand xsi:type="Property" path="conditionCode.displayName">
+									<source xsi:type="First">
+										<source xsi:type="ExpressionRef" name="DiagnosesActiveEssentialHypertension" />
+									</source>
+								</operand>
+							</value>
+					</property>
+				</actionSentence>
+			</simpleAction>
+
+			<simpleAction xsi:type="CreateAction">
+				<textEquivalent value="Patient's last systolic blood pressure" />
+				<actionSentence xsi:type="ObjectExpression"
+					objectType="vmr:CommunicationProposal">
+					<property name="message">
+						<value xsi:type="Concat">
+								<operand xsi:type="StringLiteral"
+									value="This patient's last systolic blood pressure was " />
+								<operand xsi:type="Property" path="value">
+									<source xsi:type="As" asType="dt:PQ">
+										<operand xsi:type="Property" path="observationValue.value">
+											<source xsi:type="ExpressionRef" name="LastSystolicBloodPressure" />
+										</operand>
+									</source>
+								</operand>
+								<operand xsi:type="StringLiteral" value=" mm Hg" />
+							</value>
+					</property>
+				</actionSentence>
+			</simpleAction>
+
+			<simpleAction xsi:type="CreateAction">
+				<textEquivalent value="Patient's last diastolic blood pressure" />
+				<actionSentence xsi:type="ObjectExpression"
+					objectType="vmr:CommunicationProposal">
+					<property name="message">
+							<value xsi:type="Concat">
+								<operand xsi:type="StringLiteral"
+									value="This patient's last diastolic blood pressure was " />
+								<operand xsi:type="Property" path="value">
+									<source xsi:type="As" asType="dt:PQ">
+										<operand xsi:type="Property" path="observationValue.value">
+											<source xsi:type="ExpressionRef" name="LastDiastolicBloodPressure" />
+										</operand>
+									</source>
+								</operand>
+								<operand xsi:type="StringLiteral" value=" mm Hg" />
+							</value>
+					</property>
+				</actionSentence>
+			</simpleAction>
+
+			<simpleAction xsi:type="CreateAction">
+				<conditions>
+					<condition>
+						<logic xsi:type="IsNotEmpty">
+							<operand xsi:type="ExpressionRef" name="LastMissedAppointment"/>
+						</logic>
+						<conditionRole value="ApplicableScenario"/>
+					 </condition>
+				</conditions>
+				<textEquivalent value="Missed appointments since elevated BP" />
+				<actionSentence xsi:type="ObjectExpression"
+					objectType="vmr:CommunicationProposal">
+					<property name="message">
+							<value xsi:type="Concat">
+								<operand xsi:type="StringLiteral"
+									value="The patient missed an appointment on  " />
+								<operand xsi:type="Property" path="appointmentTime">
+									<source xsi:type="ExpressionRef" name="LastMissedAppointment" />
+								</operand>
+							</value>
+					</property>
+				</actionSentence>
+			</simpleAction>
+
+			<simpleAction xsi:type="CreateAction">
+				<conditions>
+					<condition>
+						<logic xsi:type="IsNotEmpty">
+							<operand xsi:type="ExpressionRef" name="ActiveAntihypertensiveMedications"/>
+						</logic>
+						<conditionRole value="ApplicableScenario"/>
+					 </condition>
+				</conditions>
+				<textEquivalent value="Patient has active orders for anti-hypertensive medications" />
+				<actionSentence xsi:type="ObjectExpression"
+					objectType="vmr:CommunicationProposal">
+					<property name="message">
+							<value xsi:type="Concat">
+								<operand xsi:type="StringLiteral"
+									value="The patient currently has active orders for the following anti-hypertensive medications  " />
+								<operand xsi:type="Combine">
+									<source xsi:type="ForEach">
+										<source xsi:type="ExpressionRef" name="ActiveAntihypertensiveMedications"/>
+										<element xsi:type="Property" path="substance.substanceCode.displayName"/>
+									</source>
+									<separator xsi:type="StringLiteral" value=","/>
+								</operand>
+							</value>
+					</property>
+				</actionSentence>
+			</simpleAction>
+
+		</subElements>
+	</actionGroup>
+</knowledgeDocument>

@@ -1,0 +1,3694 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.bmi.asu.edu/hed/pso"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://www.bmi.asu.edu/hed/pso">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">time-indexed value in context</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#coversRequirements"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">What is the context or situation of something? What are the things present in this context or situation?</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#coversRequirements"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">At what time did a certain situation occur?,What situations occurred at a certain time?</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasIntent"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">To represent contexts or situations, and the things that are contextualized.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">participation</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal datatypeIRI="&xsd;string">1.7.1</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios"/>
+        <Literal datatypeIRI="&xsd;string">Aldo Gangemi participated in the premiere of La Dolce Vita.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/publisher"/>
+        <Literal datatypeIRI="&xsd;string">Mindinformatics, Massachusetts General Hospital</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#isSpecializationOf"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Situation</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasConsequences"/>
+        <Literal datatypeIRI="&xsd;string">We can represent time intervals as objects.
+However, the dates of the time interval are not part of the domain of discourse, they are datatype values. If there is the need of reasoning about dates, this CP should be used in composition with the region CP.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">PSO, the Publishing Status Ontology, is an ontology for describing the status held by a bibliographic document or other publication entity at each of the various stages in the publishing process.  It forms part of SPAR, a suite of Semantic Publishing and Referencing Ontologies.  Other SPAR ontologies are described at http://purl.org/spar/.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal datatypeIRI="&xsd;string">1.0
+- Revised, and added annotations for ODP publishing
+0.1
+- Created by Aldo Gangemi</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/title"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The Time-indexed Value in Context</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#extractedFrom"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://www.ontologydesignpatterns.org/ont/dul/DUL.owl</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/creator"/>
+        <IRI>http://www.hcklab.org/foaf.rdf#me</IRI>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasIntent"/>
+        <Literal datatypeIRI="&xsd;string">To represent time intervals.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">PSO, the Publishing Status Ontology, is an ontology written in OWL 2 DL for characterizing the publication status of a document or other publication entity at each of the various stages in the publishing process (e.g.  draft, submitted, under review, rejected, accepted for publication, proof, published, Version of Record, catalogued, archived).
+
+Because it is based on the Time-indexed Value in Context ontology pattern (http://www.essepuntato.it/2012/04/tvc), it is easy to extends the set of specified statuses, simply by adding new individual to the class pso:Status or its sub-class pso:PublicationStatus.
+</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/contributor"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Fabio Vitali</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal datatypeIRI="&xsd;string">1.1 added rdfs:isDefinedBy for all named entities</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/date"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">2012-06-08</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/title"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">PSO, the Publishing Status Ontology</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#coversRequirements"/>
+        <Literal datatypeIRI="&xsd;string">Which objects do participate in this event? Which events do this object participate in?</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/creator"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Silvio Peroni</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>http://www.w3.org/TR/owl-time</IRI>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#relatedCPs"/>
+        <Literal datatypeIRI="&xsd;string">Co-participation allows to model the relation between two objects that 
+par ticipate in a same event (implicitly); n-ary participation allows to model par ticipation over different dimensions e.g., temporal, spatial, etc., as well as explicitly relate more than one object to the same event; object role, n-ary classiﬁcation are examples of CPs that can be composed with this CP.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/contributor"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">David Shotton</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal datatypeIRI="&xsd;string">Created by Aldo Gangemi and Valentina Presutti</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#relatedCPs"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Time indexed participation</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasIntent"/>
+        <Literal datatypeIRI="&xsd;string">To represent participation of an object in an event.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasIntent"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">To represent time indexed situations.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A generic pattern usable for all situations that require a temporal indexing.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The time interval pattern. 
+This pattern is extracted from DOLCE-UltraLite by partial clone of elements and expansion. Two datatype properties have been added which allow to express the boundaries of the time interval.
+Ranges of datatype properties are not indicated, because otherwise specializing them with different xsd datatypes would lead to inconsistencies.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <IRI>http://sempublishing.svn.sourceforge.net/svnroot/sempublishing/PSO/pso.png</IRI>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <IRI>http://dwellonit.svn.sourceforge.net/svnroot/dwellonit/TimeIndexedValueInContext/tvc.png</IRI>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <Literal datatypeIRI="&xsd;string">FOAF Essential v. 2.0</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasConsequences"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">We can contextualize things that have something in common, or are associated: a same place, time, view, causal link, systemic dependence, etc.
+We can also reify n-ary relations as situations.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal datatypeIRI="&xsd;string">Created by Valentina Presutti</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:priorVersion"/>
+        <IRI>http://swan.mindinformatics.org/ontologies/1.2/foaf-essential.owl</IRI>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#relatedCPs"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Time indexed participation,TimeIndexedClassification</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Sometimes, we need to describe scenarios in which someone (e.g., a person) has a value (e.g., a particular role) during a particular time and for a particular context. Four different things are involved in these kinds of scenarios:
+
+1. the entity having some value, e.g. a person or a document possessing a role or a status;
+
+2. the value had by someone, e.g. a role or a status;
+
+3. the time period during which the entity has that value, e.g. from April 2008 to September 2008;
+
+4. the particular context that characterises the act of having that value, e.g. being a member of an institution or an editor of a particular journal.
+
+Thought as natural extension of the Time-indexed Situation pattern (http://ontologydesignpatterns.org/wiki/Submissions:TimeIndexedSituation), this ontological pattern, called Time-indexed Value in Context (TVC), is able to describe these kinds of scenarios.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal datatypeIRI="&xsd;string">2.0</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/rights"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/).</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/format"/>
+        <Literal datatypeIRI="&xsd;string">rdf/xml</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Mustafa&apos;s address in 2005 was in Brussels</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#coversRequirements"/>
+        <Literal datatypeIRI="&xsd;string">What is the end time of this interval? What is the starting time of this interval? What is the date of this time interval?</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal datatypeIRI="&xsd;string">1.1
+- Improved annotation
+1.0 
+- Created by Aldo Gangemi and Valentina Presutti</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">situation</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#extractedFrom"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://ontologydesignpatterns.org/ont/dul/DUL.owl</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasComponent"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">TimeInterval</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/creator"/>
+        <Literal datatypeIRI="&xsd;string">Silvio Peroni</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The lecture was held in January 1921 by Bela Fleck, with some physicians in the audience making questions, in a very relaxed athmosphere.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#relatedCPs"/>
+        <Literal datatypeIRI="&xsd;string">It is a component of time-indexed person role, time indexed part of, and can be composed with other CPs when temporal aspects need to be represented.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasUnitTest"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">SELECT ?x ?e ?t
+WHERE {
+?x :forEntity ?e .
+?x :atTime ?t }</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A pattern for the description of scenarios that involve entities having some value during a particular time and within a particular context.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasConsequences"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">We can represent situations that have an explicit time parameter.
+In principle, this can be done already with the Situation pattern, but this provides a handy composition with the TimeInterval pattern.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/date"/>
+        <Literal datatypeIRI="&xsd;string">October 12, 2010</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/title"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">FOAF Essential ontology</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/language"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">en</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/date"/>
+        <Literal datatypeIRI="&xsd;string">2014-02-01</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/contributor"/>
+        <Literal datatypeIRI="&xsd;string">Alan Ruttenberg</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/contributor"/>
+        <Literal datatypeIRI="&xsd;string">Paolo Ciccarese</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasAuthor"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Aldo Gangemi</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/creator"/>
+        <Literal datatypeIRI="&xsd;string">David Shotton</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios"/>
+        <Literal datatypeIRI="&xsd;string">The time inter val “January 2008” starts at 2008 − 01 − 0 and ends at 2008 − 01 − 31.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasConsequences"/>
+        <Literal datatypeIRI="&xsd;string">It is possible to model whatever relation between objects and events. Using cardinality restrictions appropriately allows to limit the number of participants, e.g. &apos;life of&apos; is a specialization of this pattern that requires a functional object property (cardinality 1. . .1).
+This is a non-temporal version of the particpation relation. If we need a time-indexed relation, use http://ontologydesignpatterns.owl/cp/owl/timeindexedparticipation.owl</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">
+      An OWL Ontology of Time (OWL-Time).
+    </Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The basic participation pattern, without temporal indexing. 
+It clones equivalent elements from DOLCE-UltraLite.</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="http://purl.org/spar/pso/Agent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/spar/pso/ArticleProcessingChargeStatus"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/spar/pso/Status"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/spar/pso/StatusInTime"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.essepuntato.it/2012/04/tvc/ValueInTime"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeInterval"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.w3.org/2006/time#DayOfWeek"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.w3.org/2006/time#DurationDescription"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.w3.org/2006/time#Instant"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.w3.org/2006/time#Interval"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.w3.org/2006/time#January"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.w3.org/2006/time#ProperInterval"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.w3.org/2006/time#TemporalEntity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.w3.org/2006/time#TemporalUnit"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.w3.org/2006/time#Year"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.w3.org/2006/timezone#TimeZone"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://xmlns.com/foaf/0.1/Group"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://xmlns.com/foaf/0.1/Image"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://xmlns.com/foaf/0.1/OnlineAccount"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://xmlns.com/foaf/0.1/Organization"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://xmlns.com/foaf/0.1/PersonalProfileDocument"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://xmlns.com/foaf/0.1/Project"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/spar/pso/holdsStatusInTime"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/spar/pso/isAcquiredAsConsequenceOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/spar/pso/isLostAsConsequenceOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/spar/pso/isStatusHeldBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/spar/pso/isStatusIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/spar/pso/resultsInAcquiring"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/spar/pso/resultsInLosing"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/spar/pso/withStatus"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/atTime"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/hasValue"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/withValue"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/withinContext"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#hasSetting"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#atTime"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#forEntity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#hasTimeIndexedSetting"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#isTimeIndexFor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#after"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#before"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#dayOfWeek"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#hasBeginning"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#hasDateTimeDescription"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#hasDurationDescription"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#hasEnd"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#inDateTime"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#inside"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalAfter"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalBefore"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalContains"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalDuring"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalEquals"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalFinishedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalFinishes"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalMeets"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalMetBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalOverlappedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalOverlaps"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalStartedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalStarts"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#timeZone"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#unitType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/currentProject"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/depiction"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/depicts"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/fundedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/homepage"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/img"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/interest"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/isPrimaryTopicOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/knows"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/logo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/made"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/maker"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/mbox"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/member"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/page"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/pastProject"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/phone"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/primaryTopic"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/publications"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/schoolHomepage"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/thumbnail"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/tipjar"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/topic"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/topic_interest"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/weblog"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/workInfoHomepage"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/workplaceHomepage"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalDate"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalEndDate"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalStartDate"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.w3.org/2006/time#day"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.w3.org/2006/time#dayOfYear"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.w3.org/2006/time#days"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.w3.org/2006/time#hour"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.w3.org/2006/time#hours"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.w3.org/2006/time#inXSDDateTime"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.w3.org/2006/time#minute"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.w3.org/2006/time#minutes"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.w3.org/2006/time#month"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.w3.org/2006/time#months"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.w3.org/2006/time#second"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.w3.org/2006/time#seconds"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.w3.org/2006/time#week"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.w3.org/2006/time#weeks"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.w3.org/2006/time#xsdDateTime"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.w3.org/2006/time#year"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.w3.org/2006/time#years"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/aimChatID"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/birthday"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/family_name"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/firstName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/geekcode"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/gender"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/givenname"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/jabberID"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/myersBriggs"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/name"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/nick"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/plan"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/sha1"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/surname"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/title"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/yahooChatID"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/APC-fully-waived"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/APC-not-charged"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/APC-not-required"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/APC-paid"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/APC-partially-waived"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/accepted-for-publication"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/anonymized"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/archived"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/catalogued"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/closed-access"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/confidential"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/copy-edited"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/corrected"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/draft"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/embargoed"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/enhanced"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/final-draft"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/gold-open-access"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/gratis-open-access"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/green-open-access"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/in-press"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/initial-draft"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/intermediate-draft"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/libre-open-access"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/non-confidential"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/open-access"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/peer-reviewed"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/proof"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/published"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/rejected-for-publication"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/republished"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/restricted-access"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/retracted-from-publication"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/reviewed"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/revised"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/submitted"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/subscription-access"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/under-review"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/unpublished"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/version-of-record"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://purl.org/spar/pso/withdrawn-from-submission"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/contributor"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/creator"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/date"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/rights"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/title"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/contributor"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/creator"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/date"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/format"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/language"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/publisher"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/title"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#coversRequirements"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#extractedFrom"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasAuthor"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasComponent"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasConsequences"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasIntent"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasUnitTest"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#isCloneOf"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#isSpecializationOf"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#reengineeredFrom"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#relatedCPs"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://www.w3.org/2003/06/sw-vocab-status/nsterm_status"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval"/>
+        <Class IRI="http://www.w3.org/2006/time#Interval"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://www.w3.org/2006/time#DayOfWeek"/>
+        <ObjectOneOf>
+            <NamedIndividual IRI="http://www.w3.org/2006/time#Wednesday"/>
+            <NamedIndividual IRI="http://www.w3.org/2006/time#Friday"/>
+            <NamedIndividual IRI="http://www.w3.org/2006/time#Saturday"/>
+            <NamedIndividual IRI="http://www.w3.org/2006/time#Tuesday"/>
+            <NamedIndividual IRI="http://www.w3.org/2006/time#Monday"/>
+            <NamedIndividual IRI="http://www.w3.org/2006/time#Sunday"/>
+            <NamedIndividual IRI="http://www.w3.org/2006/time#Thursday"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://www.w3.org/2006/time#TemporalEntity"/>
+        <ObjectUnionOf>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+            <Class IRI="http://www.w3.org/2006/time#Interval"/>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://www.w3.org/2006/time#TemporalUnit"/>
+        <ObjectOneOf>
+            <NamedIndividual IRI="http://www.w3.org/2006/time#unitMonth"/>
+            <NamedIndividual IRI="http://www.w3.org/2006/time#unitMinute"/>
+            <NamedIndividual IRI="http://www.w3.org/2006/time#unitDay"/>
+            <NamedIndividual IRI="http://www.w3.org/2006/time#unitHour"/>
+            <NamedIndividual IRI="http://www.w3.org/2006/time#unitYear"/>
+            <NamedIndividual IRI="http://www.w3.org/2006/time#unitSecond"/>
+            <NamedIndividual IRI="http://www.w3.org/2006/time#unitWeek"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="http://purl.org/spar/pso/Agent"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/spar/pso/Agent"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/spar/pso/ArticleProcessingChargeStatus"/>
+        <Class IRI="http://purl.org/spar/pso/Status"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <Class IRI="http://purl.org/spar/pso/Status"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/spar/pso/Status"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/spar/pso/StatusInTime"/>
+        <Class IRI="http://www.essepuntato.it/2012/04/tvc/ValueInTime"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/spar/pso/StatusInTime"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://purl.org/spar/pso/isAcquiredAsConsequenceOf"/>
+            <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/spar/pso/StatusInTime"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://purl.org/spar/pso/withStatus"/>
+            <Class IRI="http://purl.org/spar/pso/Status"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/spar/pso/StatusInTime"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/atTime"/>
+            <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/spar/pso/StatusInTime"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/atTime"/>
+            <ObjectIntersectionOf>
+                <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval"/>
+                <DataAllValuesFrom>
+                    <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalDate"/>
+                    <Datatype abbreviatedIRI="xsd:dateTime"/>
+                </DataAllValuesFrom>
+            </ObjectIntersectionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/spar/pso/StatusInTime"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="http://purl.org/spar/pso/isStatusHeldBy"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.essepuntato.it/2012/04/tvc/ValueInTime"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.essepuntato.it/2012/04/tvc/ValueInTime"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/atTime"/>
+            <ObjectUnionOf>
+                <Class IRI="http://www.w3.org/2006/time#Instant"/>
+                <Class IRI="http://www.w3.org/2006/time#Interval"/>
+            </ObjectUnionOf>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.essepuntato.it/2012/04/tvc/ValueInTime"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/withValue"/>
+            <Class abbreviatedIRI="owl:Thing"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.essepuntato.it/2012/04/tvc/ValueInTime"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/withinContext"/>
+            <Class abbreviatedIRI="owl:Thing"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant"/>
+            <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn"/>
+            <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#TimeIndexedSituation"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#TimeIndexedSituation"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#atTime"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#TimeIndexedSituation"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#forEntity"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalEndDate"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalStartDate"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="http://www.w3.org/2006/time#unitType"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="http://www.w3.org/2006/time#dayOfWeek"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="http://www.w3.org/2006/time#timeZone"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="http://www.w3.org/2006/time#day"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="http://www.w3.org/2006/time#dayOfYear"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="http://www.w3.org/2006/time#hour"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="http://www.w3.org/2006/time#minute"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="http://www.w3.org/2006/time#month"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="http://www.w3.org/2006/time#second"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="http://www.w3.org/2006/time#week"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="http://www.w3.org/2006/time#year"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeInterval"/>
+        <Class IRI="http://www.w3.org/2006/time#ProperInterval"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#DurationDescription"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="http://www.w3.org/2006/time#days"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#DurationDescription"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="http://www.w3.org/2006/time#hours"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#DurationDescription"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="http://www.w3.org/2006/time#minutes"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#DurationDescription"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="http://www.w3.org/2006/time#months"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#DurationDescription"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="http://www.w3.org/2006/time#seconds"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#DurationDescription"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="http://www.w3.org/2006/time#weeks"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#DurationDescription"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="http://www.w3.org/2006/time#years"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        <Class IRI="http://www.w3.org/2006/time#TemporalEntity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#Interval"/>
+        <Class IRI="http://www.w3.org/2006/time#TemporalEntity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#January"/>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#January"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="http://www.w3.org/2006/time#unitType"/>
+            <NamedIndividual IRI="http://www.w3.org/2006/time#unitMonth"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#January"/>
+        <DataHasValue>
+            <DataProperty IRI="http://www.w3.org/2006/time#month"/>
+            <Literal datatypeIRI="&xsd;gMonth">--01</Literal>
+        </DataHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#ProperInterval"/>
+        <Class IRI="http://www.w3.org/2006/time#Interval"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#Year"/>
+        <Class IRI="http://www.w3.org/2006/time#DurationDescription"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#Year"/>
+        <DataExactCardinality cardinality="0">
+            <DataProperty IRI="http://www.w3.org/2006/time#days"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#Year"/>
+        <DataExactCardinality cardinality="0">
+            <DataProperty IRI="http://www.w3.org/2006/time#hours"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#Year"/>
+        <DataExactCardinality cardinality="0">
+            <DataProperty IRI="http://www.w3.org/2006/time#minutes"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#Year"/>
+        <DataExactCardinality cardinality="0">
+            <DataProperty IRI="http://www.w3.org/2006/time#months"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#Year"/>
+        <DataExactCardinality cardinality="0">
+            <DataProperty IRI="http://www.w3.org/2006/time#seconds"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#Year"/>
+        <DataExactCardinality cardinality="0">
+            <DataProperty IRI="http://www.w3.org/2006/time#weeks"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.w3.org/2006/time#Year"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="http://www.w3.org/2006/time#years"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://xmlns.com/foaf/0.1/Group"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://xmlns.com/foaf/0.1/Image"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://xmlns.com/foaf/0.1/Organization"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://xmlns.com/foaf/0.1/PersonalProfileDocument"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        <Class IRI="http://www.w3.org/2006/time#ProperInterval"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/OnlineAccount"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Project"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/OnlineAccount"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Project"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://xmlns.com/foaf/0.1/Group"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Organization"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://xmlns.com/foaf/0.1/Group"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://xmlns.com/foaf/0.1/Image"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/PersonalProfileDocument"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://xmlns.com/foaf/0.1/OnlineAccount"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Project"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://xmlns.com/foaf/0.1/Organization"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/ArticleProcessingChargeStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/APC-fully-waived"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/ArticleProcessingChargeStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/APC-not-charged"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/ArticleProcessingChargeStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/APC-not-required"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/ArticleProcessingChargeStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/APC-paid"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/ArticleProcessingChargeStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/APC-partially-waived"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/accepted-for-publication"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/anonymized"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/archived"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/catalogued"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/closed-access"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/confidential"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/copy-edited"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/corrected"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/draft"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/embargoed"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/enhanced"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/final-draft"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/gold-open-access"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/gratis-open-access"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/green-open-access"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/in-press"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/initial-draft"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/intermediate-draft"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/libre-open-access"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/non-confidential"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/open-access"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/peer-reviewed"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/proof"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/published"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/rejected-for-publication"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/republished"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/restricted-access"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/retracted-from-publication"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/reviewed"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/revised"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/submitted"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/subscription-access"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/under-review"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/unpublished"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/version-of-record"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/spar/pso/PublicationStatus"/>
+        <NamedIndividual IRI="http://purl.org/spar/pso/withdrawn-from-submission"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2006/time#DayOfWeek"/>
+        <NamedIndividual IRI="http://www.w3.org/2006/time#Friday"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2006/time#DayOfWeek"/>
+        <NamedIndividual IRI="http://www.w3.org/2006/time#Monday"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2006/time#DayOfWeek"/>
+        <NamedIndividual IRI="http://www.w3.org/2006/time#Saturday"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2006/time#DayOfWeek"/>
+        <NamedIndividual IRI="http://www.w3.org/2006/time#Sunday"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2006/time#DayOfWeek"/>
+        <NamedIndividual IRI="http://www.w3.org/2006/time#Thursday"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2006/time#DayOfWeek"/>
+        <NamedIndividual IRI="http://www.w3.org/2006/time#Tuesday"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2006/time#DayOfWeek"/>
+        <NamedIndividual IRI="http://www.w3.org/2006/time#Wednesday"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2006/time#TemporalUnit"/>
+        <NamedIndividual IRI="http://www.w3.org/2006/time#unitDay"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2006/time#TemporalUnit"/>
+        <NamedIndividual IRI="http://www.w3.org/2006/time#unitHour"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2006/time#TemporalUnit"/>
+        <NamedIndividual IRI="http://www.w3.org/2006/time#unitMinute"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2006/time#TemporalUnit"/>
+        <NamedIndividual IRI="http://www.w3.org/2006/time#unitMonth"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2006/time#TemporalUnit"/>
+        <NamedIndividual IRI="http://www.w3.org/2006/time#unitSecond"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2006/time#TemporalUnit"/>
+        <NamedIndividual IRI="http://www.w3.org/2006/time#unitWeek"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2006/time#TemporalUnit"/>
+        <NamedIndividual IRI="http://www.w3.org/2006/time#unitYear"/>
+    </ClassAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://purl.org/spar/pso/holdsStatusInTime"/>
+        <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/hasValue"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://purl.org/spar/pso/isAcquiredAsConsequenceOf"/>
+        <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/withinContext"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://purl.org/spar/pso/isLostAsConsequenceOf"/>
+        <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/withinContext"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://purl.org/spar/pso/isStatusHeldBy"/>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#forEntity"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://purl.org/spar/pso/isStatusIn"/>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#hasTimeIndexedSetting"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://purl.org/spar/pso/resultsInAcquiring"/>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#hasTimeIndexedSetting"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://purl.org/spar/pso/resultsInLosing"/>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#hasTimeIndexedSetting"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://purl.org/spar/pso/withStatus"/>
+        <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/withValue"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/atTime"/>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/hasValue"/>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#hasTimeIndexedSetting"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/withValue"/>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#forEntity"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/withinContext"/>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#forEntity"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#atTime"/>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#forEntity"/>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#hasTimeIndexedSetting"/>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#hasSetting"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#isTimeIndexFor"/>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#hasSetting"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalBefore"/>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#before"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/homepage"/>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/page"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/img"/>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/depiction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/tipjar"/>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/page"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/weblog"/>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/page"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://purl.org/spar/pso/holdsStatusInTime"/>
+        <ObjectProperty IRI="http://purl.org/spar/pso/isStatusHeldBy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://purl.org/spar/pso/resultsInAcquiring"/>
+        <ObjectProperty IRI="http://purl.org/spar/pso/isAcquiredAsConsequenceOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://purl.org/spar/pso/isLostAsConsequenceOf"/>
+        <ObjectProperty IRI="http://purl.org/spar/pso/resultsInLosing"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://purl.org/spar/pso/withStatus"/>
+        <ObjectProperty IRI="http://purl.org/spar/pso/isStatusIn"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant"/>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor"/>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#hasSetting"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#isTimeIndexFor"/>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#atTime"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#hasTimeIndexedSetting"/>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#forEntity"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#before"/>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#after"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalBefore"/>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalAfter"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalContains"/>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalDuring"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalFinishes"/>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalFinishedBy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalMeets"/>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalMetBy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalOverlappedBy"/>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalOverlaps"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalStartedBy"/>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalStarts"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/depiction"/>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/depicts"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/isPrimaryTopicOf"/>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/primaryTopic"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/maker"/>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/made"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/page"/>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/topic"/>
+    </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#atTime"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/primaryTopic"/>
+    </FunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/homepage"/>
+    </InverseFunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/isPrimaryTopicOf"/>
+    </InverseFunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/mbox"/>
+    </InverseFunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/weblog"/>
+    </InverseFunctionalObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#before"/>
+    </TransitiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/spar/pso/isAcquiredAsConsequenceOf"/>
+        <Class IRI="http://purl.org/spar/pso/StatusInTime"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/spar/pso/isLostAsConsequenceOf"/>
+        <Class IRI="http://purl.org/spar/pso/StatusInTime"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/spar/pso/isStatusHeldBy"/>
+        <Class IRI="http://purl.org/spar/pso/StatusInTime"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/spar/pso/withStatus"/>
+        <Class IRI="http://purl.org/spar/pso/StatusInTime"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/atTime"/>
+        <Class IRI="http://www.essepuntato.it/2012/04/tvc/ValueInTime"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/hasValue"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/withValue"/>
+        <Class IRI="http://www.essepuntato.it/2012/04/tvc/ValueInTime"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/withinContext"/>
+        <Class IRI="http://www.essepuntato.it/2012/04/tvc/ValueInTime"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#hasSetting"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#atTime"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#forEntity"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#hasTimeIndexedSetting"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#isTimeIndexFor"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#before"/>
+        <Class IRI="http://www.w3.org/2006/time#TemporalEntity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#dayOfWeek"/>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#hasBeginning"/>
+        <Class IRI="http://www.w3.org/2006/time#TemporalEntity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#hasDateTimeDescription"/>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeInterval"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#hasDurationDescription"/>
+        <Class IRI="http://www.w3.org/2006/time#TemporalEntity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#hasEnd"/>
+        <Class IRI="http://www.w3.org/2006/time#TemporalEntity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#inDateTime"/>
+        <Class IRI="http://www.w3.org/2006/time#Instant"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#inside"/>
+        <Class IRI="http://www.w3.org/2006/time#Interval"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalBefore"/>
+        <Class IRI="http://www.w3.org/2006/time#ProperInterval"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalDuring"/>
+        <Class IRI="http://www.w3.org/2006/time#ProperInterval"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalEquals"/>
+        <Class IRI="http://www.w3.org/2006/time#ProperInterval"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalFinishes"/>
+        <Class IRI="http://www.w3.org/2006/time#ProperInterval"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalMeets"/>
+        <Class IRI="http://www.w3.org/2006/time#ProperInterval"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalOverlaps"/>
+        <Class IRI="http://www.w3.org/2006/time#ProperInterval"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalStarts"/>
+        <Class IRI="http://www.w3.org/2006/time#ProperInterval"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#timeZone"/>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#unitType"/>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/currentProject"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/depiction"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/depicts"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Image"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/fundedBy"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/img"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/interest"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/isPrimaryTopicOf"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/knows"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/logo"/>
+        <ObjectUnionOf>
+            <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+            <Class IRI="http://xmlns.com/foaf/0.1/Project"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/made"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/maker"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/mbox"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/member"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Group"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/page"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/pastProject"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/phone"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/primaryTopic"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/publications"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/schoolHomepage"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/thumbnail"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Image"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/tipjar"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/topic"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/topic_interest"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/weblog"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/workInfoHomepage"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/workplaceHomepage"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/spar/pso/holdsStatusInTime"/>
+        <Class IRI="http://purl.org/spar/pso/StatusInTime"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/spar/pso/isAcquiredAsConsequenceOf"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/spar/pso/isLostAsConsequenceOf"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/spar/pso/isStatusIn"/>
+        <Class IRI="http://purl.org/spar/pso/StatusInTime"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/atTime"/>
+        <Class IRI="http://www.w3.org/2006/time#TemporalEntity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/hasValue"/>
+        <Class IRI="http://www.essepuntato.it/2012/04/tvc/ValueInTime"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/withValue"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/withinContext"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#hasSetting"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#atTime"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#forEntity"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#hasTimeIndexedSetting"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#isTimeIndexFor"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#before"/>
+        <Class IRI="http://www.w3.org/2006/time#TemporalEntity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#dayOfWeek"/>
+        <Class IRI="http://www.w3.org/2006/time#DayOfWeek"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#hasBeginning"/>
+        <Class IRI="http://www.w3.org/2006/time#Instant"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#hasDateTimeDescription"/>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#hasDurationDescription"/>
+        <Class IRI="http://www.w3.org/2006/time#DurationDescription"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#hasEnd"/>
+        <Class IRI="http://www.w3.org/2006/time#Instant"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#inDateTime"/>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#inside"/>
+        <Class IRI="http://www.w3.org/2006/time#Instant"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalBefore"/>
+        <Class IRI="http://www.w3.org/2006/time#ProperInterval"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalDuring"/>
+        <Class IRI="http://www.w3.org/2006/time#ProperInterval"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalEquals"/>
+        <Class IRI="http://www.w3.org/2006/time#ProperInterval"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalFinishes"/>
+        <Class IRI="http://www.w3.org/2006/time#ProperInterval"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalMeets"/>
+        <Class IRI="http://www.w3.org/2006/time#ProperInterval"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalOverlaps"/>
+        <Class IRI="http://www.w3.org/2006/time#ProperInterval"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#intervalStarts"/>
+        <Class IRI="http://www.w3.org/2006/time#ProperInterval"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#timeZone"/>
+        <Class IRI="http://www.w3.org/2006/timezone#TimeZone"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.w3.org/2006/time#unitType"/>
+        <Class IRI="http://www.w3.org/2006/time#TemporalUnit"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/currentProject"/>
+        <ObjectComplementOf>
+            <ObjectUnionOf>
+                <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+                <Class IRI="http://xmlns.com/foaf/0.1/OnlineAccount"/>
+            </ObjectUnionOf>
+        </ObjectComplementOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/depiction"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Image"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/depicts"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/fundedBy"/>
+        <ObjectComplementOf>
+            <ObjectUnionOf>
+                <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+                <Class IRI="http://xmlns.com/foaf/0.1/OnlineAccount"/>
+            </ObjectUnionOf>
+        </ObjectComplementOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/homepage"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/img"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Image"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/interest"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/isPrimaryTopicOf"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/knows"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/logo"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Image"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/made"/>
+        <ObjectComplementOf>
+            <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+        </ObjectComplementOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/maker"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/mbox"/>
+        <ObjectComplementOf>
+            <ObjectUnionOf>
+                <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+                <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+                <Class IRI="http://xmlns.com/foaf/0.1/Project"/>
+            </ObjectUnionOf>
+        </ObjectComplementOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/member"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/page"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/pastProject"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Project"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/phone"/>
+        <ObjectComplementOf>
+            <ObjectUnionOf>
+                <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+                <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+                <Class IRI="http://xmlns.com/foaf/0.1/OnlineAccount"/>
+                <Class IRI="http://xmlns.com/foaf/0.1/Project"/>
+            </ObjectUnionOf>
+        </ObjectComplementOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/primaryTopic"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/publications"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/schoolHomepage"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/thumbnail"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Image"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/tipjar"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/topic"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/topic_interest"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/weblog"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/workInfoHomepage"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/workplaceHomepage"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalEndDate"/>
+        <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalDate"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalStartDate"/>
+        <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalDate"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/aimChatID"/>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/nick"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/jabberID"/>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/nick"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/yahooChatID"/>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/nick"/>
+    </SubDataPropertyOf>
+    <FunctionalDataProperty>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/birthday"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/gender"/>
+    </FunctionalDataProperty>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalDate"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalEndDate"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalStartDate"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://www.w3.org/2006/time#day"/>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://www.w3.org/2006/time#dayOfYear"/>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://www.w3.org/2006/time#days"/>
+        <Class IRI="http://www.w3.org/2006/time#DurationDescription"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://www.w3.org/2006/time#hour"/>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://www.w3.org/2006/time#hours"/>
+        <Class IRI="http://www.w3.org/2006/time#DurationDescription"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://www.w3.org/2006/time#inXSDDateTime"/>
+        <Class IRI="http://www.w3.org/2006/time#Instant"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://www.w3.org/2006/time#minute"/>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://www.w3.org/2006/time#minutes"/>
+        <Class IRI="http://www.w3.org/2006/time#DurationDescription"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://www.w3.org/2006/time#month"/>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://www.w3.org/2006/time#months"/>
+        <Class IRI="http://www.w3.org/2006/time#DurationDescription"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://www.w3.org/2006/time#second"/>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://www.w3.org/2006/time#seconds"/>
+        <Class IRI="http://www.w3.org/2006/time#DurationDescription"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://www.w3.org/2006/time#week"/>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://www.w3.org/2006/time#weeks"/>
+        <Class IRI="http://www.w3.org/2006/time#DurationDescription"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://www.w3.org/2006/time#xsdDateTime"/>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeInterval"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://www.w3.org/2006/time#year"/>
+        <Class IRI="http://www.w3.org/2006/time#DateTimeDescription"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://www.w3.org/2006/time#years"/>
+        <Class IRI="http://www.w3.org/2006/time#DurationDescription"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/aimChatID"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/birthday"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/family_name"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/firstName"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/geekcode"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/gender"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/givenname"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/jabberID"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/myersBriggs"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/name"/>
+        <ObjectUnionOf>
+            <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+            <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+            <Class IRI="http://xmlns.com/foaf/0.1/Project"/>
+        </ObjectUnionOf>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/nick"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/plan"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/sha1"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Document"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/surname"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/title"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://xmlns.com/foaf/0.1/yahooChatID"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="http://www.w3.org/2006/time#day"/>
+        <Datatype abbreviatedIRI="xsd:gDay"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://www.w3.org/2006/time#dayOfYear"/>
+        <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://www.w3.org/2006/time#days"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://www.w3.org/2006/time#hour"/>
+        <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://www.w3.org/2006/time#hours"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://www.w3.org/2006/time#inXSDDateTime"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://www.w3.org/2006/time#minute"/>
+        <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://www.w3.org/2006/time#minutes"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://www.w3.org/2006/time#month"/>
+        <Datatype abbreviatedIRI="xsd:gMonth"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://www.w3.org/2006/time#months"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://www.w3.org/2006/time#second"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://www.w3.org/2006/time#seconds"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://www.w3.org/2006/time#week"/>
+        <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://www.w3.org/2006/time#weeks"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://www.w3.org/2006/time#xsdDateTime"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://www.w3.org/2006/time#year"/>
+        <Datatype abbreviatedIRI="xsd:gYear"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://www.w3.org/2006/time#years"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DLSafeRule>
+        <Body>
+            <ClassAtom>
+                <Class IRI="http://www.essepuntato.it/2012/04/tvc/ValueInTime"/>
+                <Variable IRI="urn:swrl#x"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#atTime"/>
+                <Variable IRI="urn:swrl#x"/>
+                <Variable IRI="urn:swrl#t"/>
+            </ObjectPropertyAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/atTime"/>
+                <Variable IRI="urn:swrl#x"/>
+                <Variable IRI="urn:swrl#t"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Body>
+            <ClassAtom>
+                <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval"/>
+                <Variable IRI="urn:swrl#t"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="http://www.essepuntato.it/2012/04/tvc/atTime"/>
+                <Variable IRI="urn:swrl#x"/>
+                <Variable IRI="urn:swrl#t"/>
+            </ObjectPropertyAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#atTime"/>
+                <Variable IRI="urn:swrl#x"/>
+                <Variable IRI="urn:swrl#t"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/APC-fully-waived</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of an article for which payment of the article processing charge has been fully waived by the publisher.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/APC-fully-waived</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">APC fully waived</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/APC-not-charged</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of an article for which an article processing charge is not charged by the publisher.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/APC-not-charged</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">APC not charged</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/APC-not-required</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of an article for which an article processing charge is not required by the publisher.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/APC-not-required</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">APC not required</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/APC-paid</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of an article for which the article processing charge has been paid to the publisher by the author or his/her institution.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/APC-paid</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">APC paid</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/APC-partially-waived</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of an article for which payment of the article processing charge has been partially waived by the publisher.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/APC-partially-waived</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">APC partially waived</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/Agent</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">An entity, such as a person, a group, an organization or a software agent, involved in one or more events.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/Agent</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">agent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/ArticleProcessingChargeStatus</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A state or condition that a document may have that relates to a fee levied by a publisher on an author or an institution to cover the cost of publishing an Open Access journal article.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/ArticleProcessingChargeStatus</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">article processing charge status</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/PublicationStatus</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A state or condition that a document may have that relates to the publication of such document.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/PublicationStatus</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">publishing status</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/Status</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A state or condition that a document may have.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/Status</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">status</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <IRI>http://purl.org/spar/pso/StatusInTime</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A status in time describes always:
+- a particular status S
+- a particular document D holding S
+- a particular time interval T in which D holds S
+- a particular event that causes the acquisition of S by D</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/StatusInTime</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A particular situation that describe a state or condition some documents may have at a particular time as consequence of one or more events.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/StatusInTime</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">status in time</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/accepted-for-publication</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a work (for example a document or a dataset) once it has been accepted for publication by a publisher or data repository.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/accepted-for-publication</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">accepted for publication</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/anonymized</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a document or dataset that has been subjected to anonymization, so that individual persons, for example the authors and/or people that are the subjects described in the document or dataset, cannot be identified.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/anonymized</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">anonymized</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/archived</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a work (for example a document or a dataset) that has been saved for long-term preservation in a physical or electronic archive.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/archived</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">archived</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/catalogued</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a work (for example a document or a dataset) concerning which metadata has been stored in a physical or electronic catalogue.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/catalogued</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">catalogued</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/closed-access</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a work (typically a private or secret paper or a confidential dataset) that is typically held unpublished in a &apos;dark&apos; archive whose existence is unknown by the wider world, and that is only available to the owner or copyright holder of the asset.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/closed-access</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">closed access</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/confidential</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a document containing information that must be kept confidential.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/confidential</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">confidential</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/copy-edited</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a document that has been subjected to copy editing, i.e. alterations to the text undertaken by someone other than the author that are designed to improve the formatting, style and accuracy of text, or to bring the text into the house style of the publisher (e.g. Americanization of British spelling), but that are not designed to alter the substance or meaning of the text.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/copy-edited</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">copy-edited</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/corrected</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a work (for example a document or a dataset) in which errors, that may have introduced by the author, by a publisher, or by some automated process, have been corrected.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/corrected</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">corrected</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/draft</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a work (for example a document or a dataset) prior to completion and publication.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/draft</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">draft</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/embargoed</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a work that is subjected to an embargo, which means that the work cannot be published, or in the case of a press release that it cannot be reported on, until a particular date known as the embargo date.  For open-access journal articles, an embargoed article is one in which availability of the open-access version of the article is delayed by the publisher for a substantial embargo period, typically of six or twelve months, after subscription-access availability of the published work.  
+
+</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/embargoed</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">embargoed</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/enhanced</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a work (for example a document or a dataset) that has been updated or enhanced, for example by the provision of additional or supplementary material.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/enhanced</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">enhanced</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/final-draft</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a pre-publication work (for example a document or a dataset) when in the authors&apos; opinion it has been brought to a stage of development that renders it suitable for publication.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/final-draft</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">final draft</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/gold-open-access</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a published work, typically a journal article, made available by the publisher on the publisher&apos;s own web site for third parties to read without payment of access or subscription fees.  Gold open access has the benefit that the article is findable where you expect it to be, but licensing restrictions may limit the possibilities for downloading, text mining, modification, re-publication or re-use of the published work.  Gold open-access publication typically involves payment by the author or his/her institution to the publisher of an article processing charge (aka an author publishing charge).  [See also: pso:open-access, pso:gratis-open-access, pso:libre-open-access, pso:green-open-access, pso:embargoed and pso:subscription-access.]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/gold-open-access</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">gold open access</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/gratis-open-access</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a published work which is free to read on-line, in contrast to subscription-access works, but to which licensing restrictions apply, limiting the possibilities for downloading, text mining, modification, re-publication or re-use of the published work.  The term Gratis Open Access thus signifies absence of a price barrier to view.  While both imply ‘free’ (a potentially ambiguous word), Gratis Open Access equates to ‘free as in beer’ while Libre Open Access (q.v.) equates to ‘free as in speech’.  Gratis Open Access is thus a necessary but not a sufficient condition for true Libre Open Access.   Many ‘open access’ publications by commercial scholarly publishers are only Gratis Open Access, while almost all publications by ‘pure’ Open Access scholarly publishers are Libre Open Access. [See also: pso:open-access, pso:libre-open-access, pso:gold-open-access, pso:green-open-access, pso:embargoed and pso:subscription-access.]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/gratis-open-access</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">gratis open access</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/green-open-access</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a published work made available by the author, by self-archiving a version of the work for free and open public use in their institutional repository, in a central repository, or elsewhere, in parallel with publication of a subscription-access Version of Record of the work by a publisher.  The green open-access version of the work may be a preprint (the version of the article as first submitted for publication) or a postprint (the pre-publication version of the article after incorporation of authors’ responses to peer reviewers’ comments).  Its availability may have an embargo restriction imposed by the publisher of the subscription-access version of the work, that prevents the green open-access version from being freely available until some substantial time after publication of the subscription-access journal issue containing that article.  A green open-access work should be accompanied by a license explicitly defining usage rights, for example a Creative Commons Attribution License.  [See also: pso:open-access, pso:gratis-open-access, pso:libre-open-access, pso:gold-open-access, pso:embargoed and pso:subscription-access.]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/green-open-access</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">green open access</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/holdsStatusInTime</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A property relating a document, a dataset or some other thing to a status that it holds at a specific time.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/holdsStatusInTime</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">holds status in time</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/in-press</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a document after it has been accepted for publication and prior to its formal publication in print.  (Note that for many journal articles that are published electronically, this status rarely exists, since there is commonly no delay between acceptance and publication.)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/in-press</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">in press</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/initial-draft</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a pre-publication work (for example a document or a dataset) when in its initial stage of development.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/initial-draft</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">initial draft</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/intermediate-draft</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a pre-publication work (for example a document or a dataset) part-way through its development.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/intermediate-draft</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">intermediate draft</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/isAcquiredAsConsequenceOf</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The property relating a particular publishing status to the event that causes its acquisition.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/isAcquiredAsConsequenceOf</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">is acquired as consequence of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/isLostAsConsequenceOf</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The property relating a particular publishing status to the event that causes its loss.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/isLostAsConsequenceOf</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">is lost as consequence of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/isStatusHeldBy</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A property relating a status held at a specific time to the document, dataset or other thing holding that status.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/isStatusHeldBy</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">is status held by</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/isStatusIn</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The property relating the definition of a specific status to the situation of the document, a dataset or something else holding that status at a specific time.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/isStatusIn</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">is status in</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/libre-open-access</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a published work which is both free to read on-line, and to which additional usage rights apply, for example the right to text mine, make derivative works, re-use and re-publish the published work, such rights frequently being defined by application of an explicit license such as a Creative Commons license.  [See also: pso:open-access, pso:gratis-open-access, pso:gold-open-access, pso:green-open-access, pso:embargoed and pso:subscription-access.]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/libre-open-access</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">libre open access</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/non-confidential</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a document containing information that may be shared publicly.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/non-confidential</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">non-confidential</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/open-access</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a published work (typically a scholarly publication or a dataset) that is freely available via the Internet for third parties to read without payment of access or subscription fees, and (in the case of a work published under a full open-access license) that is freely available to download and reuse for any purposes including commercial ones, including modification of the original work, its integration with other material, and its re-publication, subject typically to a requirement that the original authors and the source of the original work are acknowledged in compliance with scholarly citation norms. [See also: pso:gratis-open-access, pso:libre-open-access, pso:gold-open-access, pso:green-open-access, pso:embargoed and pso:subscription-access.]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/open-access</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">open access</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/peer-reviewed</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a work, typically a scholarly journal article, that has been peer reviewed, i.e. subjected to review by two or more independent reviewers (also know as referees) who are academic peers of the author(s), and judged by them to be of sufficient quality to merit publication, usually after further revision by the author to incorporate the reviewers&apos; suggested modifications and improvements.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/peer-reviewed</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">peer reviewed</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>http://purl.org/spar/pso/peer-reviewed</IRI>
+        <IRI>http://purl.org/spar/pso/reviewed</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/proof</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a pre-publication document late in the publication process, once it has been accepted for publication by a publisher, after the inclusion of any author corrections required by the editor following peer-review, following copy editing and formatting to bring the manuscript into the house style, and prior to final checking by the editor, proof-reader and author to detect and eliminate any errors prior to publication.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/proof</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">proof</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>http://purl.org/spar/pso/proof</IRI>
+        <IRI>http://purl.org/spar/pso/corrected</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/published</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of material (for example a document or a dataset) that has been published, i.e. made available for people to access, read or use, either freely or for a purchase price or an access fee.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/published</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">published</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/rejected-for-publication</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of material (for example a document or a dataset) after it has been rejected for publication by a publisher or data repository.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/rejected-for-publication</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">rejected for publication</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/republished</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a publication (for example a book) that has been republished in a different edition or in translation, or of a work (for example a journal article or a poem) that is republished as part of a collection or an anthology, or of material (for example a figure from an existing publication) that is republished as part of a quite different publication.  Where the publisher of the new work is different from the original publisher, such republication typically includes an acknowledgement of the source and copyright of the original material, and is undertaken after obtaining permission of the original copyright holder.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/republished</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">republished</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/restricted-access</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a work (typically a scholarly paper or a dataset) to which access is restricted.  For example, confidential information to which access is made available only to those who have been approved by the owner or copyright holder of the asset after personal application, or to those with appropriate security clearance, or to those within a partnership.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/restricted-access</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">restricted access</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/resultsInAcquiring</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The property relating an event to the consequential acquisition of a particular publishing status.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/resultsInAcquiring</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">results in acquiring</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/resultsInLosing</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The property relating an event to the consequential loss of a particular publishing status.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/resultsInLosing</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">results in losing</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/retracted-from-publication</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a publication that has been subsequently retracted by the publisher, for example because it was subsequently found to contain erroneous or fraudulent information.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/retracted-from-publication</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">retracted from publication</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/reviewed</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a published work, for example a book or a journal article, that has been subjected to a written review giving critical analysis of its content, scope and quality.  [See also pso:peer-reviewed.]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/reviewed</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">reviewed</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>http://purl.org/spar/pso/reviewed</IRI>
+        <IRI>http://purl.org/spar/pso/peer-reviewed</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/revised</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of s work (for example a document or a dataset) that has been altered or improved, typically by the original author.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/revised</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">revised</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/submitted</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a work (for example a document or a dataset) that has been submitted for publication by the author to a publisher or a data repository, prior to its being accepted or rejected.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/submitted</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">submitted</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/subscription-access</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a published work, typically an article in a journal issue, that is not available to read without payment of an article access fee or a journal subscription fee for that publication.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/subscription-access</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">subscription access</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/under-review</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a document that has been received from the author(s) by an editor or a publisher for potential publication, and then has been sent to independent reviewers for their comments as to its suitability for publication, prior to receipt of such reviews.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/under-review</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">under review</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/unpublished</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a work (for example a document or a dataset) that has not been published by the author, a publisher or a data repository.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/unpublished</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">unpublished</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/version-of-record</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The final version of a document that has been formally published as a peer-reviewed journal article, citable via a permanent identifier, and forming an abiding component of the scholarly record.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/version-of-record</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">version of record</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/withStatus</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The property relating the holding of a status by a document, a dataset or something else at a specific time to the definition of that status.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/withStatus</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">with status</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/spar/pso/withdrawn-from-submission</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The status of a work (for example a pre-publication document or dataset) that has been voluntarily withdrawn by the author, having previously been submitted for publication, perhaps because the revisions requested by the peer-reviewers were considered impossible to achieve, or because the author wishes to submit it for publication elsewhere.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/spar/pso/withdrawn-from-submission</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">withdrawn from submission</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <IRI>http://www.essepuntato.it/2012/04/tvc/ValueInTime</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Having the role &quot;graduate student&quot; in a specific time (e.g., now) and context (e.g., &quot;University of Bologna&quot;).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.essepuntato.it/2012/04/tvc/ValueInTime</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">It defines a particular kind of time-indexed situation that represents a hub linking the entity having a particular value, the value itself and the temporal and contextual extents from which the entity-value relationship depends.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.essepuntato.it/2012/04/tvc/ValueInTime</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">value in time</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.essepuntato.it/2012/04/tvc/atTime</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">It specifies the particular temporal instant or time period in which the situation takes place.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.essepuntato.it/2012/04/tvc/atTime</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">at time</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.essepuntato.it/2012/04/tvc/hasValue</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">It links an entity (e.g., a Person) to a particular ValueInTime situation;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.essepuntato.it/2012/04/tvc/hasValue</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has value</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.essepuntato.it/2012/04/tvc/withValue</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">It holds the value had by the entity taking part to the situation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.essepuntato.it/2012/04/tvc/withValue</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">with value</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.essepuntato.it/2012/04/tvc/withinContext</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">It links to the specific context within which the fact of the entity having the value is relevant.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.essepuntato.it/2012/04/tvc/withinContext</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">within context</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">An event that may happen during a publishing process, such as writing a draft, sending a preprint, publishing a paper, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Any physical, social, or mental process, event, or state.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event</IRI>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/participation.owl</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Event</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">event</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Any physical, social, or mental object, or substance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object</IRI>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/participation.owl</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Object</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant</IRI>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/participation.owl</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has participant</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn</IRI>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/participation.owl</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">is participant in</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A view on a set of entities. It can be seen as a &apos;relational context&apos;, reifying a relation.
+For example, a PlanExecution is a context including some actions executed by agents according to certain parameters and expected tasks to be achieved from a Plan; a DiagnosedSituation is a context of observed entities that is interpreted on the basis of a Diagnosis, etc.
+Situation is also able to represent reified n-ary relations, where isSettingFor is the top-level relation for all binary projections of the n-ary relation. If used in a transformation pattern for n-ary relations, the designer should take care of:
+- creating only one situation for each instance of an n-ary relation, otherwise the &apos;identification constraint&apos; (Calvanese et al., IJCAI 2001) could be violated
+- adding an &apos;exact cardinality&apos; restriction corresponding to the arity of the n-ary relation, otherwise the designer would actually represent a polymorphic relation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation</IRI>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/situation.owl</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Situation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/situation.owl#hasSetting</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A relation between entities and situations, e.g. &apos;this morning I&apos;ve prepared my coffee with a new fantastic Arabica&apos; (i.e.: (an amount of) a new fantastic Arabica hasSetting the preparation of my coffee this morning).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/situation.owl#hasSetting</IRI>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/situation.owl</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/situation.owl#hasSetting</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has setting</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor</IRI>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/situation.owl</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">is setting for</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#TimeIndexedSituation</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A Situation that is explicitly indexed at some time for at least one entity.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#TimeIndexedSituation</IRI>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#TimeIndexedSituation</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Time indexed situation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#atTime</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A time interval during which a status is held by a document.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#atTime</IRI>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#atTime</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">at time</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#forEntity</IRI>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#forEntity</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">for entity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#hasTimeIndexedSetting</IRI>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#hasTimeIndexedSetting</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has time indexed setting</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#isTimeIndexFor</IRI>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#isTimeIndexFor</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">is time index for</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval</IRI>
+        <Literal datatypeIRI="&xsd;string">Any Region in a dimensional space that aims at representing time.
+It should be used when you want to talk about time as an object having some characteristics.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Two (starting and ending) points in time that define a particular period of time.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval</IRI>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval</IRI>
+        <Literal xml:lang="it" datatypeIRI="&rdf;PlainLiteral">Intervallo di tempo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Time interval</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">time interval</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalDate</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A datatype property that encodes values from xsd:date (or any other date-related xsd datatype) for a TimeInterval; a same TimeInterval can have more than one date value: begin date, end date, date at which the interval holds, as well as dates expressed in different formats: xsd:gYear, xsd:dateTime, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalDate</IRI>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalDate</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has interval date</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalDate</IRI>
+        <Literal xml:lang="it" datatypeIRI="&rdf;PlainLiteral">intervallo ha data</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalEndDate</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The end date of a time interval.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalEndDate</IRI>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalEndDate</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">interval has end date</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalStartDate</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The start date of a time interval.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalStartDate</IRI>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalStartDate</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">interval has start date</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#coversRequirements</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This annotation property is used for exemplifying possible requirements the content pattern provides a solution for. Requirements are expressed as natural language competency questions.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#extractedFrom</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This annotation property should be assigned with a URI, which points to the possible reference ontology which the annotated pattern was extracted from (i.e. the reference ontology that the ontology elements have been deeply or partially cloned by). The range is not explicit in the definition of the annotation property because it would turn the ontology to OWL Full. E.g. The participation pattern is extracted from the Dolce Ultra Lite ontology, hence the value for this annotation property is http://www.ontologydesignpatterns.org/ont/dul/DUL.owl</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasComponent</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This annotation property is useful for content ontology design patterns. Its value is a URI, which refers to another content ontology design pattern which is a component of the annotated one.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasConsequences</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This annotation property is used for briefly describing the benefits and/or possible trade-offs when using the CP.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasIntent</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This annotation property is used in order to describe the intent of the content pattern.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasUnitTest</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This property can be used to annotate a unit test (e.g. in the form of a SPARQL query) to be launched to evaluate an ontology against a requirement-based task.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#isCloneOf</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This annotation property is used for referring a cloned ontology entity to its cloning source.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#isSpecializationOf</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This annotation property is useful for content ontology design patterns and its elements. Its value is a URI, which refers either to a content ontology design pattern that is specialized by the annotated one, or to an ontology element that is specialized by the annotated one.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#reengineeredFrom</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This annotation property should be assigned with a URI, which points to the concept schema, page, or anything else from which the annotated pattern was reengineered.  If the source does not have any URI e.g., a printed book, this property value should provide information as precise as possible in order to identify the source. This property is alternative to the extractedFrom property because it is used when the pattern come from a concept schema which is not an owl ontology. For example content ontology design patterns, which are reengineered from data model patterns, rdf schemas, etc. should be annotatd with this property. E.g. The basicpersonalfoaf pattern is extracted from the rdf FOAF specification, hence the value for this annotation property is http://xmlns.com/foaf/spec/20071002.rdf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#relatedCPs</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This annotation property can be used to indicate other CPs (if any) that specialize, generalize, inlcude, or are components of the CP. Furthermore, this field may indicate other CPs that are typically used in conjunction with the described one. Important similarities and differences with other patterns can be also described here.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This annotation property is used for describing examples of instantiation of the Content OP. For example, for the part-of Content OP (which represents part-whole relations) a possible scenario is the sentence: &quot;the brain is part of the human body&quot;. Scenarios are expressed as natural language sentences.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://xmlns.com/foaf/0.1/Agent</IRI>
+        <Literal datatypeIRI="&xsd;string">An agent (eg. person, group, software or physical artifact).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://xmlns.com/foaf/0.1/Agent</IRI>
+        <IRI>http://xmlns.com/foaf/0.1/</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://xmlns.com/foaf/0.1/Agent</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">(foaf) Agent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2003/06/sw-vocab-status/nsterm_status"/>
+        <IRI>http://xmlns.com/foaf/0.1/Agent</IRI>
+        <Literal datatypeIRI="&xsd;string">unstable</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://xmlns.com/foaf/0.1/Document</IRI>
+        <Literal datatypeIRI="&xsd;string">A document.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://xmlns.com/foaf/0.1/Document</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">An abstract class defining any kinds of publishing work.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://xmlns.com/foaf/0.1/Document</IRI>
+        <IRI>http://xmlns.com/foaf/0.1/</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://xmlns.com/foaf/0.1/Document</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">(foaf) Document</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://xmlns.com/foaf/0.1/Document</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">document</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2003/06/sw-vocab-status/nsterm_status"/>
+        <IRI>http://xmlns.com/foaf/0.1/Document</IRI>
+        <Literal datatypeIRI="&xsd;string">testing</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://xmlns.com/foaf/0.1/Group</IRI>
+        <Literal datatypeIRI="&xsd;string">A class of Agents.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://xmlns.com/foaf/0.1/Group</IRI>
+        <IRI>http://xmlns.com/foaf/0.1/</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://xmlns.com/foaf/0.1/Group</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">(foaf) Group</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2003/06/sw-vocab-status/nsterm_status"/>
+        <IRI>http://xmlns.com/foaf/0.1/Group</IRI>
+        <Literal datatypeIRI="&xsd;string">unstable</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://xmlns.com/foaf/0.1/Image</IRI>
+        <Literal datatypeIRI="&xsd;string">An image.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://xmlns.com/foaf/0.1/Image</IRI>
+        <IRI>http://xmlns.com/foaf/0.1/</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://xmlns.com/foaf/0.1/Image</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">(foaf) Image</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2003/06/sw-vocab-status/nsterm_status"/>
+        <IRI>http://xmlns.com/foaf/0.1/Image</IRI>
+        <Literal datatypeIRI="&xsd;string">testing</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://xmlns.com/foaf/0.1/OnlineAccount</IRI>
+        <Literal datatypeIRI="&xsd;string">An online account.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://xmlns.com/foaf/0.1/OnlineAccount</IRI>
+        <IRI>http://xmlns.com/foaf/0.1/</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://xmlns.com/foaf/0.1/OnlineAccount</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">(foaf) OnlineAccount</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2003/06/sw-vocab-status/nsterm_status"/>
+        <IRI>http://xmlns.com/foaf/0.1/OnlineAccount</IRI>
+        <Literal datatypeIRI="&xsd;string">unstable</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://xmlns.com/foaf/0.1/Organization</IRI>
+        <Literal datatypeIRI="&xsd;string">An organization.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://xmlns.com/foaf/0.1/Organization</IRI>
+        <IRI>http://xmlns.com/foaf/0.1/</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://xmlns.com/foaf/0.1/Organization</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">(foaf) Organization</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2003/06/sw-vocab-status/nsterm_status"/>
+        <IRI>http://xmlns.com/foaf/0.1/Organization</IRI>
+        <Literal datatypeIRI="&xsd;string">unstable</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://xmlns.com/foaf/0.1/Person</IRI>
+        <Literal datatypeIRI="&xsd;string">A person.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://xmlns.com/foaf/0.1/Person</IRI>
+        <IRI>http://xmlns.com/foaf/0.1/</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://xmlns.com/foaf/0.1/Person</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">(foaf) Person</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2003/06/sw-vocab-status/nsterm_status"/>
+        <IRI>http://xmlns.com/foaf/0.1/Person</IRI>
+        <Literal datatypeIRI="&xsd;string">stable</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://xmlns.com/foaf/0.1/PersonalProfileDocument</IRI>
+        <Literal datatypeIRI="&xsd;string">A personal profile RDF document.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://xmlns.com/foaf/0.1/PersonalProfileDocument</IRI>
+        <IRI>http://xmlns.com/foaf/0.1/</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://xmlns.com/foaf/0.1/PersonalProfileDocument</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">(foaf) PersonalProfileDocument</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2003/06/sw-vocab-status/nsterm_status"/>
+        <IRI>http://xmlns.com/foaf/0.1/PersonalProfileDocument</IRI>
+        <Literal datatypeIRI="&xsd;string">testing</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://xmlns.com/foaf/0.1/Project</IRI>
+        <Literal datatypeIRI="&xsd;string">A project (a collective endeavour of some kind).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://xmlns.com/foaf/0.1/Project</IRI>
+        <IRI>http://xmlns.com/foaf/0.1/</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://xmlns.com/foaf/0.1/Project</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">(foaf) Project</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2003/06/sw-vocab-status/nsterm_status"/>
+        <IRI>http://xmlns.com/foaf/0.1/Project</IRI>
+        <Literal datatypeIRI="&xsd;string">unstable</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

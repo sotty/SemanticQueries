@@ -69,7 +69,7 @@ public abstract class AbstractLoader implements ArtifactLoader {
 
             save( dox, System.out );
 
-            validate( dox );
+            //validate( dox );
 
             return dox;
     }
@@ -153,7 +153,7 @@ public abstract class AbstractLoader implements ArtifactLoader {
                 File f = new File( url.toURI() );
 
                 Document hed = loadAsHeD( new FileInputStream( f ), params );
-                save( hed, getOutputStream( url ) );
+                save( hed, getOutputStream( getOutputURL( url ) ) );
 
             } catch ( Exception e ) {
                 e.printStackTrace();
@@ -161,6 +161,10 @@ public abstract class AbstractLoader implements ArtifactLoader {
                 break;
             }
         }
+    }
+
+    protected URL getOutputURL( URL url ) {
+        return url;
     }
 
     protected OutputStream getOutputStream( URL url ) {

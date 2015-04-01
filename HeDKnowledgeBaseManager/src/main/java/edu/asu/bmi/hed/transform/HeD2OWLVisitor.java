@@ -38,17 +38,25 @@ public class HeD2OWLVisitor {
 	private void process(KnowledgeDocument doc, HeD2OWLHelper helper) {
 		OWLNamedIndividual docInd = helper.asIndividual( doc );
 		map.put( "doc", docInd );
-		helper.assertType(docInd, "foaf:Document");
+		helper.assertType( docInd, "foaf:Document" );
 	}
 
 	private void visit(Metadata metadata, HeD2OWLHelper helper) {
 		// local...
-		process(metadata, helper);
+		process( metadata, helper );
 
 		// all children..
-		visit(metadata.getApplicability(), helper);
-		visit(metadata.getCategories(), helper);
-		visit(metadata.getContributions(), helper);
+		if ( metadata.getApplicability() != null ) {
+			visit( metadata.getApplicability(), helper );
+		}
+
+		if ( metadata.getCategories() != null ) {
+			visit( metadata.getCategories(), helper );
+		}
+
+		if ( metadata.getContributions() != null ) {
+			visit( metadata.getContributions(), helper );
+		}
 		
 		// TODO : others...
 	}
@@ -82,10 +90,11 @@ public class HeD2OWLVisitor {
 			}
 			
 			OWLNamedIndividual role;
-			if ( cont.getRole().getValue().equals( "author" ) ) {
+			if ( "author".equals( cont.getRole().getValue() ) ) {
 				role = helper.asIndividualByFullIri( "pro:author" );
 			} else {
-				throw new UnsupportedOperationException( "TODO - map role " + cont.getRole() );
+				System.err.println( "WARNING : Artifact had an unspecified role, set to author by default " );
+				role = helper.asIndividualByFullIri( "pro:author" );
 			}
 			
 			OWLNamedIndividual roleInTime = helper.asIndividual( new Object() );

@@ -41,91 +41,50 @@ import java.util.UUID;
 public class HeD2OWLTranslator {
 
     private static final String HED = "org.hl7.knowledgeartifact.r1";
-    private PrefixOWLOntologyFormat outputFormat = new OWLFunctionalSyntaxOntologyFormat();
-
 
     public HeD2OWLTranslator() {
         super();
 
     }
 
-    public HeD2OWLTranslator( PrefixOWLOntologyFormat format ) {
-        this();
-        this.outputFormat = format;
+    public void compile( InputStream inStream, OutputStream outStream, OWLOntologyManager manager, PrefixOWLOntologyFormat format ) {
+        OWLOntology result = compileAsOntology( inStream, manager, format );
+
+        stream( result,
+                outStream,
+                format
+        );
     }
 
-
-    public void compile( String inputFile, String targetFile ) throws FileNotFoundException {
-        InputStream stream = Thread.currentThread().getContextClassLoader().getResourceAsStream( inputFile );
-
-        String path = targetFile.substring( 0, targetFile.lastIndexOf( File.separator ) );
-        File dir = new File( path );
-        if ( !dir.exists() ) {
-            dir.mkdirs();
-        }
-        FileOutputStream outputStream = new FileOutputStream( new File( targetFile ) );
-        compile( stream, outputStream );
-    }
-
-
-    public void compile( InputStream inStream, OutputStream outStream ) {
-        compile( inStream, outStream, outputFormat );
-    }
-
-    public void compile( InputStream inStream, OutputStream outStream, PrefixOWLOntologyFormat format ) {
+    public OWLOntology compileAsOntology( InputStream inStream, OWLOntologyManager manager, PrefixOWLOntologyFormat format ) {
         KnowledgeDocument hed = (KnowledgeDocument) loadModel( HED, inStream );
 
         Object vid = getIdentifiersList( hed ).iterator().next();
         String root = getRoot( vid );
         String version = getVersion( vid );
 
-        PrefixManager prefixManager = mapNamespaces( root );
+        PrefixManager prefixManager = format.asPrefixOWLOntologyFormat();
+        format.setPrefix( "tns", root + "#" );
 
-        OWLOntology result = transform( hed, root, version, prefixManager );
+        OWLOntology result = transform( hed, root, version, manager, format );
 
-        format.copyPrefixesFrom( prefixManager );
-        stream( result,
-                outStream,
-                format
-        );
-
-        
-        PrefixOWLOntologyFormat format2 = new ManchesterOWLSyntaxOntologyFormat();
-        format2.copyPrefixesFrom( prefixManager );
-        stream( result,
-                System.out,
-                format2
-        );
-        
-    }
-
-    
-    
-    private PrefixManager mapNamespaces( String root ) {
-        DefaultPrefixManager prefixManager = new DefaultPrefixManager();
-        //TODO : define all prefixes
-        //prefixManager.setPrefix( "DUL:", "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#" );
-        if ( ! root.startsWith( "http://" ) ) {
-            root = "http://" + root;
-        }
-        prefixManager.setPrefix( "tns:", root + "#" );
-        return prefixManager;
+        return result;
     }
 
 
-    public OWLOntology transform( KnowledgeDocument doc, String root, String version, PrefixManager prefixManager ) {
+    public OWLOntology transform( KnowledgeDocument doc, String root, String version, OWLOntologyManager manager, OWLOntologyFormat format ) {
         System.out.println( "Transforming...." );
         OWLOntology ontology = null;
 
         try {
-            OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
             OWLDataFactory factory = manager.getOWLDataFactory();
 
             ontology = manager.createOntology( new OWLOntologyID(
                     IRI.create( root ),
                     IRI.create( root + "/" + version ) ) );
 
-            HeD2OWLHelper helper = new HeD2OWLHelper( ontology, manager, factory, prefixManager );
+            HeD2OWLHelper helper = new HeD2OWLHelper( ontology, manager, factory, format.asPrefixOWLOntologyFormat() );
+            manager.setOntologyFormat( ontology, format.asPrefixOWLOntologyFormat() );
 
             new HeD2OWLVisitor().visit( doc, helper );
 
@@ -225,16 +184,5 @@ public class HeD2OWLTranslator {
         return Collections.EMPTY_LIST;
     }
     
-    
-    public static void main( String... args ) {
-    	HeD2OWLTranslator tx = new HeD2OWLTranslator();
-    	try {
-    		FileInputStream fis = new FileInputStream("/Users/randeepr/git/SemanticQueries/HeDKnowledgeBaseManager/src/test/resources/DiabetesRule.xml");
-    		FileOutputStream fos = new FileOutputStream("/Users/randeepr/git/SemanticQueries/HeDKnowledgeBaseManager/src/test/resources/DiabetesRule.owl");
-    		tx.compile( fis, fos );
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    }
+
 }
