@@ -1,0 +1,2043 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://bmi.asu.edu/semquery#"
+     xml:base="http://bmi.asu.edu/semquery"
+     xmlns:skos-ext="http://asu.edu/sharpc2b/skos-ext#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+    <owl:Ontology rdf:about="http://bmi.asu.edu/semquery#">
+        <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://asu.edu/sharpc2b/skos-ext#subConceptOf -->
+
+    <owl:ObjectProperty rdf:about="http://asu.edu/sharpc2b/skos-ext#subConceptOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://asu.edu/sharpc2b/skos-ext#subConceptOf"/>
+            </rdf:Description>
+        </owl:inverseOf>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#broaderTransitive -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#broaderTransitive">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#broaderTransitive"/>
+            </rdf:Description>
+        </owl:inverseOf>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#inScheme -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#inScheme">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+            </rdf:Description>
+        </owl:inverseOf>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#notation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2004/02/skos/core#notation">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://asu.edu/sharpc2b/skos-ext#CodedConcept -->
+
+    <owl:Class rdf:about="http://asu.edu/sharpc2b/skos-ext#CodedConcept">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#ConceptScheme -->
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScheme">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#AdultAttentionDeficitHyperactivityDisorder -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AdultAttentionDeficitHyperactivityDisorder">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">444613000</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AdultAttentionDeficitHyperactivityDisorder"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#AttentionDeficitHyperactivityDisorder"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#AgeGroupAged80andover -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AgeGroupAged80andover">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">D000369</skos:notation>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">M01.060.116.100.080</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AgeGroupAged80andover"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#AgegroupAged"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#MeSH"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#AgeGroupChild -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AgeGroupChild">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">M01.060.406</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AgeGroupChild"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#MeSH"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#PatientAgeGroup"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#AgeGroupChildPreschool -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AgeGroupChildPreschool">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">M01.060.406.448</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#AgeGroupChild"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AgeGroupChildPreschool"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#MeSH"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#AgeGroupInfant -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AgeGroupInfant">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">M01.060.703</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AgeGroupInfant"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#MeSH"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#PatientAgeGroup"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#AgeGroupYoungAdult -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AgeGroupYoungAdult">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">M01.060.116.815</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AgeGroupYoungAdult"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#AgegroupAdult"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#MeSH"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#AgegroupAdolescent -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AgegroupAdolescent">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">133937008</skos:notation>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">D055815</skos:notation>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">M01.060.057</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AgegroupAdolescent"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#MeSH"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#PatientAgeGroup"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#AgegroupAdult -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AgegroupAdult">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">133936004</skos:notation>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">255397009</skos:notation>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">D000328</skos:notation>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">M01.060.116</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AgegroupAdult"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#MeSH"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#PatientAgeGroup"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#AgegroupAged -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AgegroupAged">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">D000368</skos:notation>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">M01.060.116.100</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#AgegroupAdult"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AgegroupAged"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#MeSH"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#Agegroupmiddleaged -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#Agegroupmiddleaged">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">D0008875</skos:notation>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">M01.060.116.630</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#AgegroupAdult"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#Agegroupmiddleaged"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#MeSH"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#PatientAgeGroup"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#AnticoagulantDrugMonitoring -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AnticoagulantDrugMonitoring">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">307571006</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AnticoagulantDrugMonitoring"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#MedicationMonitoring"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#Asthma -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#Asthma">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">J45</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#Asthma"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#Asthmawithcough -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#Asthmawithcough">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">J45.991</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Asthma"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#Asthmawithcough"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#AsymptomaticCoronaryHeartDisease -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AsymptomaticCoronaryHeartDisease">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">315348000</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AsymptomaticCoronaryHeartDisease"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#CoronaryArteriosclerosis"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#AttentionDeficitHyperactivityDisorder -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AttentionDeficitHyperactivityDisorder">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">40650608</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AttentionDeficitHyperactivityDisorder"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#BacterialVaccine -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#BacterialVaccine">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">419780007</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#BacterialVaccine"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#ChildAttentionDeficitDisorder -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#ChildAttentionDeficitDisorder">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">192127007</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#AttentionDeficitHyperactivityDisorder"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#ChildAttentionDeficitDisorder"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#ChlamydiaTrachomaticInfectionInPregnancy -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#ChlamydiaTrachomaticInfectionInPregnancy">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1621000119101</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#ChlamydiaTrachomaticInfectionInPregnancy"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#ChlamydialInfection"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#ChlamydiaTrachomatisInfection -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#ChlamydiaTrachomatisInfection">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">240589008</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#ChlamydiaTrachomatisInfection"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#ChlamydialInfection"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#ChlamydialInfection -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#ChlamydialInfection">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">105629000</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#ChlamydialInfection"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#ChronicObstructiveasthmaUnspecified -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#ChronicObstructiveasthmaUnspecified">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">J44.90</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Asthma"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#ChronicObstructiveasthmaUnspecified"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#CigaretteSmoker -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#CigaretteSmoker">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">65568007</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#CigaretteSmoker"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Smoker"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#CoronaryArteriosclerosis -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#CoronaryArteriosclerosis">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">53741008</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#CoronaryArteriosclerosis"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#DisorderOfCoronaryArtery"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#CoronaryArtherosclerosis -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#CoronaryArtherosclerosis">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">443502000</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#CoronaryArteriosclerosis"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#CoronaryArtherosclerosis"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#DeepVeinThrombosis -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#DeepVeinThrombosis">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">128053003</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#DeepVeinThrombosis"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#VenousThrombosis"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#DiabetesMellitus -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#DiabetesMellitus">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">199223000</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#DiabetesMellitus"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#DiabetesMellitusDuetoUnderlyingConditions -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#DiabetesMellitusDuetoUnderlyingConditions">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E08</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#DiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#DiabetesMellitusDuetoUnderlyingConditions"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#DiabetesduringUnderlyingConditionwithdiabeticPolyneuropathy -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#DiabetesduringUnderlyingConditionwithdiabeticPolyneuropathy">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E08.42</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#DiabetesMellitusDuetoUnderlyingConditions"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#DiabetesduringUnderlyingConditionwithdiabeticPolyneuropathy"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#DisorderOfCoronaryArtery -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#DisorderOfCoronaryArtery">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">414024009</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#DisorderOfCoronaryArtery"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#DrugInducedObesity -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#DrugInducedObesity">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">190965006</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#DrugInducedObesity"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Obesity"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#DrugOrChemicallyInducedDiabetesMellitus -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#DrugOrChemicallyInducedDiabetesMellitus">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E09</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#DiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#DrugOrChemicallyInducedDiabetesMellitus"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#DrugOrChemicallyInducedDiabetesWithDiabeticDermatitis -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#DrugOrChemicallyInducedDiabetesWithDiabeticDermatitis">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E09.620</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#DrugOrChemicallyInducedDiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#DrugOrChemicallyInducedDiabetesWithDiabeticDermatitis"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#ElevatedBloodPressure -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#ElevatedBloodPressure">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">24184005</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#ElevatedBloodPressure"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#EvaluationProcedure -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#EvaluationProcedure">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">386053000</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#EvaluationProcedure"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#ExtrinsicAsthmawithstatusasthmatics -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#ExtrinsicAsthmawithstatusasthmatics">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">J45.22</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Asthma"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#ExtrinsicAsthmawithstatusasthmatics"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#GestationalDiabetesMellitus -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#GestationalDiabetesMellitus">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">O24.4</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#DiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#GestationalDiabetesMellitus"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#GestationaldiabetesinChildbirthanddietcontrolled -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#GestationaldiabetesinChildbirthanddietcontrolled">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">O24.420</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#GestationalDiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#GestationaldiabetesinChildbirthanddietcontrolled"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#HIVScreening -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#HIVScreening">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">171121004</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#EvaluationProcedure"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#HIVScreening"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#HealthRelatedBehaviorFinding -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#HealthRelatedBehaviorFinding">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">365949003</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#HealthRelatedBehaviorFinding"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#HeavySmoker -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#HeavySmoker">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">56771006</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#HeavySmoker"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Smoker"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#ICD-10 -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#ICD-10">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#InPatient -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#InPatient">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">416800000</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#InPatient"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#MaleConcept -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#MaleConcept">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">248153007</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#MaleConcept"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#MeSH -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#MeSH">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#MedicationMonitoring -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#MedicationMonitoring">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">395170001</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#MedicationMonitoring"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#MildPersistentasthmaUncomplicated_ -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#MildPersistentasthmaUncomplicated_">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">J45.30</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Asthma"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#MildPersistentasthmaUncomplicated_"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#ModerateSmoker -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#ModerateSmoker">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">56578002</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#ModerateSmoker"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Smoker"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#MonitoringProcedure -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#MonitoringProcedure">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">239516002</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#MonitoringProcedure"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#MorbidObesity -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#MorbidObesity">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">238136002</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#MorbidObesity"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Obesity"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#Obesity -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#Obesity">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">414916001</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#Obesity"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#OccasionalSmoker -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#OccasionalSmoker">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">428041000124106</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#OccasionalSmoker"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Smoker"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#OutPatient -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#OutPatient">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">373864002</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#OutPatient"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#PatientAgeGroup -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#PatientAgeGroup">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">M01.060</skos:notation>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#MeSH"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#PatientAgeGroup"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#PnuemococcalVaccine -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#PnuemococcalVaccine">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">398730001</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#BacterialVaccine"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#PnuemococcalVaccine"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#SNOMED_CT -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#SNOMED_CT">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#SexuallyTransmittedInfectiousDisease -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#SexuallyTransmittedInfectiousDisease">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8098009</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#EvaluationProcedure"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#SexuallyTransmittedInfectiousDisease"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#SimpleObesity -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#SimpleObesity">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">415530009</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Obesity"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#SimpleObesity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#Smoker -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#Smoker">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">77176002</skos:notation>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#Smoker"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#TobaccoUser"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#ThromboembolismOfVein -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#ThromboembolismOfVein">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4298002</skos:notation>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#ThromboembolismOfVein"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#VenousThrombosis"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#ThrombosisProphylaxis -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#ThrombosisProphylaxis">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">421728001</skos:notation>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#ThrombosisProphylaxis"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#VenousThrombosis"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#TobaccoUseAndExposure -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#TobaccoUseAndExposure">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">365980008</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#HealthRelatedBehaviorFinding"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#TobaccoUseAndExposure"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#TobaccoUser -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#TobaccoUser">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">110483000</skos:notation>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#TobaccoUseAndExposure"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#TobaccoUser"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#TypeIDiabetesMellitus -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#TypeIDiabetesMellitus">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">46635009</skos:notation>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E10</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#DiabetesMellitus"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#TypeIDiabetesMellitus"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#TypeIDiabeteswithdiabeticcataract -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#TypeIDiabeteswithdiabeticcataract">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E10.36</skos:notation>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#TypeIDiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#TypeIDiabeteswithdiabeticcataract"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#TypeIIDiabetesMellitus -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#TypeIIDiabetesMellitus">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">44054006</skos:notation>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E11</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#DiabetesMellitus"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#TypeIIDiabetesMellitus"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#TypeIIDiabeteswithdiabeticcataract -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#TypeIIDiabeteswithdiabeticcataract">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E11.36</skos:notation>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#TypeIIDiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#TypeIIDiabeteswithdiabeticcataract"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#TypeIIDiabeteswithdiabeticdermatitis -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#TypeIIDiabeteswithdiabeticdermatitis">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E11.620</skos:notation>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#TypeIIDiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#TypeIIDiabeteswithdiabeticdermatitis"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#TypeIdiabeteswithketoacidosiswithcoma -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#TypeIdiabeteswithketoacidosiswithcoma">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E10.11</skos:notation>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#TypeIDiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#TypeIdiabeteswithketoacidosiswithcoma"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#Unspecifiedasthmawithacuteexacerbation -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#Unspecifiedasthmawithacuteexacerbation">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">J45.901</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Asthma"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#Unspecifiedasthmawithacuteexacerbation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://bmi.asu.edu/semquery#VenousThrombosis -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#VenousThrombosis">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">111293003</skos:notation>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#VenousThrombosis"/>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://bmi.asu.edu/semquery#"
+     xml:base="http://bmi.asu.edu/semquery"
+     xmlns:skos-ext="http://asu.edu/sharpc2b/skos-ext#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+    <owl:Ontology rdf:about="http://bmi.asu.edu/semquery#">
+        <owl:imports rdf:resource="http://asu.edu/sharpc2b/skos-ext"/>
+        <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://asu.edu/sharpc2b/skos-ext#subConceptOf -->
+
+    <owl:ObjectProperty rdf:about="http://asu.edu/sharpc2b/skos-ext#subConceptOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://asu.edu/sharpc2b/skos-ext#subConceptOf"/>
+            </rdf:Description>
+        </owl:inverseOf>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#broaderTransitive -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#broaderTransitive">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#broaderTransitive"/>
+            </rdf:Description>
+        </owl:inverseOf>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#inScheme -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#inScheme">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+            </rdf:Description>
+        </owl:inverseOf>
+    </owl:ObjectProperty>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#notation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2004/02/skos/core#notation">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://asu.edu/sharpc2b/skos-ext#CodedConcept -->
+
+    <owl:Class rdf:about="http://asu.edu/sharpc2b/skos-ext#CodedConcept">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#ConceptScheme -->
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScheme">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://bmi.asu.edu/semquery#AdultAttentionDeficitHyperactivityDisorder -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AdultAttentionDeficitHyperactivityDisorder">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">444613000</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AdultAttentionDeficitHyperactivityDisorder"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#AttentionDeficitHyperactivityDisorder"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#AgeGroupAged80andover -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AgeGroupAged80andover">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">D000369</skos:notation>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">M01.060.116.100.080</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AgeGroupAged80andover"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#AgegroupAged"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#MeSH"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#AgeGroupChild -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AgeGroupChild">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">M01.060.406</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AgeGroupChild"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#MeSH"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#PatientAgeGroup"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#AgeGroupChildPreschool -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AgeGroupChildPreschool">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">M01.060.406.448</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#AgeGroupChild"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AgeGroupChildPreschool"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#MeSH"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#AgeGroupInfant -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AgeGroupInfant">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">M01.060.703</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AgeGroupInfant"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#MeSH"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#PatientAgeGroup"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#AgeGroupYoungAdult -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AgeGroupYoungAdult">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">M01.060.116.815</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AgeGroupYoungAdult"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#AgegroupAdult"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#MeSH"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#AgegroupAdolescent -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AgegroupAdolescent">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">133937008</skos:notation>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">D055815</skos:notation>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">M01.060.057</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AgegroupAdolescent"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#MeSH"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#PatientAgeGroup"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#AgegroupAdult -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AgegroupAdult">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">133936004</skos:notation>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">255397009</skos:notation>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">D000328</skos:notation>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">M01.060.116</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AgegroupAdult"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#MeSH"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#PatientAgeGroup"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#AgegroupAged -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AgegroupAged">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">D000368</skos:notation>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">M01.060.116.100</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#AgegroupAdult"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AgegroupAged"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#MeSH"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#Agegroupmiddleaged -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#Agegroupmiddleaged">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">D0008875</skos:notation>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">M01.060.116.630</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#AgegroupAdult"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#Agegroupmiddleaged"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#MeSH"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#PatientAgeGroup"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#AnticoagulantDrugMonitoring -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AnticoagulantDrugMonitoring">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">307571006</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AnticoagulantDrugMonitoring"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#MedicationMonitoring"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#Asthma -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#Asthma">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">J45</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#Asthma"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#Asthmawithcough -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#Asthmawithcough">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">J45.991</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Asthma"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#Asthmawithcough"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#AsymptomaticCoronaryHeartDisease -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AsymptomaticCoronaryHeartDisease">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">315348000</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AsymptomaticCoronaryHeartDisease"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#CoronaryArteriosclerosis"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#AttentionDeficitHyperactivityDisorder -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#AttentionDeficitHyperactivityDisorder">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">40650608</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#AttentionDeficitHyperactivityDisorder"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#BacterialVaccine -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#BacterialVaccine">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">419780007</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#BacterialVaccine"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#ChildAttentionDeficitDisorder -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#ChildAttentionDeficitDisorder">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">192127007</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#AttentionDeficitHyperactivityDisorder"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#ChildAttentionDeficitDisorder"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#ChlamydiaTrachomaticInfectionInPregnancy -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#ChlamydiaTrachomaticInfectionInPregnancy">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1621000119101</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#ChlamydiaTrachomaticInfectionInPregnancy"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#ChlamydialInfection"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#ChlamydiaTrachomatisInfection -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#ChlamydiaTrachomatisInfection">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">240589008</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#ChlamydiaTrachomatisInfection"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#ChlamydialInfection"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#ChlamydialInfection -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#ChlamydialInfection">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">105629000</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#ChlamydialInfection"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#ChronicObstructiveasthmaUnspecified -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#ChronicObstructiveasthmaUnspecified">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">J44.90</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Asthma"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#ChronicObstructiveasthmaUnspecified"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#CigaretteSmoker -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#CigaretteSmoker">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">65568007</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#CigaretteSmoker"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Smoker"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#CoronaryArteriosclerosis -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#CoronaryArteriosclerosis">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">53741008</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#CoronaryArteriosclerosis"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#DisorderOfCoronaryArtery"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#CoronaryArtherosclerosis -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#CoronaryArtherosclerosis">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">443502000</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#CoronaryArteriosclerosis"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#CoronaryArtherosclerosis"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#DeepVeinThrombosis -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#DeepVeinThrombosis">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">128053003</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#DeepVeinThrombosis"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#VenousThrombosis"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#DiabetesMellitus -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#DiabetesMellitus">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">199223000</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#DiabetesMellitus"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#DiabetesMellitusDuetoUnderlyingConditions -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#DiabetesMellitusDuetoUnderlyingConditions">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E08</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#DiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#DiabetesMellitusDuetoUnderlyingConditions"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#DiabetesduringUnderlyingConditionwithdiabeticPolyneuropathy -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#DiabetesduringUnderlyingConditionwithdiabeticPolyneuropathy">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E08.42</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#DiabetesMellitusDuetoUnderlyingConditions"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#DiabetesduringUnderlyingConditionwithdiabeticPolyneuropathy"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#DisorderOfCoronaryArtery -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#DisorderOfCoronaryArtery">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">414024009</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#DisorderOfCoronaryArtery"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#DrugInducedObesity -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#DrugInducedObesity">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">190965006</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#DrugInducedObesity"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Obesity"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#DrugOrChemicallyInducedDiabetesMellitus -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#DrugOrChemicallyInducedDiabetesMellitus">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E09</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#DiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#DrugOrChemicallyInducedDiabetesMellitus"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#DrugOrChemicallyInducedDiabetesWithDiabeticDermatitis -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#DrugOrChemicallyInducedDiabetesWithDiabeticDermatitis">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E09.620</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#DrugOrChemicallyInducedDiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#DrugOrChemicallyInducedDiabetesWithDiabeticDermatitis"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#ElevatedBloodPressure -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#ElevatedBloodPressure">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">24184005</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#ElevatedBloodPressure"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#EvaluationProcedure -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#EvaluationProcedure">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">386053000</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#EvaluationProcedure"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#ExtrinsicAsthmawithstatusasthmatics -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#ExtrinsicAsthmawithstatusasthmatics">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">J45.22</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Asthma"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#ExtrinsicAsthmawithstatusasthmatics"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#GestationalDiabetesMellitus -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#GestationalDiabetesMellitus">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">O24.4</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#DiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#GestationalDiabetesMellitus"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#GestationaldiabetesinChildbirthanddietcontrolled -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#GestationaldiabetesinChildbirthanddietcontrolled">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">O24.420</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#GestationalDiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#GestationaldiabetesinChildbirthanddietcontrolled"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#HIVScreening -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#HIVScreening">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">171121004</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#EvaluationProcedure"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#HIVScreening"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#HealthRelatedBehaviorFinding -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#HealthRelatedBehaviorFinding">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">365949003</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#HealthRelatedBehaviorFinding"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#HeavySmoker -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#HeavySmoker">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">56771006</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#HeavySmoker"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Smoker"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#ICD-10 -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#ICD-10">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#InPatient -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#InPatient">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">416800000</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#InPatient"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#MaleConcept -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#MaleConcept">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">248153007</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#MaleConcept"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#MeSH -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#MeSH">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#MedicationMonitoring -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#MedicationMonitoring">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">395170001</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#MedicationMonitoring"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#MildPersistentasthmaUncomplicated_ -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#MildPersistentasthmaUncomplicated_">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">J45.30</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Asthma"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#MildPersistentasthmaUncomplicated_"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#ModerateSmoker -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#ModerateSmoker">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">56578002</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#ModerateSmoker"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Smoker"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#MonitoringProcedure -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#MonitoringProcedure">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">239516002</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#MonitoringProcedure"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#MorbidObesity -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#MorbidObesity">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">238136002</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#MorbidObesity"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Obesity"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#Obesity -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#Obesity">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">414916001</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#Obesity"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#OccasionalSmoker -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#OccasionalSmoker">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">428041000124106</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#OccasionalSmoker"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Smoker"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#OutPatient -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#OutPatient">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">373864002</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#OutPatient"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#PatientAgeGroup -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#PatientAgeGroup">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">M01.060</skos:notation>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#MeSH"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#PatientAgeGroup"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#PnuemococcalVaccine -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#PnuemococcalVaccine">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">398730001</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#BacterialVaccine"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#PnuemococcalVaccine"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#SNOMED_CT -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#SNOMED_CT">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#SexuallyTransmittedInfectiousDisease -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#SexuallyTransmittedInfectiousDisease">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8098009</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#EvaluationProcedure"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#SexuallyTransmittedInfectiousDisease"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#SimpleObesity -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#SimpleObesity">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">415530009</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Obesity"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#SimpleObesity"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#Smoker -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#Smoker">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">77176002</skos:notation>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#Smoker"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#TobaccoUser"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#ThromboembolismOfVein -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#ThromboembolismOfVein">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4298002</skos:notation>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#ThromboembolismOfVein"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#VenousThrombosis"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#ThrombosisProphylaxis -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#ThrombosisProphylaxis">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">421728001</skos:notation>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#ThrombosisProphylaxis"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#VenousThrombosis"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#TobaccoUseAndExposure -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#TobaccoUseAndExposure">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">365980008</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#HealthRelatedBehaviorFinding"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#TobaccoUseAndExposure"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#TobaccoUser -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#TobaccoUser">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">110483000</skos:notation>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#TobaccoUseAndExposure"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#TobaccoUser"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#TypeIDiabetesMellitus -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#TypeIDiabetesMellitus">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">46635009</skos:notation>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E10</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#DiabetesMellitus"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#TypeIDiabetesMellitus"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#TypeIDiabeteswithdiabeticcataract -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#TypeIDiabeteswithdiabeticcataract">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E10.36</skos:notation>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#TypeIDiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#TypeIDiabeteswithdiabeticcataract"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#TypeIIDiabetesMellitus -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#TypeIIDiabetesMellitus">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">44054006</skos:notation>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E11</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#DiabetesMellitus"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#TypeIIDiabetesMellitus"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#TypeIIDiabeteswithdiabeticcataract -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#TypeIIDiabeteswithdiabeticcataract">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E11.36</skos:notation>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#TypeIIDiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#TypeIIDiabeteswithdiabeticcataract"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#TypeIIDiabeteswithdiabeticdermatitis -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#TypeIIDiabeteswithdiabeticdermatitis">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E11.620</skos:notation>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#TypeIIDiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#TypeIIDiabeteswithdiabeticdermatitis"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#TypeIdiabeteswithketoacidosiswithcoma -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#TypeIdiabeteswithketoacidosiswithcoma">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E10.11</skos:notation>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#TypeIDiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#TypeIdiabeteswithketoacidosiswithcoma"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#Unspecifiedasthmawithacuteexacerbation -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#Unspecifiedasthmawithacuteexacerbation">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">J45.901</skos:notation>
+        <skos:broaderTransitive rdf:resource="http://bmi.asu.edu/semquery#Asthma"/>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#ICD-10"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#Unspecifiedasthmawithacuteexacerbation"/>
+    </owl:Thing>
+
+
+
+    <!-- http://bmi.asu.edu/semquery#VenousThrombosis -->
+
+    <owl:Thing rdf:about="http://bmi.asu.edu/semquery#VenousThrombosis">
+        <rdf:type rdf:resource="http://asu.edu/sharpc2b/skos-ext#CodedConcept"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">111293003</skos:notation>
+        <skos:inScheme rdf:resource="http://bmi.asu.edu/semquery#SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="http://bmi.asu.edu/semquery#VenousThrombosis"/>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+

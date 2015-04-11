@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<knowledgeDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="urn:hl7-org:knowledgeartifact:r1 ../../../../editor-models/generated-models/src/main/resources/xsd/HeD/knowledgeartifact/knowledgedocument.xsd
+                                       urn:hl7-org:vmr:r2 ../../../../editor-models/generated-models/src/main/resources/xsd/vmr/vmr-clean.xsd
+                                       urn:hl7-org:cdsdt:r2 ../../../../editor-models/generated-models/src/main/resources/xsd/HeD/common/datatypes.xsd"
+                   xmlns="urn:hl7-org:knowledgeartifact:r1"
+                   xmlns:vmr="urn:hl7-org:vmr:r2"
+                   xmlns:dt="urn:hl7-org:cdsdt:r2">
+	<metadata>
+
+		<identifiers>
+			<identifier root="urn:bmi.asu.edu.test4" version="1.0"/>
+		</identifiers>
+		<artifactType value="Rule"/>
+
+		<publishers>
+			<publisher xsi:type="Person">
+				<contacts>
+					<contact value="mailto:aziz.boxwala@meliorix.com"/>
+				</contacts>
+				<name use="C">
+					<dt:part value="Aziz" type="GIV"/>
+					<dt:part value="Boxwala" type="FAM"/>
+				</name>
+				<affiliation>
+					<name value="Meliorix Inc."/>
+				</affiliation>
+			</publisher>
+		</publishers>
+
+	</metadata>
+</knowledgeDocument>

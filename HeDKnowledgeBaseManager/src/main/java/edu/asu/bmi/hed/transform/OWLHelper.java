@@ -1,6 +1,7 @@
 package edu.asu.bmi.hed.transform;
 import org.semanticweb.owlapi.model.AddImport;
 import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.owlapi.model.ImportChange;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
@@ -17,6 +18,8 @@ import org.semanticweb.owlapi.util.DefaultPrefixManager;
 import uk.ac.manchester.cs.owl.owlapi.OWLDatatypeImpl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 public class OWLHelper {
@@ -25,6 +28,9 @@ public class OWLHelper {
     protected OWLOntologyManager manager;
     protected OWLDataFactory factory;
     protected PrefixManager prefixManager;
+
+    private int next = 0;
+    private Map<Integer,Integer> hashing = new HashMap<Integer, Integer>();
 
     public OWLHelper( OWLOntology onto ) {
         this( onto, new DefaultPrefixManager() );
@@ -54,7 +60,18 @@ public class OWLHelper {
         if ( x.getClass().getName().contains( "KnowledgeDocument" ) ) {
             return "tns:" + x.getClass().getSimpleName();
         } else {
-            return "tns:" + x.getClass().getSimpleName() + "_" + x.hashCode();
+            return "tns:" + x.getClass().getSimpleName() + "_" + getUid( x );
+        }
+    }
+
+    private int getUid( Object x ) {
+        int hash = System.identityHashCode( x );
+        if ( hashing.containsKey( hash ) ) {
+            return hashing.get( hash );
+        } else {
+            int code = next++;
+            hashing.put( hash, code );
+            return code;
         }
     }
 
@@ -72,6 +89,11 @@ public class OWLHelper {
 
     public OWLNamedIndividual asIndividualByFullIri( String x ) {
         return factory.getOWLNamedIndividual( IRI.create( x ) );
+    }
+
+    public OWLNamedIndividual asIndividualByQualifiedName( String x ) {
+        OWLNamedIndividual ind = factory.getOWLNamedIndividual( x, prefixManager );
+        return ind;
     }
 
     public OWLNamedIndividual asIndividual( String x ) {
@@ -175,4 +197,7 @@ public class OWLHelper {
 	}
 
 
+    public void addImport( OWLOntology onto ) {
+        manager.applyChange( new AddImport( ontology, factory.getOWLImportsDeclaration( onto.getOntologyID().getOntologyIRI() ) ) );
+    }
 }

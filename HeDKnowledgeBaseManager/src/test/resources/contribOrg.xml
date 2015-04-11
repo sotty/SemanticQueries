@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<knowledgeDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="urn:hl7-org:knowledgeartifact:r1 ../../../../editor-models/generated-models/src/main/resources/xsd/HeD/knowledgeartifact/knowledgedocument.xsd
+                                       urn:hl7-org:vmr:r2 ../../../../editor-models/generated-models/src/main/resources/xsd/vmr/vmr-clean.xsd
+                                       urn:hl7-org:cdsdt:r2 ../../../../editor-models/generated-models/src/main/resources/xsd/HeD/common/datatypes.xsd"
+                   xmlns="urn:hl7-org:knowledgeartifact:r1"
+                   xmlns:vmr="urn:hl7-org:vmr:r2"
+                   xmlns:dt="urn:hl7-org:cdsdt:r2">
+	<metadata>
+
+		<identifiers>
+			<identifier root="urn:bmi.asu.edu.test2" version="1.0"/>
+		</identifiers>
+		<artifactType value="Rule"/>
+
+		<contributions>
+			<contribution>
+				<contributor xsi:type="Organization">
+					<addresses>
+						<address>
+							<dt:part type="SAL" value="10880 Wilshire Boulevard" />
+							<dt:part type="CTY" value="Los Angeles" />
+							<dt:part type="ZIP" value="90024" />
+							<dt:part type="STA" value="CA" />
+							<dt:part type="CNT" value="USA" />
+						</address>
+					</addresses>
+					<contacts>
+						<contact value="310-825-3333" use="WP" />
+					</contacts>
+					<name value="Zynx Health" />
+				</contributor>
+				<role />
+			</contribution>
+		</contributions>
+
+
+	</metadata>
+</knowledgeDocument>

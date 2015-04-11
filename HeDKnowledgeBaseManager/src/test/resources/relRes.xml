@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<knowledgeDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="urn:hl7-org:knowledgeartifact:r1 ../../../../editor-models/generated-models/src/main/resources/xsd/HeD/knowledgeartifact/knowledgedocument.xsd
+                                       urn:hl7-org:vmr:r2 ../../../../editor-models/generated-models/src/main/resources/xsd/vmr/vmr-clean.xsd
+                                       urn:hl7-org:cdsdt:r2 ../../../../editor-models/generated-models/src/main/resources/xsd/HeD/common/datatypes.xsd"
+                   xmlns="urn:hl7-org:knowledgeartifact:r1"
+                   xmlns:vmr="urn:hl7-org:vmr:r2"
+                   xmlns:dt="urn:hl7-org:cdsdt:r2">
+	<metadata>
+
+		<identifiers>
+			<identifier root="urn:bmi.asu.edu.test5" version="1.0"/>
+		</identifiers>
+		<artifactType value="Rule"/>
+
+		<relatedResources>
+			<relatedResource>
+				<relationship value="DependsOn"/>
+				<resources>
+					<resource>
+						<identifiers>
+							<identifier root="d1e22"/>
+						</identifiers>
+						<title value="Recommendation Response Value Set: Diabetes Mellitus Poorly Controlled HgbA1c Overdue"/>
+						<location value="http://cdsportal.partners.org/showDocument.aspx?xmlFileName=ACDS-Response-Value-Set-L4-Diabetes-Poorly-Controlled-A1c-Overdue-ACDS-2011-L4EXP-2.0-090221fe80041753.xls"/>
+						<description value=""/>
+					</resource>
+				</resources>
+			</relatedResource>
+			<relatedResource>
+				<relationship value="DependsOn"/>
+				<resources>
+					<resource>
+						<identifiers>
+							<identifier root="d1e39"/>
+						</identifiers>
+						<title value="National Quality Forum Performance Measures"/>
+						<location value="http://cdsportal.partners.org/RelatedResources.aspx?pageId=3"/>
+						<description value=""/>
+					</resource>
+				</resources>
+			</relatedResource>
+			<relatedResource>
+				<relationship value="AssociatedResource"/>
+				<resources>
+					<resource>
+						<identifiers>
+							<identifier root="d1e56"/>
+						</identifiers>
+						<title value="American Diabetes Association - Standards of Medical Care in Diabetes - 2009"/>
+						<location value="http://care.diabetesjournals.org/content/32/Supplement_1/S13.full"/>
+						<description value=""/>
+					</resource>
+				</resources>
+			</relatedResource>
+			<relatedResource>
+				<relationship value="AssociatedResource"/>
+				<resources>
+					<resource>
+						<identifiers>
+							<identifier root="d1e74"/>
+						</identifiers>
+						<title value="National Quality Forum eMeasure (0059): Hemoglobin A1c Management"/>
+						<location value="http://www.qualityforum.org/MeasureDetails.aspx?actid=0&amp;SubmissionId=1225#k=0059&amp;e=1&amp;st=&amp;sd=&amp;mt=&amp;cs=&amp;s=n&amp;so=a&amp;p=1"/>
+						<description value=""/>
+					</resource>
+				</resources>
+			</relatedResource>
+			<relatedResource>
+				<relationship value="AssociatedResource"/>
+				<resources>
+					<resource>
+						<identifiers>
+							<identifier root="d1e91"/>
+						</identifiers>
+						<title value="AHRQ eRecommendations"/>
+						<location value="http://cdsportal.partners.org/RelatedResources.aspx?pageId=3"/>
+						<description value=""/>
+					</resource>
+				</resources>
+			</relatedResource>
+		</relatedResources>
+
+
+	</metadata>
+</knowledgeDocument>

@@ -4,12 +4,15 @@ import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLDataFactory;
+import org.semanticweb.owlapi.model.OWLDataProperty;
+import org.semanticweb.owlapi.model.OWLDataPropertyAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLObjectPropertyAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.PrefixManager;
 import org.semanticweb.owlapi.vocab.PrefixOWLOntologyFormat;
+import uk.ac.manchester.cs.owl.owlapi.OWLDatatypeImpl;
 
 import java.util.Set;
 
@@ -28,6 +31,10 @@ public class AxiomTester {
     }
 
     public AxiomTester checkRelationship( String subject, String predicate, String object ) {
+
+        subject = resolvePrefix( subject, pfm );
+        object = resolvePrefix( object, pfm );
+        predicate = resolvePrefix( predicate, pfm );
 
         OWLNamedIndividual sub = odf.getOWLNamedIndividual( IRI.create( subject ) );
         OWLNamedIndividual obj = odf.getOWLNamedIndividual( IRI.create( object ) );
@@ -69,6 +76,26 @@ public class AxiomTester {
         } else {
             return qname;
         }
+    }
+
+
+    public AxiomTester checkValue( String subject, String predicate, String val ) {
+        return checkValue( subject, predicate, val, null );
+    }
+
+    public AxiomTester checkValue( String subject, String predicate, String val, String type ) {
+        subject = resolvePrefix( subject, pfm );
+        predicate = resolvePrefix( predicate, pfm );
+
+        OWLNamedIndividual sub = odf.getOWLNamedIndividual( IRI.create( subject ) );
+        OWLDataProperty prp = odf.getOWLDataProperty( IRI.create( predicate ) );
+
+        Set<OWLDataPropertyAssertionAxiom> info = ontology.getDataPropertyAssertionAxioms( sub );
+        OWLDataPropertyAssertionAxiom testX = odf.getOWLDataPropertyAssertionAxiom( prp, sub,
+                                                                                    type == null ? odf.getOWLLiteral( val ) : odf.getOWLTypedLiteral( val, new OWLDatatypeImpl( IRI.create( type ) ) ) );
+
+        assertTrue( info.contains( testX ) );
+        return this;
     }
 
 

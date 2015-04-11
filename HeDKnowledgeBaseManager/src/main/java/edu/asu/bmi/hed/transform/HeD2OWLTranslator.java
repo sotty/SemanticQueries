@@ -1,13 +1,7 @@
 package edu.asu.bmi.hed.transform;
 
-import org.coode.owlapi.manchesterowlsyntax.ManchesterOWLSyntaxOntologyFormat;
 import org.hl7.knowledgeartifact.r1.KnowledgeDocument;
-import org.hl7.knowledgeartifact.r1.Metadata;
-import org.hl7.knowledgeartifact.r1.Metadata.Applicability;
-import org.hl7.knowledgeartifact.r1.Metadata.Categories;
-import org.hl7.knowledgeartifact.r1.Metadata.Contributions;
 import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.io.OWLFunctionalSyntaxOntologyFormat;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLOntology;
@@ -17,7 +11,6 @@ import org.semanticweb.owlapi.model.OWLOntologyID;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.model.PrefixManager;
-import org.semanticweb.owlapi.util.DefaultPrefixManager;
 import org.semanticweb.owlapi.vocab.PrefixOWLOntologyFormat;
 
 import javax.xml.bind.JAXBContext;
@@ -25,14 +18,9 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
-import java.net.MalformedURLException;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
@@ -48,7 +36,7 @@ public class HeD2OWLTranslator {
     }
 
     public void compile( InputStream inStream, OutputStream outStream, OWLOntologyManager manager, PrefixOWLOntologyFormat format ) {
-        OWLOntology result = compileAsOntology( inStream, manager, format );
+        OWLOntology result = compileAsOntology( inStream, manager, format, false );
 
         stream( result,
                 outStream,
@@ -56,7 +44,7 @@ public class HeD2OWLTranslator {
         );
     }
 
-    public OWLOntology compileAsOntology( InputStream inStream, OWLOntologyManager manager, PrefixOWLOntologyFormat format ) {
+    public OWLOntology compileAsOntology( InputStream inStream, OWLOntologyManager manager, PrefixOWLOntologyFormat format, boolean withImports ) {
         KnowledgeDocument hed = (KnowledgeDocument) loadModel( HED, inStream );
 
         Object vid = getIdentifiersList( hed ).iterator().next();
@@ -66,13 +54,13 @@ public class HeD2OWLTranslator {
         PrefixManager prefixManager = format.asPrefixOWLOntologyFormat();
         format.setPrefix( "tns", root + "#" );
 
-        OWLOntology result = transform( hed, root, version, manager, format );
+        OWLOntology result = transform( hed, root, version, manager, format, withImports );
 
         return result;
     }
 
 
-    public OWLOntology transform( KnowledgeDocument doc, String root, String version, OWLOntologyManager manager, OWLOntologyFormat format ) {
+    public OWLOntology transform( KnowledgeDocument doc, String root, String version, OWLOntologyManager manager, OWLOntologyFormat format, boolean withImports ) {
         System.out.println( "Transforming...." );
         OWLOntology ontology = null;
 
@@ -87,6 +75,14 @@ public class HeD2OWLTranslator {
             manager.setOntologyFormat( ontology, format.asPrefixOWLOntologyFormat() );
 
             new HeD2OWLVisitor().visit( doc, helper );
+
+            if ( withImports ) {
+                for ( OWLOntology onto : manager.getOntologies() ) {
+                    if ( onto != ontology ) {
+                        helper.addImport( onto );
+                    }
+                }
+            }
 
         } catch ( Exception e ) {
             e.printStackTrace();

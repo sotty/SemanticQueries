@@ -22,8 +22,6 @@ public class Loader {
             "/ontologies/terms/terms.owl",
 
 
-
-            "/ontologies/spar/BiRO1.owl",
             "/ontologies/spar/FaBiO1.owl",
             "/ontologies/spar/pro1.owl",
             "/ontologies/spar/pso1.owl",
@@ -48,6 +46,9 @@ public class Loader {
         format.setPrefix( "time", "http://www.w3.org/2006/time#" );
         format.setPrefix( "fabio", "http://purl.org/spar/fabio/" );
         format.setPrefix( "hed", "http://hl7.org/hed#" );
+        format.setPrefix( "part", "http://www.ontologydesignpatterns.org/cp/owl/participation.owl#" );
+        format.setPrefix( "tvc", "http://www.essepuntato.it/2012/04/tvc/" );
+        format.setPrefix( "ti", "http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#" );
 
         return format;
     }

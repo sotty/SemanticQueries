@@ -29,7 +29,6 @@
     <Prefix name="time" IRI="http://www.w3.org/2006/time#"/>
     <Prefix name="fabio" IRI="http://purl.org/spar/fabio/"/>
     <Import>http://www.bmi.asi.edu/hed/pro1</Import>
-    <Import>http://www.bmi.asu.edu/hed/biro</Import>
     <Import>http://www.bmi.asu.edu/hed/pwo</Import>
     <Import>http://www.bmi.asu.edu/hed/pso</Import>
     <Import>http://www.bmi.asu.edu/hed/fabio</Import>

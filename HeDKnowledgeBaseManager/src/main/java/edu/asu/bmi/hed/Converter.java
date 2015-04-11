@@ -17,10 +17,11 @@ public class Converter {
                                          Loader.getFormatWithPrefixes() );
     }
 
-    public static OWLOntology convertToOntology( InputStream in ) {
+    public static OWLOntology convertToOntology( InputStream in, boolean withImports ) {
         return new HeD2OWLTranslator().compileAsOntology( in,
                                                           Loader.getManagerWithTheories(),
-                                                          Loader.getFormatWithPrefixes() );
+                                                          Loader.getFormatWithPrefixes(),
+                                                          withImports );
     }
 
 }
