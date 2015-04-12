@@ -56,6 +56,9 @@ public class HeD2OWLTranslator {
 
         OWLOntology result = transform( hed, root, version, manager, format, withImports );
 
+        ReasonerHelper helper = new ReasonerHelper();
+        helper.makeInferences( result );
+
         return result;
     }
 

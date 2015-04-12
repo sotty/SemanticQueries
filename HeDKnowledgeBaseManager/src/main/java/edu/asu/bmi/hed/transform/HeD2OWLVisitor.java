@@ -96,7 +96,7 @@ public class HeD2OWLVisitor {
 					r = "frbr:adaptionof";
 					break;
 				case ASSOCIATED_RESOURCE:
-					r = "frbr:relatedEndeavor";
+					r = "frbr:relatedEndeavour";
 					break;
 				case DEPENDS_ON:
 					r = "frbr:complementof";
@@ -114,12 +114,9 @@ public class HeD2OWLVisitor {
 					throw new IllegalStateException( "Unrecognized resource relationship " + relat );
 			}
 			for ( KnowledgeResource kr : resss.getResources() ) {
-				OWLNamedIndividual asset = helper.asIndividualByQualifiedName( kr.getIdentifiers().getIdentifier().getRoot() );
+				OWLNamedIndividual asset = helper.asIndividualInDefaultNS( kr.getIdentifiers().getIdentifier().getRoot() );
 				helper.assertType( asset, "foaf:Document" );
-				helper.assertType( asset, "frbr:Endeavor" );
-				if ( kr.getTitle() != null ) {
-					helper.assertDataProperty( "foaf:title", asset, kr.getTitle().getValue() );
-				}
+
 				helper.assertObjectProperty( r, map.get( "doc" ), asset );
 			}
 		}

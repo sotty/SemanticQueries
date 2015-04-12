@@ -1,6 +1,7 @@
 package edu.asu.bmi.hed;
 
 
+import edu.asu.bmi.hed.transform.HeD2OWLHelper;
 import edu.asu.bmi.hed.transform.HeD2OWLTranslator;
 import org.semanticweb.owlapi.model.OWLOntology;
 
@@ -22,6 +23,16 @@ public class Converter {
                                                           Loader.getManagerWithTheories(),
                                                           Loader.getFormatWithPrefixes(),
                                                           withImports );
+    }
+
+    public static OWLOntology convertToOntology( InputStream in, OutputStream out, boolean withImports ) {
+        HeD2OWLTranslator tran = new HeD2OWLTranslator();
+        OWLOntology onto = tran.compileAsOntology( in,
+                                                   Loader.getManagerWithTheories(),
+                                                   Loader.getFormatWithPrefixes(),
+                                                   withImports );
+        tran.stream( onto, out, Loader.getFormatWithPrefixes() );
+        return onto;
     }
 
 }

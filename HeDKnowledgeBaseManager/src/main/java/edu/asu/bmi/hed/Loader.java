@@ -16,20 +16,8 @@ import java.net.URL;
 
 public class Loader {
 
-    private static final String[] resources = new String[] {
-            "/ontologies/terms/skos-core.owl",
-            "/ontologies/terms/skos-ext.owl",
-            "/ontologies/terms/terms.owl",
+    private static final String FULL_MERGE = "/ontologies/metadata-full.owl";
 
-
-            "/ontologies/spar/FaBiO1.owl",
-            "/ontologies/spar/pro1.owl",
-            "/ontologies/spar/pso1.owl",
-            "/ontologies/spar/pwo1.owl",
-            "/ontologies/spar/spar-merged.owl"
-    };
-    
-    
     public static PrefixOWLOntologyFormat getFormatWithPrefixes() {
         PrefixOWLOntologyFormat format = new ManchesterOWLSyntaxOntologyFormat();
 
@@ -59,14 +47,14 @@ public class Loader {
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 
         try {
-            for ( String r : resources ) {
-                URL url = Loader.class.getResource( r );
-                //System.out.println( "Loading part theory from " + url.getFile() );
-                InputStream is = url.openStream();
-                manager.loadOntologyFromOntologyDocument( is );
-                is.close();
-                //System.out.println( "--" );
-            }
+
+            URL url = Loader.class.getResource( FULL_MERGE );
+            //System.out.println( "Loading part theory from " + url.getFile() );
+            InputStream is = url.openStream();
+            manager.loadOntologyFromOntologyDocument( is );
+            is.close();
+            //System.out.println( "--" );
+
         } catch ( OWLOntologyCreationException e ) {
             e.printStackTrace();
         } catch ( IOException e ) {

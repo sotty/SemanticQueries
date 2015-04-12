@@ -1,0 +1,1031 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY skos-ext "http://asu.edu/sharpc2b/skos-ext#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY terms "http://www.bmi.asu.edu/hed/metadata/library/" >
+]>
+
+
+<rdf:RDF xmlns="http://bmi.asu.edu/semquery#"
+     xml:base="http://bmi.asu.edu/semquery"
+     xmlns:skos-ext="http://asu.edu/sharpc2b/skos-ext#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://www.bmi.asu.edu/hed/metadata/library/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+    <owl:Ontology rdf:about="http://www.bmi.asu.edu/hed/metadata/library/">
+        <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://asu.edu/sharpc2b/skos-ext#subConceptOf -->
+
+    <owl:ObjectProperty rdf:about="&skos-ext;subConceptOf">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    <rdf:Description>
+        <owl:inverseOf rdf:resource="&skos-ext;subConceptOf"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#broaderTransitive -->
+
+    <owl:ObjectProperty rdf:about="&skos;broaderTransitive">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    <rdf:Description>
+        <owl:inverseOf rdf:resource="&skos;broaderTransitive"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#inScheme -->
+
+    <owl:ObjectProperty rdf:about="&skos;inScheme">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <owl:inverseOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="&skos;inScheme"/>
+            </rdf:Description>
+        </owl:inverseOf>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#notation -->
+
+    <owl:DatatypeProperty rdf:about="&skos;notation">
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://asu.edu/sharpc2b/skos-ext#CodedConcept -->
+
+    <owl:Class rdf:about="&skos-ext;CodedConcept">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#ConceptScheme -->
+
+    <owl:Class rdf:about="&skos;ConceptScheme">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/AdultAttentionDeficitHyperactivityDisorder -->
+
+    <owl:Thing rdf:about="&terms;AdultAttentionDeficitHyperactivityDisorder">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">444613000</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;AdultAttentionDeficitHyperactivityDisorder"/>
+        <skos:broaderTransitive rdf:resource="&terms;AttentionDeficitHyperactivityDisorder"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/AgeGroupAged80andover -->
+
+    <owl:Thing rdf:about="&terms;AgeGroupAged80andover">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">D000369</skos:notation>
+        <skos:notation rdf:datatype="&xsd;string">M01.060.116.100.080</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;AgeGroupAged80andover"/>
+        <skos:broaderTransitive rdf:resource="&terms;AgegroupAged"/>
+        <skos:inScheme rdf:resource="&terms;MeSH"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/AgeGroupChild -->
+
+    <owl:Thing rdf:about="&terms;AgeGroupChild">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">M01.060.406</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;AgeGroupChild"/>
+        <skos:inScheme rdf:resource="&terms;MeSH"/>
+        <skos:broaderTransitive rdf:resource="&terms;PatientAgeGroup"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/AgeGroupChildPreschool -->
+
+    <owl:Thing rdf:about="&terms;AgeGroupChildPreschool">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">M01.060.406.448</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;AgeGroupChild"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;AgeGroupChildPreschool"/>
+        <skos:inScheme rdf:resource="&terms;MeSH"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/AgeGroupInfant -->
+
+    <owl:Thing rdf:about="&terms;AgeGroupInfant">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">M01.060.703</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;AgeGroupInfant"/>
+        <skos:inScheme rdf:resource="&terms;MeSH"/>
+        <skos:broaderTransitive rdf:resource="&terms;PatientAgeGroup"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/AgeGroupYoungAdult -->
+
+    <owl:Thing rdf:about="&terms;AgeGroupYoungAdult">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">M01.060.116.815</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;AgeGroupYoungAdult"/>
+        <skos:broaderTransitive rdf:resource="&terms;AgegroupAdult"/>
+        <skos:inScheme rdf:resource="&terms;MeSH"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/AgegroupAdolescent -->
+
+    <owl:Thing rdf:about="&terms;AgegroupAdolescent">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">133937008</skos:notation>
+        <skos:notation rdf:datatype="&xsd;string">D055815</skos:notation>
+        <skos:notation rdf:datatype="&xsd;string">M01.060.057</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;AgegroupAdolescent"/>
+        <skos:inScheme rdf:resource="&terms;MeSH"/>
+        <skos:broaderTransitive rdf:resource="&terms;PatientAgeGroup"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/AgegroupAdult -->
+
+    <owl:Thing rdf:about="&terms;AgegroupAdult">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">133936004</skos:notation>
+        <skos:notation rdf:datatype="&xsd;string">255397009</skos:notation>
+        <skos:notation rdf:datatype="&xsd;string">D000328</skos:notation>
+        <skos:notation rdf:datatype="&xsd;string">M01.060.116</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;AgegroupAdult"/>
+        <skos:inScheme rdf:resource="&terms;MeSH"/>
+        <skos:broaderTransitive rdf:resource="&terms;PatientAgeGroup"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/AgegroupAged -->
+
+    <owl:Thing rdf:about="&terms;AgegroupAged">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">D000368</skos:notation>
+        <skos:notation rdf:datatype="&xsd;string">M01.060.116.100</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;AgegroupAdult"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;AgegroupAged"/>
+        <skos:inScheme rdf:resource="&terms;MeSH"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/Agegroupmiddleaged -->
+
+    <owl:Thing rdf:about="&terms;Agegroupmiddleaged">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">D0008875</skos:notation>
+        <skos:notation rdf:datatype="&xsd;string">M01.060.116.630</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;AgegroupAdult"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;Agegroupmiddleaged"/>
+        <skos:inScheme rdf:resource="&terms;MeSH"/>
+        <skos:broaderTransitive rdf:resource="&terms;PatientAgeGroup"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/AnticoagulantDrugMonitoring -->
+
+    <owl:Thing rdf:about="&terms;AnticoagulantDrugMonitoring">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">307571006</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;AnticoagulantDrugMonitoring"/>
+        <skos:broaderTransitive rdf:resource="&terms;MedicationMonitoring"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/Asthma -->
+
+    <owl:Thing rdf:about="&terms;Asthma">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">J45</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;Asthma"/>
+        <skos:inScheme rdf:resource="&terms;ICD-10"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/Asthmawithcough -->
+
+    <owl:Thing rdf:about="&terms;Asthmawithcough">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">J45.991</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;Asthma"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;Asthmawithcough"/>
+        <skos:inScheme rdf:resource="&terms;ICD-10"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/AsymptomaticCoronaryHeartDisease -->
+
+    <owl:Thing rdf:about="&terms;AsymptomaticCoronaryHeartDisease">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">315348000</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;AsymptomaticCoronaryHeartDisease"/>
+        <skos:broaderTransitive rdf:resource="&terms;CoronaryArteriosclerosis"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/AttentionDeficitHyperactivityDisorder -->
+
+    <owl:Thing rdf:about="&terms;AttentionDeficitHyperactivityDisorder">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">40650608</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;AttentionDeficitHyperactivityDisorder"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/BacterialVaccine -->
+
+    <owl:Thing rdf:about="&terms;BacterialVaccine">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">419780007</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;BacterialVaccine"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/ChildAttentionDeficitDisorder -->
+
+    <owl:Thing rdf:about="&terms;ChildAttentionDeficitDisorder">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">192127007</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;AttentionDeficitHyperactivityDisorder"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;ChildAttentionDeficitDisorder"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/ChlamydiaTrachomaticInfectionInPregnancy -->
+
+    <owl:Thing rdf:about="&terms;ChlamydiaTrachomaticInfectionInPregnancy">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">1621000119101</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;ChlamydiaTrachomaticInfectionInPregnancy"/>
+        <skos:broaderTransitive rdf:resource="&terms;ChlamydialInfection"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/ChlamydiaTrachomatisInfection -->
+
+    <owl:Thing rdf:about="&terms;ChlamydiaTrachomatisInfection">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">240589008</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;ChlamydiaTrachomatisInfection"/>
+        <skos:broaderTransitive rdf:resource="&terms;ChlamydialInfection"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/ChlamydialInfection -->
+
+    <owl:Thing rdf:about="&terms;ChlamydialInfection">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">105629000</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;ChlamydialInfection"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/ChronicObstructiveasthmaUnspecified -->
+
+    <owl:Thing rdf:about="&terms;ChronicObstructiveasthmaUnspecified">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">J44.90</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;Asthma"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;ChronicObstructiveasthmaUnspecified"/>
+        <skos:inScheme rdf:resource="&terms;ICD-10"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/CigaretteSmoker -->
+
+    <owl:Thing rdf:about="&terms;CigaretteSmoker">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">65568007</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;CigaretteSmoker"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+        <skos:broaderTransitive rdf:resource="&terms;Smoker"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/CoronaryArteriosclerosis -->
+
+    <owl:Thing rdf:about="&terms;CoronaryArteriosclerosis">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">53741008</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;CoronaryArteriosclerosis"/>
+        <skos:broaderTransitive rdf:resource="&terms;DisorderOfCoronaryArtery"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/CoronaryArtherosclerosis -->
+
+    <owl:Thing rdf:about="&terms;CoronaryArtherosclerosis">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">443502000</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;CoronaryArteriosclerosis"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;CoronaryArtherosclerosis"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/DeepVeinThrombosis -->
+
+    <owl:Thing rdf:about="&terms;DeepVeinThrombosis">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">128053003</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;DeepVeinThrombosis"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+        <skos:broaderTransitive rdf:resource="&terms;VenousThrombosis"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/DiabetesMellitus -->
+
+    <owl:Thing rdf:about="&terms;DiabetesMellitus">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">199223000</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;DiabetesMellitus"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/DiabetesMellitusDuetoUnderlyingConditions -->
+
+    <owl:Thing rdf:about="&terms;DiabetesMellitusDuetoUnderlyingConditions">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">E08</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;DiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;DiabetesMellitusDuetoUnderlyingConditions"/>
+        <skos:inScheme rdf:resource="&terms;ICD-10"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/DiabetesduringUnderlyingConditionwithdiabeticPolyneuropathy -->
+
+    <owl:Thing rdf:about="&terms;DiabetesduringUnderlyingConditionwithdiabeticPolyneuropathy">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">E08.42</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;DiabetesMellitusDuetoUnderlyingConditions"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;DiabetesduringUnderlyingConditionwithdiabeticPolyneuropathy"/>
+        <skos:inScheme rdf:resource="&terms;ICD-10"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/DisorderOfCoronaryArtery -->
+
+    <owl:Thing rdf:about="&terms;DisorderOfCoronaryArtery">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">414024009</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;DisorderOfCoronaryArtery"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/DrugInducedObesity -->
+
+    <owl:Thing rdf:about="&terms;DrugInducedObesity">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">190965006</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;DrugInducedObesity"/>
+        <skos:broaderTransitive rdf:resource="&terms;Obesity"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/DrugOrChemicallyInducedDiabetesMellitus -->
+
+    <owl:Thing rdf:about="&terms;DrugOrChemicallyInducedDiabetesMellitus">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">E09</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;DiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;DrugOrChemicallyInducedDiabetesMellitus"/>
+        <skos:inScheme rdf:resource="&terms;ICD-10"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/DrugOrChemicallyInducedDiabetesWithDiabeticDermatitis -->
+
+    <owl:Thing rdf:about="&terms;DrugOrChemicallyInducedDiabetesWithDiabeticDermatitis">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">E09.620</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;DrugOrChemicallyInducedDiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;DrugOrChemicallyInducedDiabetesWithDiabeticDermatitis"/>
+        <skos:inScheme rdf:resource="&terms;ICD-10"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/ElevatedBloodPressure -->
+
+    <owl:Thing rdf:about="&terms;ElevatedBloodPressure">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">24184005</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;ElevatedBloodPressure"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/EvaluationProcedure -->
+
+    <owl:Thing rdf:about="&terms;EvaluationProcedure">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">386053000</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;EvaluationProcedure"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/ExtrinsicAsthmawithstatusasthmatics -->
+
+    <owl:Thing rdf:about="&terms;ExtrinsicAsthmawithstatusasthmatics">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">J45.22</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;Asthma"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;ExtrinsicAsthmawithstatusasthmatics"/>
+        <skos:inScheme rdf:resource="&terms;ICD-10"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/GestationalDiabetesMellitus -->
+
+    <owl:Thing rdf:about="&terms;GestationalDiabetesMellitus">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">O24.4</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;DiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;GestationalDiabetesMellitus"/>
+        <skos:inScheme rdf:resource="&terms;ICD-10"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/GestationaldiabetesinChildbirthanddietcontrolled -->
+
+    <owl:Thing rdf:about="&terms;GestationaldiabetesinChildbirthanddietcontrolled">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">O24.420</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;GestationalDiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;GestationaldiabetesinChildbirthanddietcontrolled"/>
+        <skos:inScheme rdf:resource="&terms;ICD-10"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/HIVScreening -->
+
+    <owl:Thing rdf:about="&terms;HIVScreening">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">171121004</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;EvaluationProcedure"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;HIVScreening"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/HealthRelatedBehaviorFinding -->
+
+    <owl:Thing rdf:about="&terms;HealthRelatedBehaviorFinding">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">365949003</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;HealthRelatedBehaviorFinding"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/HeavySmoker -->
+
+    <owl:Thing rdf:about="&terms;HeavySmoker">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">56771006</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;HeavySmoker"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+        <skos:broaderTransitive rdf:resource="&terms;Smoker"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/ICD-10 -->
+
+    <owl:Thing rdf:about="&terms;ICD-10">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdf:type rdf:resource="&skos;ConceptScheme"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/InPatient -->
+
+    <owl:Thing rdf:about="&terms;InPatient">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">416800000</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;InPatient"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/MaleConcept -->
+
+    <owl:Thing rdf:about="&terms;MaleConcept">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">248153007</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;MaleConcept"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/MeSH -->
+
+    <owl:Thing rdf:about="&terms;MeSH">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdf:type rdf:resource="&skos;ConceptScheme"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/MedicationMonitoring -->
+
+    <owl:Thing rdf:about="&terms;MedicationMonitoring">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">395170001</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;MedicationMonitoring"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/MildPersistentasthmaUncomplicated_ -->
+
+    <owl:Thing rdf:about="&terms;MildPersistentasthmaUncomplicated_">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">J45.30</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;Asthma"/>
+        <skos:inScheme rdf:resource="&terms;ICD-10"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;MildPersistentasthmaUncomplicated_"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/ModerateSmoker -->
+
+    <owl:Thing rdf:about="&terms;ModerateSmoker">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">56578002</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;ModerateSmoker"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+        <skos:broaderTransitive rdf:resource="&terms;Smoker"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/MonitoringProcedure -->
+
+    <owl:Thing rdf:about="&terms;MonitoringProcedure">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">239516002</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;MonitoringProcedure"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/MorbidObesity -->
+
+    <owl:Thing rdf:about="&terms;MorbidObesity">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">238136002</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;MorbidObesity"/>
+        <skos:broaderTransitive rdf:resource="&terms;Obesity"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/Obesity -->
+
+    <owl:Thing rdf:about="&terms;Obesity">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">414916001</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;Obesity"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/OccasionalSmoker -->
+
+    <owl:Thing rdf:about="&terms;OccasionalSmoker">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">428041000124106</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;OccasionalSmoker"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+        <skos:broaderTransitive rdf:resource="&terms;Smoker"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/OutPatient -->
+
+    <owl:Thing rdf:about="&terms;OutPatient">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">373864002</skos:notation>
+        <skos-ext:subConceptOf rdf:resource="&terms;OutPatient"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/PatientAgeGroup -->
+
+    <owl:Thing rdf:about="&terms;PatientAgeGroup">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">M01.060</skos:notation>
+        <skos:inScheme rdf:resource="&terms;MeSH"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;PatientAgeGroup"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/PnuemococcalVaccine -->
+
+    <owl:Thing rdf:about="&terms;PnuemococcalVaccine">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">398730001</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;BacterialVaccine"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;PnuemococcalVaccine"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/SNOMED_CT -->
+
+    <owl:Thing rdf:about="&terms;SNOMED_CT">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdf:type rdf:resource="&skos;ConceptScheme"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/SexuallyTransmittedInfectiousDisease -->
+
+    <owl:Thing rdf:about="&terms;SexuallyTransmittedInfectiousDisease">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">8098009</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;EvaluationProcedure"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;SexuallyTransmittedInfectiousDisease"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/SimpleObesity -->
+
+    <owl:Thing rdf:about="&terms;SimpleObesity">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">415530009</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;Obesity"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;SimpleObesity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/Smoker -->
+
+    <owl:Thing rdf:about="&terms;Smoker">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">77176002</skos:notation>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;Smoker"/>
+        <skos:broaderTransitive rdf:resource="&terms;TobaccoUser"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/ThromboembolismOfVein -->
+
+    <owl:Thing rdf:about="&terms;ThromboembolismOfVein">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">4298002</skos:notation>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;ThromboembolismOfVein"/>
+        <skos:broaderTransitive rdf:resource="&terms;VenousThrombosis"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/ThrombosisProphylaxis -->
+
+    <owl:Thing rdf:about="&terms;ThrombosisProphylaxis">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">421728001</skos:notation>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;ThrombosisProphylaxis"/>
+        <skos:broaderTransitive rdf:resource="&terms;VenousThrombosis"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/TobaccoUseAndExposure -->
+
+    <owl:Thing rdf:about="&terms;TobaccoUseAndExposure">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">365980008</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;HealthRelatedBehaviorFinding"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;TobaccoUseAndExposure"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/TobaccoUser -->
+
+    <owl:Thing rdf:about="&terms;TobaccoUser">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">110483000</skos:notation>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+        <skos:broaderTransitive rdf:resource="&terms;TobaccoUseAndExposure"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;TobaccoUser"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/TypeIDiabetesMellitus -->
+
+    <owl:Thing rdf:about="&terms;TypeIDiabetesMellitus">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">46635009</skos:notation>
+        <skos:notation rdf:datatype="&xsd;string">E10</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;DiabetesMellitus"/>
+        <skos:inScheme rdf:resource="&terms;ICD-10"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;TypeIDiabetesMellitus"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/TypeIDiabeteswithdiabeticcataract -->
+
+    <owl:Thing rdf:about="&terms;TypeIDiabeteswithdiabeticcataract">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">E10.36</skos:notation>
+        <skos:inScheme rdf:resource="&terms;ICD-10"/>
+        <skos:broaderTransitive rdf:resource="&terms;TypeIDiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;TypeIDiabeteswithdiabeticcataract"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/TypeIIDiabetesMellitus -->
+
+    <owl:Thing rdf:about="&terms;TypeIIDiabetesMellitus">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">44054006</skos:notation>
+        <skos:notation rdf:datatype="&xsd;string">E11</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;DiabetesMellitus"/>
+        <skos:inScheme rdf:resource="&terms;ICD-10"/>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;TypeIIDiabetesMellitus"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/TypeIIDiabeteswithdiabeticcataract -->
+
+    <owl:Thing rdf:about="&terms;TypeIIDiabeteswithdiabeticcataract">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">E11.36</skos:notation>
+        <skos:inScheme rdf:resource="&terms;ICD-10"/>
+        <skos:broaderTransitive rdf:resource="&terms;TypeIIDiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;TypeIIDiabeteswithdiabeticcataract"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/TypeIIDiabeteswithdiabeticdermatitis -->
+
+    <owl:Thing rdf:about="&terms;TypeIIDiabeteswithdiabeticdermatitis">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">E11.620</skos:notation>
+        <skos:inScheme rdf:resource="&terms;ICD-10"/>
+        <skos:broaderTransitive rdf:resource="&terms;TypeIIDiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;TypeIIDiabeteswithdiabeticdermatitis"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/TypeIdiabeteswithketoacidosiswithcoma -->
+
+    <owl:Thing rdf:about="&terms;TypeIdiabeteswithketoacidosiswithcoma">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">E10.11</skos:notation>
+        <skos:inScheme rdf:resource="&terms;ICD-10"/>
+        <skos:broaderTransitive rdf:resource="&terms;TypeIDiabetesMellitus"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;TypeIdiabeteswithketoacidosiswithcoma"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/Unspecifiedasthmawithacuteexacerbation -->
+
+    <owl:Thing rdf:about="&terms;Unspecifiedasthmawithacuteexacerbation">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">J45.901</skos:notation>
+        <skos:broaderTransitive rdf:resource="&terms;Asthma"/>
+        <skos:inScheme rdf:resource="&terms;ICD-10"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;Unspecifiedasthmawithacuteexacerbation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.bmi.asu.edu/hed/metadata/library/VenousThrombosis -->
+
+    <owl:Thing rdf:about="&terms;VenousThrombosis">
+        <rdf:type rdf:resource="&skos-ext;CodedConcept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos:notation rdf:datatype="&xsd;string">111293003</skos:notation>
+        <skos:inScheme rdf:resource="&terms;SNOMED_CT"/>
+        <skos-ext:subConceptOf rdf:resource="&terms;VenousThrombosis"/>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+

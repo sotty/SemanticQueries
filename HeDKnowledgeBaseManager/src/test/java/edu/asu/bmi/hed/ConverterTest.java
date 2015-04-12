@@ -31,17 +31,13 @@ public class ConverterTest {
         String src = "/contribOrg.xml";
         String tns = "urn:bmi.asu.edu.test2";
 
-        Converter.convert( getInput( src ),
-                           System.out );
-
-        OWLOntology onto = Converter.convertToOntology( getInput( src ), true );
-        //new ReasonerHelper().makeInferences( onto );
+        OWLOntology onto = Converter.convertToOntology( getInput( src ), System.out, true );
 
         assertEquals( IRI.create( tns ), onto.getOntologyID().getOntologyIRI() );
 
         new AxiomTester( onto )
                 .checkType( "tns:KnowledgeDocument", "foaf:Document" )
-                //.checkType( "tns:KnowledgeDocument", "frbr:Endeavor" )
+                .checkType( "tns:KnowledgeDocument", "frbr:Endeavour" )
                 .checkRelationship( "tns:KnowledgeDocument", "frbr:responsibleEntity", "tns:Organization_0" )
                 .checkRelationship( "tns:KnowledgeDocument", "frbr:creator", "tns:Organization_0" )
                 .checkType( "tns:Organization_0", "foaf:Organization" )
@@ -62,7 +58,6 @@ public class ConverterTest {
                            System.out );
 
         OWLOntology onto = Converter.convertToOntology( getInput( src ), true );
-        //new ReasonerHelper().makeInferences( onto );
 
         assertEquals( IRI.create( tns ), onto.getOntologyID().getOntologyIRI() );
 
@@ -80,11 +75,7 @@ public class ConverterTest {
         String src = "/eventStatus.xml";
         String tns = "urn:bmi.asu.edu.test3";
 
-        Converter.convert( getInput( src ),
-                           System.out );
-
         OWLOntology onto = Converter.convertToOntology( getInput( src ), true );
-        //new ReasonerHelper().makeInferences( onto );
 
         assertEquals( IRI.create( tns ), onto.getOntologyID().getOntologyIRI() );
 
@@ -108,20 +99,18 @@ public class ConverterTest {
         Converter.convert( getInput( src ),
                            System.out );
 
-        OWLOntology onto = Converter.convertToOntology( getInput( src ), true );
-        //new ReasonerHelper().makeInferences( onto );
+        OWLOntology onto = Converter.convertToOntology( getInput( src ), System.out, true );
 
         assertEquals( IRI.create( tns ), onto.getOntologyID().getOntologyIRI() );
 
         new AxiomTester( onto )
                 .checkType( "tns:KnowledgeDocument", "foaf:Document" )
-                .checkType( "d1e22", "frbr:Endeavor" )
-                .checkRelationship( "tns:KnowledgeDocument", "frbr:complementof", "d1e22" )
-                .checkValue( "d1e22", "foaf:title", "Recommendation Response Value Set: Diabetes Mellitus Poorly Controlled HgbA1c Overdue" )
-                .checkRelationship( "tns:KnowledgeDocument", "frbr:complementof", "d1e39" )
-                .checkRelationship( "tns:KnowledgeDocument", "frbr:relatedEndeavor", "d1e74" )
-                .checkRelationship( "tns:KnowledgeDocument", "frbr:relatedEndeavor", "d1e91" )
-                .checkRelationship( "tns:KnowledgeDocument", "frbr:relatedEndeavor", "d1e56" )
+                .checkType( "tns:d1e22", "frbr:Endeavour" )
+                .checkRelationship( "tns:KnowledgeDocument", "frbr:complementof", "tns:d1e22" )
+                .checkRelationship( "tns:KnowledgeDocument", "frbr:complementof", "tns:d1e39" )
+                .checkRelationship( "tns:KnowledgeDocument", "frbr:relatedEndeavour", "tns:d1e74" )
+                .checkRelationship( "tns:KnowledgeDocument", "frbr:relatedEndeavour", "tns:d1e91" )
+                .checkRelationship( "tns:KnowledgeDocument", "frbr:relatedEndeavour", "tns:d1e56" )
         ;
 
     }

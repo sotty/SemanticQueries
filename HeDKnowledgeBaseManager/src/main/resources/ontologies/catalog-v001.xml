@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1428799845422" name="http://bmi.asu.edu/metadata" uri="metadata-full.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1428799845422" name="http://bmi.asu.edu/semquery" uri="terms/base/bmi-vocab.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1428799845422" name="http://www.bmi.asi.edu/hed/pro1" uri="spar/base/pro1.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1428799845422" name="http://www.bmi.asu.edu/hed/fabio" uri="spar/base/FaBiO1.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1428799845422" name="http://www.bmi.asu.edu/hed/metadata/library/" uri="terms/merged/library-merged.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1428799845422" name="http://www.bmi.asu.edu/hed/metadata/library/inf" uri="terms/inferred/library-inferred.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1428799845422" name="http://www.bmi.asu.edu/hed/metadata/maintenance" uri="spar/spar-merged.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1428799845422" name="http://www.bmi.asu.edu/hed/metadata/maintenance/" uri="spar/merged/maint-merged.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1428799845422" name="http://www.bmi.asu.edu/hed/metadata/maintenance/inf" uri="spar/inferred/maint-inferred.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1428799845422" name="http://www.bmi.asu.edu/hed/pso" uri="spar/base/pso1.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1428799845422" name="http://www.bmi.asu.edu/hed/pwo" uri="spar/base/pwo1.owl"/>
+    </group>
+</catalog>

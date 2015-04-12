@@ -91,6 +91,11 @@ public class OWLHelper {
         return factory.getOWLNamedIndividual( IRI.create( x ) );
     }
 
+    public OWLNamedIndividual asIndividualInDefaultNS( String x ) {
+        OWLNamedIndividual ind = factory.getOWLNamedIndividual( IRI.create( ontology.getOntologyID().getOntologyIRI() + "#" + x ) );
+        return ind;
+    }
+
     public OWLNamedIndividual asIndividualByQualifiedName( String x ) {
         OWLNamedIndividual ind = factory.getOWLNamedIndividual( x, prefixManager );
         return ind;

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1428797873498" name="http://www.bmi.asi.edu/hed/pro1" uri="base/pro1.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1428797873498" name="http://www.bmi.asu.edu/hed/fabio" uri="base/FaBiO1.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1428797873498" name="http://www.bmi.asu.edu/hed/metadata/maintenance" uri="spar-merged.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1428797873498" name="http://www.bmi.asu.edu/hed/pso" uri="base/pso1.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1428797873498" name="http://www.bmi.asu.edu/hed/pwo" uri="base/pwo1.owl"/>
+    </group>
+</catalog>
